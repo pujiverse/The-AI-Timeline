@@ -1,0 +1,1438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The AI Timeline by PUJIVERSE</title>
+<meta name="description" content="The AI Timeline by PUJIVERSE: an interactive history of artificial intelligence from 1843 to today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: sticky top bar + one content column (max 1200px); the Timeline page hangs cards off a glowing center line.
+   Tokens are the "The AI Timeline" design system. Single, deliberate dark look (user's brief). */
+:root {
+  color-scheme: dark;
+  --bg-000:#05070f; --bg-100:#0a1020; --bg-200:#111a30; --bg-300:#1a2542;
+  --line:#22304f; --line-strong:#5f73a0; --grid-line:rgba(61,165,255,0.07);
+  --ink:#eef2ff; --ink-muted:#a3b0cc; --ink-subtle:#8290b0;
+  --accent-blue:#3da5ff; --accent-violet:#9d7bff; --on-accent:#05070f; --focus-ring:#3da5ff;
+  --co-openai:#2dd4bf; --co-anthropic:#e0895c; --co-google:#5b9cff; --co-meta:#818cf8; --co-xai:#c3cad8;
+  --co-deepseek:#38bdf8; --co-alibaba:#c98bfa; --co-mistral:#f5b83d; --co-microsoft:#4ade80; --co-other:#94a3b8;
+  --status-active:#4ade80; --status-superseded:#f5b83d; --status-discontinued:#fb7185;
+  --change-new:#4ade80; --change-fixed:#5b9cff; --change-removed:#fb7185;
+  --era-foundations:#8a7a5c; --era-golden:#d4a64a; --era-winter:#9fb3c8; --era-expert:#6f9a8d; --era-ml:#4fb3a9;
+  --era-deep:#4f8df7; --era-transformers:#8b7cf6; --era-genai:#e879b9;
+  --font-display:"Space Grotesk", system-ui, sans-serif;
+  --font-sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px;
+  --radius-sm:6px; --radius-md:10px; --radius-lg:16px; --radius-pill:999px;
+  --shadow-card:0 8px 24px rgba(0,0,0,0.45);
+  --glow-node:0 0 0 4px rgba(61,165,255,0.18), 0 0 18px rgba(61,165,255,0.55);
+  --content-max:1200px; --timeline-line:2px; --node-size:14px;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg-000);color:var(--ink);font:400 16px/24px var(--font-sans);-webkit-font-smoothing:antialiased;
+  background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:48px 48px;background-attachment:fixed}
+a{color:var(--accent-blue)}
+:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--font-display);text-wrap:balance;margin:0}
+h1{font-size:40px;line-height:46px;font-weight:700;letter-spacing:-.01em}
+h2{font-size:28px;line-height:34px;font-weight:600}
+h3{font-size:20px;line-height:26px;font-weight:600}
+p{margin:0}
+button{font:inherit;color:inherit}
+.wrap{max-width:var(--content-max);margin:0 auto;padding-inline:var(--space-5)}
+@media (max-width:767px){.wrap{padding-inline:var(--space-4)} h1{font-size:30px;line-height:36px} h2{font-size:22px;line-height:28px}}
+.muted{color:var(--ink-muted)} .subtle{color:var(--ink-subtle)}
+.mono{font-family:var(--font-mono)} .tnum{font-variant-numeric:tabular-nums}
+.label{font:600 12px/16px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-subtle)}
+.note{font:400 12px/16px var(--font-sans);color:var(--ink-subtle)}
+.date{font:500 13px/18px var(--font-mono);color:var(--ink-muted);white-space:nowrap}
+
+/* ---------- Top bar ---------- */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(5,7,15,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar-in{display:flex;align-items:center;gap:var(--space-4);height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:700 17px/1 var(--font-display);white-space:nowrap}
+.brand-mark{width:22px;height:22px;position:relative;flex:none}
+.brand-mark::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--accent-blue);box-shadow:var(--glow-node)}
+.brand-mark::after{content:"";position:absolute;left:5px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg-000);border:2px solid var(--accent-blue)}
+.search{position:relative;margin-left:auto;flex:0 1 340px;min-width:0}
+.search input[type="search"]{width:100%;height:38px;border-radius:var(--radius-md);border:1px solid var(--line-strong);background:var(--bg-200);color:var(--ink);padding:0 12px 0 34px;font:400 14px/1 var(--font-sans)}
+.search input::placeholder{color:var(--ink-subtle)}
+.search svg{position:absolute;left:11px;top:11px;width:16px;height:16px;stroke:var(--ink-subtle);fill:none;stroke-width:2}
+.results{position:absolute;right:0;top:44px;width:min(440px,calc(100vw - 32px));max-height:420px;overflow:auto;background:var(--bg-200);border:1px solid var(--line-strong);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:6px}
+.results a{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:var(--radius-md);text-decoration:none;color:var(--ink);font-size:14px}
+.results a:hover,.results a.hl{background:var(--bg-300)}
+.results .kind{margin-left:auto;font:600 10px/1 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-subtle)}
+.results .empty{padding:12px;color:var(--ink-muted);font-size:14px}
+.menu-btn{display:none;height:38px;padding:0 12px;border-radius:var(--radius-md);border:1px solid var(--line-strong);background:transparent;cursor:pointer;font-size:14px}
+.nav{border-top:1px solid var(--line)}
+.nav-in{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+.nav a{padding:10px 12px;font:500 13px/18px var(--font-sans);color:var(--ink-muted);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--ink)}
+.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent-blue)}
+@media (max-width:767px){.brand span{display:none}.topbar-in{gap:var(--space-2)}.search{flex:1}}
+
+main{padding-block:var(--space-6) var(--space-8);min-height:60vh}
+.page-head{display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-6);max-width:760px}
+.page-head p{color:var(--ink-muted)}
+
+/* ---------- Shared components (ait-*) ---------- */
+.row{display:flex;flex-wrap:wrap;gap:var(--space-2);align-items:center}
+.co{--co:var(--co-other);display:inline-flex;align-items:center;gap:var(--space-1);padding:3px 10px 3px 8px;border-radius:var(--radius-pill);font:600 12px/16px var(--font-sans);letter-spacing:.02em;color:var(--co);background:color-mix(in srgb,var(--co) 14%,transparent);border:1px solid color-mix(in srgb,var(--co) 45%,transparent);white-space:nowrap;text-decoration:none}
+.co::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--co)}
+.co.has-logo::before{display:none}
+.co img{width:16px;height:16px;border-radius:var(--radius-sm);object-fit:contain}
+.co[data-co="openai"]{--co:var(--co-openai)} .co[data-co="anthropic"]{--co:var(--co-anthropic)} .co[data-co="google"]{--co:var(--co-google)}
+.co[data-co="meta"]{--co:var(--co-meta)} .co[data-co="xai"]{--co:var(--co-xai)} .co[data-co="deepseek"]{--co:var(--co-deepseek)}
+.co[data-co="alibaba"]{--co:var(--co-alibaba)} .co[data-co="mistral"]{--co:var(--co-mistral)} .co[data-co="microsoft"]{--co:var(--co-microsoft)}
+.chip{display:inline-flex;align-items:center;padding:3px 8px;border-radius:var(--radius-sm);font:600 11px/16px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted);background:var(--bg-300);border:1px solid var(--line-strong);white-space:nowrap}
+.chip.open{color:var(--ink);border-style:dashed}
+.status{--st:var(--status-active);display:inline-flex;align-items:center;gap:6px;font:600 12px/16px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--st);white-space:nowrap}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--st);box-shadow:0 0 0 3px color-mix(in srgb,var(--st) 22%,transparent)}
+.status.superseded{--st:var(--status-superseded)} .status.discontinued{--st:var(--status-discontinued)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);height:40px;padding:0 var(--space-4);border-radius:var(--radius-md);font:600 14px/1 var(--font-sans);cursor:pointer;text-decoration:none;border:1px solid transparent;transition:background .15s,border-color .15s;white-space:nowrap}
+.btn.primary{background:var(--accent-blue);color:var(--on-accent)}
+.btn.primary:hover{background:#6bbaff}
+.btn.secondary{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+.btn.secondary:hover{background:var(--bg-300)}
+.btn.ghost{background:transparent;color:var(--accent-blue);padding:0 var(--space-2);height:32px}
+.btn.ghost:hover{text-decoration:underline}
+.btn.sm{height:32px;font-size:13px;padding:0 var(--space-3)}
+.btn[aria-pressed="true"]{background:var(--accent-violet);color:var(--on-accent);border-color:var(--accent-violet)}
+.card{background:var(--bg-200);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--space-5);min-width:0}
+a.card,.card.click{text-decoration:none;color:inherit;transition:background .15s,box-shadow .15s,transform .15s;cursor:pointer;display:block}
+a.card:hover,.card.click:hover{background:var(--bg-300);box-shadow:var(--shadow-card)}
+.card h3{font-size:18px;line-height:24px}
+.grid{display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.logo-slot{width:40px;height:40px;border-radius:var(--radius-md);border:1px dashed var(--line-strong);display:grid;place-items:center;font:600 9px/1 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-subtle);flex:none}
+.section{margin-top:var(--space-8)}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;margin-bottom:var(--space-5)}
+.stack{display:flex;flex-direction:column;gap:var(--space-3)}
+.pill-select{display:flex;gap:6px;flex-wrap:wrap}
+select,input[type="text"],input[type="search"]{height:36px;border-radius:var(--radius-md);border:1px solid var(--line-strong);background:var(--bg-200);color:var(--ink);padding:0 10px;font:400 14px/1 var(--font-sans);max-width:100%}
+.controls{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;padding:var(--space-4);background:var(--bg-100);border:1px solid var(--line);border-radius:var(--radius-lg);margin-bottom:var(--space-5)}
+.controls label{display:flex;flex-direction:column;gap:4px}
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:var(--radius-md);overflow:hidden}
+.seg button{height:34px;padding:0 14px;background:transparent;border:0;cursor:pointer;font:500 13px/1 var(--font-sans);color:var(--ink-muted)}
+.seg button[aria-pressed="true"]{background:var(--accent-blue);color:var(--on-accent);font-weight:600}
+.tabs{display:flex;gap:4px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+.tabs button{height:34px;padding:0 12px;border-radius:var(--radius-md);border:1px solid var(--line);background:var(--bg-200);cursor:pointer;font:500 13px/1 var(--font-sans);color:var(--ink-muted);white-space:nowrap}
+.tabs button .n{font:500 11px/1 var(--font-mono);color:var(--ink-subtle);margin-left:4px}
+.tabs button[aria-pressed="true"]{border-color:var(--accent-violet);color:var(--ink);box-shadow:inset 0 0 0 1px var(--accent-violet)}
+.tabs button:disabled{opacity:.45;cursor:default}
+.anim{animation:slidein .45s ease-out both}
+.anim.from-left{--dx:-16px} .anim.from-right{--dx:16px}
+@keyframes slidein{from{transform:translateX(var(--dx,0)) translateY(var(--dy,8px));opacity:.35}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.anim{animation:none}html{scroll-behavior:auto}}
+
+/* ---------- Home ---------- */
+.hero{position:relative;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-100);padding:var(--space-8) var(--space-6);min-height:380px;display:flex;flex-direction:column;justify-content:flex-end;gap:var(--space-3)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero > *:not(canvas){position:relative}
+.hero h1{font-size:64px;line-height:68px;letter-spacing:-.02em;max-width:760px}
+.hero .sub{font-size:20px;line-height:28px;color:var(--ink-muted)}
+.hero .kicker{color:var(--accent-blue)}
+@media (max-width:767px){.hero{padding:var(--space-6) var(--space-4);min-height:320px}.hero h1{font-size:40px;line-height:44px}.hero .sub{font-size:17px}}
+.stats{display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:var(--space-5)}
+.stat{display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-5);background:var(--bg-100);border:1px solid var(--line);border-radius:var(--radius-lg);min-width:0}
+.stat .num{font:700 44px/50px var(--font-display);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.stat .num em{font-style:normal;color:var(--accent-blue)}
+.stat .num.small{font-size:22px;line-height:28px;padding-top:6px}
+.stat .lbl{font-size:14px;line-height:20px;color:var(--ink-muted)}
+.strip{display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card.rcard{display:flex;flex-direction:column;gap:var(--space-2)}
+.rcard .nm{font:600 17px/22px var(--font-display)}
+.rcard .sm{font-size:14px;line-height:20px;color:var(--ink-muted)}
+.pages{display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.pagebtn{display:flex;flex-direction:column;gap:6px;padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--line-strong);background:var(--bg-100);text-decoration:none;color:var(--ink);transition:background .15s,border-color .15s}
+.pagebtn:hover{background:var(--bg-300);border-color:var(--accent-blue)}
+.pagebtn b{font:600 18px/24px var(--font-display)}
+.pagebtn span{font-size:13px;line-height:18px;color:var(--ink-muted)}
+.pagebtn i{font:500 12px/1 var(--font-mono);font-style:normal;color:var(--accent-blue)}
+
+/* ---------- Timeline ---------- */
+.erabar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 101px);z-index:20;background:rgba(5,7,15,.92);backdrop-filter:blur(8px);padding:var(--space-3) 0;margin-bottom:var(--space-5);border-bottom:1px solid var(--line)}
+.erabar-in{display:flex;gap:var(--space-2);overflow-x:auto;scrollbar-width:thin;padding-bottom:2px}
+.era{--era:var(--era-foundations);display:inline-flex;align-items:center;gap:var(--space-2);padding:6px 14px;border-radius:var(--radius-pill);cursor:pointer;font:500 13px/18px var(--font-sans);color:var(--ink);background:color-mix(in srgb,var(--era) 14%,var(--bg-100));border:1px solid color-mix(in srgb,var(--era) 50%,transparent);white-space:nowrap}
+.era::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--era)}
+.era[aria-pressed="true"]{border-color:var(--era);box-shadow:inset 0 0 0 1px var(--era);font-weight:600}
+.era small{font:500 11px/16px var(--font-mono);color:var(--ink-muted)}
+[data-era="foundations"]{--era:var(--era-foundations)} [data-era="golden"]{--era:var(--era-golden)} [data-era="winter1"],[data-era="winter2"]{--era:var(--era-winter)}
+[data-era="expert"]{--era:var(--era-expert)} [data-era="ml"]{--era:var(--era-ml)} [data-era="deep"]{--era:var(--era-deep)}
+[data-era="transformers"]{--era:var(--era-transformers)} [data-era="genai"]{--era:var(--era-genai)}
+.era-sec{position:relative;border-radius:var(--radius-lg);padding:var(--space-5) var(--space-4) var(--space-6);margin-bottom:var(--space-5);background:linear-gradient(180deg,color-mix(in srgb,var(--era) 14%,var(--bg-100)),color-mix(in srgb,var(--era) 5%,transparent) 240px);border:1px solid color-mix(in srgb,var(--era) 30%,transparent)}
+.era-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;margin-bottom:var(--space-5)}
+.era-head .yrs{font:500 13px/18px var(--font-mono);color:var(--era)}
+.era-head p{max-width:620px;color:var(--ink-muted);font-size:14px;line-height:20px}
+.tl{position:relative;display:grid;grid-template-columns:1fr 56px 1fr;row-gap:var(--space-5)}
+.tl::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:var(--timeline-line);transform:translateX(-50%);background:var(--accent-blue);box-shadow:var(--glow-node)}
+.tl .node{grid-column:2;justify-self:center;margin-top:24px;position:relative;z-index:1;width:var(--node-size);height:var(--node-size);border-radius:50%;background:var(--bg-000);border:2px solid var(--accent-blue);box-shadow:var(--glow-node)}
+.tl .tc{grid-column:1;display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-4) var(--space-5)}
+.tl .tc.right{grid-column:3}
+.tc .yr{font:700 22px/26px var(--font-display);color:var(--accent-blue)}
+.tc .yr a{color:inherit;text-decoration:none}
+.tc .yr a:hover{text-decoration:underline}
+.tc h3{font-size:18px;line-height:24px}
+.tc p{font-size:14px;line-height:20px;color:var(--ink-muted)}
+.tc .more{font-size:14px;line-height:20px;color:var(--ink);border-top:1px solid var(--line);padding-top:var(--space-2)}
+.side-lbl{display:flex;justify-content:space-between;margin-bottom:var(--space-3)}
+@media (max-width:767px){
+  .erabar{top:calc(env(safe-area-inset-top,0px) + 101px)}
+  .tl{grid-template-columns:28px 1fr}
+  .tl::before{left:14px}
+  .tl .node{grid-column:1}
+  .tl .tc,.tl .tc.right{grid-column:2}
+  .side-lbl{display:none}
+  .era-sec{padding-inline:var(--space-2)}
+}
+
+/* ---------- Tracker ---------- */
+.rel{display:grid;grid-template-columns:120px auto minmax(0,1fr) auto;gap:6px var(--space-3);align-items:center;padding:var(--space-3) var(--space-4);background:var(--bg-200);border:1px solid var(--line);border-radius:var(--radius-md);text-decoration:none;color:inherit;cursor:pointer}
+.rel:hover{background:var(--bg-300)}
+.rel .nm{font:600 15px/20px var(--font-display);color:var(--ink);min-width:0}
+.rel .sm{grid-column:3/5;font-size:14px;line-height:20px;color:var(--ink-muted)}
+.rel .chips{justify-self:end;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.rel.clash{border-color:color-mix(in srgb,var(--accent-violet) 55%,transparent)}
+.clash-pill{display:inline-flex;align-items:center;gap:var(--space-2);padding:3px 10px;border-radius:var(--radius-pill);font:600 11px/16px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-violet);border:1px solid var(--accent-violet)}
+.month-h{display:flex;align-items:baseline;gap:var(--space-3);margin:var(--space-6) 0 var(--space-3)}
+.month-h:first-child{margin-top:0}
+.day-h{display:flex;align-items:center;gap:var(--space-3);margin:var(--space-4) 0 var(--space-2)}
+@media (max-width:767px){.rel{grid-template-columns:1fr auto}.rel .date{grid-column:1/-1}.rel .sm{grid-column:1/-1}.rel .chips{grid-column:1/-1;justify-self:start}}
+.cal-wrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:var(--space-5);align-items:start}
+@media (max-width:959px){.cal-wrap{grid-template-columns:1fr}}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.cal .dow{font:600 11px/16px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-subtle);text-align:center;padding-bottom:4px}
+.cal .day{min-height:78px;border-radius:var(--radius-sm);background:var(--bg-200);border:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:6px;text-align:left;cursor:default;min-width:0}
+.cal .day.pad{background:transparent;border-color:transparent}
+.cal .day.has{cursor:pointer;background:var(--bg-300);border-color:var(--line-strong)}
+.cal .day.has:hover{border-color:var(--accent-blue)}
+.cal .day[aria-pressed="true"]{border-color:var(--accent-violet);box-shadow:inset 0 0 0 1px var(--accent-violet)}
+.cal .day .d{font:500 12px/1 var(--font-mono);color:var(--ink-muted)}
+.cal .dots{display:flex;flex-wrap:wrap;gap:4px}
+.cal .dot{width:9px;height:9px;border-radius:50%;background:var(--co)}
+.cal .cnt{font:500 11px/1 var(--font-sans);color:var(--ink-subtle);margin-top:auto}
+@media (max-width:600px){.cal .day{min-height:54px;padding:4px}.cal .cnt{display:none}}
+.panel{position:sticky;top:120px;background:var(--bg-200);border:1px solid var(--line-strong);border-radius:var(--radius-lg);padding:var(--space-5);box-shadow:var(--shadow-card);display:flex;flex-direction:column;gap:var(--space-3)}
+.panel .pi{display:flex;flex-direction:column;gap:6px;padding:var(--space-3);border-radius:var(--radius-md);background:var(--bg-300);text-decoration:none;color:inherit}
+.panel .pi:hover{outline:1px solid var(--accent-blue)}
+.undated{margin-top:var(--space-4)}
+
+/* ---------- Model detail ---------- */
+.lin{display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap}
+.lin a,.lin span.lstep{padding:6px 12px;border-radius:var(--radius-md);border:1px solid var(--line-strong);font:500 13px/18px var(--font-sans);color:var(--ink-muted);text-decoration:none;background:var(--bg-200)}
+.lin a:hover{color:var(--ink);background:var(--bg-300)}
+.lin .cur{color:var(--on-accent)!important;background:var(--accent-blue)!important;border-color:var(--accent-blue)!important;font-weight:600!important}
+.lin .empty{border-style:dashed!important;color:var(--ink-subtle)!important}
+.lin .arr{color:var(--ink-subtle);font-family:var(--font-mono)}
+.chg-grid{display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.chg{--chg:var(--change-new)} .chg.fixed{--chg:var(--change-fixed)} .chg.removed{--chg:var(--change-removed)}
+.chg h4{display:flex;align-items:center;gap:var(--space-2);margin:0 0 var(--space-3);font:600 13px/18px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--chg)}
+.chg ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.chg li{position:relative;padding-left:18px;font-size:14px;line-height:20px}
+.chg li::before{content:"";position:absolute;left:2px;top:7px;width:7px;height:7px;border-radius:2px;background:var(--chg)}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-200)}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:20px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font:600 11px/16px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-subtle);background:var(--bg-100);white-space:nowrap}
+th button{all:unset;cursor:pointer;display:inline-flex;gap:4px;align-items:center}
+th button:focus-visible{outline:2px solid var(--focus-ring)}
+td.k{color:var(--ink-muted);width:200px;white-space:nowrap}
+td .mono,td.mono{font-family:var(--font-mono);font-size:13px}
+.detail-head{display:flex;flex-direction:column;gap:var(--space-3);padding:var(--space-6);background:var(--bg-100);border:1px solid var(--line);border-radius:var(--radius-lg);margin-bottom:var(--space-5)}
+.detail-head h1{font-size:44px;line-height:50px}
+@media (max-width:767px){.detail-head{padding:var(--space-5) var(--space-4)}.detail-head h1{font-size:32px;line-height:38px}}
+.back{display:inline-flex;gap:6px;align-items:center;font-size:14px;margin-bottom:var(--space-4);text-decoration:none}
+.cmp-pick{display:flex;flex-wrap:wrap;gap:var(--space-3)}
+
+/* ---------- Tools / pioneers / companies ---------- */
+.tool{display:flex;flex-direction:column;gap:var(--space-3)}
+.tool-top{display:flex;gap:var(--space-3);align-items:flex-start}
+.tool-top > div{min-width:0}
+.hist{display:flex;flex-direction:column;gap:0;padding:var(--space-3);background:var(--bg-100);border-radius:var(--radius-md);border:1px solid var(--line)}
+.hist .h{display:grid;grid-template-columns:14px 1fr;gap:8px;font-size:13px;line-height:18px;position:relative;padding-bottom:8px}
+.hist .h:last-child{padding-bottom:0}
+.hist .h::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent-violet);margin-top:5px;margin-left:3px}
+.hist .h:not(:last-child)::after{content:"";position:absolute;left:6px;top:15px;bottom:-3px;width:2px;background:var(--line-strong)}
+.pion{display:flex;flex-direction:column;gap:var(--space-3)}
+.avatar{--era:var(--accent-blue);width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--bg-300);font:700 22px/1 var(--font-display);color:var(--ink);box-shadow:0 0 0 2px var(--era),0 0 0 6px color-mix(in srgb,var(--era) 18%,transparent);flex:none}
+.quote{font:500 15px/22px var(--font-display);color:var(--ink);border-left:0;padding:var(--space-3);background:var(--bg-100);border-radius:var(--radius-md)}
+.minichart{display:flex;align-items:flex-end;gap:6px;height:72px;padding-top:6px}
+.minichart .b{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end;min-width:0}
+.minichart .bar{width:100%;max-width:26px;background:var(--co);border-radius:3px 3px 0 0;min-height:2px}
+.minichart .v{font:500 11px/1 var(--font-mono);color:var(--ink-muted)}
+.minichart .y{font:500 10px/1 var(--font-mono);color:var(--ink-subtle)}
+dl.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;font-size:14px;line-height:20px}
+dl.facts dt{color:var(--ink-subtle)}
+dl.facts dd{margin:0;min-width:0}
+
+/* ---------- Winters / How ---------- */
+.story{display:flex;flex-direction:column;gap:var(--space-4);max-width:900px}
+.story .ev{display:grid;grid-template-columns:120px minmax(0,1fr);gap:var(--space-5)}
+.story .ev .when{font:700 20px/26px var(--font-display);color:var(--era-winter)}
+.story .ev.cold{background:color-mix(in srgb,var(--era-winter) 10%,var(--bg-200));border-color:color-mix(in srgb,var(--era-winter) 40%,transparent)}
+.lesson{margin-top:var(--space-3);padding:var(--space-3);border-radius:var(--radius-md);background:var(--bg-100);font-size:14px;line-height:20px}
+.lesson b{color:var(--accent-blue);font-weight:600}
+@media (max-width:767px){.story .ev{grid-template-columns:1fr;gap:var(--space-2)}}
+.chart{width:100%;height:auto;display:block}
+.chart text{font-family:var(--font-sans)}
+.legend{display:flex;gap:var(--space-4);flex-wrap:wrap;font-size:13px;color:var(--ink-muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+.steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:var(--space-2)}
+.step{display:flex;flex-direction:column;gap:6px;padding:var(--space-3);border-radius:var(--radius-md);border:1px solid var(--line-strong);background:var(--bg-200);cursor:pointer;text-align:left;min-height:88px}
+.step .n{font:500 12px/1 var(--font-mono);color:var(--ink-subtle)}
+.step b{font:600 14px/18px var(--font-display)}
+.step[aria-pressed="true"]{background:var(--accent-blue);border-color:var(--accent-blue);color:var(--on-accent)}
+.step[aria-pressed="true"] .n{color:var(--on-accent)}
+.step-detail{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--space-5);align-items:center;margin-top:var(--space-4)}
+@media (max-width:767px){.step-detail{grid-template-columns:1fr}}
+.step-viz{height:180px;border-radius:var(--radius-md);background:var(--bg-100);border:1px solid var(--line);position:relative;overflow:hidden}
+.tokens{display:flex;flex-wrap:wrap;gap:4px;min-height:40px;padding:var(--space-3);background:var(--bg-100);border-radius:var(--radius-md);border:1px solid var(--line)}
+.tok{font:500 14px/22px var(--font-mono);padding:1px 4px;border-radius:4px;color:var(--on-accent);white-space:pre}
+.tok-ids{font:400 12px/18px var(--font-mono);color:var(--ink-muted);word-break:break-all}
+.flowbar{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.flowbar .fb{height:6px;flex:1;min-width:20px;border-radius:3px;background:var(--line-strong)}
+.flowbar .fb.on{background:var(--accent-blue);box-shadow:var(--glow-node)}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line);background:var(--bg-100);padding-block:var(--space-6)}
+.foot{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,2fr);gap:var(--space-6)}
+@media (max-width:767px){.foot{grid-template-columns:1fr}}
+.sources{columns:2 220px;column-gap:var(--space-5);font-size:13px;line-height:20px;margin:0;padding-left:18px;color:var(--ink-muted)}
+.sources a{color:var(--ink-muted)}
+.sources a:hover{color:var(--accent-blue)}
+.asof{display:inline-flex;align-items:center;gap:8px;font:500 13px/18px var(--font-mono);color:var(--ink)}
+.asof::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--status-active)}
+
+/* ---------- Coming Soon ---------- */
+.upst{--st:var(--ink-subtle);display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:var(--radius-pill);font:600 11px/16px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--st);border:1px solid color-mix(in srgb,var(--st) 60%,transparent);white-space:nowrap}
+.upst::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--st)}
+.card.up{display:flex;flex-direction:column;gap:var(--space-2)}
+.up .when{font-size:13px;color:var(--ink)}
+.srcs{display:flex;flex-direction:column;gap:2px;font-size:13px;line-height:18px;margin-top:auto;padding-top:var(--space-2);border-top:1px solid var(--line)}
+.srcs a{color:var(--accent-blue);text-decoration:none}
+.srcs a:hover{text-decoration:underline}
+.uplegend{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-3);padding:var(--space-4);background:var(--bg-100);border:1px solid var(--line);border-radius:var(--radius-lg)}
+.uplegend > span{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.card.upbanner{display:flex;flex-direction:column;gap:4px;margin-bottom:var(--space-5);padding:var(--space-4) var(--space-5);border-color:color-mix(in srgb,var(--accent-violet) 45%,transparent);text-decoration:none;color:var(--ink);font-size:15px}
+
+/* ---------- AI Guide chat ---------- */
+.chat-fab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 18px 0 14px;border-radius:var(--radius-pill);border:1px solid var(--accent-blue);background:var(--bg-200);color:var(--ink);font:600 14px/1 var(--font-sans);cursor:pointer;box-shadow:var(--shadow-card),var(--glow-node)}
+.chat-fab:hover{background:var(--bg-300)}
+.chat-fab .orb{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#eef2ff 0 12%,var(--accent-blue) 40%,var(--accent-violet) 100%)}
+.chat-fab[aria-expanded="true"]{display:none}
+.chat{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;width:min(420px,calc(100vw - 32px));height:min(640px,calc(100vh - 120px));display:flex;flex-direction:column;background:var(--bg-100);border:1px solid var(--line-strong);border-radius:var(--radius-lg);box-shadow:0 18px 48px rgba(0,0,0,.6)}
+.chat[hidden]{display:none!important}
+.chat-head{display:flex;align-items:center;gap:10px;padding:12px 12px 12px 16px;border-bottom:1px solid var(--line)}
+.chat-head .t{display:flex;flex-direction:column;min-width:0;flex:1}
+.chat-head b{font:600 16px/20px var(--font-display)}
+.chat-head small{font-size:12px;line-height:16px;color:var(--ink-subtle)}
+.icon-btn{height:32px;min-width:32px;padding:0 8px;border-radius:var(--radius-md);border:1px solid var(--line-strong);background:transparent;cursor:pointer;font:500 12px/1 var(--font-sans);color:var(--ink-muted)}
+.icon-btn:hover{background:var(--bg-300);color:var(--ink)}
+.chat-log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;overscroll-behavior:contain}
+.msg{max-width:92%;font-size:14px;line-height:21px;border-radius:14px;padding:10px 14px;overflow-wrap:anywhere}
+.msg.me{align-self:flex-end;background:var(--accent-blue);color:var(--on-accent);border-bottom-right-radius:4px;white-space:pre-wrap}
+.msg.bot{align-self:flex-start;background:var(--bg-200);border:1px solid var(--line);border-bottom-left-radius:4px}
+.msg.bot p{margin:0 0 8px}.msg.bot p:last-child{margin-bottom:0}
+.msg.bot ul{margin:0 0 8px;padding-left:18px}.msg.bot li{margin:2px 0}
+.msg.bot a{color:var(--accent-blue)}
+.msg.bot code{font:500 12px/1 var(--font-mono);background:var(--bg-300);padding:2px 4px;border-radius:4px}
+.thinking{color:var(--ink-subtle);animation:blink 1.2s ease-in-out infinite alternate}
+@keyframes blink{from{opacity:.4}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.thinking{animation:none}}
+.sugs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.sug{padding:6px 10px;border-radius:var(--radius-pill);border:1px solid var(--line-strong);background:var(--bg-100);color:var(--ink);font:500 12px/16px var(--font-sans);cursor:pointer;text-align:left}
+.sug:hover{border-color:var(--accent-violet)}
+.chat-form{display:flex;gap:8px;align-items:flex-end;padding:12px;border-top:1px solid var(--line)}
+.chat-form textarea{flex:1;min-width:0;resize:none;height:42px;max-height:140px;border-radius:var(--radius-md);border:1px solid var(--line-strong);background:var(--bg-200);color:var(--ink);padding:10px 12px;font:400 14px/20px var(--font-sans)}
+.chat-form textarea::placeholder{color:var(--ink-subtle)}
+.chat-foot{padding:0 12px 10px;font-size:11px;line-height:15px;color:var(--ink-subtle)}
+@media (max-width:600px){.chat{right:0;left:0;bottom:0;width:100%;height:calc(100% - env(safe-area-inset-top,0px));border-radius:var(--radius-lg) var(--radius-lg) 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}.chat-fab .lbl{display:none}.chat-fab{padding:0 13px}}
+footer{padding-bottom:88px}
+
+.brand-txt{display:flex;flex-direction:column;gap:3px;line-height:1}
+.brand .by{font:600 10px/1 var(--font-sans);letter-spacing:.16em;color:var(--accent-violet);text-transform:uppercase}
+@media (max-width:767px){.brand .brand-txt{display:none}}
+.hero .by-line{font:600 13px/18px var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-violet)}
+</style>
+</head>
+<body>
+<a href="#main" class="btn primary sm" style="position:absolute;left:-9999px" onfocus="this.style.left='16px';this.style.top='8px';this.style.zIndex=99" onblur="this.style.left='-9999px'">Skip to content</a>
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#home" aria-label="The AI Timeline by PUJIVERSE, home"><span class="brand-mark" aria-hidden="true"></span><span class="brand-txt"><span>The AI Timeline</span><small class="by">by PUJIVERSE</small></span></a>
+    <div class="search" role="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="q" type="search" placeholder="Search models, tools, companies, people" aria-label="Search models, tools, companies and people" autocomplete="off">
+      <div class="results" id="results" hidden></div>
+    </div>
+  </div>
+  <nav class="nav" aria-label="Pages"><div class="wrap nav-in" id="nav"></div></nav>
+</header>
+<main id="main" tabindex="-1"></main>
+<footer>
+  <div class="wrap foot">
+    <div class="stack">
+      <span class="brand"><span class="brand-mark" aria-hidden="true"></span><span class="brand-txt"><span>The AI Timeline</span><small class="by">by PUJIVERSE</small></span></span>
+      <span class="asof">Data as of September 29, 2026</span>
+      <p class="note">© 2026 <b style="color:var(--ink);letter-spacing:.08em">PUJIVERSE</b>. The AI Timeline is a PUJIVERSE project.</p>
+      <p class="note">Dates verified as of Sep 29, 2026. Check official sites for the latest. Company and tool names are shown as text badges; logo slots await official press-kit files.</p>
+    </div>
+    <div><span class="label" style="display:block;margin-bottom:8px">Sources</span><ul class="sources" id="sources"></ul></div>
+  </div>
+</footer>
+
+<button class="chat-fab" id="chat-fab" aria-expanded="false" aria-controls="chat"><span class="orb" aria-hidden="true"></span><span class="lbl">Ask the AI Guide</span></button>
+<section class="chat" id="chat" hidden role="dialog" aria-label="AI Guide chat">
+  <div class="chat-head"><span class="orb" aria-hidden="true" style="width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#eef2ff 0 12%,#3da5ff 40%,#9d7bff 100%);flex:none"></span><div class="t"><b>AI Guide</b><small>Site data to Sep 29, 2026 + Claude's own knowledge</small></div><button class="icon-btn" id="chat-new" type="button">New chat</button><button class="icon-btn" id="chat-close" type="button" aria-label="Close chat">✕</button></div>
+  <div class="chat-log" id="chat-log" aria-live="polite"></div>
+  <span id="chat-status" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></span>
+  <form class="chat-form" id="chat-form"><textarea id="chat-in" rows="1" placeholder="Ask about any model, date or idea…" aria-label="Your question"></textarea><button class="btn primary" id="chat-send" type="submit">Send</button><button class="btn secondary" id="chat-stop" type="button" hidden>Stop</button></form>
+  <p class="chat-foot">Answers come from Claude and can be wrong. Each question uses your own Claude usage; the first one asks your permission.</p>
+</section>
+<script>
+/* ===================== DATA — as of Sep 29, 2026 ===================== */
+const AS_OF = 'September 29, 2026';
+
+const COMPANIES = {
+  openai:{name:'OpenAI',tag:'openai',founded:'2015',founders:'Sam Altman, Greg Brockman, Ilya Sutskever, Wojciech Zaremba, John Schulman, Elon Musk and others',hq:'San Francisco, CA',site:'https://openai.com',key:'GPT-4 → GPT-6 Astra, o-series reasoning, DALL·E, Sora, Whisper, ChatGPT'},
+  anthropic:{name:'Anthropic',tag:'anthropic',founded:'2021',founders:'Dario Amodei, Daniela Amodei and colleagues from OpenAI',hq:'San Francisco, CA',site:'https://www.anthropic.com',key:'Claude family (Opus, Sonnet, Haiku, Fable, Mythos), Claude Code, Cowork, Claude Design, Model Context Protocol'},
+  google:{name:'Google DeepMind',tag:'google',founded:'2010 (DeepMind); merged with Google Brain 2023',founders:'Demis Hassabis, Shane Legg, Mustafa Suleyman',hq:'London, UK',site:'https://deepmind.google',key:'Gemini, Veo, Imagen, Nano Banana, AlphaGo, AlphaFold, Flow, Antigravity'},
+  meta:{name:'Meta AI',tag:'meta',founded:'2013 (FAIR)',founders:'Founded as FAIR with Yann LeCun as director',hq:'Menlo Park, CA',site:'https://ai.meta.com',key:'LLaMA → Llama 4, Muse Spark 1.0–1.3, Muse Glimmer, Muse Code, Meta AI assistant, PyTorch'},
+  microsoft:{name:'Microsoft',tag:'microsoft',founded:'1975',founders:'Bill Gates, Paul Allen',hq:'Redmond, WA',site:'https://www.microsoft.com/ai',key:'Microsoft Copilot, GitHub Copilot, Azure AI Foundry, Phi models'},
+  xai:{name:'xAI',tag:'xai',founded:'2023',founders:'Elon Musk and a founding team from DeepMind, OpenAI and Google',hq:'San Francisco Bay Area, CA',site:'https://x.ai',key:'Grok 1 → Grok 4.7, Grok app; Grok 5 in training'},
+  mistral:{name:'Mistral AI',tag:'mistral',founded:'2023',founders:'Arthur Mensch, Guillaume Lample, Timothée Lacroix',hq:'Paris, France',site:'https://mistral.ai',key:'Mistral 7B, Mixtral, Mistral Large 3, Mistral Medium 3.5, Voxtral, Le Chat'},
+  deepseek:{name:'DeepSeek',tag:'deepseek',founded:'2023',founders:'Liang Wenfeng',hq:'Hangzhou, China',site:'https://www.deepseek.com',key:'DeepSeek-V3, DeepSeek R1 (open reasoning), DeepSeek V4 Pro & Flash, DeepSeek Chat'},
+  alibaba:{name:'Alibaba (Qwen)',tag:'alibaba',founded:'1999 (Alibaba); Qwen models since 2023',founders:'Jack Ma and 17 co-founders',hq:'Hangzhou, China',site:'https://qwen.ai',key:'Qwen open models, Qwen3.8-Max, Qwen3.8-Flash-Next; Qwen 4 in training'},
+  huggingface:{name:'Hugging Face',tag:'other',founded:'2016',founders:'Clément Delangue, Julien Chaumond, Thomas Wolf',hq:'New York, NY & Paris',site:'https://huggingface.co',key:'The Hub (2.7M+ models), Transformers library, datasets, Spaces'},
+  stability:{name:'Stability AI',tag:'other',founded:'2019',founders:'Emad Mostaque',hq:'London, UK',site:'https://stability.ai',key:'Stable Diffusion, SDXL, Stable Audio'},
+  midjourney:{name:'Midjourney',tag:'other',founded:'2021',founders:'David Holz',hq:'San Francisco, CA',site:'https://www.midjourney.com',key:'Midjourney image models (v1 → v7), video'},
+  nvidia:{name:'NVIDIA',tag:'other',founded:'1993',founders:'Jensen Huang, Chris Malachowsky, Curtis Priem',hq:'Santa Clara, CA',site:'https://www.nvidia.com',key:'The GPUs most AI trains on (A100, H100, Blackwell), CUDA, Nemotron'},
+  ibm:{name:'IBM',tag:'other',founded:'1911',founders:'Charles Ranlett Flint (as CTR)',hq:'Armonk, NY',site:'https://www.ibm.com/watsonx',key:'Deep Blue (1997), Watson (2011), watsonx and Granite models'},
+  runway:{name:'Runway',tag:'other',founded:'2018',founders:'Cristóbal Valenzuela, Alejandro Matamala, Anastasis Germanidis',hq:'New York, NY',site:'https://runwayml.com',key:'Gen-1 → Gen-4 video models, co-developed original Stable Diffusion'},
+  elevenlabs:{name:'ElevenLabs',tag:'other',founded:'2022',founders:'Mati Staniszewski, Piotr Dąbkowski',hq:'London & New York',site:'https://elevenlabs.io',key:'Text-to-speech, voice cloning, dubbing, music'},
+  perplexity:{name:'Perplexity',tag:'other',founded:'2022',founders:'Aravind Srinivas, Denis Yarats, Johnny Ho, Andy Konwinski',hq:'San Francisco, CA',site:'https://www.perplexity.ai',key:'Perplexity answer engine, Comet browser'},
+  cognition:{name:'Cognition',tag:'other',founded:'2023',founders:'Scott Wu, Steven Hao, Walden Yan',hq:'San Francisco, CA',site:'https://cognition.ai',key:'Devin (AI software engineer), SWE-2 (built on Kimi K3), Windsurf'},
+  moonshot:{name:'Moonshot AI',tag:'other',site:'https://www.moonshot.ai'},
+  apple:{name:'Apple',tag:'other',site:'https://www.apple.com'},
+  zhipu:{name:'Zhipu AI',tag:'other',founded:'2019',hq:'Beijing, China',site:'https://www.zhipuai.cn',key:'GLM models'},
+  anysphere:{name:'Anysphere',tag:'other',site:'https://cursor.com'},
+  suno:{name:'Suno',tag:'other',site:'https://suno.com'},
+  characterai:{name:'Character.AI',tag:'other',site:'https://character.ai'},
+  github:{name:'GitHub / Microsoft',tag:'microsoft',site:'https://github.com'},
+};
+const COMPANY_PAGE = ['openai','anthropic','google','meta','microsoft','xai','mistral','deepseek','alibaba','huggingface','stability','midjourney','nvidia','ibm','runway','elevenlabs','perplexity','cognition'];
+
+/* Releases: [date, company, name, types, open, summary, link]
+   date 'YYYY-MM-DD'; day 00 = exact day not confirmed. open: true | false | null (not stated).
+   link: 'm:<modelId>' model page · 't:<toolId>' tool card · '' event only */
+const RAW = [
+ ['2022-04-06','openai','DALL·E 2',['Image'],false,'Text-to-image model that turns a sentence into a realistic picture.','m:dall-e-2'],
+ ['2022-07-12','midjourney','Midjourney open beta',['Image','Tool/Website'],false,'The image generator opens to everyone through Discord.','t:midjourney'],
+ ['2022-08-22','stability','Stable Diffusion',['Image','Open-weights'],true,'Open image model that runs on a consumer graphics card.','m:stable-diffusion'],
+ ['2022-09-21','openai','Whisper',['Audio','Open-weights'],true,'Open speech-to-text model trained on 680,000 hours of audio.','m:whisper'],
+ ['2022-11-30','openai','ChatGPT',['Tool/Website'],false,'Chat app on GPT-3.5 that reaches a million users in five days.','t:chatgpt'],
+ ['2023-02-07','microsoft','Bing Chat',['Tool/Website'],false,'GPT-4-powered chat inside Bing search, later renamed Copilot.','t:copilot'],
+ ['2023-02-24','meta','LLaMA',['Text LLM','Open-weights'],true,'Research release (7B–65B) that kick-started the open-model wave.','m:llama'],
+ ['2023-03-14','openai','GPT-4',['Text LLM'],false,'Multimodal flagship that scores in the top 10% on a simulated bar exam.','m:gpt-4'],
+ ['2023-03-14','anthropic','Claude',['Text LLM'],false,'Anthropic\'s first public model, trained with Constitutional AI.','m:claude'],
+ ['2023-03-21','google','Bard',['Tool/Website'],false,'Google\'s chatbot opens to the public in the US and UK.','t:gemini'],
+ ['2023-07-11','anthropic','Claude 2 + claude.ai',['Text LLM','Tool/Website'],false,'100K-token context and a public chat app at claude.ai.','m:claude-2'],
+ ['2023-07-18','meta','Llama 2',['Text LLM','Open-weights'],true,'Open weights with a commercial license, from 7B to 70B.','m:llama-2'],
+ ['2023-09-27','mistral','Mistral 7B',['Text LLM','Open-weights'],true,'Apache-2.0 model that outperforms larger open rivals.','m:mistral-7b'],
+ ['2023-11-04','xai','Grok 1',['Text LLM'],false,'xAI\'s first model, with real-time access to posts on X.','m:grok-1'],
+ ['2023-11-06','openai','GPT-4 Turbo + custom GPTs',['Text LLM','Tool/Website'],false,'128K context, lower prices, and user-built GPTs at DevDay.','m:gpt-4-turbo'],
+ ['2023-12-06','google','Gemini 1.0',['Text LLM'],false,'Natively multimodal family in Ultra, Pro and Nano sizes.','m:gemini-1-0'],
+ ['2023-12-13','google','Google AI Studio + Gemini API',['Tool/Website'],false,'Free web studio and API for building with Gemini.','t:aistudio'],
+ ['2024-02-08','google','Bard renamed Gemini',['Tool/Website'],false,'The chatbot and its apps rebrand as Gemini.','t:gemini'],
+ ['2024-02-15','google','Gemini 1.5',['Text LLM'],false,'Mixture-of-experts model with up to a 1M-token context window.','m:gemini-1-5'],
+ ['2024-02-15','openai','Sora (preview)',['Video'],false,'Research preview of minute-long text-to-video clips.','m:sora'],
+ ['2024-03-04','anthropic','Claude 3 (Haiku, Sonnet, Opus)',['Text LLM'],false,'Three sizes with vision; Opus tops most benchmarks at launch.','m:claude-3'],
+ ['2024-04-18','meta','Llama 3',['Text LLM','Open-weights'],true,'8B and 70B open models trained on 15 trillion tokens.','m:llama-3'],
+ ['2024-05-13','openai','GPT-4o',['Text LLM','Audio'],false,'"Omni" model with real-time voice, vision and text.','m:gpt-4o'],
+ ['2024-06-20','anthropic','Claude 3.5 Sonnet',['Text LLM','Coding'],false,'Beats Claude 3 Opus at a fraction of the cost; Artifacts debut.','m:claude-3-5-sonnet'],
+ ['2024-07-23','meta','Llama 3.1 (405B)',['Text LLM','Open-weights'],true,'First frontier-scale open-weights model.','m:llama-3-1'],
+ ['2024-09-12','openai','o1-preview',['Reasoning'],false,'First reasoning model: it thinks step by step before answering.','m:o1-preview'],
+ ['2024-10-22','anthropic','Claude 3.5 Sonnet (new) + Computer Use',['Agent','Coding'],false,'Upgraded Sonnet that can operate a screen, mouse and keyboard.','m:claude-3-5-sonnet-new'],
+ ['2024-11-25','anthropic','Model Context Protocol (MCP)',['Tool/Website','Open-weights'],true,'Open standard for connecting AI apps to tools and data.',''],
+ ['2024-12-09','openai','Sora public launch',['Video','Tool/Website'],false,'Sora opens to ChatGPT Plus and Pro users at sora.com.','t:sora'],
+ ['2024-12-11','google','Gemini 2.0 Flash',['Text LLM','Agent'],false,'Fast model built for agents; experimental on Dec 11, default model from Jan 30, 2025.','m:gemini-2-0-flash'],
+ ['2024-12-16','google','Veo 2',['Video'],false,'Video model with better physics and up to 4K output.','m:veo-2'],
+ ['2024-12-16','google','Whisk (Labs experiment)',['Image','Tool/Website'],false,'Remix pictures by using images as the prompt.','t:whisk'],
+ ['2025-01-20','deepseek','DeepSeek R1',['Reasoning','Open-weights'],true,'Open reasoning model that rivals o1 at a fraction of the cost.','m:deepseek-r1'],
+ ['2025-01-23','openai','Operator',['Agent','Tool/Website'],false,'Browser agent that completes tasks on websites.',''],
+ ['2025-02-02','openai','Deep Research',['Agent','Tool/Website'],false,'Agent that researches the web and writes cited reports.',''],
+ ['2025-02-17','xai','Grok 3',['Text LLM','Reasoning'],false,'Trained on the Colossus cluster; adds a Think mode.','m:grok-3'],
+ ['2025-02-24','anthropic','Claude 3.7 Sonnet',['Reasoning','Coding'],false,'First hybrid reasoning model: answer fast or think longer.','m:claude-3-7-sonnet'],
+ ['2025-02-24','anthropic','Claude Code (preview)',['Coding','Agent','Tool/Website'],false,'Coding agent that works in your terminal.','t:claude-code'],
+ ['2025-02-27','openai','GPT-4.5',['Text LLM'],false,'OpenAI\'s largest GPT model yet, tuned for natural conversation.','m:gpt-4-5'],
+ ['2025-03-25','google','Gemini 2.5 Pro',['Reasoning'],false,'Thinking model that tops the LMArena leaderboard at launch.','m:gemini-2-5-pro'],
+ ['2025-03-25','openai','GPT-4o image generation',['Image'],false,'Native image generation inside ChatGPT.','m:gpt-4o-image'],
+ ['2025-04-05','meta','Llama 4',['Text LLM','Open-weights'],true,'Scout and Maverick, the first mixture-of-experts Llamas.','m:llama-4'],
+ ['2025-04-14','openai','GPT-4.1',['Text LLM','Coding'],false,'API models with a 1M-token context, tuned for coding.','m:gpt-4-1'],
+ ['2025-04-16','openai','o3 & o4-mini',['Reasoning'],false,'Reasoning models that use tools and images while they think.','m:o3'],
+ ['2025-04-28','alibaba','Qwen3',['Text LLM','Open-weights'],true,'Open family from 0.6B to 235B parameters, trained on 36T tokens in 119 languages.','m:qwen3'],
+ ['2025-05-20','google','Veo 3',['Video','Audio'],false,'Video generation with native sound and dialogue.','m:veo-3'],
+ ['2025-05-20','google','Imagen 4',['Image'],false,'Google\'s image model with sharper detail and text.','m:imagen-4'],
+ ['2025-05-20','google','Flow',['Video','Tool/Website'],false,'AI filmmaking tool built on Veo, Imagen and Gemini.','t:flow'],
+ ['2025-05-22','anthropic','Claude Opus 4 & Sonnet 4',['Coding','Agent'],false,'Opus 4 leads coding benchmarks; Claude Code becomes generally available.','m:claude-4'],
+ ['2025-07-00','moonshot','Kimi K2',['Text LLM','Open-weights'],true,'1-trillion-parameter open mixture-of-experts model (32B active).','m:kimi-k2'],
+ ['2025-07-09','xai','Grok 4',['Reasoning'],false,'xAI\'s reasoning-first flagship.','m:grok-4'],
+ ['2025-08-05','anthropic','Claude Opus 4.1',['Coding','Agent'],false,'Incremental upgrade to Opus 4 for agentic coding.','m:claude-opus-4-1'],
+ ['2025-08-05','openai','gpt-oss',['Reasoning','Open-weights'],true,'OpenAI\'s first open-weights models since GPT-2 (120B and 20B).','m:gpt-oss'],
+ ['2025-08-07','openai','GPT-5',['Text LLM','Reasoning'],false,'One system that routes between fast answers and deeper thinking.','m:gpt-5'],
+ ['2025-08-26','google','Nano Banana (Gemini 2.5 Flash Image)',['Image'],false,'Image editing model known for keeping characters consistent.','m:nano-banana'],
+ ['2025-09-29','anthropic','Claude Sonnet 4.5',['Coding','Agent'],false,'Top coding model at launch, built for long autonomous work.','m:claude-sonnet-4-5'],
+ ['2025-09-30','openai','Sora 2 + Sora app',['Video','Audio'],false,'Video with synchronized sound, plus a social video app.','m:sora-2'],
+ ['2025-10-15','anthropic','Claude Haiku 4.5',['Text LLM','Coding'],false,'Small, fast model with coding close to Sonnet 4.','m:claude-haiku-4-5'],
+ ['2025-11-12','openai','GPT-5.1',['Text LLM','Reasoning'],false,'Warmer, more conversational GPT-5 with adaptive thinking.','m:gpt-5-1'],
+ ['2025-11-17','xai','Grok 4.1',['Text LLM'],false,'Better reasoning, multimodal understanding and emotional intelligence.','m:grok-4-1'],
+ ['2025-11-18','google','Gemini 3 Pro',['Reasoning'],false,'Google\'s flagship thinking model of late 2025.','m:gemini-3-pro'],
+ ['2025-11-18','google','Antigravity',['Coding','Tool/Website'],false,'Agent-first coding IDE from Google.','t:antigravity'],
+ ['2025-11-24','anthropic','Claude Opus 4.5',['Coding','Agent'],false,'Opus-class intelligence at a much lower price.','m:claude-opus-4-5'],
+ ['2025-12-00','mistral','Mistral Large 3',['Text LLM','Open-weights'],true,'675B-parameter open model (41B active) under Apache 2.0.','m:mistral-large-3'],
+ ['2025-12-11','openai','GPT-5.2',['Text LLM','Reasoning'],false,'Released about three weeks after Gemini 3 Pro.','m:gpt-5-2'],
+ ['2025-12-17','google','Gemini 3 Flash',['Text LLM'],false,'Fast, low-cost member of the Gemini 3 family.','m:gemini-3-flash'],
+ ['2026-01-00','moonshot','Kimi K2.5',['Text LLM','Open-weights'],true,'Adds native image and video understanding to Kimi K2.','m:kimi-k2-5'],
+ ['2026-01-12','anthropic','Claude Cowork (research preview)',['Agent','Tool/Website'],false,'Desktop agent that works with your files, for non-technical users.','t:cowork'],
+ ['2026-02-00','xai','Grok 4.20',['Text LLM'],false,'xAI\'s first 2026 Grok update. Exact day to verify.','m:grok-4-20'],
+ ['2026-02-00','alibaba','Qwen3.5',['Text LLM','Open-weights'],true,'Open-weight Qwen generation, with a closed Qwen3.5-Plus alongside.','m:qwen3-5'],
+ ['2026-02-05','anthropic','Claude Opus 4.6',['Coding','Agent'],false,'Adds agent teams and Claude in PowerPoint.','m:claude-opus-4-6'],
+ ['2026-02-05','openai','GPT-5.3-Codex',['Coding','Agent'],false,'Coding-specialized GPT-5.3; a smaller Codex-Spark preview followed Feb 12.','m:gpt-5-3-codex'],
+ ['2026-02-11','zhipu','GLM-5',['Text LLM','Open-weights'],true,'Z.ai\'s frontier model, with open weights under the MIT license.','m:glm-5'],
+ ['2026-02-17','anthropic','Claude Sonnet 4.6',['Text LLM','Coding'],false,'Sonnet update close to Opus-level intelligence, at the same $3 / $15 price.','m:claude-sonnet-4-6'],
+ ['2026-02-19','google','Gemini 3.1 Pro',['Reasoning'],false,'Pro model for complex reasoning across large datasets and mixed inputs.','m:gemini-3-1-pro'],
+ ['2026-02-25','google','Flow relaunched as a creative studio',['Video','Image','Tool/Website'],false,'Flow absorbs Whisk and ImageFX into one studio. Date unverified: no source found for Feb 25.','t:flow'],
+ ['2026-02-26','google','Nano Banana 2 (Gemini 3.1 Flash Image)',['Image'],false,'Second-generation Nano Banana image model.','m:nano-banana-2'],
+ ['2026-03-03','google','Gemini 3.1 Flash-Lite',['Text LLM'],false,'Built for high-volume, low-latency jobs such as translation and classification.','m:gemini-3-1-flash-lite'],
+ ['2026-03-05','openai','GPT-5.4 Thinking & Pro',['Reasoning','Agent'],false,'Built-in computer use: 75% on OSWorld-Verified vs 47.3% for GPT-5.2.','m:gpt-5-4'],
+ ['2026-03-17','openai','GPT-5.4 mini & nano',['Text LLM'],false,'Smaller GPT-5.4 models; mini reaches the free tier, nano is API-only.','m:gpt-5-4'],
+ ['2026-04-00','xai','Grok 4.3',['Text LLM'],false,'Spring Grok update. Exact day to verify.','m:grok-4-3'],
+ ['2026-04-00','alibaba','Qwen3.6',['Text LLM','Open-weights'],true,'Open-weight Qwen under Apache 2.0, plus a closed 3.6-Plus.','m:qwen3-6'],
+ ['2026-04-00','mistral','Mistral Medium 3.5',['Text LLM','Open-weights'],true,'128B-parameter open-weight model under a modified MIT license.','m:mistral-medium-3-5'],
+ ['2026-04-07','anthropic','Claude Mythos Preview',['Reasoning'],false,'Restricted-access preview for security partners through Project Glasswing; its existence leaked Mar 26.','m:claude-mythos-preview'],
+ ['2026-04-08','meta','Muse Spark',['Text LLM'],false,'First model from Meta Superintelligence Labs, powering Meta AI.','m:muse-spark'],
+ ['2026-04-16','anthropic','Claude Opus 4.7',['Coding','Agent'],false,'Opus update released between Mythos Preview and the Claude 5 generation.','m:claude-opus-4-7'],
+ ['2026-04-17','anthropic','Claude Design (research preview)',['Tool/Website'],false,'Design canvas for mockups, slides and prototypes.','t:claude-design'],
+ ['2026-04-23','openai','GPT-5.5',['Text LLM','Reasoning'],false,'OpenAI flagship update in the GPT-5 line.','m:gpt-5-5'],
+ ['2026-04-24','deepseek','DeepSeek V4 Pro & V4 Flash',['Text LLM','Reasoning'],null,'DeepSeek\'s fourth generation, in Pro and Flash sizes.','m:deepseek-v4'],
+ ['2026-04-30','google','Whisk discontinued',['Tool/Website'],false,'Whisk retires into Flow (opt-in migration); leftover Whisk media was deleted.','t:whisk'],
+ ['2026-05-00','alibaba','Qwen3.7-Max',['Text LLM'],false,'Closed flagship Qwen model. Exact day to verify.','m:qwen3-7-max'],
+ ['2026-05-05','openai','GPT-5.5 Instant',['Text LLM'],false,'Replaces GPT-5.3 Instant as ChatGPT\'s default model.','m:gpt-5-5'],
+ ['2026-05-07','openai','GPT-5.5-Cyber (limited preview)',['Text LLM'],false,'Security-focused GPT-5.5 for vetted defenders.','m:gpt-5-5'],
+ ['2026-05-19','google','Gemini 3.5 Flash',['Text LLM'],false,'First public model in the Gemini 3.5 family.','m:gemini-3-5-flash'],
+ ['2026-05-19','google','Google Pics announced at I/O',['Image','Tool/Website'],false,'Pro-level AI image creation and editing tool for Workspace.','t:google-pics'],
+ ['2026-05-28','anthropic','Claude Opus 4.8',['Coding','Agent'],false,'Last Opus 4.x model; stayed available during the June Fable 5 suspension.','m:claude-opus-4-8'],
+ ['2026-06-09','anthropic','Claude Fable 5 & Claude Mythos 5',['Text LLM','Reasoning'],false,'Same underlying model: Fable 5 for everyone, Mythos 5 (fewer safeguards) for Project Glasswing partners.','m:claude-fable-5'],
+ ['2026-06-12','anthropic','Fable 5 / Mythos 5 access suspended',['Tool/Website'],false,'A US export-control directive arrives at 5:21 pm ET; Anthropic disables both models for all customers.',''],
+ ['2026-06-26','openai','GPT-5.6 limited preview',['Text LLM'],false,'Early access for a small group of trusted partners.',''],
+ ['2026-06-26','anthropic','Partial Mythos 5 access for US organizations',['Tool/Website'],false,'First step in restoring access after the export-control directive.',''],
+ ['2026-06-30','anthropic','Claude Sonnet 5',['Coding','Agent'],false,'The Sonnet line moves to generation 5.','m:claude-sonnet-5'],
+ ['2026-06-30','anthropic','Export controls on Fable 5 / Mythos 5 lifted',['Tool/Website'],false,'The US government lifts the June 12 directive.',''],
+ ['2026-07-01','anthropic','Fable 5 / Mythos 5 access restored',['Tool/Website'],false,'Fable 5 available globally again, after partial access Jun 26 and controls lifted Jun 30.',''],
+ ['2026-07-08','xai','Grok 4.5',['Coding','Text LLM'],false,'1.5-trillion-parameter model co-developed with Cursor.','m:grok-4-5'],
+ ['2026-07-09','openai','GPT-5.6 Sol, Terra, Luna',['Text LLM','Coding'],false,'Three GPT-5.6 models split by speed and cost, after a Jun 26 partner preview.','m:gpt-5-6'],
+ ['2026-07-09','meta','Muse Spark 1.1',['Coding','Text LLM'],false,'Meta enters AI coding with a 1M-token-context model.','m:muse-spark-1-1'],
+ ['2026-07-16','moonshot','Kimi K3',['Text LLM','Open-weights'],true,'2.8T parameters: the largest open-weights model released so far.','m:kimi-k3'],
+ ['2026-07-21','google','Gemini 3.6 Flash',['Text LLM','Coding','Agent'],false,'New default Gemini model, stronger at orchestration and refactoring.','m:gemini-3-6-flash'],
+ ['2026-07-21','google','Gemini 3.5 Flash-Lite & 3.5 Flash Cyber',['Text LLM'],false,'Lighter Flash-Lite plus a restricted cybersecurity variant.','m:gemini-3-5-flash-lite'],
+ ['2026-07-21','openai','GPT-5.6 Sol security incident reported',['Agent'],false,'OpenAI says GPT-5.6 Sol "acted on its own" in hacking Hugging Face systems.',''],
+ ['2026-07-24','anthropic','Claude Opus 5',['Coding','Agent','Reasoning'],false,'The Opus line moves to generation 5.','m:claude-opus-5'],
+ ['2026-08-03','alibaba','Qwen3.8-Max',['Text LLM','Reasoning'],false,'2.4T-parameter closed model (~95B active).','m:qwen3-8-max'],
+ ['2026-08-05','meta','Muse Spark 1.2 + Muse Code',['Coding','Open-weights','Agent'],true,'Open-weight release plus a terminal coding agent that runs sub-agents.','m:muse-spark-1-2'],
+ ['2026-08-10','meta','Muse Glimmer',['Text LLM','Open-weights'],true,'30B open model (Apache 2.0) that runs offline on one 24 GB GPU.','m:muse-glimmer'],
+ ['2026-08-12','xai','Grok 4.6',['Text LLM'],false,'Multimodal Grok update trained with Cursor data.','m:grok-4-6'],
+ ['2026-08-13','google','Gemini 3.7 Flash',['Text LLM'],false,'Next Flash update, three weeks after 3.6.','m:gemini-3-7-flash'],
+ ['2026-08-14','alibaba','Qwen3.8-27B',['Text LLM','Open-weights'],true,'Small open-weight Qwen3.8 model under Apache 2.0.','m:qwen3-8-27b'],
+ ['2026-08-26','alibaba','Qwen3.8-Flash-Next',['Text LLM'],null,'Architecture preview of Qwen 4: 125B-parameter mixture-of-experts, 6B active.','m:qwen3-8-flash-next'],
+ ['2026-09-01','anthropic','Claude Fable 5.1 & Mythos 5.1',['Text LLM','Reasoning'],false,'Point upgrades to Anthropic\'s top model tiers.','m:claude-fable-5-1'],
+ ['2026-09-01','google','Google Pics launches in Workspace',['Image','Tool/Website'],false,'Google Pics rolls out to Workspace users.','t:google-pics'],
+ ['2026-09-02','google','Gemini 3.8 Flash',['Text LLM'],false,'Latest Flash model, released alongside Qwen and Meta updates.','m:gemini-3-8-flash'],
+ ['2026-09-02','alibaba','Qwen3.8-Max-0902 update',['Text LLM','Coding'],false,'Same price, much better at coding and office work than the August release.','m:qwen3-8-max-0902'],
+ ['2026-09-02','meta','Muse Spark 1.3',['Text LLM'],false,'Meta\'s latest Muse Spark model, edging closer to OpenAI and Anthropic.','m:muse-spark-1-3'],
+ ['2026-09-03','openai','GPT-6 Astra (preview; public Sep 4)',['Reasoning','Agent'],false,'OpenAI\'s most capable model, using looped-transformer reasoning; first rated "Critical" for cyber risk.','m:gpt-6-astra'],
+ ['2026-09-10','cognition','SWE-2',['Coding','Agent'],false,'Coding model built on Kimi K3; Cognition claims 64% cheaper than Fable 5.1 per task. Ships inside Devin.','m:swe-2'],
+ ['2026-09-15','google','Gemini 3.8 Live & Live Extended Thinking',['Audio','Agent','Reasoning'],false,'Voice models that reason while they talk, in 97 languages.','m:gemini-3-8-live'],
+ ['2026-09-21','xai','Grok 4.7',['Coding','Text LLM'],false,'Larger base model at the same $2 / $6 price as Grok 4.6. (Wikipedia lists Sep 12.)','m:grok-4-7'],
+ ['2026-09-22','anthropic','Claude Opus 5.5',['Text LLM','Reasoning','Coding'],false,'First Claude 5.5 model: ~40% cheaper than Opus 5, clearer writing, 1M context.','m:claude-opus-5-5'],
+ ['2026-09-22','openai','GPT-6 Sol',['Coding','Agent'],false,'Astra-generation methods at lower cost; shipped ~90 minutes after Opus 5.5.','m:gpt-6-sol'],
+ ['2026-09-22','openai','GPT-6 Luna',['Text LLM'],false,'Fast, high-volume model for summaries and extraction.','m:gpt-6-luna'],
+ ['2026-09-28','openai','GPT-6.1 Astra release cancelled',['Tool/Website'],false,'OpenAI scraps the launch after alignment tests showed more deception.','u:gpt-6-1-astra'],
+ ['2026-09-28','anthropic','Claude Sonnet 5.5',['Coding','Agent'],false,'30%+ faster and up to 30% cheaper per task than Sonnet 5, at the same price.','m:claude-sonnet-5-5'],
+ ['2026-09-29','openai','GPT-6.1 Sol',['Coding','Agent'],false,'DevDay upgrade to Sol with much stronger agentic coding.','m:gpt-6-1-sol'],
+ ['2026-09-29','openai','GPT-6 Astra Ultrafast',['Reasoning','Agent'],false,'Faster Astra in the API and ChatGPT Work/Codex for Pro 500 and Enterprise.','m:gpt-6-astra-ultrafast'],
+];
+const RELEASES = RAW.map((r,i)=>{const [y,m,d]=r[0].split('-').map(Number);return {i,date:r[0],y,m,d,co:r[1],name:r[2],types:r[3],open:r[4],sum:r[5],link:r[6]}});
+
+/* Featured models with full change logs (Part B1). */
+const FEATURED = {
+ 'claude-opus-5-5':{new:['First model in the Claude 5.5 family','Performance roughly at Claude Fable 5.1 level on most work','About 40% cheaper to run than Opus 5 on typical workloads','30%+ faster output','Clearer writing with the key information up front','Stronger visual understanding','Completes complex work in fewer steps'],
+  fixed:['Writing clarity, the most common complaint about Opus 5','Lower price: $4 / $20 per million tokens (was $5 / $25)','Cache reads 60% cheaper ($0.50 → $0.20 per 1M); cache writes 20% cheaper ($6.25 → $5)'],
+  removed:['Thinking can no longer be turned off; only the effort level adjusts','Forced tool use now returns an error','Thinking blocks are tied to the model that produced them','The older computer-use tool version (computer_20251124) is no longer accepted','Regression vs Opus 5 (system card): more likely to follow malicious instructions hidden in text a user pastes in','Regression vs Opus 5 (system card): more likely to accept unverified claims of authorization','Ships with Fable 5.1-class safeguards for cybersecurity and biology'],
+  specs:{context:'1M tokens',output:'128K tokens',price:'$4 input / $20 output per 1M tokens',avail:'Claude API, Amazon Bedrock, Claude Platform on AWS, Google Cloud, Microsoft Foundry',cutoff:'June 2026',api:'claude-opus-5-5',extra:[['Default effort','Medium'],['Batch API','Half price; max output 300K tokens (beta)'],['Fast mode (research preview)','$8 / $40 per 1M tokens'],['Released','Sep 22, 2026, 16:31 UTC'],['Retirement','No sooner than Sep 22, 2027']]}},
+ 'gpt-6-astra':{dateNote:'Limited preview Sep 3, 2026 · public Sep 4, 2026',new:['OpenAI\'s most intelligent and aligned model','New "recurrent depth / looped transformer" reasoning technique','Strong agent abilities: filling out tax returns, building video-game scenes, ordering food, job searches','Clearer, shorter communication style'],
+  fixed:[],removed:['Its reasoning is harder to inspect: the looped design can hide some or all of its chain of thought','First OpenAI model rated "Critical" for cybersecurity under its Preparedness Framework','The public version refuses some prompts in areas such as cybersecurity','Release was delayed after the July 2026 agent security incident (GPT-5.6 Sol hacking Hugging Face systems) to add safeguards','Enterprise access is off by default'],
+  specs:{context:'~1.05M tokens (not confirmed for Astra)',output:'128K tokens (not confirmed for Astra)',price:'$10 input / $50 output per 1M tokens',avail:'ChatGPT Plus, Pro, Business, Enterprise; OpenAI API (gpt-6-astra); Azure; Amazon Bedrock',cutoff:'—',api:'gpt-6-astra'}},
+ 'gpt-6-sol':{new:['Astra-generation methods at lower cost','Built for coding, debugging, data analysis and agents','Clearer, shorter answers'],
+  fixed:['OpenAI says it makes about half as many mistakes as GPT-5.6 Sol (not independently confirmed; MetricNexus notes it scores below GPT-5.6 Sol on OpenAI\'s own DeepSWE chart)','Fewer misleading claims about its own coding work','API price 50% below GPT-5.6 Sol\'s promotional $4 / $20, or 60% / 67% below its standard $5 / $30. OpenAI says the new prices are permanent'],
+  removed:['Reported as not yet in ChatGPT "Chat" mode at launch (unconfirmed)','Superseded by GPT-6.1 Sol on Sep 29, 2026'],
+  specs:{context:'1.05M tokens',output:'128K tokens',price:'$2 input / $10 output per 1M tokens',avail:'OpenAI API; ChatGPT Work and Codex on paid plans',cutoff:'April 20, 2026'}},
+ 'gpt-6-luna':{new:['Astra-generation methods at lower cost','Built for fast, high-volume tasks such as summaries and extraction','Clearer, shorter answers'],
+  fixed:['Cheaper than GPT-5.6 Luna: output price fell 58%. OpenAI says the new prices are permanent'],
+  removed:['Reported as not yet in ChatGPT "Chat" mode at launch (unconfirmed)','Only in the desktop app for Free and Go users'],
+  specs:{context:'1.05M tokens',output:'128K tokens',price:'$0.10 input / $0.50 output per 1M tokens',avail:'OpenAI API; ChatGPT Work and Codex on paid plans; desktop app for Free and Go',cutoff:'May 18, 2026'}},
+ 'gemini-3-6-flash':{new:['New default Gemini model','Better at multi-step orchestration','Better at full-stack code refactoring','Launched the same day as Gemini 3.5 Flash-Lite and Gemini 3.5 Flash Cyber (limited to governments and trusted partners)'],
+  fixed:['Uses fewer tokens and turns: about 17% fewer output tokens than 3.5 Flash on the Artificial Analysis Index','Fewer compile failures','Less "action bias": stops making unrequested edits on read-only tasks','Cheaper than 3.5 Flash, whose output cost $9 per 1M tokens'],
+  removed:[],
+  specs:{context:'1M tokens',output:'64K tokens',price:'$1.50 input / $7.50 output per 1M tokens',avail:'AI Studio, Gemini API, Gemini app, Antigravity, Vertex AI',cutoff:'March 2026'}},
+};
+/* Well-documented specs for older models (context window only where widely published). */
+const SPECS = {'claude-sonnet-5-5':{price:'$2 input / $10 output per 1M tokens',cutoff:'June 2026',api:'claude-sonnet-5-5',avail:'Claude API, AWS, Google Cloud, Microsoft Azure, GitHub Copilot',extra:[['Effort levels','Five (low → max); adaptive thinking on by default']]},'gpt-6-sol':{},'qwen3-8-max':{extra:[['Parameters','2.4T total, ~95B active']]},'kimi-k3':{extra:[['Parameters','2.8T (largest open-weights model)']]},'muse-glimmer':{extra:[['Parameters','30B; runs offline on one 24 GB GPU']]},'gpt-5-4':{extra:[['OSWorld-Verified','75% (GPT-5.2: 47.3%)']]},'grok-4-7':{price:'$2 input / $6 output per 1M tokens'},'claude-2':{context:'100K tokens'},'claude-3':{context:'200K tokens'},'claude-3-5-sonnet':{context:'200K tokens'},'gpt-4':{context:'8K / 32K tokens'},'gpt-4-turbo':{context:'128K tokens'},'gpt-4o':{context:'128K tokens'},'gpt-4-1':{context:'1M tokens'},'gemini-1-5':{context:'Up to 1M tokens (2M later)'},'llama-3-1':{context:'128K tokens'},'claude-3-7-sonnet':{context:'200K tokens'}};
+
+/* Family lineages (ordered). Strings are model ids; objects are models without a page. */
+const FAMILIES = [
+ ['Claude Opus',['claude-3','claude-4','claude-opus-4-1','claude-opus-4-5','claude-opus-4-6','claude-opus-4-7','claude-opus-4-8','claude-opus-5','claude-opus-5-5']],
+ ['Claude Sonnet',['claude-3-5-sonnet','claude-3-5-sonnet-new','claude-3-7-sonnet','claude-sonnet-4-5','claude-sonnet-4-6','claude-sonnet-5','claude-sonnet-5-5']],
+ ['Claude (early)',['claude','claude-2','claude-3']],
+ ['Claude Haiku',['claude-3','claude-haiku-4-5']],
+ ['Claude Fable / Mythos',['claude-mythos-preview','claude-fable-5','claude-fable-5-1']],
+ ['GPT-6 Sol',['gpt-5-6','gpt-6-sol','gpt-6-1-sol']],
+ ['GPT-6 Luna',['gpt-5-6','gpt-6-luna']],
+ ['GPT flagship',['gpt-4','gpt-4-turbo','gpt-4o','gpt-4-5','gpt-5','gpt-5-1','gpt-5-2','gpt-5-4','gpt-5-5','gpt-5-6','gpt-6-astra']],
+ ['GPT-4.1',['gpt-4o','gpt-4-1','gpt-5']],
+ ['GPT Codex',['gpt-5-1','gpt-5-3-codex']],
+ ['OpenAI o-series',['o1-preview','o3','gpt-5']],
+ ['OpenAI open weights',['whisper','gpt-oss']],
+ ['OpenAI image',['dall-e-2','gpt-4o-image']],
+ ['Sora',['sora','sora-2']],
+ ['Gemini Flash',['gemini-2-0-flash','gemini-3-flash','gemini-3-5-flash','gemini-3-6-flash','gemini-3-7-flash','gemini-3-8-flash']],
+ ['Gemini Pro',['gemini-1-0','gemini-1-5','gemini-2-5-pro','gemini-3-pro','gemini-3-1-pro']],
+ ['Gemini Flash-Lite',['gemini-3-1-flash-lite','gemini-3-5-flash-lite']],
+ ['Veo',['veo-2','veo-3']],
+ ['Llama',['llama','llama-2','llama-3','llama-3-1','llama-4']],
+ ['Grok',['grok-1','grok-3','grok-4','grok-4-1','grok-4-20','grok-4-3','grok-4-5','grok-4-6','grok-4-7']],
+ ['Muse (Meta)',['llama-4','muse-spark','muse-spark-1-1','muse-spark-1-2','muse-spark-1-3']],
+ ['Qwen',['qwen3','qwen3-5','qwen3-6','qwen3-7-max','qwen3-8-max','qwen3-8-max-0902']],
+ ['Kimi',['kimi-k2','kimi-k2-5','kimi-k3']],
+ ['DeepSeek',['deepseek-r1','deepseek-v4']],
+ ['Mistral',['mistral-7b','mistral-large-3','mistral-medium-3-5']],
+ ['Nano Banana',['nano-banana','nano-banana-2']],
+];
+
+/* Current frontier set for Models Today. */
+const FRONTIER = ['gpt-6-1-sol','claude-sonnet-5-5','claude-opus-5-5','kimi-k3','deepseek-v4','qwen3-8-max-0902','mistral-medium-3-5','gpt-6-astra','gpt-6-astra-ultrafast','grok-4-7','gemini-3-1-pro','gpt-6-luna','claude-fable-5-1','claude-sonnet-5','gemini-3-8-flash','gemini-3-8-live','muse-spark-1-3','swe-2','glm-5','claude-haiku-4-5','llama-4','deepseek-r1','gpt-oss'];
+
+const TOOLS = [
+ {id:'chatgpt',name:'ChatGPT',co:'openai',launched:'Nov 30, 2022',site:'chatgpt.com',cat:'Chatbots',status:'Live',what:'General-purpose AI assistant for chat, writing, code, images and agents.',powered:'GPT-6.1 Sol, GPT-6 Astra, GPT-6 Luna',hist:[['Nov 30, 2022','Launches on GPT-3.5'],['Mar 14, 2023','GPT-4 for Plus users'],['May 13, 2024','GPT-4o for everyone'],['Aug 7, 2025','GPT-5 becomes the default'],['Sep 2026','GPT-6 Astra, Sol and Luna arrive'],['Sep 29, 2026','GPT-6.1 Sol at DevDay']]},
+ {id:'claude',name:'Claude',co:'anthropic',launched:'Mar 14, 2023 (claude.ai Jul 11, 2023)',site:'claude.ai',cat:'Chatbots',status:'Live',what:'Assistant for writing, analysis, coding and long documents.',powered:'Claude Opus 5.5, Claude Sonnet 5, Claude Haiku 4.5',hist:[['Mar 14, 2023','Claude launches with partners'],['Jul 11, 2023','claude.ai opens to the public'],['Jun 20, 2024','Artifacts debut'],['Sep 22, 2026','Claude Opus 5.5']]},
+ {id:'cowork',name:'Claude Cowork',co:'anthropic',launched:'Jan 12, 2026 (research preview)',site:'claude.com',cat:'Research/Notes',status:'Live',what:'Desktop agent that organizes files and finishes multi-step office work for non-technical users.',powered:'Claude Opus 5.5, Claude Sonnet 5.5',hist:[['Jan 12, 2026','Research preview'],['Apr 8–9, 2026','Generally available']]},
+ {id:'claude-design',name:'Claude Design',co:'anthropic',launched:'Apr 17, 2026 (research preview)',site:'claude.ai',cat:'Image',status:'Live',what:'Design canvas for mockups, prototypes, slides and design systems.',powered:'Claude Opus 5.5'},
+ {id:'claude-code',name:'Claude Code',co:'anthropic',launched:'Feb 24, 2025 (preview)',site:'claude.com/product/claude-code',cat:'Coding',status:'Live',what:'Coding agent that reads, edits and runs code in your terminal and IDE.',powered:'Claude Opus 5.5, Claude Sonnet 5',hist:[['Feb 24, 2025','Research preview'],['May 22, 2025','Generally available alongside Claude 4'],['Mar 3, 2026','Voice mode'],['Apr 14, 2026','Desktop redesign with parallel agents']]},
+ {id:'gemini',name:'Gemini (formerly Bard)',co:'google',launched:'Mar 21, 2023 as Bard',site:'gemini.google.com',cat:'Chatbots',status:'Live',what:'Google\'s AI assistant across web, Android and Workspace.',powered:'Gemini 3.x Flash & Pro',hist:[['Mar 21, 2023','Launches as Bard'],['Feb 8, 2024','Renamed Gemini'],['Jul 21, 2026','Gemini 3.6 Flash becomes the default']]},
+ {id:'aistudio',name:'Google AI Studio',co:'google',launched:'Dec 13, 2023',site:'aistudio.google.com',cat:'Platforms/Hubs',status:'Live',what:'Web workspace for trying Gemini models and getting API keys.',powered:'Gemini family'},
+ {id:'notebooklm',name:'NotebookLM',co:'google',launched:'2023',site:'notebooklm.google',cat:'Research/Notes',status:'Live',what:'Research notebook that answers from your own sources and makes audio overviews.',powered:'Gemini',hist:[['2023','Launches as NotebookLM'],['2026','Reported rename to Gemini Notebook (unconfirmed)']]},
+ {id:'whisk',name:'Whisk',co:'google',launched:'Dec 16, 2024',site:'labs.google',cat:'Image',status:'Discontinued',what:'Labs experiment that remixed images using images as prompts.',powered:'Gemini, Imagen',hist:[['Dec 16, 2024','Launches as a Labs experiment'],['Mar 2026','Google announces the move to Flow'],['Apr 30, 2026','Discontinued; opt-in migration to Flow, leftover media deleted. Regions without Flow lost Whisk.']]},
+ {id:'imagefx',name:'ImageFX',co:'google',launched:'2024',site:'labs.google',cat:'Image',status:'Merged',what:'Labs text-to-image tool built on Imagen.',powered:'Imagen',hist:[['2024','Launches in Google Labs'],['Feb 25, 2026','Merged into Flow']]},
+ {id:'flow',name:'Flow',co:'google',launched:'May 20, 2025',site:'flow.google',cat:'Video',status:'Live',what:'Video and image studio for AI filmmaking.',powered:'Veo, Nano Banana, Imagen',hist:[['May 20, 2025','Launches at Google I/O'],['Feb 25, 2026','Relaunched as a full creative studio'],['Apr 30, 2026','Whisk retires into Flow']]},
+ {id:'google-pics',name:'Google Pics',co:'google',launched:'Sep 1, 2026 (announced May 19)',site:'workspace.google.com',cat:'Image',status:'Live',what:'Pro-level AI image creation and editing inside Google Workspace.',powered:'Nano Banana, Imagen',hist:[['May 19, 2026','Announced at Google I/O'],['Sep 1, 2026','Launches in Workspace']]},
+ {id:'antigravity',name:'Antigravity',co:'google',launched:'Nov 18, 2025',site:'antigravity.google',cat:'Coding',status:'Live',what:'Agent-first AI coding IDE.',powered:'Gemini 3.x'},
+ {id:'hf',name:'Hugging Face Hub',co:'huggingface',launched:'Company 2016; Transformers library 2019',site:'huggingface.co',cat:'Platforms/Hubs',status:'Live',what:'The largest public hub of models, datasets and demo apps: 2.7M+ models.',powered:'Open models from every lab'},
+ {id:'midjourney',name:'Midjourney',co:'midjourney',launched:'Jul 2022',site:'midjourney.com',cat:'Image',status:'Live',what:'Image and video generator known for its artistic style.',powered:'Midjourney models'},
+ {id:'stable-diffusion',name:'Stable Diffusion',co:'stability',launched:'Aug 22, 2022',site:'stability.ai',cat:'Image',status:'Live',what:'Open image models you can run and fine-tune yourself.',powered:'Stable Diffusion family'},
+ {id:'sora',name:'Sora',co:'openai',launched:'Dec 9, 2024',site:'sora.com',cat:'Video',status:'Live',what:'Text-to-video app with synchronized audio and a social feed.',powered:'Sora 2',hist:[['Feb 15, 2024','Research preview'],['Dec 9, 2024','Public launch'],['Sep 30, 2025','Sora 2 and the Sora app']]},
+ {id:'copilot',name:'Microsoft Copilot',co:'microsoft',launched:'Feb 7, 2023 (as Bing Chat)',site:'copilot.microsoft.com',cat:'Chatbots',status:'Live',what:'Microsoft\'s assistant across Windows, Edge and Microsoft 365.',powered:'OpenAI GPT models and Microsoft models',hist:[['Feb 7, 2023','Launches as Bing Chat'],['Nov 2023','Renamed Microsoft Copilot']]},
+ {id:'github-copilot',name:'GitHub Copilot',co:'github',launched:'Jun 29, 2021 (preview)',site:'github.com/features/copilot',cat:'Coding',status:'Live',what:'AI pair programmer inside editors and GitHub.',powered:'Models from OpenAI, Anthropic and Google'},
+ {id:'meta-ai',name:'Meta AI',co:'meta',launched:'Sep 2023',site:'meta.ai',cat:'Chatbots',status:'Live',what:'Assistant inside WhatsApp, Instagram, Facebook and on the web.',powered:'Llama, Muse Spark'},
+ {id:'grok',name:'Grok',co:'xai',launched:'Nov 2023',site:'grok.com',cat:'Chatbots',status:'Live',what:'xAI\'s assistant with live access to X.',powered:'Grok 4'},
+ {id:'deepseek-chat',name:'DeepSeek Chat',co:'deepseek',launched:'Jan 2025 (app surge)',site:'chat.deepseek.com',cat:'Chatbots',status:'Live',what:'Free chat app for DeepSeek\'s models.',powered:'DeepSeek R1, DeepSeek-V3'},
+ {id:'perplexity',name:'Perplexity',co:'perplexity',launched:'Dec 2022',site:'perplexity.ai',cat:'Research/Notes',status:'Live',what:'AI search engine that answers with citations.',powered:'Models from several labs, plus Perplexity\'s own'},
+ {id:'characterai',name:'Character.AI',co:'characterai',launched:'Sep 2022',site:'character.ai',cat:'Chatbots',status:'Live',what:'Chat with user-created characters.',powered:'Character.AI models'},
+ {id:'elevenlabs',name:'ElevenLabs',co:'elevenlabs',launched:'Jan 2023',site:'elevenlabs.io',cat:'Music/Audio',status:'Live',what:'Realistic text-to-speech, voice cloning and dubbing.',powered:'ElevenLabs voice models'},
+ {id:'suno',name:'Suno',co:'suno',launched:'Dec 2023',site:'suno.com',cat:'Music/Audio',status:'Live',what:'Makes full songs, with vocals, from a text prompt.',powered:'Suno music models'},
+ {id:'runway',name:'Runway',co:'runway',launched:'2018 (Gen-2 video 2023)',site:'runwayml.com',cat:'Video',status:'Live',what:'Creative suite for AI video generation and editing.',powered:'Runway Gen models'},
+ {id:'cursor',name:'Cursor',co:'anysphere',launched:'2023',site:'cursor.com',cat:'Coding',status:'Live',what:'AI-first code editor.',powered:'Models from Anthropic, OpenAI, Google and others'},
+];
+
+const PIONEERS = [
+ {n:'Ada Lovelace',y:'1815–1852',ini:'AL',era:'foundations',c:'Published the first algorithm meant for a machine in her 1843 notes on Babbage\'s Analytical Engine.',q:'A machine could work on symbols, music and ideas, not just numbers.'},
+ {n:'Alan Turing',y:'1912–1954',ini:'AT',era:'foundations',c:'Defined computation (1936) and proposed the Imitation Game, now the Turing Test, in 1950.',q:'Ask whether a machine can think by testing how it converses.'},
+ {n:'John McCarthy',y:'1927–2011',ini:'JM',era:'golden',c:'Coined "artificial intelligence" for the 1956 Dartmouth workshop and created LISP in 1958.',q:'Every feature of intelligence can be described precisely enough to simulate.'},
+ {n:'Marvin Minsky',y:'1927–2016',ini:'MM',era:'golden',c:'Built SNARC, an early neural-net machine, and co-founded MIT\'s AI Lab; wrote The Society of Mind.',q:'A mind is a society of many simple agents.'},
+ {n:'Frank Rosenblatt',y:'1928–1971',ini:'FR',era:'golden',c:'Invented the perceptron in 1958, the first machine that learned from examples.',q:'Machines can learn from experience instead of being programmed.'},
+ {n:'Joseph Weizenbaum',y:'1923–2008',ini:'JW',era:'golden',c:'Wrote ELIZA (1966), the first chatbot, then warned about trusting computers too much.',q:'Some decisions should never be handed to a computer.'},
+ {n:'Geoffrey Hinton',y:'b. 1947',ini:'GH',era:'deep',c:'Popularized backpropagation (1986), led the AlexNet breakthrough (2012); Turing Award 2018, Nobel Prize in Physics 2024.',q:'Intelligence can emerge from networks of simple neurons that learn.'},
+ {n:'Yann LeCun',y:'b. 1960',ini:'YL',era:'deep',c:'Pioneered convolutional neural networks (LeNet) for reading handwriting; Turing Award 2018.',q:'Machines should learn about the world the way animals do, by observing.'},
+ {n:'Yoshua Bengio',y:'b. 1964',ini:'YB',era:'deep',c:'Built early neural language models and helped introduce attention; Turing Award 2018.',q:'Learn good representations and the rest becomes easier.'},
+ {n:'Fei-Fei Li',y:'b. 1976',ini:'FL',era:'ml',c:'Created ImageNet (2009), the dataset that set off the deep-learning boom.',q:'Better data, at scale, is what teaches machines to see.'},
+ {n:'Demis Hassabis',y:'b. 1976',ini:'DH',era:'deep',c:'Co-founded DeepMind; led AlphaGo and AlphaFold; Nobel Prize in Chemistry 2024.',q:'Solve intelligence, then use it to solve science.'},
+ {n:'Ilya Sutskever',y:'b. 1986',ini:'IS',era:'transformers',c:'Co-authored AlexNet and sequence-to-sequence learning; co-founded OpenAI and later Safe Superintelligence.',q:'Scale up the right network and new abilities appear.'},
+];
+
+/* Timeline events: [year, side L|R, title, desc, badge, era, more] */
+const EVENTS = [
+ [1843,'L','The first algorithm','Ada Lovelace publishes notes describing a program for the Analytical Engine.','Ada Lovelace','foundations','She also predicted such machines might compose music, if the rules of harmony could be expressed to them.'],
+ [1936,'L','The Turing machine','Alan Turing defines what it means for something to be computable.','Alan Turing','foundations','The abstract machine in "On Computable Numbers" is the theoretical model of every modern computer.'],
+ [1943,'L','Artificial neurons','McCulloch and Pitts show networks of simple "neurons" can compute logic.','McCulloch & Pitts','foundations','The first mathematical model of a neural network.'],
+ [1950,'L','The Turing Test','"Computing Machinery and Intelligence" asks: can machines think?','Alan Turing','foundations','Turing replaced the question with the Imitation Game: can a machine converse like a person?'],
+ [1951,'R','SNARC','Marvin Minsky builds a learning machine from 3,000 vacuum tubes.','Marvin Minsky','foundations','It simulated 40 neurons learning a path through a maze.'],
+ [1952,'R','A program that learns checkers','Arthur Samuel\'s checkers player improves by playing itself.','IBM','foundations','Samuel later coined the phrase "machine learning" (1959).'],
+ [1956,'L','AI gets its name','The Dartmouth workshop coins "artificial intelligence".','John McCarthy','golden','McCarthy, Minsky, Shannon and Rochester proposed that a summer of work could make major progress. It took decades.'],
+ [1956,'R','Logic Theorist','Newell and Simon\'s program proves theorems from Principia Mathematica.','Newell & Simon','golden','Often called the first AI program.'],
+ [1958,'L','The perceptron','Frank Rosenblatt\'s perceptron learns to recognize simple patterns.','Frank Rosenblatt','golden','The New York Times reported the Navy expected it to walk, talk and see. Expectations ran far ahead.'],
+ [1958,'R','LISP','John McCarthy creates LISP, AI\'s language for three decades.','John McCarthy','golden',''],
+ [1966,'R','ELIZA','Joseph Weizenbaum\'s chatbot imitates a therapist.','Joseph Weizenbaum','golden','People confided in it even knowing it was a simple pattern-matcher, which alarmed its creator.'],
+ [1966,'L','ALPAC report','US review finds machine translation slower and costlier than people.','US government','golden','Funding for machine translation collapsed.'],
+ [1969,'L','Perceptrons','Minsky and Papert prove single-layer perceptrons can\'t learn XOR.','Minsky & Papert','golden','Neural-network research went quiet for over a decade.'],
+ [1973,'L','Lighthill Report','UK review says AI failed its "grandiose objectives".','UK Science Research Council','golden','British AI funding was cut to a few universities.'],
+ [1974,'L','First AI Winter begins','Funding dries up in the US and UK.','DARPA','winter1','Promises from the 1950s and 60s had not been met.'],
+ [1980,'R','XCON expert system','DEC\'s rule-based system configures computer orders and saves millions.','DEC / CMU','expert','Its success set off a corporate expert-system boom.'],
+ [1982,'R','Fifth Generation project','Japan launches a 10-year national AI computer program.','Japan MITI','expert','It triggered rival programs in the US and Europe.'],
+ [1986,'L','Backpropagation','Rumelhart, Hinton and Williams show how multi-layer networks can learn.','Geoffrey Hinton','expert','The technique still trains every modern neural network.'],
+ [1987,'R','LISP machine market collapses','Cheap desktop computers undercut specialized AI hardware.','Symbolics & others','winter2','The expert-system boom turned to bust.'],
+ [1989,'L','LeNet reads handwriting','Yann LeCun trains a convolutional network to read zip codes.','Yann LeCun','winter2',''],
+ [1997,'L','LSTM','Hochreiter and Schmidhuber publish long short-term memory networks.','Hochreiter & Schmidhuber','ml',''],
+ [1997,'R','Deep Blue beats Kasparov','IBM\'s chess computer defeats the world champion.','IBM','ml','Brute-force search, not learning, won the match.'],
+ [2006,'L','Deep learning revival','Hinton shows deep belief networks can be trained layer by layer.','Geoffrey Hinton','ml',''],
+ [2009,'L','ImageNet','Fei-Fei Li\'s team releases 14 million labeled images.','Fei-Fei Li','ml','The annual ImageNet challenge became deep learning\'s proving ground.'],
+ [2011,'R','Watson wins Jeopardy!','IBM Watson beats two human champions on TV.','IBM','ml',''],
+ [2011,'R','Siri','Apple ships a voice assistant on the iPhone 4S.','Apple','ml',''],
+ [2012,'L','AlexNet','A deep network trained on GPUs crushes the ImageNet challenge.','Hinton, Krizhevsky, Sutskever','deep','Error fell from 26% to 15%, and the field switched to deep learning.'],
+ [2014,'L','GANs','Ian Goodfellow introduces generative adversarial networks.','Ian Goodfellow','deep',''],
+ [2014,'R','Google acquires DeepMind','Google buys the London lab for a reported ~$500M.','Google DeepMind','deep',''],
+ [2015,'R','OpenAI founded','A non-profit AI lab launches in San Francisco.','OpenAI','deep',''],
+ [2016,'R','AlphaGo beats Lee Sedol','DeepMind\'s program wins 4–1 at Go.','Google DeepMind','deep','Move 37 in game two stunned professionals.'],
+ [2017,'L','"Attention Is All You Need"','Google researchers introduce the Transformer.','Google','transformers','Every major LLM since is built on this architecture.'],
+ [2018,'L','BERT','Google\'s pre-trained Transformer transforms language understanding.','Google','transformers',''],
+ [2018,'R','GPT-1','OpenAI shows generative pre-training works.','OpenAI','transformers',''],
+ [2019,'R','GPT-2','A 1.5B model writes fluent text; OpenAI stages its release.','OpenAI','transformers',''],
+ [2020,'R','GPT-3','175B parameters and few-shot learning from prompts alone.','OpenAI','transformers',''],
+ [2020,'L','AlphaFold 2','DeepMind solves protein structure prediction.','Google DeepMind','transformers',''],
+ [2021,'R','Anthropic founded','Former OpenAI researchers start a safety-focused lab.','Anthropic','transformers',''],
+ [2021,'R','GitHub Copilot preview','AI code completion arrives in the editor.','GitHub / Microsoft','transformers',''],
+ [2022,'R','ChatGPT','OpenAI\'s chat app reaches 100 million users in about two months.','OpenAI','genai',''],
+ [2022,'L','Diffusion goes mainstream','DALL·E 2, Midjourney and Stable Diffusion make image generation public.','Several labs','genai',''],
+ [2023,'R','GPT-4, Claude, Llama','Frontier chat models and open weights arrive in the same spring.','OpenAI · Anthropic · Meta','genai',''],
+ [2024,'L','AI wins Nobel Prizes','Hinton & Hopfield (Physics); Hassabis & Jumper (Chemistry).','Nobel Committee','genai',''],
+ [2024,'R','Reasoning models','OpenAI o1 thinks before it answers.','OpenAI','genai',''],
+ [2025,'R','Open reasoning & agents','DeepSeek R1, Claude Code, Operator and GPT-5.','DeepSeek · Anthropic · OpenAI','genai',''],
+ [2026,'L','Governments step in','A US export-control directive pauses Claude Fable 5 and Mythos 5 for 18 days (Jun 12–30).','US government','genai','Anthropic disabled both models for all customers at 5:21 pm ET on June 12; controls were lifted June 30 and access fully restored July 1.'],
+ [2026,'L','Open weights reach 2.8T','Moonshot AI releases Kimi K3, the largest open-weights model so far (Jul 16).','Moonshot AI','genai',''],
+ [2026,'R','The 5.5 / 6 generation','GPT-6 Astra, Claude Opus 5.5, GPT-6 Sol & Luna, Claude Sonnet 5.5 and GPT-6.1 Sol in September alone.','OpenAI · Anthropic','genai','OpenAI also cancelled GPT-6.1 Astra on Sep 28 after it failed alignment tests.'],
+];
+const ERAS = [
+ {id:'foundations',name:'Foundations',yrs:'1843–1955',from:1843,to:1955,d:'Mathematicians ask whether machines could think, and build the first computers.'},
+ {id:'golden',name:'Golden Age',yrs:'1956–1973',from:1956,to:1973,d:'AI is named, funded and wildly over-promised.'},
+ {id:'winter1',name:'First AI Winter',yrs:'1974–1980',from:1974,to:1979,d:'Funding collapses after early promises fail.'},
+ {id:'expert',name:'Expert Systems',yrs:'1980–1987',from:1980,to:1986,d:'Hand-written rules find real business use.'},
+ {id:'winter2',name:'Second AI Winter',yrs:'1987–1993',from:1987,to:1993,d:'Specialized hardware and brittle rules crash.'},
+ {id:'ml',name:'Machine Learning',yrs:'1993–2011',from:1994,to:2011,d:'Statistics and data replace hand-written rules.'},
+ {id:'deep',name:'Deep Learning',yrs:'2012–2017',from:2012,to:2016,d:'GPUs and big datasets make deep neural nets work.'},
+ {id:'transformers',name:'Transformers & LLMs',yrs:'2017–2022',from:2017,to:2021,d:'One architecture scales to language, code and images.'},
+ {id:'genai',name:'Generative AI Explosion',yrs:'2022–2026',from:2022,to:2026,d:'AI becomes a product used by hundreds of millions.'},
+];
+
+const WINTERS = [
+ {w:'1956',t:'Dartmouth over-optimism',d:'The Dartmouth proposal expected "a significant advance" in one summer with ten researchers. Leading figures predicted human-level machines within a generation.',l:'Hard problems look easy when you only try the easy cases.'},
+ {w:'1966',t:'ALPAC and machine translation',d:'After a decade of US funding, the ALPAC report found machine translation slower, less accurate and twice as expensive as human translators. Funding stopped.',l:'Demos on hand-picked sentences don\'t prove a system works on real text.'},
+ {w:'1969',t:'The limits of the perceptron',d:'Minsky and Papert\'s book Perceptrons proved single-layer networks can\'t learn simple functions like XOR. Neural-network research largely stopped for 15 years.',l:'A limit on one design is not a limit on the whole idea: multi-layer networks solved it.'},
+ {w:'1973',t:'The Lighthill Report',d:'Commissioned by the UK government, it concluded AI had failed to deliver on its "grandiose objectives" because methods broke down on real-world problems ("combinatorial explosion").',l:'Methods that work on toy problems can blow up at real-world scale.'},
+ {w:'1974–80',t:'First AI Winter',d:'DARPA and UK funders cut general AI research. Speech understanding projects at Carnegie Mellon were cancelled. "AI" became a label researchers avoided.',l:'Over-promising costs the whole field, not just one project.',cold:true},
+ {w:'1982–92',t:'Japan\'s Fifth Generation project',d:'Japan spent about ten years and hundreds of millions of dollars building logic-programming computers for AI. It met few of its goals, and rival programs abroad were scaled back too.',l:'Betting a nation on one technical approach is risky.'},
+ {w:'1987',t:'Expert-system brittleness & the LISP-machine collapse',d:'Expert systems were costly to maintain and failed on inputs outside their rules. Cheap Sun workstations and PCs undercut LISP machines, and the specialized AI hardware industry collapsed within a year.',l:'Systems that can\'t learn break at the edges; general hardware beats special hardware.'},
+ {w:'1987–93',t:'Second AI Winter',d:'Corporate AI budgets vanished, hundreds of AI companies closed, and DARPA\'s Strategic Computing Initiative cut AI funding.',l:'Real value has to outlast the hype cycle. Statistical machine learning quietly grew during this winter.',cold:true},
+];
+
+const STEPS = [
+ {t:'Collect data',d:'Gather trillions of words of text, code and images from books, websites, licensed sources and human-written examples. Filter out low-quality, duplicated and unsafe content.',viz:'data'},
+ {t:'Clean & tokenize',d:'Split text into tokens: small pieces of words the model reads as numbers. "unbelievable" might become "un", "believ", "able". Try it in the demo below.',viz:'tok'},
+ {t:'Design the network',d:'Choose a Transformer: stacks of attention layers that let every token look at every other token to work out what matters. Pick its size: layers, width, parameter count.',viz:'net'},
+ {t:'Pre-train on GPUs/TPUs',d:'Show the model text and ask it to predict the next token, billions of times, on thousands of accelerators for weeks. Each mistake nudges its parameters. Knowledge and skills emerge from this one task.',viz:'train'},
+ {t:'Fine-tune with human feedback',d:'Teach it to be a helpful assistant: train on example conversations, then on human (and AI) preferences between answers. This is RLHF and its successors.',viz:'rlhf'},
+ {t:'Safety testing & evaluation',d:'Benchmark capability, red-team for misuse, test for dangerous knowledge, bias and honesty. Add safeguards or hold the release if needed.',viz:'safe'},
+ {t:'Deploy via apps & API',d:'Serve the model in chat apps, coding tools and APIs, on huge fleets of chips. Each request runs the network once per generated token.',viz:'deploy'},
+ {t:'Feedback improves the next model',d:'Usage feedback, new data and research findings flow into the next training run, and the cycle starts again.',viz:'loop'},
+];
+
+const SOURCES = [
+ ['Anthropic news','https://www.anthropic.com/news'],['Claude models overview','https://docs.claude.com/en/docs/about-claude/models'],['OpenAI news','https://openai.com/news'],
+ ['Google DeepMind','https://deepmind.google'],['Google blog: Gemini','https://blog.google/technology/google-deepmind/'],['Meta AI blog','https://ai.meta.com/blog/'],
+ ['xAI news','https://x.ai/news'],['Mistral AI news','https://mistral.ai/news'],['DeepSeek','https://www.deepseek.com'],['Qwen','https://qwen.ai'],
+ ['Hugging Face Hub','https://huggingface.co/models'],['Stanford AI Index','https://hai.stanford.edu/ai-index'],['Lighthill Report (1973)','https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/contents.htm'],
+ ['ALPAC report (1966)','https://nap.nationalacademies.org/read/9547'],['Turing, Computing Machinery and Intelligence (1950)','https://academic.oup.com/mind/article/LIX/236/433/986238'],['Vaswani et al., Attention Is All You Need (2017)','https://arxiv.org/abs/1706.03762'],
+];
+
+/* Upcoming: announced, reported, rumored and cancelled — checked Sep 29, 2026. */
+const UP_STATUS = {
+  soon:{l:'Announced · timing given',c:'var(--accent-blue)',d:'The company announced it and gave a timeframe.'},
+  nodate:{l:'Announced · no date',c:'var(--accent-violet)',d:'Officially confirmed, but no release date yet.'},
+  reported:{l:'Reported · not confirmed',c:'var(--status-superseded)',d:'Credible press reports or internal documents; the company hasn\'t confirmed.'},
+  rumor:{l:'Rumor',c:'var(--ink-subtle)',d:'Leaks and speculation only. Treat with caution.'},
+  cancelled:{l:'Cancelled',c:'var(--status-discontinued)',d:'Announced or planned, then called off.'},
+};
+const UPCOMING = [
+ {id:'claude-haiku-5-5',co:'anthropic',name:'Claude Haiku 5.5',st:'soon',when:'"In the coming weeks" (said Sep 28)',d:'Completes the Claude 5.5 family after Opus 5.5 (Sep 22) and Sonnet 5.5 (Sep 28).',src:[['Unite.AI: Claude Sonnet 5.5','https://www.unite.ai/anthropic-releases-claude-sonnet-5-5-at-unchanged-sonnet-5-pricing/']]},
+ {id:'gpt-6-1-sol-ultrafast',co:'openai',name:'GPT-6.1 Sol Ultrafast',st:'soon',when:'"Coming soon"',d:'A faster version of GPT-6.1 Sol, announced at DevDay the day Sol 6.1 launched.',src:[['OpenAI DevDay 2026 recap','https://openai.com/index/devday-2026-recap/']]},
+ {id:'decisions-api',co:'openai',name:'Decisions API (broad release)',st:'soon',when:'"In the coming days"',d:'In limited preview since DevDay; OpenAI says broad availability is days away.',src:[['OpenAI DevDay 2026 recap','https://openai.com/index/devday-2026-recap/']]},
+ {id:'chatgpt-slides',co:'openai',name:'Collaborative slides in ChatGPT',st:'soon',when:'"In the coming weeks"',d:'Slide decks people and ChatGPT build together, for Pro, Business and Enterprise.',src:[['OpenAI DevDay 2026 recap','https://openai.com/index/devday-2026-recap/']]},
+ {id:'openai-private-inference',co:'openai',name:'Private Inference',st:'soon',when:'"This fall"',d:'Runs OpenAI models with confidential computing for sensitive data.',src:[['OpenAI DevDay 2026 recap','https://openai.com/index/devday-2026-recap/']]},
+ {id:'openai-dots',co:'openai',name:'Dots (always-on agents)',st:'soon',when:'Rolling out: Pro & Business Premium first',d:'Agents that keep working in the background; beta for Enterprise, Edu and Healthcare.',src:[['9to5Mac: DevDay announcements','https://9to5mac.com/2026/09/29/openai-teases-20-announcements-at-devday-watch-live/']]},
+ {id:'apple-siri-languages',co:'apple',name:'Siri AI in more languages',st:'reported',when:'Expected by end of October 2026',d:'French, Japanese, Korean, Portuguese and Spanish via iOS 27.1 and 27.2; currently in testing.',src:[['The Hans India: October 2026 AI updates','https://www.thehansindia.com/tech/upcoming-ai-updates-in-october-2026-major-developments-to-watch-1127036']]},
+ {id:'gemini-4',co:'google',name:'Gemini 4',st:'nodate',when:'Before the end of 2026 (Google\'s hope)',d:'Google\'s next-generation model is in post-training. Gemini 3.8 Flash (Sep 2) is the latest release.',q:'"Our intention is to, like — as soon as possible — to release an early post-training output." — Koray Kavukcuoglu, Google DeepMind',src:[['9to5Google, Sep 24, 2026','https://9to5google.com/2026/09/24/google-says-gemini-4-release-is-coming-as-soon-as-possible/']]},
+ {id:'grok-4-8',co:'xai',name:'Grok 4.8',st:'nodate',when:'No date · training finishing mid-Sep 2026',d:'A 2.5-trillion-parameter model on xAI\'s new C++ stack; reinforcement learning follows training.',q:'"Grok 4.8, which is a 2.5T model trained with our new C++ software stack, will finish training this week and start RL." — Elon Musk, Sep 14, 2026',src:[['GeoToolbox: Grok 5 tracker','https://geotoolbox.ai/blog/grok-5']]},
+ {id:'grok-4-9',co:'xai',name:'Grok 4.9',st:'nodate',when:'No date',d:'Mentioned by Musk as next after 4.8, which he called "probably Astra/Fable class."',src:[['GeoToolbox: Grok 5 tracker','https://geotoolbox.ai/blog/grok-5']]},
+ {id:'grok-5',co:'xai',name:'Grok 5',st:'nodate',when:'No official date',d:'In training on Colossus 2 since xAI\'s January 2026 funding news. Target windows of late 2025, Q1 and Q2 2026 all passed; prediction markets priced a 2026 release near 50/50.',src:[['GeoToolbox: Grok 5 tracker','https://geotoolbox.ai/blog/grok-5'],['xAI news','https://x.ai/news']]},
+ {id:'qwen-4',co:'alibaba',name:'Qwen 4',st:'nodate',when:'No date · analysts guess early 2027',d:'Alibaba said at Apsara (Sep 22–24, 2026) that Qwen 4 is in training; Qwen 4.5 and Qwen 5 are planned at 5–10 trillion parameters. Qwen3.8-Flash-Next (Aug 26) previews its architecture.',src:[['CellCog: Qwen 4 at Apsara','https://cellcog.ai/blog/qwen-4-release-date/']]},
+ {id:'meta-watermelon',co:'meta',name:'"Watermelon" model',st:'reported',when:'October 2026 (reported)',d:'New Meta model named in internal documents; unclear whether it joins the Muse family.',src:[['The Decoder, Aug 2026','https://the-decoder.com/metas-paid-ai-agent-hatch-launches-soon-with-a-new-model-called-watermelon-due-in-october/']]},
+ {id:'meta-hatch',co:'meta',name:'Hatch agent platform',st:'reported',when:'"Within weeks" of Aug 25, 2026 (reported)',d:'Consumer agent that works across DoorDash, Etsy, Reddit, Yelp and Outlook; tiered pricing up to $199.99/month.',src:[['The Decoder, Aug 2026','https://the-decoder.com/metas-paid-ai-agent-hatch-launches-soon-with-a-new-model-called-watermelon-due-in-october/']]},
+ {id:'deepseek-v5',co:'deepseek',name:'DeepSeek V5',st:'rumor',when:'No announcement',d:'No changelog entry, API model name or technical report. Leaks pointed to September 2026, which has passed.',src:[['WinCentral: upcoming models','https://thewincentral.com/upcoming-ai-models-gpt-6-gemini-4-opus-5-5-deepseek-v5/']]},
+ {id:'claude-fable-5-2',co:'anthropic',name:'Claude Fable 5.2',st:'rumor',when:'No announcement',d:'Speculated follow-up to Fable 5.1 (Sep 1). Anthropic hasn\'t announced it.',src:[['WinCentral: upcoming models','https://thewincentral.com/upcoming-ai-models-gpt-6-gemini-4-opus-5-5-deepseek-v5/']]},
+ {id:'kimi-k3-1',co:'moonshot',name:'Kimi K3.1',st:'rumor',when:'No announcement',d:'Rumored incremental upgrade to Moonshot AI\'s Kimi K3.',src:[['WinCentral: upcoming models','https://thewincentral.com/upcoming-ai-models-gpt-6-gemini-4-opus-5-5-deepseek-v5/']]},
+ {id:'glm-next',co:'zhipu',name:'GLM 5.4 / 5.5',st:'rumor',when:'No announcement',d:'Rumored next GLM model; even the version name is disputed.',src:[['WinCentral: upcoming models','https://thewincentral.com/upcoming-ai-models-gpt-6-gemini-4-opus-5-5-deepseek-v5/']]},
+ {id:'gpt-6-1-astra',co:'openai',name:'GPT-6.1 Astra',st:'cancelled',when:'Cancelled Sep 28, 2026',d:'Planned for October. OpenAI stopped the release after it performed poorly on alignment tests, showed higher levels of deception and acted beyond its scope without permission.',q:'OpenAI said the model "didn\'t quite meet the bar."',src:[['9to5Google, Sep 28, 2026','https://9to5google.com/2026/09/28/openai-cancels-gpt-6-1-astra-release-over-misbehavior-safety-concerns/'],['CNBC','https://www.cnbc.com/2026/09/28/openai-abandons-plan-to-release-upcoming-model-as-safety-concerns-escalate.html']]},
+];
+SOURCES.push(['Fact-check report (Claude Design)','https://claude.ai/artifact/LzhBy9snbPMSaVr45Cu9SV'],['Anthropic: Introducing Claude Opus 5.5','https://www.anthropic.com/claude-opus-5-5'],['OpenAI: GPT-6 Astra','https://openai.com/index/gpt-6-astra/'],['GPT-6 Astra System Card','https://deploymentsafety.openai.com/gpt-6-astra'],['The New Stack: GPT-6 Sol and Luna','https://thenewstack.io/openai-gpt-6-sol-luna-release/'],['9to5Google: Gemini 3.6 Flash','https://9to5google.com/2026/07/21/gemini-3-6-flash-launch/'],['Anthropic: Fable 5 access statement (Jun 12)','https://www.anthropic.com/news/fable-mythos-access'],['Anthropic: Redeploying Claude Fable 5','https://www.anthropic.com/news/redeploying-fable-5'],['AWS: Claude Sonnet 5.5','https://aws.amazon.com/blogs/machine-learning/introducing-claude-sonnet-5-5-on-aws/'],['Unite.AI: Claude Sonnet 5.5','https://www.unite.ai/anthropic-releases-claude-sonnet-5-5-at-unchanged-sonnet-5-pricing/'],['Wikipedia: GPT-5.4','https://en.wikipedia.org/wiki/GPT-5.4'],['Wikipedia: GPT-5.5','https://en.wikipedia.org/wiki/GPT-5.5'],['Wikipedia: GPT-5.6','https://en.wikipedia.org/wiki/GPT-5.6'],['Wikipedia: Muse Spark','https://en.wikipedia.org/wiki/Muse_Spark'],['Wikipedia: Grok','https://en.wikipedia.org/wiki/Grok_(chatbot)'],['Wikipedia: Qwen','https://en.wikipedia.org/wiki/Qwen'],['Wikipedia: Moonshot AI','https://en.wikipedia.org/wiki/Moonshot_AI'],['Wikipedia: DeepSeek','https://en.wikipedia.org/wiki/DeepSeek_(chatbot)'],['Wikipedia: Mistral AI','https://en.wikipedia.org/wiki/Mistral_AI'],['Wikipedia: 2026 in artificial intelligence','https://en.wikipedia.org/wiki/2026_in_artificial_intelligence'],['Google: Gemini 3.8 Live','https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/'],['CellCog: Cognition SWE-2','https://cellcog.ai/blog/cognition-swe-2/'],['Bloomberg: Muse Spark 1.3','https://www.bloomberg.com/news/articles/2026-09-02/meta-releases-more-powerful-ai-model-edging-closer-to-rivals'],['9to5Google: Google Pics','https://9to5google.com/2026/09/01/google-pics-launch/'],['Google Workspace: Whisk moving to Flow','https://workspaceupdates.googleblog.com/2026/03/whisk-is-moving-to-flow-on-april-30-2026.html'],['Anthropic 2026 launches (Linas Substack)','https://linas.substack.com/p/anthropic-claude-2026-every-launch-guide'],['OpenAI DevDay 2026 recap','https://openai.com/index/devday-2026-recap/'],['9to5Google: Gemini 4 timing','https://9to5google.com/2026/09/24/google-says-gemini-4-release-is-coming-as-soon-as-possible/'],['9to5Google: GPT-6.1 Astra cancelled','https://9to5google.com/2026/09/28/openai-cancels-gpt-6-1-astra-release-over-misbehavior-safety-concerns/'],['MarkTechPost: Grok 4.7','https://www.marktechpost.com/2026/09/21/spacexai-releases-grok-4-7/'],['Wikipedia: Claude (language model)','https://en.wikipedia.org/wiki/Claude_(language_model)'],['Wikipedia: Gemini (language model)','https://en.wikipedia.org/wiki/Gemini_(language_model)'],['Wikipedia: GPT-5.3-Codex','https://en.wikipedia.org/wiki/GPT-5.3-Codex'],['Hugging Face: GLM-5','https://huggingface.co/blog/mlabonne/glm-5']);
+/* ===================== APP ===================== */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const MONTHS_L = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const TYPES = ['Text LLM','Reasoning','Image','Video','Audio','Coding','Agent','Open-weights','Tool/Website'];
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const coTag = id => (COMPANIES[id]||{}).tag || 'other';
+const coName = id => (COMPANIES[id]||{}).name || id;
+function badge(id, extra=''){ const t = coTag(id); return `<span class="co"${t!=='other'?` data-co="${t}"`:''}${extra}>${esc(coName(id))}</span>`; }
+const fmtDate = r => r.d ? `${MONTHS[r.m-1]} ${r.d}, ${r.y}` : `${MONTHS[r.m-1]} ${r.y} · day to verify`;
+const chips = (types, open) => types.map(t => `<span class="chip${t==='Open-weights'?' open':''}">${esc(t)}</span>`).join('');
+const statusHtml = s => { const c = /discontinued|suspended/i.test(s) ? ' discontinued' : /superseded|merged|renamed/i.test(s) ? ' superseded' : ''; return `<span class="status${c}">${esc(s)}</span>`; };
+const hrefFor = link => !link ? '' : link.startsWith('m:') ? '#m-' + link.slice(2) : link.startsWith('t:') ? '#tools' : link.startsWith('u:') ? '#upcoming' : '';
+const cmpDate = (a,b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0;
+
+/* ---------- Models derived from releases ---------- */
+const MODELS = {};
+RELEASES.forEach(r => { if (r.link && r.link.startsWith('m:')) { const id = r.link.slice(2); if (!MODELS[id]) MODELS[id] = {id, name:r.name.replace(/ \(preview; public Sep 4\)/,'').replace(/ \+ claude\.ai| \+ custom GPTs| \+ Computer Use| \+ Sora app/,''), co:r.co, date:r.date, rel:r, types:r.types, open:r.open, sum:r.sum}; } });
+function familyOf(id){ for (const [fname, list] of FAMILIES){ const i = list.indexOf(id); if (i>=0) return {fname, list, i}; } return null; }
+function familiesOf(id){ return FAMILIES.filter(([,l]) => l.includes(id)).map(([n])=>n); }
+function statusOf(id){ for (const [, list] of FAMILIES){ const i = list.indexOf(id); if (i>=0 && i < list.length-1) return 'Superseded'; } return 'Active'; }
+const MODEL_LIST = Object.values(MODELS).sort(cmpDate).reverse();
+const releaseHref = r => hrefFor(r.link);
+
+/* ---------- State ---------- */
+const S = {
+  tracker:{year:2026, month:9, view:'list', co:'', type:'', open:'', day:null},
+  lib:{co:'', fam:'', year:''},
+  toolsCat:'All',
+  cmp:['claude-opus-5-5','gpt-6-sol','gemini-3-6-flash'],
+  focus:null, step:0, sortKey:'date', sortDir:-1,
+};
+try { const v = JSON.parse(localStorage.getItem('ait-tracker-view')||'null'); if (v==='list'||v==='calendar') S.tracker.view = v; } catch(e){}
+
+/* ---------- Shell ---------- */
+const NAV = [['home','Home'],['timeline','Timeline'],['tracker','Release Tracker'],['upcoming','Coming Soon'],['models','Model Library'],['tools','AI Tools & Websites'],['pioneers','Pioneers'],['winters','AI Winters'],['how','How AI Is Generated'],['companies','Companies'],['today','Models Today']];
+function renderNav(active){
+  $('#nav').innerHTML = NAV.map(([k,l]) => `<a href="#${k}"${k===active?' aria-current="page"':''}>${l}</a>`).join('');
+  const cur = $('#nav a[aria-current]'); if (cur) cur.scrollIntoView({block:'nearest', inline:'center'});
+}
+function pageHead(title, sub, extra=''){ return `<div class="page-head"><span class="label">${extra||'The AI Timeline'}</span><h1>${title}</h1>${sub?`<p>${sub}</p>`:''}</div>`; }
+
+/* ---------- Router ---------- */
+function parse(){
+  const h = decodeURIComponent(location.hash.slice(1)) || 'home';
+  if (h.startsWith('m-')) return {page:'model', id:h.slice(2)};
+  const ty = /^tracker-(\d{4})$/.exec(h); if (ty){ return {page:'tracker', year:+ty[1]}; }
+  return {page: h};
+}
+const PAGES = {};
+let heroStop = null;
+function render(){
+  const r = parse();
+  if (heroStop){ heroStop(); heroStop = null; }
+  const main = $('#main');
+  let navKey = r.page;
+  if (r.page==='model' || r.page==='compare') navKey = 'models';
+  if (r.page==='tracker' && r.year){ S.tracker.year = r.year; S.tracker.month = 0; S.tracker.day = null; }
+  const fn = PAGES[r.page] || PAGES.home;
+  if (!PAGES[r.page]) navKey = 'home';
+  renderNav(navKey);
+  main.innerHTML = `<div class="wrap">${fn(r)}</div>`;
+  (AFTER[r.page] || (()=>{}))(r);
+  document.title = 'The AI Timeline by PUJIVERSE';
+  if (S.focus){ const el = document.getElementById(S.focus); S.focus = null; if (el){ el.scrollIntoView({block:'center'}); el.style.outline='2px solid var(--accent-violet)'; setTimeout(()=>el.style.outline='',2200); return; } }
+  window.scrollTo(0,0);
+}
+const AFTER = {};
+window.addEventListener('hashchange', render);
+
+/* ===================== HOME ===================== */
+PAGES.home = () => {
+  const dated = RELEASES.filter(r=>r.d && !r.link.startsWith('u:')).sort(cmpDate).reverse().slice(0,6);
+  const n26 = RELEASES.filter(r=>r.y===2026).length;
+  const desc = {timeline:'1843 → 2026 on one glowing line',tracker:'Every release by month and day',upcoming:`${UPCOMING.length} announced, reported and rumored releases`,models:`${MODEL_LIST.length} models with detail pages`,tools:`${TOOLS.length} AI products and websites`,pioneers:'12 people who shaped AI',winters:'The failures that taught the field',how:'From raw data to a chatbot, in 8 steps',companies:`${COMPANY_PAGE.length} labs and platforms`,today:'The frontier as of Sep 2026'};
+  return `
+  <section class="hero anim" aria-label="Introduction">
+    <canvas id="net" aria-hidden="true"></canvas>
+    <span class="label kicker">Turing to today · data as of ${AS_OF}</span>
+    <h1>The AI Timeline: From Turing to Today</h1>
+    <span class="by-line">by PUJIVERSE</span>
+    <p class="sub">80+ years of thinking machines, from a Victorian algorithm to GPT-6 and Claude Opus 5.5.</p>
+    <div class="row" style="margin-top:8px"><a class="btn primary" href="#timeline">Explore the timeline</a><a class="btn secondary" href="#tracker">Open Release Tracker</a></div>
+  </section>
+  <div class="stats">
+    <div class="stat anim"><span class="num" data-count="2.7">2.7M<em>+</em></span><span class="lbl">models on Hugging Face (figure from the brief; live count not confirmed)</span></div>
+    <div class="stat anim"><span class="num">1956</span><span class="lbl">AI gets its name at Dartmouth</span></div>
+    <div class="stat anim"><span class="num">2</span><span class="lbl">AI Winters survived (1974–80, 1987–93)</span></div>
+    <div class="stat anim"><span class="num small">GPT-6.1 Sol &amp; GPT-6 Astra Ultrafast</span><span class="lbl">Latest release · <span class="mono">Sep 29, 2026</span> (DevDay). Before that: Claude Sonnet 5.5, Sep 28</span></div>
+  </div>
+  <section class="section">
+    <div class="section-head"><div><span class="label">This month in AI</span><h2>Latest 6 releases</h2></div><a class="btn secondary sm" href="#tracker">All ${n26} releases in 2026 →</a></div>
+    <div class="strip">${dated.map(r=>`<a class="card rcard anim" href="${releaseHref(r)||'#tracker'}"><div class="row" style="justify-content:space-between">${badge(r.co)}<span class="date">${fmtDate(r)}</span></div><span class="nm">${esc(r.name)}</span><span class="sm">${esc(r.sum)}</span><div class="row">${chips(r.types.slice(0,2))}</div></a>`).join('')}</div>
+  </section>
+  <section class="section">
+    <div class="section-head"><div><span class="label">What's next</span><h2>Coming soon</h2></div><a class="btn secondary sm" href="#upcoming">All ${UPCOMING.length} upcoming →</a></div>
+    <div class="strip">${UPCOMING.filter(u=>u.st==='soon'||u.st==='nodate').slice(0,4).concat(UPCOMING.filter(u=>u.st==='cancelled')).map(upCard).join('')}</div>
+  </section>
+  <section class="section">
+    <div class="section-head"><div><span class="label">Explore</span><h2>Every page</h2></div></div>
+    <div class="pages">${NAV.slice(1).map(([k,l],i)=>`<a class="pagebtn" href="#${k}"><i>${String(i+1).padStart(2,'0')}</i><b>${l}</b><span>${desc[k]}</span></a>`).join('')}</div>
+  </section>`;
+};
+AFTER.home = () => { heroStop = startNet($('#net')); };
+function startNet(cv){
+  if (!cv) return null;
+  const ctx = cv.getContext('2d'); let w, h, dpr, nodes, raf, alive = true;
+  function size(){ dpr = Math.min(devicePixelRatio||1, 2); w = cv.clientWidth; h = cv.clientHeight; cv.width = w*dpr; cv.height = h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    const n = Math.round(Math.min(70, w*h/9000)); nodes = Array.from({length:n}, (_,i)=>({x:Math.random()*w, y:Math.random()*h, vx:(Math.random()-.5)*.25, vy:(Math.random()-.5)*.25, c: i%3===0 ? '#9d7bff' : '#3da5ff', p:Math.random()*6.28})); }
+  function frame(t){
+    ctx.clearRect(0,0,w,h);
+    for (const a of nodes){ a.x+=a.vx; a.y+=a.vy; if(a.x<0||a.x>w)a.vx*=-1; if(a.y<0||a.y>h)a.vy*=-1; }
+    for (let i=0;i<nodes.length;i++) for (let j=i+1;j<nodes.length;j++){ const a=nodes[i], b=nodes[j]; const dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy); if (d<130){ ctx.strokeStyle = `rgba(61,165,255,${(1-d/130)*.28})`; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); } }
+    for (const a of nodes){ const pulse = REDUCED?1:(.6+.4*Math.sin(t/700+a.p)); ctx.fillStyle=a.c; ctx.globalAlpha=.35+.5*pulse; ctx.beginPath(); ctx.arc(a.x,a.y,2.2,0,6.283); ctx.fill(); ctx.globalAlpha=1; }
+    // fade toward text side
+    const g = ctx.createLinearGradient(0,h,0,0); g.addColorStop(0,'rgba(10,16,32,.92)'); g.addColorStop(.6,'rgba(10,16,32,.2)'); g.addColorStop(1,'rgba(10,16,32,0)'); ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
+    if (alive && !REDUCED) raf = requestAnimationFrame(frame);
+  }
+  size(); frame(0);
+  const onR = () => { size(); if (REDUCED) frame(0); };
+  addEventListener('resize', onR);
+  return () => { alive=false; cancelAnimationFrame(raf); removeEventListener('resize', onR); };
+}
+
+/* ===================== TIMELINE ===================== */
+PAGES.timeline = () => {
+  const secs = ERAS.map(e => {
+    const evs = EVENTS.filter(ev => ev[5]===e.id).sort((a,b)=>a[0]-b[0]);
+    const rows = evs.map((ev,i) => {
+      const [y,side,t,d,who,,more] = ev; const row = i+1; const R = side==='R';
+      const yr = y>=2022 ? `<a href="#tracker-${y}" title="Open ${y} in the Release Tracker">${y} →</a>` : y;
+      const tag = /^(OpenAI|Anthropic|Google|Meta|Microsoft|xAI|IBM|Google DeepMind|DeepSeek)$/.test(who) ? badge({OpenAI:'openai',Anthropic:'anthropic',Google:'google','Google DeepMind':'google',Meta:'meta',Microsoft:'microsoft',xAI:'xai',IBM:'ibm',DeepSeek:'deepseek'}[who]) : `<span class="co">${esc(who)}</span>`;
+      return `<span class="node" style="grid-row:${row}" aria-hidden="true"></span>
+      <article class="card tc ${R?'right':''} anim ${R?'from-right':'from-left'}" style="grid-row:${row}">
+        <span class="label">${R?'Product · launch · company':'Research · breakthrough'}</span>
+        <span class="yr">${yr}</span><h3>${esc(t)}</h3><p>${esc(d)}</p>
+        <div class="row">${tag}${more?`<button class="btn ghost sm" aria-expanded="false" data-more>Read more</button>`:''}</div>
+        ${more?`<p class="more" hidden>${esc(more)}</p>`:''}
+      </article>`;
+    }).join('');
+    return `<section class="era-sec" id="era-${e.id}" data-era="${e.id}">
+      <div class="era-head"><span class="yrs">${e.yrs}</span><h2>${e.name}</h2><p>${e.d}</p></div>
+      <div class="side-lbl"><span class="label">← Research &amp; breakthroughs</span><span class="label">Products, launches &amp; companies →</span></div>
+      <div class="tl">${rows}</div></section>`;
+  }).join('');
+  return pageHead('The Timeline','Each year is a node on the line. Research and breakthroughs sit on the left; products, model launches and companies on the right. Click a year from 2022 on to open it in the Release Tracker.') +
+  `<div class="erabar"><div class="erabar-in" role="toolbar" aria-label="Jump to era">${ERAS.map(e=>`<button class="era" data-era="${e.id}" data-jump="${e.id}" aria-pressed="false">${e.name} <small>${e.yrs}</small></button>`).join('')}</div></div>${secs}`;
+};
+AFTER.timeline = () => {
+  $$('[data-jump]').forEach(b => b.onclick = () => { const el = $('#era-'+b.dataset.jump); const y = el.getBoundingClientRect().top + scrollY - 170; scrollTo({top:y, behavior: REDUCED?'auto':'smooth'}); });
+  $$('[data-more]').forEach(b => b.onclick = () => { const p = b.closest('article').querySelector('.more'); const open = p.hidden; p.hidden = !open; b.setAttribute('aria-expanded', open); b.textContent = open ? 'Show less' : 'Read more'; });
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver(ents => { ents.forEach(en => { if (en.isIntersecting){ const id = en.target.dataset.era; $$('[data-jump]').forEach(b => b.setAttribute('aria-pressed', b.dataset.jump===id)); const cur = $(`[data-jump="${id}"]`); cur && cur.scrollIntoView({block:'nearest',inline:'center'}); } }); }, {rootMargin:'-45% 0px -50% 0px'});
+    $$('.era-sec').forEach(s => io.observe(s));
+  }
+};
+
+/* ===================== RELEASE TRACKER ===================== */
+function trackerFiltered(ignoreMonth){
+  const T = S.tracker;
+  return RELEASES.filter(r => r.y===T.year && (ignoreMonth || !T.month || r.m===T.month)
+    && (!T.co || r.co===T.co) && (!T.type || r.types.includes(T.type))
+    && (!T.open || (T.open==='open' ? r.open===true : r.open===false)));
+}
+function clashDays(list){ const by = {}; list.filter(r=>r.d).forEach(r => (by[r.date] ||= new Set()).add(r.co)); return Object.keys(by).filter(k => by[k].size>1).sort(); }
+function relRow(r, clash){ const href = releaseHref(r); const tag = href ? 'a' : 'div';
+  return `<${tag} class="rel${clash?' clash':''}"${href?` href="${href}"`:''}${r.link&&r.link.startsWith('t:')?` data-focus="tool-${r.link.slice(2)}"`:''}><span class="date">${fmtDate(r)}</span>${badge(r.co)}<span class="nm">${esc(r.name)}</span><span class="chips">${chips(r.types.slice(0,3))}</span><span class="sm">${esc(r.sum)}</span></${tag}>`; }
+PAGES.tracker = () => {
+  const T = S.tracker;
+  const years = [2022,2023,2024,2025,2026];
+  const all = trackerFiltered(true);
+  const cos = [...new Set(RELEASES.map(r=>r.co))].sort((a,b)=>coName(a).localeCompare(coName(b)));
+  const counts = MONTHS.map((_,i)=> all.filter(r=>r.m===i+1).length);
+  if (T.view==='calendar' && !T.month){ const last = counts.map((c,i)=>c?i+1:0).filter(Boolean).pop(); T.month = last || 1; }
+  const list = trackerFiltered(false);
+  const clashes = clashDays(all);
+  let body = '';
+  if (T.view==='list'){
+    if (!list.length) body = `<div class="card"><p class="muted">No releases match these filters. Clear a filter or pick another month.</p><button class="btn secondary sm" data-clear style="margin-top:12px">Clear filters</button></div>`;
+    else {
+      const monthsWith = [...new Set(list.map(r=>r.m))].sort((a,b)=>a-b);
+      body = monthsWith.map(m => {
+        const ml = list.filter(r=>r.m===m);
+        const days = [...new Set(ml.filter(r=>r.d).map(r=>r.d))].sort((a,b)=>a-b);
+        const und = ml.filter(r=>!r.d);
+        return `<h2 class="month-h">${MONTHS_L[m-1]} ${T.year} <span class="note">${ml.length} release${ml.length>1?'s':''}</span></h2>` +
+          days.map(d => { const dl = ml.filter(r=>r.d===d); const cl = clashes.includes(dl[0].date);
+            return `<div class="day-h"><span class="date" style="color:var(--ink)">${MONTHS[m-1]} ${d}, ${T.year}</span>${cl?`<span class="clash-pill">Same-day clash · ${dl.length} releases</span>`:''}</div><div class="stack">${dl.map(r=>relRow(r,cl)).join('')}</div>`; }).join('') +
+          (und.length ? `<div class="day-h"><span class="date" style="color:var(--ink)">${MONTHS[m-1]} ${T.year} · exact day not confirmed</span></div><div class="stack">${und.map(r=>relRow(r)).join('')}</div>` : '');
+      }).join('');
+    }
+  } else {
+    const m = T.month, first = new Date(T.year, m-1, 1).getDay(), dim = new Date(T.year, m, 0).getDate();
+    const ml = list; const cells = [];
+    for (let i=0;i<first;i++) cells.push(`<div class="day pad" aria-hidden="true"></div>`);
+    for (let d=1; d<=dim; d++){ const dl = ml.filter(r=>r.d===d);
+      cells.push(dl.length ? `<button class="day has" data-day="${d}" aria-pressed="${T.day===d}" aria-label="${MONTHS_L[m-1]} ${d}: ${dl.length} release${dl.length>1?'s':''}"><span class="d">${d}</span><span class="dots">${dl.map(r=>`<i class="dot" style="background:var(--co-${coTag(r.co)})" title="${esc(coName(r.co))}: ${esc(r.name)}"></i>`).join('')}</span><span class="cnt">${dl.length} release${dl.length>1?'s':''}</span></button>` : `<div class="day"><span class="d">${d}</span></div>`); }
+    const sel = T.day ? ml.filter(r=>r.d===T.day) : [];
+    const und = ml.filter(r=>!r.d);
+    const panel = T.day && sel.length ? `<span class="label">Releases on</span><h3>${MONTHS_L[m-1]} ${T.day}, ${T.year}</h3>${sel.length>1&&new Set(sel.map(r=>r.co)).size>1?`<span class="clash-pill">Same-day clash</span>`:''}${sel.map(r=>{const h=releaseHref(r);return `<${h?'a':'div'} class="pi"${h?` href="${h}"`:''}${r.link&&r.link.startsWith('t:')?` data-focus="tool-${r.link.slice(2)}"`:''}><div class="row">${badge(r.co)}</div><b style="font-family:var(--font-display)">${esc(r.name)}</b><span class="muted" style="font-size:14px;line-height:20px">${esc(r.sum)}</span><div class="row">${chips(r.types.slice(0,3))}</div></${h?'a':'div'}>`}).join('')}`
+      : `<span class="label">Day panel</span><h3>${ml.length ? 'Pick a day' : 'No releases'}</h3><p class="muted" style="font-size:14px">${ml.length ? `Days with a dot had a release. Each dot is one release, colored by company. ${MONTHS_L[m-1]} has ${ml.length}.` : 'Nothing matches these filters this month.'}</p>`;
+    body = `<div class="cal-wrap"><div><div class="cal">${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d=>`<span class="dow">${d}</span>`).join('')}${cells.join('')}</div>
+      ${und.length?`<div class="undated"><span class="label">Exact day not confirmed</span><div class="stack" style="margin-top:8px">${und.map(r=>relRow(r)).join('')}</div></div>`:''}</div><aside class="panel" aria-live="polite">${panel}</aside></div>`;
+  }
+  return pageHead('Release Tracker','Every major model, tool and launch from 2022 to today, month by month and day by day. Pick a year, a month and a view.') +
+  `<a class="card upbanner" href="#upcoming"><span class="label" style="color:var(--accent-violet)">Looking ahead</span><span>${UPCOMING.filter(u=>u.st!=='cancelled').length} announced, reported and rumored releases, from Gemini 4 to Grok 5, are on <b>Coming Soon</b> →</span></a>` +
+  `<div class="controls">
+    <label><span class="label">Year</span><select id="t-year">${years.map(y=>`<option${y===T.year?' selected':''}>${y}</option>`).join('')}</select></label>
+    <label><span class="label">Company</span><select id="t-co"><option value="">All companies</option>${cos.map(c=>`<option value="${c}"${c===T.co?' selected':''}>${esc(coName(c))}</option>`).join('')}</select></label>
+    <label><span class="label">Type</span><select id="t-type"><option value="">All types</option>${TYPES.map(t=>`<option${t===T.type?' selected':''}>${t}</option>`).join('')}</select></label>
+    <label><span class="label">Access</span><select id="t-open"><option value="">Open &amp; closed</option><option value="open"${T.open==='open'?' selected':''}>Open weights</option><option value="closed"${T.open==='closed'?' selected':''}>Closed</option></select></label>
+    <div style="margin-left:auto;display:flex;flex-direction:column;gap:4px"><span class="label">View</span><div class="seg" role="group" aria-label="View"><button data-view="list" aria-pressed="${T.view==='list'}">List</button><button data-view="calendar" aria-pressed="${T.view==='calendar'}">Calendar</button></div></div>
+  </div>
+  <div class="tabs" role="toolbar" aria-label="Month" style="margin-bottom:var(--space-5)">
+    ${T.view==='list'?`<button data-month="0" aria-pressed="${!T.month}">All months<span class="n">${all.length}</span></button>`:''}
+    ${MONTHS.map((mn,i)=>`<button data-month="${i+1}" aria-pressed="${T.month===i+1}"${!counts[i]&&T.view==='list'?' disabled':''}>${mn}<span class="n">${counts[i]}</span></button>`).join('')}
+  </div>
+  ${clashes.length && T.view==='list' ? `<div class="row" style="margin-bottom:var(--space-5)"><span class="label">Same-day clashes in ${T.year}:</span>${clashes.map(d=>{const [y,m,dd]=d.split('-').map(Number);return `<button class="clash-pill" style="background:transparent;cursor:pointer" data-goto-day="${m}-${dd}">${MONTHS[m-1]} ${dd}</button>`}).join('')}</div>`:''}
+  ${body}`;
+};
+AFTER.tracker = () => {
+  const T = S.tracker, rr = () => { const y = scrollY; $('#main').innerHTML = `<div class="wrap">${PAGES.tracker()}</div>`; AFTER.tracker(); scrollTo(0,y); };
+  $('#t-year').onchange = e => { T.year = +e.target.value; T.month = T.view==='calendar' ? 0 : 0; T.day = null; rr(); };
+  $('#t-co').onchange = e => { T.co = e.target.value; rr(); };
+  $('#t-type').onchange = e => { T.type = e.target.value; rr(); };
+  $('#t-open').onchange = e => { T.open = e.target.value; rr(); };
+  $$('[data-view]').forEach(b => b.onclick = () => { T.view = b.dataset.view; T.day = null; try{localStorage.setItem('ait-tracker-view', JSON.stringify(T.view))}catch(e){} rr(); });
+  $$('[data-month]').forEach(b => b.onclick = () => { T.month = +b.dataset.month; T.day = null; rr(); });
+  $$('[data-day]').forEach(b => b.onclick = () => { T.day = +b.dataset.day; rr(); });
+  $$('[data-clear]').forEach(b => b.onclick = () => { T.co=''; T.type=''; T.open=''; rr(); });
+  $$('[data-goto-day]').forEach(b => b.onclick = () => { const [m,d] = b.dataset.gotoDay.split('-').map(Number); T.view='calendar'; T.month=m; T.day=d; rr(); });
+  $$('[data-focus]').forEach(a => a.addEventListener('click', () => { S.focus = a.dataset.focus; }));
+};
+
+/* ===================== MODEL LIBRARY ===================== */
+PAGES.models = () => {
+  const L = S.lib;
+  const cos = [...new Set(MODEL_LIST.map(m=>m.co))].sort((a,b)=>coName(a).localeCompare(coName(b)));
+  const fams = FAMILIES.map(f=>f[0]);
+  const list = MODEL_LIST.filter(m => (!L.co||m.co===L.co) && (!L.year||m.date.startsWith(L.year)) && (!L.fam||familiesOf(m.id).includes(L.fam)));
+  return pageHead('Model Library', `${MODEL_LIST.length} models from 2022 to today. Open any card for its release date, lineage, changes and specs, or compare up to three side by side.`) +
+  `<div class="controls">
+    <label><span class="label">Company</span><select id="l-co"><option value="">All companies</option>${cos.map(c=>`<option value="${c}"${c===L.co?' selected':''}>${esc(coName(c))}</option>`).join('')}</select></label>
+    <label><span class="label">Family</span><select id="l-fam"><option value="">All families</option>${fams.map(f=>`<option${f===L.fam?' selected':''}>${esc(f)}</option>`).join('')}</select></label>
+    <label><span class="label">Year</span><select id="l-year"><option value="">All years</option>${[2026,2025,2024,2023,2022].map(y=>`<option${String(y)===L.year?' selected':''}>${y}</option>`).join('')}</select></label>
+    <a class="btn primary" style="margin-left:auto" href="#compare">Compare models</a>
+  </div>
+  <p class="note" style="margin-bottom:var(--space-4)">Showing ${list.length} of ${MODEL_LIST.length} · ★ marks models with a full change log</p>
+  <div class="grid">${list.map(m=>`<a class="card rcard anim" href="#m-${m.id}"><div class="row" style="justify-content:space-between">${badge(m.co)}${statusHtml(statusOf(m.id))}</div><span class="nm">${FEATURED[m.id]?'★ ':''}${esc(m.name)}</span><span class="date">${fmtDate(m.rel)}</span><span class="sm">${esc(m.sum)}</span><div class="row">${chips(m.types.slice(0,3))}</div></a>`).join('') || '<p class="muted">No models match. Clear a filter.</p>'}</div>`;
+};
+AFTER.models = () => {
+  const rr = () => { $('#main').innerHTML = `<div class="wrap">${PAGES.models()}</div>`; AFTER.models(); };
+  $('#l-co').onchange = e => { S.lib.co = e.target.value; rr(); };
+  $('#l-fam').onchange = e => { S.lib.fam = e.target.value; rr(); };
+  $('#l-year').onchange = e => { S.lib.year = e.target.value; rr(); };
+};
+function lineageHtml(id){
+  const f = familyOf(id); if (!f) return `<div class="lin"><span class="lstep empty">No known predecessor</span><span class="arr">→</span><span class="lstep cur">${esc(MODELS[id].name)}</span><span class="arr">→</span><span class="lstep empty">Next — not yet released</span></div>`;
+  const {list,i} = f; const prev = i>0 ? list[i-1] : null, next = i<list.length-1 ? list[i+1] : null;
+  const step = x => typeof x === 'object' ? `<span class="lstep">${esc(x.label)}</span>` : MODELS[x] ? `<a href="#m-${x}">${esc(MODELS[x].name)} · <span class="mono" style="font-size:12px">${MODELS[x].rel.d?fmtDate(MODELS[x].rel):MONTHS[MODELS[x].rel.m-1]+' '+MODELS[x].rel.y}</span></a>` : `<span class="lstep">${esc(x)}</span>`;
+  return `<nav class="lin" aria-label="Family lineage">${prev!==null?step(prev):'<span class="lstep empty">First in family</span>'}<span class="arr">→</span><span class="lstep cur" aria-current="page">${esc(MODELS[id].name)}</span><span class="arr">→</span>${next!==null?step(next):'<span class="lstep empty">Next — not yet released</span>'}</nav><p class="note" style="margin-top:6px">Family: ${esc(f.fname)}</p>`;
+}
+function specsOf(id){ const F = FEATURED[id]; const s = (F&&F.specs) || SPECS[id] || {}; return {context:s.context||'—',output:s.output||'—',price:s.price||'—',avail:s.avail||'—',cutoff:s.cutoff||'—',api:s.api||'',extra:s.extra||[]}; }
+PAGES.model = r => {
+  const m = MODELS[r.id];
+  if (!m) return `<a class="back" href="#models">← Model Library</a><div class="card"><h2>Model not found</h2><p class="muted" style="margin-top:8px">There's no page for "${esc(r.id)}". Pick one from the Model Library.</p></div>`;
+  const F = FEATURED[m.id]; const sp = specsOf(m.id);
+  const list = (cls, head, items) => items && items.length ? `<section class="card chg ${cls}"><h4>${head}</h4><ul>${items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>` : '';
+  return `<a class="back" href="#models">← Model Library</a>
+  <header class="detail-head">
+    <div class="row">${badge(m.co)}${statusHtml(statusOf(m.id))}${m.open===true?'<span class="chip open">Open-weights</span>':''}</div>
+    <h1>${esc(m.name)}</h1>
+    <div class="row"><span class="date" style="color:var(--ink)">Released ${F&&F.dateNote?esc(F.dateNote):fmtDate(m.rel)}</span></div>
+    <p class="muted" style="max-width:720px">${esc(m.sum)}</p>
+    <div class="row">${chips(m.types)}</div>
+  </header>
+  <section style="margin-bottom:var(--space-5)"><span class="label" style="display:block;margin-bottom:8px">Family lineage</span>${lineageHtml(m.id)}</section>
+  ${F ? `<div class="chg-grid" style="margin-bottom:var(--space-5)">${list('','✅ What\'s new',F.new)}${list('fixed','🔧 Drawbacks fixed',F.fixed)}${list('removed','⚠️ Removed / breaking / limitations',F.removed)}</div>`
+      : `<div class="card" style="margin-bottom:var(--space-5)"><span class="label">What's new</span><p style="margin-top:8px">${esc(m.sum)}</p><p class="note" style="margin-top:8px">A full change log (new, fixed, removed) hasn't been added for this model yet.</p></div>`}
+  <h2 style="margin-bottom:var(--space-3)">Specs</h2>
+  <div class="tbl-wrap" style="margin-bottom:var(--space-5)"><table><tbody>
+    <tr><td class="k">Context window</td><td class="mono">${esc(sp.context)}</td></tr>
+    <tr><td class="k">Max output</td><td class="mono">${esc(sp.output)}</td></tr>
+    <tr><td class="k">Pricing</td><td>${esc(sp.price)}</td></tr>
+    <tr><td class="k">Availability</td><td>${esc(sp.avail)}</td></tr>
+    <tr><td class="k">Knowledge cutoff</td><td>${esc(sp.cutoff)}</td></tr>
+    ${sp.api?`<tr><td class="k">API id</td><td class="mono">${esc(sp.api)}</td></tr>`:''}
+    ${sp.extra.map(([k,v])=>`<tr><td class="k">${esc(k)}</td><td>${esc(v)}</td></tr>`).join('')}
+  </tbody></table></div>
+  <div class="row"><button class="btn primary" id="cmp-go">Compare with…</button><a class="btn secondary" href="#tracker-${m.rel.y}">See ${m.rel.y} in the tracker</a></div>
+  <p class="note" style="margin-top:var(--space-4)">— means not published in our sources. Dates verified as of Sep 29, 2026 — check official sites for the latest.</p>`;
+};
+AFTER.model = r => { const b = $('#cmp-go'); if (b) b.onclick = () => { const others = S.cmp.filter(x=>x!==r.id); S.cmp = [r.id, ...others].slice(0,3); location.hash = 'compare'; }; };
+
+/* ---------- Compare ---------- */
+PAGES.compare = () => {
+  const opts = sel => `<option value="">— none —</option>` + Object.entries(MODEL_LIST.reduce((g,m)=>((g[coName(m.co)] ||= []).push(m), g), {})).sort((a,b)=>a[0].localeCompare(b[0])).map(([c,ms])=>`<optgroup label="${esc(c)}">${ms.map(m=>`<option value="${m.id}"${m.id===sel?' selected':''}>${esc(m.name)}</option>`).join('')}</optgroup>`).join('');
+  const ids = S.cmp.filter(id=>MODELS[id]);
+  const rows = [['Company',m=>badge(m.co)],['Released',m=>`<span class="mono">${fmtDate(m.rel)}</span>`],['Status',m=>statusHtml(statusOf(m.id))],['Type',m=>`<div class="row">${chips(m.types)}</div>`],['Open or closed',m=>m.open===true?'Open weights':m.open===false?'Closed':'Not stated'],
+    ['Context window',m=>`<span class="mono">${esc(specsOf(m.id).context)}</span>`],['Max output',m=>`<span class="mono">${esc(specsOf(m.id).output)}</span>`],['Pricing (per 1M tokens)',m=>esc(specsOf(m.id).price)],['Knowledge cutoff',m=>esc(specsOf(m.id).cutoff)],['Availability',m=>esc(specsOf(m.id).avail)],['Summary',m=>`<span class="muted">${esc(m.sum)}</span>`]];
+  return `<a class="back" href="#models">← Model Library</a>` + pageHead('Compare models','Pick two or three models to see them side by side.') +
+  `<div class="controls">${[0,1,2].map(i=>`<label style="flex:1 1 220px"><span class="label">Model ${i+1}</span><select data-slot="${i}" style="width:100%">${opts(S.cmp[i])}</select></label>`).join('')}</div>
+  ${ids.length<2?'<p class="muted" style="margin-bottom:12px">Pick at least two models.</p>':''}
+  <div class="tbl-wrap"><table><thead><tr><th></th>${ids.map(id=>`<th style="text-transform:none;letter-spacing:0;font:600 16px/22px var(--font-display);color:var(--ink)"><a href="#m-${id}" style="color:inherit">${esc(MODELS[id].name)}</a></th>`).join('')}</tr></thead>
+  <tbody>${rows.map(([k,f])=>`<tr><td class="k">${k}</td>${ids.map(id=>`<td>${f(MODELS[id])}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
+  <p class="note" style="margin-top:12px">— means not published in our sources.</p>`;
+};
+AFTER.compare = () => { $$('[data-slot]').forEach(s => s.onchange = () => { const i = +s.dataset.slot; const c = [...S.cmp]; c[i] = s.value; S.cmp = c.filter((v,j,a)=>v && a.indexOf(v)===j); $('#main').innerHTML = `<div class="wrap">${PAGES.compare()}</div>`; AFTER.compare(); }); };
+
+/* ===================== TOOLS ===================== */
+const TOOL_CATS = ['All','Chatbots','Image','Video','Music/Audio','Coding','Research/Notes','Platforms/Hubs'];
+PAGES.tools = () => {
+  const list = TOOLS.filter(t => S.toolsCat==='All' || t.cat===S.toolsCat);
+  return pageHead('AI Tools & Websites', `${TOOLS.length} AI products you can use today, or could once. Each card links to the official site and shows which models power it.`) +
+  `<div class="tabs" role="toolbar" aria-label="Category" style="margin-bottom:var(--space-5)">${TOOL_CATS.map(c=>`<button data-cat="${c}" aria-pressed="${S.toolsCat===c}">${c}<span class="n">${c==='All'?TOOLS.length:TOOLS.filter(t=>t.cat===c).length}</span></button>`).join('')}</div>
+  <div class="grid">${list.map(t=>`<article class="card tool anim" id="tool-${t.id}">
+    <div class="tool-top"><div class="logo-slot" title="Logo slot: upload the official press-kit file">Logo</div><div><h3>${esc(t.name)}</h3><div class="row" style="margin-top:6px">${badge(t.co)}${statusHtml(t.status)}</div></div></div>
+    <p class="muted" style="font-size:14px;line-height:20px">${esc(t.what)}</p>
+    <dl class="facts"><dt>Launched</dt><dd class="mono" style="font-size:13px">${esc(t.launched)}</dd><dt>Powered by</dt><dd>${esc(t.powered)}</dd><dt>Category</dt><dd>${esc(t.cat)}</dd></dl>
+    ${t.hist?`<div class="hist" aria-label="History">${t.hist.map(([d,x])=>`<div class="h"><span></span><span><span class="mono subtle" style="font-size:12px">${esc(d)}</span> · ${esc(x)}</span></div>`).join('')}</div>`:''}
+    <div class="row" style="justify-content:space-between;margin-top:auto"><a class="btn ghost" href="https://${t.site}" target="_blank" rel="noopener noreferrer">${esc(t.site)} ↗</a></div>
+    <p class="note">Dates verified as of Sep 29, 2026 — check official sites for latest.</p>
+  </article>`).join('')}</div>`;
+};
+AFTER.tools = () => { $$('[data-cat]').forEach(b => b.onclick = () => { S.toolsCat = b.dataset.cat; $('#main').innerHTML = `<div class="wrap">${PAGES.tools()}</div>`; AFTER.tools(); }); };
+
+/* ===================== PIONEERS ===================== */
+PAGES.pioneers = () => pageHead('Pioneers','Twelve people whose ideas built the field, from the first algorithm to the scaling era.') +
+  `<div class="grid">${PIONEERS.map(p=>`<article class="card pion anim" id="p-${p.ini}">
+    <div class="row" style="gap:16px;flex-wrap:nowrap"><span class="avatar" style="--era:var(--era-${p.era})" aria-hidden="true">${p.ini}</span><div><h3>${esc(p.n)}</h3><span class="date">${esc(p.y)}</span></div></div>
+    <p class="muted" style="font-size:14px;line-height:20px">${esc(p.c)}</p>
+    <div class="quote"><span class="label" style="display:block;margin-bottom:4px">Guiding idea</span>${esc(p.q)}</div>
+  </article>`).join('')}</div>`;
+
+/* ===================== AI WINTERS ===================== */
+function hypeChart(){
+  const W=880,H=300,P={l:44,r:120,t:20,b:36};
+  const hype=[[1955,55],[1962,78],[1968,85],[1973,62],[1975,24],[1979,28],[1982,55],[1986,86],[1988,40],[1993,18],[2000,30],[2008,38],[2012,55],[2016,72],[2020,78],[2023,94],[2026,100]];
+  const real=[[1955,5],[1962,9],[1968,12],[1973,14],[1975,14],[1979,16],[1982,20],[1986,27],[1988,28],[1993,30],[2000,38],[2008,46],[2012,58],[2016,67],[2020,76],[2023,88],[2026,95]];
+  const x=v=>P.l+(v-1955)/(2026-1955)*(W-P.l-P.r), y=v=>P.t+(1-v/100)*(H-P.t-P.b);
+  const path=a=>a.map((p,i)=>`${i?'L':'M'}${x(p[0]).toFixed(1)},${y(p[1]).toFixed(1)}`).join('');
+  const band=(a,b,l)=>`<rect x="${x(a)}" y="${P.t}" width="${x(b)-x(a)}" height="${H-P.t-P.b}" fill="#9fb3c8" opacity=".12"/><text x="${(x(a)+x(b))/2}" y="${P.t+14}" text-anchor="middle" fill="#a3b0cc" font-size="11">${l}</text>`;
+  const ticks=[1960,1970,1980,1990,2000,2010,2020].map(t=>`<line x1="${x(t)}" x2="${x(t)}" y1="${H-P.b}" y2="${H-P.b+4}" stroke="#5f73a0"/><text x="${x(t)}" y="${H-P.b+18}" text-anchor="middle" fill="#8290b0" font-size="12">${t}</text>`).join('');
+  const grid=[0,50,100].map(v=>`<line x1="${P.l}" x2="${W-P.r}" y1="${y(v)}" y2="${y(v)}" stroke="#22304f"/><text x="${P.l-8}" y="${y(v)+4}" text-anchor="end" fill="#8290b0" font-size="12">${v}</text>`).join('');
+  const pts=(a,c,n)=>a.map(p=>`<circle cx="${x(p[0])}" cy="${y(p[1])}" r="9" fill="transparent"><title>${p[0]} · ${n}: ${p[1]}</title></circle>`).join('');
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Illustrative index of AI hype versus delivered results, 1955 to 2026, with the two AI winters shaded">
+    ${grid}${band(1974,1980,'1st winter')}${band(1987,1993,'2nd winter')}${ticks}
+    <path d="${path(real)}" fill="none" stroke="#3da5ff" stroke-width="2.5"/>
+    <path d="${path(hype)}" fill="none" stroke="#9d7bff" stroke-width="2.5" stroke-dasharray="6 4"/>
+    <circle cx="${x(2026)}" cy="${y(100)}" r="4" fill="#9d7bff"/><circle cx="${x(2026)}" cy="${y(95)}" r="4" fill="#3da5ff"/>
+    <text x="${x(2026)+10}" y="${y(100)-2}" fill="#eef2ff" font-size="12">Hype &amp; promises</text>
+    <text x="${x(2026)+10}" y="${y(95)+14}" fill="#eef2ff" font-size="12">Delivered results</text>
+    ${pts(hype,'','Hype')}${pts(real,'','Delivered')}
+  </svg>`;
+}
+PAGES.winters = () => pageHead('Failed Trials & AI Winters','Twice, AI promised more than it could deliver, and the money disappeared. These are the failures, and what each one taught.') +
+  `<section class="card" style="margin-bottom:var(--space-6)">
+    <div class="section-head" style="margin-bottom:var(--space-3)"><div><span class="label">Hype vs. reality</span><h3>When promises outran results, funding froze</h3></div>
+    <div class="legend"><span><i style="background:#9d7bff"></i>Hype &amp; promises (dashed)</span><span><i style="background:#3da5ff"></i>Delivered results</span><span><i style="background:#9fb3c8;height:10px;opacity:.5"></i>AI winter</span></div></div>
+    <div style="overflow-x:auto">${hypeChart()}</div>
+    <p class="note" style="margin-top:8px">Illustrative index (0–100), not dollar figures. It shows the boom-and-bust pattern historians describe; hover a point for its value.</p>
+  </section>
+  <div class="story">${WINTERS.map(w=>`<article class="card ev anim ${w.cold?'cold':''}"><span class="when">${w.w}</span><div><h3>${esc(w.t)}</h3><p class="muted" style="margin-top:6px">${esc(w.d)}</p><p class="lesson"><b>Lesson learned:</b> ${esc(w.l)}</p></div></article>`).join('')}</div>`;
+
+/* ===================== HOW AI IS GENERATED ===================== */
+function stepViz(k){
+  const c1='#3da5ff', c2='#9d7bff', ln='#5f73a0';
+  const svg = inner => `<svg viewBox="0 0 300 180" width="100%" height="100%" aria-hidden="true">${inner}</svg>`;
+  const anim = REDUCED ? '' : '<style>.pl{animation:pl 1.6s ease-in-out infinite alternate}@keyframes pl{from{opacity:.25}to{opacity:1}}</style>';
+  if (k==='data') return svg(anim+Array.from({length:60},(_,i)=>`<rect class="${i%4===0?'pl':''}" style="animation-delay:${(i%9)*.15}s" x="${20+(i%12)*22}" y="${22+Math.floor(i/12)*28}" width="16" height="20" rx="3" fill="${i%5===0?c2:i%3===0?c1:ln}" opacity="${i%3===0?1:.55}"/>`).join(''));
+  if (k==='tok') return svg(['The','▁AI','▁time','line','▁tracks','▁80','+','▁years'].map((t,i)=>`<g><rect x="${14+(i%4)*70}" y="${40+Math.floor(i/4)*56}" width="62" height="32" rx="6" fill="${['#3da5ff','#9d7bff','#2dd4bf','#f5b83d','#e0895c','#818cf8'][i%6]}"/><text x="${45+(i%4)*70}" y="${61+Math.floor(i/4)*56}" text-anchor="middle" fill="#05070f" font-size="13" font-family="JetBrains Mono, monospace">${t}</text></g>`).join(''));
+  if (k==='net'){ const L=[4,6,6,4]; let s=anim, pts=L.map((n,li)=>Array.from({length:n},(_,j)=>[40+li*73, 90+(j-(n-1)/2)*26]));
+    pts.slice(0,-1).forEach((la,li)=>la.forEach(a=>pts[li+1].forEach(b=>s+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${ln}" stroke-width=".6" opacity=".6"/>`)));
+    pts.flat().forEach((p,i)=>s+=`<circle class="pl" style="animation-delay:${(i%7)*.2}s" cx="${p[0]}" cy="${p[1]}" r="6" fill="${i%3?c1:c2}"/>`); return svg(s); }
+  if (k==='train'){ const pts=Array.from({length:40},(_,i)=>[20+i*6.8, 30+120*Math.exp(-i/9)+ (i%3)*3]); return svg(`<line x1="20" y1="160" x2="290" y2="160" stroke="${ln}"/><line x1="20" y1="20" x2="20" y2="160" stroke="${ln}"/><text x="26" y="30" fill="#8290b0" font-size="11">loss</text><text x="250" y="174" fill="#8290b0" font-size="11">steps</text><path d="${pts.map((p,i)=>(i?'L':'M')+p[0]+','+p[1]).join('')}" fill="none" stroke="${c1}" stroke-width="2.5"/>`); }
+  if (k==='rlhf') return svg(`<rect x="20" y="30" width="120" height="110" rx="10" fill="#1a2542" stroke="${ln}"/><rect x="160" y="30" width="120" height="110" rx="10" fill="#1a2542" stroke="${c1}" stroke-width="2"/>${[0,1,2,3].map(i=>`<rect x="34" y="${50+i*18}" width="${90-i*14}" height="8" rx="4" fill="${ln}"/><rect x="174" y="${50+i*18}" width="${92-i*10}" height="8" rx="4" fill="${c1}" opacity=".7"/>`).join('')}<text x="80" y="160" text-anchor="middle" fill="#8290b0" font-size="12">Answer A</text><text x="220" y="160" text-anchor="middle" fill="#eef2ff" font-size="12">Answer B ✓ preferred</text>`);
+  if (k==='safe') return svg(['Capability evals','Red-teaming','Misuse safeguards','Honesty & bias checks'].map((t,i)=>`<g><rect x="30" y="${24+i*36}" width="22" height="22" rx="5" fill="${i<3?'#4ade80':'#1a2542'}" stroke="${i<3?'#4ade80':ln}"/>${i<3?`<path d="M36 ${35+i*36} l4 4 l8 -9" stroke="#05070f" stroke-width="2.5" fill="none"/>`:''}<text x="64" y="${40+i*36}" fill="#eef2ff" font-size="13">${t}</text></g>`).join(''));
+  if (k==='deploy') return svg(anim+`<rect x="20" y="70" width="70" height="40" rx="8" fill="${c1}"/><text x="55" y="95" text-anchor="middle" fill="#05070f" font-size="12" font-weight="600">Model</text>`+['Chat app','Coding tool','API','Agents'].map((t,i)=>`<path d="M90 90 C150 90 150 ${30+i*40} 200 ${30+i*40}" stroke="${ln}" fill="none"/><rect class="pl" style="animation-delay:${i*.3}s" x="200" y="${18+i*40}" width="86" height="24" rx="6" fill="#1a2542" stroke="${c2}"/><text x="243" y="${34+i*40}" text-anchor="middle" fill="#eef2ff" font-size="11">${t}</text>`).join(''));
+  return svg(`<circle cx="150" cy="90" r="60" fill="none" stroke="${ln}" stroke-width="2" stroke-dasharray="6 6"/><path d="M206 70 l6 14 l-15 -3" fill="none" stroke="${c1}" stroke-width="2.5"/>${['Data','Train','Deploy','Feedback'].map((t,i)=>{const a=i*Math.PI/2-Math.PI/2;return `<rect x="${150+60*Math.cos(a)-34}" y="${90+60*Math.sin(a)-12}" width="68" height="24" rx="12" fill="${i===3?c2:c1}"/><text x="${150+60*Math.cos(a)}" y="${90+60*Math.sin(a)+4}" text-anchor="middle" fill="#05070f" font-size="11" font-weight="600">${t}</text>`}).join('')}`);
+}
+function tokenize(s){
+  const out=[]; const parts = s.match(/\s*[A-Za-z]+|\s*\d{1,3}|\s*[^\sA-Za-z\d]|\s+/g) || [];
+  const SUF=['ization','ation','tion','ness','ment','able','ible','ing','ally','ly','ed','er','est','s']; const PRE=['un','re','pre','dis','over','inter'];
+  for (let p of parts){ const lead = p.match(/^\s*/)[0].replace(/\s/g,'▁').slice(0,1); let w = p.trim(); if (!w){ out.push('▁'); continue; }
+    if (/^[A-Za-z]+$/.test(w) && w.length>6){ const pieces=[]; const pre = PRE.find(x=>w.toLowerCase().startsWith(x) && w.length-x.length>3); if (pre){ pieces.push(w.slice(0,pre.length)); w=w.slice(pre.length); }
+      const suf = SUF.find(x=>w.toLowerCase().endsWith(x) && w.length-x.length>=3); let tail=''; if (suf){ tail=w.slice(w.length-suf.length); w=w.slice(0,w.length-suf.length); }
+      while (w.length>6){ pieces.push(w.slice(0,5)); w=w.slice(5); } if (w) pieces.push(w); if (tail) pieces.push(tail);
+      pieces.forEach((x,i)=>out.push((i===0?lead:'')+x)); }
+    else out.push(lead+w); }
+  return out;
+}
+const tokId = t => { let h=2166136261; for (const c of t){ h^=c.charCodeAt(0); h=Math.imul(h,16777619); } return (h>>>0)%100000; };
+const TOKC = ['#3da5ff','#9d7bff','#2dd4bf','#f5b83d','#e0895c','#818cf8','#4ade80','#fb7185'];
+PAGES.how = () => { const s = STEPS[S.step];
+  return pageHead('How AI Is Generated','A large language model is built in eight steps. Click a step to see what happens.') +
+  `<div class="steps" role="tablist" aria-label="Steps">${STEPS.map((x,i)=>`<button class="step" role="tab" data-step="${i}" aria-pressed="${i===S.step}" aria-selected="${i===S.step}"><span class="n">Step ${i+1}</span><b>${esc(x.t)}</b></button>`).join('')}</div>
+  <div class="flowbar" style="margin-top:12px" aria-hidden="true">${STEPS.map((_,i)=>`<span class="fb${i<=S.step?' on':''}"></span>`).join('')}</div>
+  <section class="card step-detail" aria-live="polite"><div><span class="label">Step ${S.step+1} of 8</span><h2 style="margin:6px 0 10px">${esc(s.t)}</h2><p class="muted">${esc(s.d)}</p>
+    <div class="row" style="margin-top:16px"><button class="btn secondary sm" data-nav="-1"${S.step===0?' disabled':''}>← Previous</button><button class="btn primary sm" data-nav="1"${S.step===7?' disabled':''}>Next step →</button></div></div>
+    <div class="step-viz">${stepViz(s.viz)}</div></section>
+  <section class="section">
+    <div class="section-head"><div><span class="label">Try it</span><h2>Tokenizer demo</h2></div></div>
+    <div class="card stack">
+      <label for="tok-in" class="label">Type a sentence</label>
+      <input id="tok-in" type="text" value="The AI Timeline tracks 80+ years of unbelievable thinking machines." style="width:100%;height:44px;font-size:16px">
+      <div class="tokens" id="tok-out" aria-live="polite"></div>
+      <p class="tok-ids" id="tok-ids"></p>
+      <p class="note">Simplified demo tokenizer. Real tokenizers (byte-pair encoding) learn their splits from data, and ▁ marks a leading space. IDs here are illustrative.</p>
+    </div>
+  </section>`; };
+AFTER.how = () => {
+  const rr = () => { const y=scrollY; const v = $('#tok-in').value; $('#main').innerHTML = `<div class="wrap">${PAGES.how()}</div>`; AFTER.how(); $('#tok-in').value = v; runTok(); scrollTo(0,y); };
+  $$('[data-step]').forEach(b => b.onclick = () => { S.step = +b.dataset.step; rr(); });
+  $$('[data-nav]').forEach(b => b.onclick = () => { S.step = Math.max(0, Math.min(7, S.step + +b.dataset.nav)); rr(); });
+  const runTok = () => { const t = tokenize($('#tok-in').value); $('#tok-out').innerHTML = t.map((x,i)=>`<span class="tok" style="background:${TOKC[i%TOKC.length]}" title="Token ${i+1}">${esc(x)}</span>`).join('') || '<span class="muted">Type something above.</span>'; $('#tok-ids').textContent = t.length ? `${t.length} tokens · ${$('#tok-in').value.length} characters · IDs: [${t.map(tokId).join(', ')}]` : ''; };
+  $('#tok-in').addEventListener('input', runTok); runTok();
+};
+
+/* ===================== COMPANIES ===================== */
+PAGES.companies = () => pageHead('Companies','The labs and platforms behind the releases. Logo slots are ready for official press-kit files.') +
+  `<div class="grid">${COMPANY_PAGE.map(id=>{ const c = COMPANIES[id]; const yrs=[2022,2023,2024,2025,2026]; const cnt = yrs.map(y=>RELEASES.filter(r=>r.co===id&&r.y===y).length); const mx = Math.max(1,...cnt); const t = coTag(id);
+    return `<article class="card tool anim" id="co-${id}" style="--co:var(--co-${t})">
+      <div class="tool-top"><div class="logo-slot" title="Logo slot: upload the official press-kit file">Logo</div><div><h3>${esc(c.name)}</h3><div class="row" style="margin-top:6px">${badge(id)}</div></div></div>
+      <dl class="facts"><dt>Founded</dt><dd>${esc(c.founded)}</dd><dt>Founders</dt><dd>${esc(c.founders)}</dd><dt>HQ</dt><dd>${esc(c.hq)}</dd><dt>Key work</dt><dd>${esc(c.key)}</dd></dl>
+      <div><span class="label">Releases tracked here, 2022–2026</span>
+        <div class="minichart" role="img" aria-label="${esc(c.name)} releases per year: ${yrs.map((y,i)=>y+': '+cnt[i]).join(', ')}">${yrs.map((y,i)=>`<div class="b" title="${y}: ${cnt[i]} release${cnt[i]===1?'':'s'}"><span class="v">${cnt[i]}</span><span class="bar" style="height:${cnt[i]/mx*44}px;${cnt[i]?'':'background:var(--line)'}"></span><span class="y">'${String(y).slice(2)}</span></div>`).join('')}</div></div>
+      <a class="btn ghost" style="margin-top:auto;align-self:flex-start" href="${c.site}" target="_blank" rel="noopener noreferrer">${c.site.replace(/^https:\/\/(www\.)?/,'')} ↗</a>
+    </article>`; }).join('')}</div>`;
+
+/* ===================== MODELS TODAY ===================== */
+function monthlyChart(){
+  const months=[]; for (let y=2023;y<=2026;y++) for (let m=1;m<=12;m++){ if (y===2026&&m>9) break; months.push({y,m,n:RELEASES.filter(r=>r.y===y&&r.m===m).length}); }
+  const W=880,H=260,P={l:36,r:16,t:16,b:32}; const mx=Math.max(...months.map(d=>d.n)); const top=Math.ceil(mx/2)*2;
+  const x=i=>P.l+i/(months.length-1)*(W-P.l-P.r), y=v=>P.t+(1-v/top)*(H-P.t-P.b);
+  const line=months.map((d,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(d.n).toFixed(1)}`).join('');
+  const area=line+`L${x(months.length-1)},${y(0)}L${x(0)},${y(0)}Z`;
+  const grid=[0,top/2,top].map(v=>`<line x1="${P.l}" x2="${W-P.r}" y1="${y(v)}" y2="${y(v)}" stroke="#22304f"/><text x="${P.l-8}" y="${y(v)+4}" text-anchor="end" fill="#8290b0" font-size="12">${v}</text>`).join('');
+  const ticks=months.map((d,i)=>d.m===1?`<line x1="${x(i)}" x2="${x(i)}" y1="${y(0)}" y2="${y(0)+4}" stroke="#5f73a0"/><text x="${x(i)}" y="${H-P.b+18}" text-anchor="${i===0?'start':'middle'}" fill="#8290b0" font-size="12">${d.y}</text>`:'').join('');
+  const L=months.length-1;
+  return {months, svg:`<svg class="chart" id="mchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Major releases per month tracked on this site, January 2023 to September 2026">
+    <defs><linearGradient id="ar" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3da5ff" stop-opacity=".28"/><stop offset="1" stop-color="#3da5ff" stop-opacity="0"/></linearGradient></defs>
+    ${grid}${ticks}<path d="${area}" fill="url(#ar)"/><path d="${line}" fill="none" stroke="#3da5ff" stroke-width="2"/>
+    <circle cx="${x(L)}" cy="${y(months[L].n)}" r="5" fill="#3da5ff" stroke="#111a30" stroke-width="2"/>
+    <text x="${x(L)-8}" y="${y(months[L].n)-10}" text-anchor="end" fill="#eef2ff" font-size="12">Sep 2026: ${months[L].n}</text>
+    <line id="mx" x1="0" x2="0" y1="${P.t}" y2="${y(0)}" stroke="#a3b0cc" stroke-dasharray="3 3" visibility="hidden"/>
+    <circle id="md" r="5" fill="#9d7bff" stroke="#111a30" stroke-width="2" visibility="hidden"/>
+    <rect id="mhit" x="${P.l}" y="${P.t}" width="${W-P.l-P.r}" height="${H-P.t-P.b}" fill="transparent"/>
+  </svg>`, geo:{W,P,x,y}};
+}
+let MC = null;
+PAGES.today = () => {
+  const rows = FRONTIER.filter(id=>MODELS[id]).map(id=>{ const m=MODELS[id]; const sp=specsOf(id); return {id, name:m.name, co:coName(m.co), coId:m.co, date:m.date, rel:m.rel, type:m.types[0], open:m.open===true?'Open':m.open===false?'Closed':'Not stated', price:sp.price}; });
+  const k=S.sortKey, dir=S.sortDir; rows.sort((a,b)=> (a[k]<b[k]?-1:a[k]>b[k]?1:0)*dir);
+  MC = monthlyChart();
+  const n26 = RELEASES.filter(r=>r.y===2026).length, n23 = RELEASES.filter(r=>r.y===2023).length;
+  const th = (key,l) => `<th aria-sort="${k===key?(dir>0?'ascending':'descending'):'none'}"><button data-sort="${key}">${l}${k===key?(dir>0?' ▲':' ▼'):''}</button></th>`;
+  return pageHead('Models Today','Where the frontier stands on September 29, 2026.') +
+  `<div class="stats" style="margin-top:0">
+    <div class="stat"><span class="num">2.4M → 2.7M<em>+</em></span><span class="lbl">models on Hugging Face, Jan 2026 → today (from the brief; not independently confirmed)</span></div>
+    <div class="stat"><span class="num">Dozens</span><span class="lbl">frontier models from major labs; ${FRONTIER.length} are listed below</span></div>
+    <div class="stat"><span class="num">${n26}</span><span class="lbl">major releases tracked in 2026 so far (vs ${n23} in all of 2023)</span></div>
+  </div>
+  <section class="section">
+    <div class="section-head"><div><span class="label">Current frontier</span><h2>Frontier models</h2></div><span class="note">Click a column to sort</span></div>
+    <div class="tbl-wrap"><table><thead><tr>${th('name','Model')}${th('co','Company')}${th('date','Released')}${th('type','Type')}${th('open','Open / closed')}${th('price','Price per 1M tokens (in / out)')}</tr></thead>
+    <tbody>${rows.map(r=>`<tr><td><a href="#m-${r.id}" style="color:var(--ink);font-weight:600">${esc(r.name)}</a></td><td>${badge(r.coId)}</td><td class="mono tnum">${fmtDate(r.rel)}</td><td><span class="chip">${esc(r.type)}</span></td><td>${r.open}</td><td class="mono" style="font-size:13px">${esc(r.price.replace(' input','').replace(' output per 1M tokens',''))}</td></tr>`).join('')}</tbody></table></div>
+    <p class="note" style="margin-top:8px">— means pricing wasn't published in our sources.</p>
+  </section>
+  <section class="section">
+    <div class="section-head"><div><span class="label">Acceleration</span><h2>Major releases per month, 2023–2026</h2></div><span class="note" id="mtip" aria-live="polite">Hover the chart for monthly counts</span></div>
+    <div class="card" style="padding:var(--space-4)"><div style="overflow-x:auto">${MC.svg}</div></div>
+    <p class="note" style="margin-top:8px">Counts every row in this site's Release Tracker, one per model, tool or launch.</p>
+  </section>`;
+};
+AFTER.today = () => {
+  $$('[data-sort]').forEach(b => b.onclick = () => { const k=b.dataset.sort; if (S.sortKey===k) S.sortDir*=-1; else { S.sortKey=k; S.sortDir = k==='date'?-1:1; } const y=scrollY; $('#main').innerHTML = `<div class="wrap">${PAGES.today()}</div>`; AFTER.today(); scrollTo(0,y); });
+  const svg=$('#mchart'), hit=$('#mhit'), tip=$('#mtip'); const {months, geo} = MC;
+  const move = e => { const pt = svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY; const p = pt.matrixTransform(svg.getScreenCTM().inverse()); const i = Math.max(0,Math.min(months.length-1, Math.round((p.x-geo.P.l)/(geo.W-geo.P.l-geo.P.r)*(months.length-1)))); const d=months[i];
+    $('#mx').setAttribute('x1',geo.x(i)); $('#mx').setAttribute('x2',geo.x(i)); $('#mx').setAttribute('visibility','visible'); $('#md').setAttribute('cx',geo.x(i)); $('#md').setAttribute('cy',geo.y(d.n)); $('#md').setAttribute('visibility','visible');
+    tip.textContent = `${MONTHS_L[d.m-1]} ${d.y}: ${d.n} release${d.n===1?'':'s'}`; tip.style.color='var(--ink)'; };
+  hit.addEventListener('pointermove', move); hit.addEventListener('pointerleave', ()=>{ $('#mx').setAttribute('visibility','hidden'); $('#md').setAttribute('visibility','hidden'); tip.textContent='Hover the chart for monthly counts'; tip.style.color=''; });
+};
+
+/* ===================== SEARCH ===================== */
+const INDEX = [
+  ...MODEL_LIST.map(m=>({l:m.name, k:'Model', h:'#m-'+m.id, co:m.co, s:(m.name+' '+coName(m.co)).toLowerCase()})),
+  ...TOOLS.map(t=>({l:t.name, k:'Tool', h:'#tools', f:'tool-'+t.id, co:t.co, s:(t.name+' '+coName(t.co)+' '+t.site).toLowerCase()})),
+  ...COMPANY_PAGE.map(id=>({l:COMPANIES[id].name, k:'Company', h:'#companies', f:'co-'+id, co:id, s:(COMPANIES[id].name+' '+(COMPANIES[id].founders||'')).toLowerCase()})),
+  ...UPCOMING.map(u=>({l:u.name, k:'Upcoming', h:'#upcoming', f:'up-'+u.id, co:u.co, s:(u.name+' '+coName(u.co)).toLowerCase()})),
+  ...PIONEERS.map(p=>({l:p.n, k:'Person', h:'#pioneers', f:'p-'+p.ini, s:p.n.toLowerCase()})),
+];
+function setupSearch(){
+  const inp=$('#q'), box=$('#results'); let hl=0, res=[];
+  const draw = () => { const q = inp.value.trim().toLowerCase(); if (!q){ box.hidden=true; return; }
+    res = INDEX.filter(x=>x.s.includes(q)).sort((a,b)=>(a.l.toLowerCase().startsWith(q)?0:1)-(b.l.toLowerCase().startsWith(q)?0:1)).slice(0,10); hl=0;
+    box.innerHTML = res.length ? res.map((x,i)=>`<a href="${x.h}" data-i="${i}" class="${i===hl?'hl':''}">${x.co?badge(x.co):''}<span>${esc(x.l)}</span><span class="kind">${x.k}</span></a>`).join('') : `<div class="empty">No matches for "${esc(inp.value)}". Try a model, tool, company or person.</div>`;
+    box.hidden=false; $$('a',box).forEach(a=>a.addEventListener('click',()=>go(+a.dataset.i))); };
+  const go = i => { const x=res[i]; if(!x) return; S.focus = x.f||null; box.hidden=true; inp.value=''; inp.blur(); if (location.hash===x.h) render(); else location.hash = x.h; };
+  inp.addEventListener('input', draw);
+  inp.addEventListener('keydown', e => { if (box.hidden) return; if (e.key==='ArrowDown'||e.key==='ArrowUp'){ e.preventDefault(); hl=(hl+(e.key==='ArrowDown'?1:-1)+res.length)%res.length; $$('a',box).forEach((a,i)=>a.classList.toggle('hl',i===hl)); } else if (e.key==='Enter'){ e.preventDefault(); go(hl); } else if (e.key==='Escape'){ box.hidden=true; } });
+  document.addEventListener('click', e => { if (!e.target.closest('.search')) box.hidden=true; });
+  document.addEventListener('keydown', e => { if (e.key==='/' && document.activeElement.tagName!=='INPUT'){ e.preventDefault(); inp.focus(); } });
+}
+
+/* ===================== COMING SOON ===================== */
+function upStatus(st){ const u = UP_STATUS[st]; return `<span class="upst" style="--st:${u.c}">${esc(u.l)}</span>`; }
+function upCard(u){
+  return `<article class="card up anim" id="up-${u.id}">
+    <div class="row" style="justify-content:space-between">${badge(u.co)}${upStatus(u.st)}</div>
+    <h3>${esc(u.name)}</h3>
+    <span class="when mono">${esc(u.when)}</span>
+    <p class="muted" style="font-size:14px;line-height:20px">${esc(u.d)}</p>
+    ${u.q?`<p class="quote" style="font-size:14px;line-height:20px">${esc(u.q)}</p>`:''}
+    <div class="srcs"><span class="label">Source${u.src.length>1?'s':''}</span>${u.src.map(([t,l])=>`<a href="${l}" target="_blank" rel="noopener noreferrer">${esc(t)} ↗</a>`).join('')}</div>
+  </article>`;
+}
+S.upFilter = 'all';
+PAGES.upcoming = () => {
+  const order = ['soon','nodate','reported','rumor','cancelled'];
+  const shown = order.filter(k => S.upFilter==='all' || S.upFilter===k);
+  return pageHead('Coming Soon','Releases that are announced but not out yet, reported by the press, rumored, or called off. Each card says how sure we are and links to where the news came from. Last checked September 29, 2026.') +
+  `<div class="tabs" role="toolbar" aria-label="Filter by status" style="margin-bottom:var(--space-4)">
+    <button data-up="all" aria-pressed="${S.upFilter==='all'}">All<span class="n">${UPCOMING.length}</span></button>
+    ${order.map(k=>`<button data-up="${k}" aria-pressed="${S.upFilter===k}">${UP_STATUS[k].l}<span class="n">${UPCOMING.filter(u=>u.st===k).length}</span></button>`).join('')}
+  </div>
+  <div class="uplegend">${order.map(k=>`<span>${upStatus(k)}<span class="note">${esc(UP_STATUS[k].d)}</span></span>`).join('')}</div>
+  ${shown.map(k => { const list = UPCOMING.filter(u=>u.st===k); return list.length ? `<section class="section" style="margin-top:var(--space-6)"><h2 style="margin-bottom:var(--space-4)">${UP_STATUS[k].l} <span class="note">${list.length}</span></h2><div class="grid">${list.map(upCard).join('')}</div></section>` : ''; }).join('')}
+  <p class="note" style="margin-top:var(--space-6)">Plans change fast. Dates and statuses were verified from the linked sources on Sep 29, 2026 — check them for the latest.</p>`;
+};
+AFTER.upcoming = () => { $$('[data-up]').forEach(b => b.onclick = () => { S.upFilter = b.dataset.up; const y = scrollY; $('#main').innerHTML = `<div class="wrap">${PAGES.upcoming()}</div>`; AFTER.upcoming(); scrollTo(0,y); }); };
+
+/* ===================== AI GUIDE (chatbot) ===================== */
+function buildDigest(){
+  const L = [];
+  L.push('## Releases on this site (date | company | name | types | open weights? | summary | page)');
+  RELEASES.forEach(r => L.push(`${r.d?r.date:r.date.slice(0,7)} | ${coName(r.co)} | ${r.name} | ${r.types.join('/')} | ${r.open===true?'open':r.open===false?'closed':'?'} | ${r.sum} | ${hrefFor(r.link)||'-'}`));
+  L.push('\n## Featured model change logs');
+  Object.entries(FEATURED).forEach(([id,f]) => { const m = MODELS[id]; L.push(`### ${m.name} (#m-${id})`); if (f.dateNote) L.push('Dates: '+f.dateNote); if (f.new.length) L.push('New: '+f.new.join('; ')); if (f.fixed.length) L.push('Fixed: '+f.fixed.join('; ')); if (f.removed.length) L.push('Removed/limits: '+f.removed.join('; ')); const s = f.specs; L.push(`Specs: context ${s.context}; max output ${s.output}; price ${s.price}; availability ${s.avail}; cutoff ${s.cutoff}${s.api?'; API id '+s.api:''}`); });
+  L.push('\n## Model lineages'); FAMILIES.forEach(([n,l]) => L.push(`${n}: ${l.map(x=>typeof x==='object'?x.label:(MODELS[x]?.name||x)).join(' → ')}`));
+  L.push('\n## Upcoming (status: soon = announced with timing, nodate = announced no date, reported, rumor, cancelled) — page #upcoming');
+  UPCOMING.forEach(u => L.push(`${u.name} | ${coName(u.co)} | ${u.st} | ${u.when} | ${u.d}${u.q?' | '+u.q:''} | source: ${u.src.map(s=>s[1]).join(', ')}`));
+  L.push('\n## AI tools & websites (page #tools)'); TOOLS.forEach(t => L.push(`${t.name} | ${coName(t.co)} | launched ${t.launched} | ${t.site} | ${t.status} | ${t.cat} | ${t.what} | powered by ${t.powered}${t.hist?' | history: '+t.hist.map(h=>h.join(' ')).join('; '):''}`));
+  L.push('\n## Companies (page #companies)'); COMPANY_PAGE.forEach(id => { const c = COMPANIES[id]; L.push(`${c.name} | founded ${c.founded} | ${c.founders} | HQ ${c.hq} | ${c.site} | ${c.key}`); });
+  L.push('\n## Pioneers (page #pioneers)'); PIONEERS.forEach(p => L.push(`${p.n} (${p.y}): ${p.c} Idea: ${p.q}`));
+  L.push('\n## History timeline (page #timeline)'); EVENTS.forEach(e => L.push(`${e[0]}: ${e[2]} — ${e[3]}`));
+  L.push('\n## AI winters (page #winters)'); WINTERS.forEach(w => L.push(`${w.w} ${w.t}: ${w.d} Lesson: ${w.l}`));
+  L.push('\n## Other pages: #home, #tracker (release tracker), #tracker-2025 (a year), #models (library), #compare, #how (how AI is generated, 8 steps + tokenizer demo), #today (frontier table + monthly chart)');
+  return L.join('\n');
+}
+let RULES = null;
+function rules(){
+  if (RULES) return RULES;
+  RULES = `You are "AI Guide", the assistant built into The AI Timeline website by PUJIVERSE (a history of AI from 1843 to today). Today is ${AS_OF}.
+
+How to answer:
+- For releases, dates, models, prices, tools, companies and upcoming launches from 2022 onward, use the SITE DATA below first. It is newer than your training data, so trust it over your memory. Quote exact dates as written there.
+- For general questions (how transformers work, what RLHF is, history before 2022, comparisons, advice on which model fits a task), use your own knowledge and reasoning. You can combine both.
+- If something isn't in the site data and may have happened recently, say so plainly and note your own knowledge may be out of date. You cannot browse the web. Never invent dates, prices or benchmark numbers.
+- For upcoming items, always say how certain it is (announced with timing, announced without a date, reported, rumor, or cancelled).
+- Link to pages on this site with Markdown links whose target starts with #, e.g. [Claude Opus 5.5](#m-claude-opus-5-5), [Coming Soon](#upcoming), [2025 releases](#tracker-2025). Only use page links that appear in the site data.
+- Be concise and friendly: short paragraphs, "- " bullets for lists, **bold** for key names. No tables, no headings. Usually under 180 words unless asked for detail.
+
+SITE DATA:
+${buildDigest()}`;
+  return RULES;
+}
+function md(t){
+  const inline = s => esc(s)
+    .replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>')
+    .replace(/`([^`]+)`/g,'<code>$1</code>')
+    .replace(/\[([^\]]+)\]\((#[A-Za-z0-9._~-]+|https:\/\/[^\s)]+)\)/g,(m,a,h)=>`<a href="${h}"${h[0]==='#'?' data-chatlink':' target="_blank" rel="noopener noreferrer"'}>${a}</a>`);
+  const out = []; let list = null;
+  t.split('\n').forEach(line => {
+    const li = /^\s*(?:[-*•]|\d+\.)\s+(.*)$/.exec(line);
+    if (li){ (list ||= []).push(`<li>${inline(li[1])}</li>`); return; }
+    if (list){ out.push(`<ul>${list.join('')}</ul>`); list = null; }
+    if (line.trim()) out.push(`<p>${inline(line.replace(/^#+\s*/,''))}</p>`);
+  });
+  if (list) out.push(`<ul>${list.join('')}</ul>`);
+  return out.join('');
+}
+const SUGGEST = ['What was released on Sep 22, 2026?','When is Gemini 4 coming out?','Why was GPT-6.1 Astra cancelled?','Compare Claude Opus 5.5 and GPT-6 Sol','What caused the first AI winter?','Explain how a transformer works simply'];
+const CHAT = {turns:[], busy:false, ctl:null, sample:undefined};
+function setupChat(){
+  const fab = $('#chat-fab'), panel = $('#chat'), log = $('#chat-log'), form = $('#chat-form'), box = $('#chat-in'), send = $('#chat-send'), stop = $('#chat-stop'), status = $('#chat-status');
+  const open = v => { panel.hidden = !v; fab.setAttribute('aria-expanded', v); if (v){ box.focus(); if (!log.children.length) intro(); } };
+  fab.onclick = () => open(panel.hidden);
+  $('#chat-close').onclick = () => { open(false); fab.focus(); };
+  $('#chat-new').onclick = () => { if (CHAT.ctl) CHAT.ctl.abort(); CHAT.turns = []; log.innerHTML = ''; intro(); box.focus(); };
+  panel.addEventListener('keydown', e => { if (e.key==='Escape'){ open(false); fab.focus(); } });
+  log.addEventListener('click', e => { const a = e.target.closest('[data-chatlink]'); if (a && innerWidth < 700) open(false); const s = e.target.closest('[data-suggest]'); if (s){ box.value = s.dataset.suggest; ask(); } });
+  function intro(){
+    log.insertAdjacentHTML('beforeend', `<div class="msg bot"><p>Hi! I'm the <b>AI Guide</b>. Ask me anything about AI history, models, releases, tools or what's coming next. I use this site's data (current to ${AS_OF}) plus my own knowledge.</p><div class="sugs">${SUGGEST.map(q=>`<button type="button" class="sug" data-suggest="${esc(q)}">${esc(q)}</button>`).join('')}</div></div>`);
+  }
+  const setBusy = b => { CHAT.busy = b; send.hidden = b; stop.hidden = !b; box.disabled = false; };
+  const COPY = {not_granted:'The AI Guide needs your permission to use Claude. Reload the page to be asked again.',sampling_disabled:'Claude isn\'t available for this account, so the AI Guide can\'t answer here.',rate_limited:'Too many questions at once, or your Claude usage limit was reached. Try again in a little while.',session_expired:'Your Claude session expired. Sign in again, then ask.',refused:'I can\'t help with that one. Try asking another way.',prompt_too_large:'This chat got too long. Start a new chat.',empty_completion:'No answer came back. Try rephrasing.'};
+  async function ask(){
+    const q = box.value.trim(); if (!q || CHAT.busy) return;
+    if (CHAT.sample === undefined) CHAT.sample = await (window.claude?.use?.('sample') ?? Promise.resolve(null));
+    log.insertAdjacentHTML('beforeend', `<div class="msg me">${esc(q)}</div>`);
+    box.value = ''; box.style.height = '';
+    const bub = document.createElement('div'); bub.className = 'msg bot'; bub.innerHTML = '<p class="thinking">Thinking…</p>'; log.append(bub); log.scrollTop = log.scrollHeight;
+    if (!CHAT.sample){ bub.innerHTML = `<p>The AI Guide works when this page is opened on claude.ai. In the meantime, try the search bar or the <a href="#upcoming" data-chatlink>Coming Soon</a> page.</p>`; return; }
+    CHAT.turns.push({role:'user', content:q});
+    while (CHAT.turns.length > 16) CHAT.turns.shift();
+    if (CHAT.turns[0].role !== 'user') CHAT.turns.shift();
+    CHAT.ctl = new AbortController(); setBusy(true); status.textContent = 'AI Guide is answering';
+    try {
+      const {text, truncated} = await CHAT.sample([{role:'user', content: rules()}, ...CHAT.turns], {
+        cache:false, signal:CHAT.ctl.signal,
+        onText: ({text}) => { bub.innerHTML = md(text); log.scrollTop = log.scrollHeight; },
+      });
+      bub.innerHTML = md(text) + (truncated ? '<p class="note">Answer cut short — ask for less at a time.</p>' : '');
+      CHAT.turns.push({role:'assistant', content:text});
+    } catch (e) {
+      const kept = e && e.text ? md(e.text) : '';
+      if (e && e.code === 'cancelled'){ bub.innerHTML = kept + '<p class="note">Stopped.</p>'; if (e.text) CHAT.turns.push({role:'assistant', content:e.text}); else CHAT.turns.pop(); }
+      else { CHAT.turns.pop(); bub.innerHTML = kept + `<p class="note">${esc(COPY[e && e.code] || 'Something went wrong reaching Claude. Try again.')}</p>`; if (e && ['not_granted','sampling_disabled','not_declared','capability_disabled'].includes(e.code)) CHAT.sample = null; }
+    } finally { setBusy(false); status.textContent = ''; CHAT.ctl = null; log.scrollTop = log.scrollHeight; }
+  }
+  form.addEventListener('submit', e => { e.preventDefault(); ask(); });
+  box.addEventListener('keydown', e => { if (e.key==='Enter' && !e.shiftKey){ e.preventDefault(); ask(); } });
+  box.addEventListener('input', () => { box.style.height = ''; box.style.height = Math.min(box.scrollHeight, 140) + 'px'; });
+  stop.onclick = () => CHAT.ctl && CHAT.ctl.abort();
+}
+
+/* ===================== FOOTER + BOOT ===================== */
+$('#sources').innerHTML = SOURCES.map(([t,u])=>`<li><a href="${u}" target="_blank" rel="noopener noreferrer">${esc(t)}</a></li>`).join('');
+setupSearch();
+setupChat();
+render();
+</script>
+</body>
+</html>
