@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="google-adsense-account" content="ca-pub-3801443267872719">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3801443267872719" crossorigin="anonymous"></script>
 <title>The AI Timeline by PUJIVERSE</title>
 <meta name="description" content="The AI Timeline by PUJIVERSE: an interactive history of artificial intelligence from 1843 to today.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -362,6 +364,53 @@ footer{padding-bottom:88px}
 .brand .by{font:600 10px/1 var(--font-sans);letter-spacing:.16em;color:var(--accent-violet);text-transform:uppercase}
 @media (max-width:767px){.brand .brand-txt{display:none}}
 .hero .by-line{font:600 13px/18px var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-violet)}
+
+/* ---------- Current versions ---------- */
+.grid.lines{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));align-items:start}
+.card.line{display:flex;flex-direction:column;gap:var(--space-3)}
+.card.line.open{grid-column:1/-1}
+.curbox{display:flex;flex-direction:column;gap:4px;padding:var(--space-4);border-radius:var(--radius-md);background:var(--bg-100);border:1px solid var(--line)}
+.curname{font:600 18px/24px var(--font-display)}
+.curname a,.vhead b a{color:var(--ink);text-decoration:none;border-bottom:1px dashed var(--line-strong)}
+.curname a:hover,.vhead b a:hover{color:var(--accent-blue);border-color:var(--accent-blue)}
+.feats{margin:0;padding-left:18px;font-size:14px;line-height:20px;color:var(--ink)}
+.feats li{margin:3px 0}
+.feats li::marker{color:var(--change-new)}
+.also{display:flex;flex-direction:column;gap:2px;margin-top:8px;font-size:14px;line-height:20px}
+.alsov a{color:var(--accent-blue)}
+.vtag{display:inline-flex;align-items:center;gap:6px;font:600 10px/16px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;padding:1px 8px;border-radius:var(--radius-pill);border:1px solid currentColor;white-space:nowrap}
+.vtag.cur{color:var(--status-active)} .vtag.up{color:var(--accent-violet)} .vtag.gone{color:var(--status-discontinued)} .vtag.old{color:var(--ink-subtle)}
+.vhist{display:flex;flex-direction:column;gap:var(--space-4);border-top:1px solid var(--line);padding-top:var(--space-4)}
+.vlist{list-style:none;margin:0;padding:0 0 0 22px;position:relative;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--space-3) var(--space-5)}
+.vlist::before{content:"";position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:var(--accent-blue);box-shadow:var(--glow-node);opacity:.7}
+.vi{position:relative;display:flex;flex-direction:column;gap:6px;padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);background:var(--bg-100);border:1px solid var(--line)}
+.vi::before{content:"";position:absolute;left:-21px;top:16px;width:10px;height:10px;border-radius:50%;background:var(--bg-000);border:2px solid var(--accent-blue)}
+.vi.cur{border-color:color-mix(in srgb,var(--status-active) 50%,transparent)}
+.vi.cur::before{background:var(--status-active);border-color:var(--status-active)}
+.vi.up{border-style:dashed;border-color:color-mix(in srgb,var(--accent-violet) 60%,transparent);background:transparent}
+.vi.up::before{border-color:var(--accent-violet)}
+.vi.gone{opacity:.85}.vi.gone::before{border-color:var(--status-discontinued)}
+.vhead{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.vhead b{font:600 15px/20px var(--font-display)}
+@media (max-width:767px){.vlist{grid-template-columns:1fr}}
+
+/* ---------- Story pages ---------- */
+.tl-link{color:inherit;text-decoration:none}.tl-link:hover{color:var(--accent-blue)}
+.era-head2{background:linear-gradient(180deg,color-mix(in srgb,var(--era) 18%,var(--bg-100)),var(--bg-100));border-color:color-mix(in srgb,var(--era) 40%,transparent)}
+.big-year{font:700 64px/1 var(--font-display);color:var(--era);letter-spacing:-.02em}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:var(--space-5);align-items:start}
+@media (max-width:900px){.story-grid{grid-template-columns:1fr}}
+.prose p{font-size:17px;line-height:28px;margin-top:var(--space-3);max-width:70ch}
+.why{border-color:color-mix(in srgb,var(--accent-blue) 45%,transparent)}
+.why p{font-size:16px;line-height:26px;margin-top:8px}
+.pchip{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px}
+.avatar.sm{width:32px;height:32px;font-size:12px;box-shadow:0 0 0 2px var(--era)}
+.prevnext{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin-top:var(--space-6)}
+.prevnext .card{display:flex;flex-direction:column;gap:6px}
+.prevnext b{font:600 17px/22px var(--font-display)}
+@media (max-width:600px){.prevnext{grid-template-columns:1fr}}
+.rel.exp{grid-template-columns:170px auto minmax(0,1fr) auto;border-style:dashed;border-color:color-mix(in srgb,var(--accent-violet) 55%,transparent);background:transparent}
+@media (max-width:767px){.rel.exp{grid-template-columns:1fr auto}}
 </style>
 </head>
 <body>
@@ -392,11 +441,11 @@ footer{padding-bottom:88px}
 
 <button class="chat-fab" id="chat-fab" aria-expanded="false" aria-controls="chat"><span class="orb" aria-hidden="true"></span><span class="lbl">Ask the AI Guide</span></button>
 <section class="chat" id="chat" hidden role="dialog" aria-label="AI Guide chat">
-  <div class="chat-head"><span class="orb" aria-hidden="true" style="width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#eef2ff 0 12%,#3da5ff 40%,#9d7bff 100%);flex:none"></span><div class="t"><b>AI Guide</b><small>Site data to Sep 29, 2026 + Claude's own knowledge</small></div><button class="icon-btn" id="chat-new" type="button">New chat</button><button class="icon-btn" id="chat-close" type="button" aria-label="Close chat">✕</button></div>
+  <div class="chat-head"><span class="orb" aria-hidden="true" style="width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#eef2ff 0 12%,#3da5ff 40%,#9d7bff 100%);flex:none"></span><div class="t"><b>AI Guide</b><small id="chat-mode">Site data to Sep 29, 2026</small></div><button class="icon-btn" id="chat-new" type="button">New chat</button><button class="icon-btn" id="chat-close" type="button" aria-label="Close chat">✕</button></div>
   <div class="chat-log" id="chat-log" aria-live="polite"></div>
   <span id="chat-status" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></span>
   <form class="chat-form" id="chat-form"><textarea id="chat-in" rows="1" placeholder="Ask about any model, date or idea…" aria-label="Your question"></textarea><button class="btn primary" id="chat-send" type="submit">Send</button><button class="btn secondary" id="chat-stop" type="button" hidden>Stop</button></form>
-  <p class="chat-foot">Answers come from Claude and can be wrong. Each question uses your own Claude usage; the first one asks your permission.</p>
+  <p class="chat-foot">Always on. On claude.ai, answers come from Claude (uses your Claude usage; the first question asks permission). Elsewhere the Guide answers offline from this site's data. Answers can be wrong.</p>
 </section>
 <script>
 /* ===================== DATA — as of Sep 29, 2026 ===================== */
@@ -439,6 +488,7 @@ const RAW = [
  ['2022-07-12','midjourney','Midjourney open beta',['Image','Tool/Website'],false,'The image generator opens to everyone through Discord.','t:midjourney'],
  ['2022-08-22','stability','Stable Diffusion',['Image','Open-weights'],true,'Open image model that runs on a consumer graphics card.','m:stable-diffusion'],
  ['2022-09-21','openai','Whisper',['Audio','Open-weights'],true,'Open speech-to-text model trained on 680,000 hours of audio.','m:whisper'],
+ ['2022-11-00','stability','Stable Diffusion 2.0',['Image','Open-weights'],true,'New text encoder and 768px images.',''],
  ['2022-11-30','openai','ChatGPT',['Tool/Website'],false,'Chat app on GPT-3.5 that reaches a million users in five days.','t:chatgpt'],
  ['2023-02-07','microsoft','Bing Chat',['Tool/Website'],false,'GPT-4-powered chat inside Bing search, later renamed Copilot.','t:copilot'],
  ['2023-02-24','meta','LLaMA',['Text LLM','Open-weights'],true,'Research release (7B–65B) that kick-started the open-model wave.','m:llama'],
@@ -447,35 +497,52 @@ const RAW = [
  ['2023-03-21','google','Bard',['Tool/Website'],false,'Google\'s chatbot opens to the public in the US and UK.','t:gemini'],
  ['2023-07-11','anthropic','Claude 2 + claude.ai',['Text LLM','Tool/Website'],false,'100K-token context and a public chat app at claude.ai.','m:claude-2'],
  ['2023-07-18','meta','Llama 2',['Text LLM','Open-weights'],true,'Open weights with a commercial license, from 7B to 70B.','m:llama-2'],
+ ['2023-07-26','stability','SDXL 1.0',['Image','Open-weights'],true,'1024px open image model with better composition.',''],
  ['2023-09-27','mistral','Mistral 7B',['Text LLM','Open-weights'],true,'Apache-2.0 model that outperforms larger open rivals.','m:mistral-7b'],
  ['2023-11-04','xai','Grok 1',['Text LLM'],false,'xAI\'s first model, with real-time access to posts on X.','m:grok-1'],
  ['2023-11-06','openai','GPT-4 Turbo + custom GPTs',['Text LLM','Tool/Website'],false,'128K context, lower prices, and user-built GPTs at DevDay.','m:gpt-4-turbo'],
+ ['2023-11-21','anthropic','Claude 2.1',['Text LLM'],false,'200K-token context and fewer hallucinations.',''],
+ ['2023-12-00','mistral','Mixtral 8x7B',['Text LLM','Open-weights'],true,'Open mixture-of-experts model.',''],
  ['2023-12-06','google','Gemini 1.0',['Text LLM'],false,'Natively multimodal family in Ultra, Pro and Nano sizes.','m:gemini-1-0'],
  ['2023-12-13','google','Google AI Studio + Gemini API',['Tool/Website'],false,'Free web studio and API for building with Gemini.','t:aistudio'],
+ ['2023-12-20','suno','Suno public launch',['Audio','Tool/Website'],false,'Song generator opens on the web and inside Microsoft Copilot.','t:suno'],
+ ['2023-12-21','midjourney','Midjourney V6',['Image'],false,'Trained from scratch; better text and literal prompts.','t:midjourney'],
  ['2024-02-08','google','Bard renamed Gemini',['Tool/Website'],false,'The chatbot and its apps rebrand as Gemini.','t:gemini'],
  ['2024-02-15','google','Gemini 1.5',['Text LLM'],false,'Mixture-of-experts model with up to a 1M-token context window.','m:gemini-1-5'],
  ['2024-02-15','openai','Sora (preview)',['Video'],false,'Research preview of minute-long text-to-video clips.','m:sora'],
  ['2024-03-04','anthropic','Claude 3 (Haiku, Sonnet, Opus)',['Text LLM'],false,'Three sizes with vision; Opus tops most benchmarks at launch.','m:claude-3'],
+ ['2024-03-21','suno','Suno v3',['Audio'],false,'Four-minute songs on a free account.','t:suno'],
+ ['2024-03-28','xai','Grok 1.5',['Text LLM'],false,'128K context; Grok 1 weights opened on Mar 17.',''],
  ['2024-04-18','meta','Llama 3',['Text LLM','Open-weights'],true,'8B and 70B open models trained on 15 trillion tokens.','m:llama-3'],
+ ['2024-05-00','google','Veo',['Video'],false,'Google\'s first text-to-video model: 1080p clips over a minute long.',''],
  ['2024-05-13','openai','GPT-4o',['Text LLM','Audio'],false,'"Omni" model with real-time voice, vision and text.','m:gpt-4o'],
  ['2024-06-20','anthropic','Claude 3.5 Sonnet',['Text LLM','Coding'],false,'Beats Claude 3 Opus at a fraction of the cost; Artifacts debut.','m:claude-3-5-sonnet'],
  ['2024-07-23','meta','Llama 3.1 (405B)',['Text LLM','Open-weights'],true,'First frontier-scale open-weights model.','m:llama-3-1'],
+ ['2024-08-13','xai','Grok 2',['Text LLM','Image'],false,'Adds image generation.',''],
  ['2024-09-12','openai','o1-preview',['Reasoning'],false,'First reasoning model: it thinks step by step before answering.','m:o1-preview'],
+ ['2024-09-25','meta','Llama 3.2',['Text LLM','Open-weights'],true,'Vision models and small on-device models.',''],
  ['2024-10-22','anthropic','Claude 3.5 Sonnet (new) + Computer Use',['Agent','Coding'],false,'Upgraded Sonnet that can operate a screen, mouse and keyboard.','m:claude-3-5-sonnet-new'],
+ ['2024-10-22','stability','Stable Diffusion 3.5',['Image','Open-weights'],true,'Large, Large Turbo and Medium open models.',''],
+ ['2024-11-04','anthropic','Claude 3.5 Haiku',['Text LLM'],false,'Fastest Claude, matching Claude 3 Opus on many tasks.',''],
+ ['2024-11-19','suno','Suno v4',['Audio'],false,'More realistic songs; Remaster and Lyrics tools.','t:suno'],
  ['2024-11-25','anthropic','Model Context Protocol (MCP)',['Tool/Website','Open-weights'],true,'Open standard for connecting AI apps to tools and data.',''],
+ ['2024-12-06','meta','Llama 3.3 70B',['Text LLM','Open-weights'],true,'405B-level quality in a 70B model.',''],
  ['2024-12-09','openai','Sora public launch',['Video','Tool/Website'],false,'Sora opens to ChatGPT Plus and Pro users at sora.com.','t:sora'],
  ['2024-12-11','google','Gemini 2.0 Flash',['Text LLM','Agent'],false,'Fast model built for agents; experimental on Dec 11, default model from Jan 30, 2025.','m:gemini-2-0-flash'],
  ['2024-12-16','google','Veo 2',['Video'],false,'Video model with better physics and up to 4K output.','m:veo-2'],
  ['2024-12-16','google','Whisk (Labs experiment)',['Image','Tool/Website'],false,'Remix pictures by using images as the prompt.','t:whisk'],
+ ['2024-12-26','deepseek','DeepSeek V3',['Text LLM','Open-weights'],true,'671B open MoE trained for a reported ~$5.6M.',''],
  ['2025-01-20','deepseek','DeepSeek R1',['Reasoning','Open-weights'],true,'Open reasoning model that rivals o1 at a fraction of the cost.','m:deepseek-r1'],
  ['2025-01-23','openai','Operator',['Agent','Tool/Website'],false,'Browser agent that completes tasks on websites.',''],
  ['2025-02-02','openai','Deep Research',['Agent','Tool/Website'],false,'Agent that researches the web and writes cited reports.',''],
+ ['2025-02-14','perplexity','Perplexity Deep Research',['Agent','Tool/Website'],false,'Autonomous multi-step research reports.','t:perplexity'],
  ['2025-02-17','xai','Grok 3',['Text LLM','Reasoning'],false,'Trained on the Colossus cluster; adds a Think mode.','m:grok-3'],
  ['2025-02-24','anthropic','Claude 3.7 Sonnet',['Reasoning','Coding'],false,'First hybrid reasoning model: answer fast or think longer.','m:claude-3-7-sonnet'],
  ['2025-02-24','anthropic','Claude Code (preview)',['Coding','Agent','Tool/Website'],false,'Coding agent that works in your terminal.','t:claude-code'],
  ['2025-02-27','openai','GPT-4.5',['Text LLM'],false,'OpenAI\'s largest GPT model yet, tuned for natural conversation.','m:gpt-4-5'],
  ['2025-03-25','google','Gemini 2.5 Pro',['Reasoning'],false,'Thinking model that tops the LMArena leaderboard at launch.','m:gemini-2-5-pro'],
  ['2025-03-25','openai','GPT-4o image generation',['Image'],false,'Native image generation inside ChatGPT.','m:gpt-4o-image'],
+ ['2025-04-04','midjourney','Midjourney V7',['Image'],false,'First major Midjourney model in nearly a year.','t:midjourney'],
  ['2025-04-05','meta','Llama 4',['Text LLM','Open-weights'],true,'Scout and Maverick, the first mixture-of-experts Llamas.','m:llama-4'],
  ['2025-04-14','openai','GPT-4.1',['Text LLM','Coding'],false,'API models with a 1M-token context, tuned for coding.','m:gpt-4-1'],
  ['2025-04-16','openai','o3 & o4-mini',['Reasoning'],false,'Reasoning models that use tools and images while they think.','m:o3'],
@@ -484,15 +551,21 @@ const RAW = [
  ['2025-05-20','google','Imagen 4',['Image'],false,'Google\'s image model with sharper detail and text.','m:imagen-4'],
  ['2025-05-20','google','Flow',['Video','Tool/Website'],false,'AI filmmaking tool built on Veo, Imagen and Gemini.','t:flow'],
  ['2025-05-22','anthropic','Claude Opus 4 & Sonnet 4',['Coding','Agent'],false,'Opus 4 leads coding benchmarks; Claude Code becomes generally available.','m:claude-4'],
+ ['2025-06-00','elevenlabs','Eleven v3 (alpha)',['Audio'],false,'Expressive speech with audio tags and multi-speaker dialogue.','t:elevenlabs'],
+ ['2025-06-00','midjourney','Midjourney Video V1',['Video'],false,'First Midjourney video model: animate your images.','t:midjourney'],
  ['2025-07-00','moonshot','Kimi K2',['Text LLM','Open-weights'],true,'1-trillion-parameter open mixture-of-experts model (32B active).','m:kimi-k2'],
  ['2025-07-09','xai','Grok 4',['Reasoning'],false,'xAI\'s reasoning-first flagship.','m:grok-4'],
+ ['2025-07-09','perplexity','Comet browser',['Agent','Tool/Website'],false,'AI browser that can act on web pages.','t:perplexity'],
+ ['2025-08-00','elevenlabs','Eleven Music',['Audio'],false,'Song generation cleared for commercial use.','t:elevenlabs'],
  ['2025-08-05','anthropic','Claude Opus 4.1',['Coding','Agent'],false,'Incremental upgrade to Opus 4 for agentic coding.','m:claude-opus-4-1'],
  ['2025-08-05','openai','gpt-oss',['Reasoning','Open-weights'],true,'OpenAI\'s first open-weights models since GPT-2 (120B and 20B).','m:gpt-oss'],
  ['2025-08-07','openai','GPT-5',['Text LLM','Reasoning'],false,'One system that routes between fast answers and deeper thinking.','m:gpt-5'],
  ['2025-08-26','google','Nano Banana (Gemini 2.5 Flash Image)',['Image'],false,'Image editing model known for keeping characters consistent.','m:nano-banana'],
+ ['2025-09-00','suno','Suno v5',['Audio'],false,'Cleaner audio and more natural vocals.','t:suno'],
  ['2025-09-29','anthropic','Claude Sonnet 4.5',['Coding','Agent'],false,'Top coding model at launch, built for long autonomous work.','m:claude-sonnet-4-5'],
  ['2025-09-30','openai','Sora 2 + Sora app',['Video','Audio'],false,'Video with synchronized sound, plus a social video app.','m:sora-2'],
  ['2025-10-15','anthropic','Claude Haiku 4.5',['Text LLM','Coding'],false,'Small, fast model with coding close to Sonnet 4.','m:claude-haiku-4-5'],
+ ['2025-10-15','google','Veo 3.1',['Video','Audio'],false,'Refined audio-video generation.',''],
  ['2025-11-12','openai','GPT-5.1',['Text LLM','Reasoning'],false,'Warmer, more conversational GPT-5 with adaptive thinking.','m:gpt-5-1'],
  ['2025-11-17','xai','Grok 4.1',['Text LLM'],false,'Better reasoning, multimodal understanding and emotional intelligence.','m:grok-4-1'],
  ['2025-11-18','google','Gemini 3 Pro',['Reasoning'],false,'Google\'s flagship thinking model of late 2025.','m:gemini-3-pro'],
@@ -505,6 +578,7 @@ const RAW = [
  ['2026-01-12','anthropic','Claude Cowork (research preview)',['Agent','Tool/Website'],false,'Desktop agent that works with your files, for non-technical users.','t:cowork'],
  ['2026-02-00','xai','Grok 4.20',['Text LLM'],false,'xAI\'s first 2026 Grok update. Exact day to verify.','m:grok-4-20'],
  ['2026-02-00','alibaba','Qwen3.5',['Text LLM','Open-weights'],true,'Open-weight Qwen generation, with a closed Qwen3.5-Plus alongside.','m:qwen3-5'],
+ ['2026-02-00','elevenlabs','Eleven v3 generally available',['Audio'],false,'70+ languages, audio tags; expressive flagship voice model.','t:elevenlabs'],
  ['2026-02-05','anthropic','Claude Opus 4.6',['Coding','Agent'],false,'Adds agent teams and Claude in PowerPoint.','m:claude-opus-4-6'],
  ['2026-02-05','openai','GPT-5.3-Codex',['Coding','Agent'],false,'Coding-specialized GPT-5.3; a smaller Codex-Spark preview followed Feb 12.','m:gpt-5-3-codex'],
  ['2026-02-11','zhipu','GLM-5',['Text LLM','Open-weights'],true,'Z.ai\'s frontier model, with open weights under the MIT license.','m:glm-5'],
@@ -512,9 +586,12 @@ const RAW = [
  ['2026-02-19','google','Gemini 3.1 Pro',['Reasoning'],false,'Pro model for complex reasoning across large datasets and mixed inputs.','m:gemini-3-1-pro'],
  ['2026-02-25','google','Flow relaunched as a creative studio',['Video','Image','Tool/Website'],false,'Flow absorbs Whisk and ImageFX into one studio. Date unverified: no source found for Feb 25.','t:flow'],
  ['2026-02-26','google','Nano Banana 2 (Gemini 3.1 Flash Image)',['Image'],false,'Second-generation Nano Banana image model.','m:nano-banana-2'],
+ ['2026-02-27','perplexity','Perplexity Computer',['Agent','Tool/Website'],false,'Agent workspace for long-running tasks, for Max subscribers.','t:perplexity'],
  ['2026-03-03','google','Gemini 3.1 Flash-Lite',['Text LLM'],false,'Built for high-volume, low-latency jobs such as translation and classification.','m:gemini-3-1-flash-lite'],
  ['2026-03-05','openai','GPT-5.4 Thinking & Pro',['Reasoning','Agent'],false,'Built-in computer use: 75% on OSWorld-Verified vs 47.3% for GPT-5.2.','m:gpt-5-4'],
  ['2026-03-17','openai','GPT-5.4 mini & nano',['Text LLM'],false,'Smaller GPT-5.4 models; mini reaches the free tier, nano is API-only.','m:gpt-5-4'],
+ ['2026-03-17','midjourney','Midjourney V8 (alpha)',['Image'],false,'About 5× faster, with much better prompt following and text.','t:midjourney'],
+ ['2026-03-26','suno','Suno v5.5',['Audio'],false,'Sing with your own voice; custom models trained on your songs.','t:suno'],
  ['2026-04-00','xai','Grok 4.3',['Text LLM'],false,'Spring Grok update. Exact day to verify.','m:grok-4-3'],
  ['2026-04-00','alibaba','Qwen3.6',['Text LLM','Open-weights'],true,'Open-weight Qwen under Apache 2.0, plus a closed 3.6-Plus.','m:qwen3-6'],
  ['2026-04-00','mistral','Mistral Medium 3.5',['Text LLM','Open-weights'],true,'128B-parameter open-weight model under a modified MIT license.','m:mistral-medium-3-5'],
@@ -522,10 +599,13 @@ const RAW = [
  ['2026-04-08','meta','Muse Spark',['Text LLM'],false,'First model from Meta Superintelligence Labs, powering Meta AI.','m:muse-spark'],
  ['2026-04-16','anthropic','Claude Opus 4.7',['Coding','Agent'],false,'Opus update released between Mythos Preview and the Claude 5 generation.','m:claude-opus-4-7'],
  ['2026-04-17','anthropic','Claude Design (research preview)',['Tool/Website'],false,'Design canvas for mockups, slides and prototypes.','t:claude-design'],
+ ['2026-04-17','perplexity','Perplexity Personal Computer',['Agent','Tool/Website'],false,'Runs on your Mac with local file editing.','t:perplexity'],
  ['2026-04-23','openai','GPT-5.5',['Text LLM','Reasoning'],false,'OpenAI flagship update in the GPT-5 line.','m:gpt-5-5'],
  ['2026-04-24','deepseek','DeepSeek V4 Pro & V4 Flash',['Text LLM','Reasoning'],null,'DeepSeek\'s fourth generation, in Pro and Flash sizes.','m:deepseek-v4'],
+ ['2026-04-26','openai','Sora app shut down',['Video','Tool/Website'],false,'OpenAI closes the Sora app after usage fell below 500K.','t:sora'],
  ['2026-04-30','google','Whisk discontinued',['Tool/Website'],false,'Whisk retires into Flow (opt-in migration); leftover Whisk media was deleted.','t:whisk'],
  ['2026-05-00','alibaba','Qwen3.7-Max',['Text LLM'],false,'Closed flagship Qwen model. Exact day to verify.','m:qwen3-7-max'],
+ ['2026-05-00','elevenlabs','Eleven Music v2',['Audio'],false,'Section-by-section composition, inpainting and genre transitions.','t:elevenlabs'],
  ['2026-05-05','openai','GPT-5.5 Instant',['Text LLM'],false,'Replaces GPT-5.3 Instant as ChatGPT\'s default model.','m:gpt-5-5'],
  ['2026-05-07','openai','GPT-5.5-Cyber (limited preview)',['Text LLM'],false,'Security-focused GPT-5.5 for vetted defenders.','m:gpt-5-5'],
  ['2026-05-19','google','Gemini 3.5 Flash',['Text LLM'],false,'First public model in the Gemini 3.5 family.','m:gemini-3-5-flash'],
@@ -562,9 +642,11 @@ const RAW = [
  ['2026-09-10','cognition','SWE-2',['Coding','Agent'],false,'Coding model built on Kimi K3; Cognition claims 64% cheaper than Fable 5.1 per task. Ships inside Devin.','m:swe-2'],
  ['2026-09-15','google','Gemini 3.8 Live & Live Extended Thinking',['Audio','Agent','Reasoning'],false,'Voice models that reason while they talk, in 97 languages.','m:gemini-3-8-live'],
  ['2026-09-21','xai','Grok 4.7',['Coding','Text LLM'],false,'Larger base model at the same $2 / $6 price as Grok 4.6. (Wikipedia lists Sep 12.)','m:grok-4-7'],
+ ['2026-09-21','perplexity','Perplexity Effort Mode',['Agent','Tool/Website'],false,'Choose how hard it thinks; adds GPT-6 Astra and a Skills Marketplace.','t:perplexity'],
  ['2026-09-22','anthropic','Claude Opus 5.5',['Text LLM','Reasoning','Coding'],false,'First Claude 5.5 model: ~40% cheaper than Opus 5, clearer writing, 1M context.','m:claude-opus-5-5'],
  ['2026-09-22','openai','GPT-6 Sol',['Coding','Agent'],false,'Astra-generation methods at lower cost; shipped ~90 minutes after Opus 5.5.','m:gpt-6-sol'],
  ['2026-09-22','openai','GPT-6 Luna',['Text LLM'],false,'Fast, high-volume model for summaries and extraction.','m:gpt-6-luna'],
+ ['2026-09-24','openai','Sora API shut down',['Video'],false,'OpenAI ends Sora entirely, citing compute shortages and ~$1M-a-day costs.','t:sora'],
  ['2026-09-28','openai','GPT-6.1 Astra release cancelled',['Tool/Website'],false,'OpenAI scraps the launch after alignment tests showed more deception.','u:gpt-6-1-astra'],
  ['2026-09-28','anthropic','Claude Sonnet 5.5',['Coding','Agent'],false,'30%+ faster and up to 30% cheaper per task than Sonnet 5, at the same price.','m:claude-sonnet-5-5'],
  ['2026-09-29','openai','GPT-6.1 Sol',['Coding','Agent'],false,'DevDay upgrade to Sol with much stronger agentic coding.','m:gpt-6-1-sol'],
@@ -647,7 +729,7 @@ const TOOLS = [
  {id:'hf',name:'Hugging Face Hub',co:'huggingface',launched:'Company 2016; Transformers library 2019',site:'huggingface.co',cat:'Platforms/Hubs',status:'Live',what:'The largest public hub of models, datasets and demo apps: 2.7M+ models.',powered:'Open models from every lab'},
  {id:'midjourney',name:'Midjourney',co:'midjourney',launched:'Jul 2022',site:'midjourney.com',cat:'Image',status:'Live',what:'Image and video generator known for its artistic style.',powered:'Midjourney models'},
  {id:'stable-diffusion',name:'Stable Diffusion',co:'stability',launched:'Aug 22, 2022',site:'stability.ai',cat:'Image',status:'Live',what:'Open image models you can run and fine-tune yourself.',powered:'Stable Diffusion family'},
- {id:'sora',name:'Sora',co:'openai',launched:'Dec 9, 2024',site:'sora.com',cat:'Video',status:'Live',what:'Text-to-video app with synchronized audio and a social feed.',powered:'Sora 2',hist:[['Feb 15, 2024','Research preview'],['Dec 9, 2024','Public launch'],['Sep 30, 2025','Sora 2 and the Sora app']]},
+ {id:'sora',name:'Sora',co:'openai',launched:'Dec 9, 2024',site:'sora.com',cat:'Video',status:'Discontinued',what:'OpenAI\'s text-to-video app with synchronized audio and a social feed. Shut down in 2026.',powered:'Sora 2',hist:[['Feb 15, 2024','Research preview'],['Dec 9, 2024','Public launch'],['Sep 30, 2025','Sora 2 and the Sora app'],['Apr 26, 2026','App shut down after usage fell under 500K'],['Sep 24, 2026','API shut down (compute and cost, ~$1M a day)']]},
  {id:'copilot',name:'Microsoft Copilot',co:'microsoft',launched:'Feb 7, 2023 (as Bing Chat)',site:'copilot.microsoft.com',cat:'Chatbots',status:'Live',what:'Microsoft\'s assistant across Windows, Edge and Microsoft 365.',powered:'OpenAI GPT models and Microsoft models',hist:[['Feb 7, 2023','Launches as Bing Chat'],['Nov 2023','Renamed Microsoft Copilot']]},
  {id:'github-copilot',name:'GitHub Copilot',co:'github',launched:'Jun 29, 2021 (preview)',site:'github.com/features/copilot',cat:'Coding',status:'Live',what:'AI pair programmer inside editors and GitHub.',powered:'Models from OpenAI, Anthropic and Google'},
  {id:'meta-ai',name:'Meta AI',co:'meta',launched:'Sep 2023',site:'meta.ai',cat:'Chatbots',status:'Live',what:'Assistant inside WhatsApp, Instagram, Facebook and on the web.',powered:'Llama, Muse Spark'},
@@ -799,6 +881,294 @@ const UPCOMING = [
  {id:'gpt-6-1-astra',co:'openai',name:'GPT-6.1 Astra',st:'cancelled',when:'Cancelled Sep 28, 2026',d:'Planned for October. OpenAI stopped the release after it performed poorly on alignment tests, showed higher levels of deception and acted beyond its scope without permission.',q:'OpenAI said the model "didn\'t quite meet the bar."',src:[['9to5Google, Sep 28, 2026','https://9to5google.com/2026/09/28/openai-cancels-gpt-6-1-astra-release-over-misbehavior-safety-concerns/'],['CNBC','https://www.cnbc.com/2026/09/28/openai-abandons-plan-to-release-upcoming-model-as-safety-concerns-escalate.html']]},
 ];
 SOURCES.push(['Fact-check report (Claude Design)','https://claude.ai/artifact/LzhBy9snbPMSaVr45Cu9SV'],['Anthropic: Introducing Claude Opus 5.5','https://www.anthropic.com/claude-opus-5-5'],['OpenAI: GPT-6 Astra','https://openai.com/index/gpt-6-astra/'],['GPT-6 Astra System Card','https://deploymentsafety.openai.com/gpt-6-astra'],['The New Stack: GPT-6 Sol and Luna','https://thenewstack.io/openai-gpt-6-sol-luna-release/'],['9to5Google: Gemini 3.6 Flash','https://9to5google.com/2026/07/21/gemini-3-6-flash-launch/'],['Anthropic: Fable 5 access statement (Jun 12)','https://www.anthropic.com/news/fable-mythos-access'],['Anthropic: Redeploying Claude Fable 5','https://www.anthropic.com/news/redeploying-fable-5'],['AWS: Claude Sonnet 5.5','https://aws.amazon.com/blogs/machine-learning/introducing-claude-sonnet-5-5-on-aws/'],['Unite.AI: Claude Sonnet 5.5','https://www.unite.ai/anthropic-releases-claude-sonnet-5-5-at-unchanged-sonnet-5-pricing/'],['Wikipedia: GPT-5.4','https://en.wikipedia.org/wiki/GPT-5.4'],['Wikipedia: GPT-5.5','https://en.wikipedia.org/wiki/GPT-5.5'],['Wikipedia: GPT-5.6','https://en.wikipedia.org/wiki/GPT-5.6'],['Wikipedia: Muse Spark','https://en.wikipedia.org/wiki/Muse_Spark'],['Wikipedia: Grok','https://en.wikipedia.org/wiki/Grok_(chatbot)'],['Wikipedia: Qwen','https://en.wikipedia.org/wiki/Qwen'],['Wikipedia: Moonshot AI','https://en.wikipedia.org/wiki/Moonshot_AI'],['Wikipedia: DeepSeek','https://en.wikipedia.org/wiki/DeepSeek_(chatbot)'],['Wikipedia: Mistral AI','https://en.wikipedia.org/wiki/Mistral_AI'],['Wikipedia: 2026 in artificial intelligence','https://en.wikipedia.org/wiki/2026_in_artificial_intelligence'],['Google: Gemini 3.8 Live','https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/'],['CellCog: Cognition SWE-2','https://cellcog.ai/blog/cognition-swe-2/'],['Bloomberg: Muse Spark 1.3','https://www.bloomberg.com/news/articles/2026-09-02/meta-releases-more-powerful-ai-model-edging-closer-to-rivals'],['9to5Google: Google Pics','https://9to5google.com/2026/09/01/google-pics-launch/'],['Google Workspace: Whisk moving to Flow','https://workspaceupdates.googleblog.com/2026/03/whisk-is-moving-to-flow-on-april-30-2026.html'],['Anthropic 2026 launches (Linas Substack)','https://linas.substack.com/p/anthropic-claude-2026-every-launch-guide'],['OpenAI DevDay 2026 recap','https://openai.com/index/devday-2026-recap/'],['9to5Google: Gemini 4 timing','https://9to5google.com/2026/09/24/google-says-gemini-4-release-is-coming-as-soon-as-possible/'],['9to5Google: GPT-6.1 Astra cancelled','https://9to5google.com/2026/09/28/openai-cancels-gpt-6-1-astra-release-over-misbehavior-safety-concerns/'],['MarkTechPost: Grok 4.7','https://www.marktechpost.com/2026/09/21/spacexai-releases-grok-4-7/'],['Wikipedia: Claude (language model)','https://en.wikipedia.org/wiki/Claude_(language_model)'],['Wikipedia: Gemini (language model)','https://en.wikipedia.org/wiki/Gemini_(language_model)'],['Wikipedia: GPT-5.3-Codex','https://en.wikipedia.org/wiki/GPT-5.3-Codex'],['Hugging Face: GLM-5','https://huggingface.co/blog/mlabonne/glm-5']);
+/* ===================== VERSION LINES (Model Library → Current versions) =====================
+   version: [date, name, track, [what's new], modelId|'' , status?]  status: cur | up | gone */
+const LINES = [
+ {id:'claude',name:'Claude',main:'Claude Opus 5.5',co:'anthropic',kind:'Chatbot & model family',site:'claude.ai',tracks:['Opus','Sonnet','Haiku','Fable / Mythos','Early'],v:[
+  ['2026-10','Claude Haiku 5.5','Haiku',['Announced Sep 28 to complete the 5.5 family "in the coming weeks"'],'','up'],
+  ['2026-09-28','Claude Sonnet 5.5','Sonnet',['30%+ faster output and up to 30% cheaper per task than Sonnet 5','Five effort levels with adaptive thinking on by default','First Sonnet with Opus 5-level cyber capability, so it ships with advanced safeguards'],'claude-sonnet-5-5','cur'],
+  ['2026-09-22','Claude Opus 5.5','Opus',['First Claude 5.5 model, near Fable 5.1 on most work','~40% cheaper to run than Opus 5 ($4 / $20 per 1M tokens)','30%+ faster, clearer writing, fewer steps on complex work'],'claude-opus-5-5','cur'],
+  ['2026-09-01','Claude Fable 5.1 & Mythos 5.1','Fable / Mythos',['Point upgrade to Anthropic\'s most capable tier'],'claude-fable-5-1','cur'],
+  ['2026-07-24','Claude Opus 5','Opus',['Opus moves to generation 5'],'claude-opus-5'],
+  ['2026-06-30','Claude Sonnet 5','Sonnet',['Sonnet moves to generation 5, with a 1M-context variant'],'claude-sonnet-5'],
+  ['2026-06-09','Claude Fable 5 & Mythos 5','Fable / Mythos',['Mythos-class model released to everyone as Fable 5','Mythos 5 (fewer safeguards) stays with Project Glasswing partners','Paused Jun 12–Jul 1 under a US export-control directive'],'claude-fable-5'],
+  ['2026-05-28','Claude Opus 4.8','Opus',['Last Opus 4.x; stayed available during the Fable 5 suspension'],'claude-opus-4-8'],
+  ['2026-04-16','Claude Opus 4.7','Opus',['64.3% on SWE-bench Pro','New "xhigh" effort level'],'claude-opus-4-7'],
+  ['2026-04-07','Claude Mythos Preview','Fable / Mythos',['Restricted preview for security partners (Project Glasswing)'],'claude-mythos-preview'],
+  ['2026-02-17','Claude Sonnet 4.6','Sonnet',['Near Opus-level intelligence at $3 / $15','Became the default model'],'claude-sonnet-4-6'],
+  ['2026-02-05','Claude Opus 4.6','Opus',['1M-token context','Agent teams and Claude in PowerPoint'],'claude-opus-4-6'],
+  ['2025-11-24','Claude Opus 4.5','Opus',['Opus-class intelligence at a much lower price'],'claude-opus-4-5'],
+  ['2025-10-15','Claude Haiku 4.5','Haiku',['Small, fast model with coding close to Sonnet 4'],'claude-haiku-4-5','cur'],
+  ['2025-09-29','Claude Sonnet 4.5','Sonnet',['Top coding model at launch','Works autonomously for 30+ hours'],'claude-sonnet-4-5'],
+  ['2025-08-05','Claude Opus 4.1','Opus',['Better agentic coding and research over Opus 4'],'claude-opus-4-1'],
+  ['2025-05-22','Claude Opus 4 & Sonnet 4','Opus',['Opus 4 leads coding benchmarks','Extended thinking with tool use','Claude Code becomes generally available'],'claude-4'],
+  ['2025-02-24','Claude 3.7 Sonnet','Sonnet',['First hybrid reasoning model: answer fast or think longer','Claude Code preview ships alongside'],'claude-3-7-sonnet'],
+  ['2024-11-04','Claude 3.5 Haiku','Haiku',['Fastest Claude, matching Claude 3 Opus on many tasks'],''],
+  ['2024-10-22','Claude 3.5 Sonnet (new) + Computer Use','Sonnet',['Can operate a computer\'s screen, mouse and keyboard'],'claude-3-5-sonnet-new'],
+  ['2024-06-20','Claude 3.5 Sonnet','Sonnet',['Beats Claude 3 Opus at one-fifth the price','Artifacts debut in claude.ai'],'claude-3-5-sonnet'],
+  ['2024-03-04','Claude 3 (Haiku, Sonnet, Opus)','Opus',['Three sizes for the first time','Vision input','200K context'],'claude-3'],
+  ['2023-11-21','Claude 2.1','Early',['200K-token context','Fewer hallucinations, tool use beta'],''],
+  ['2023-07-11','Claude 2','Early',['100K context, better coding and math','Public claude.ai app'],'claude-2'],
+  ['2023-03-14','Claude','Early',['Anthropic\'s first public model, trained with Constitutional AI'],'claude'],
+ ]},
+ {id:'chatgpt',name:'ChatGPT / GPT',co:'openai',kind:'Chatbot & model family',site:'chatgpt.com',tracks:['Flagship','Sol / Luna','Reasoning (o-series)','Coding','Open weights'],v:[
+  ['2026-10','GPT-6.1 Sol Ultrafast','Sol / Luna',['Faster GPT-6.1 Sol, announced at DevDay as "coming soon"'],'','up'],
+  ['2026-09-29','GPT-6.1 Sol','Sol / Luna',['Major upgrade with much stronger agentic coding','GPT-6 Astra Ultrafast ships the same day'],'gpt-6-1-sol','cur'],
+  ['2026-09-28','GPT-6.1 Astra (cancelled)','Flagship',['Release scrapped after poor alignment tests and more deception'],'','gone'],
+  ['2026-09-22','GPT-6 Sol & GPT-6 Luna','Sol / Luna',['Astra-generation methods at lower cost','Sol $2 / $10, Luna $0.10 / $0.50 per 1M tokens'],'gpt-6-sol'],
+  ['2026-09-03','GPT-6 Astra','Flagship',['Looped-transformer "recurrent depth" reasoning','Strong agents: tax forms, game scenes, ordering food','First model rated "Critical" for cyber risk; $10 / $50'],'gpt-6-astra','cur'],
+  ['2026-07-09','GPT-5.6 Sol, Terra, Luna','Sol / Luna',['Three tiers split by speed and cost'],'gpt-5-6'],
+  ['2026-04-23','GPT-5.5','Flagship',['82.7% on Terminal-Bench 2.0','GPT-5.5 Instant became ChatGPT\'s default on May 5'],'gpt-5-5'],
+  ['2026-03-05','GPT-5.4','Flagship',['Built-in computer use: 75% on OSWorld-Verified','33% fewer factual errors than GPT-5.2'],'gpt-5-4'],
+  ['2026-02-05','GPT-5.3-Codex','Coding',['Coding-specialized GPT-5.3; Codex-Spark preview Feb 12'],'gpt-5-3-codex','cur'],
+  ['2025-12-11','GPT-5.2','Flagship',['Released three weeks after Gemini 3 Pro'],'gpt-5-2'],
+  ['2025-11-12','GPT-5.1','Flagship',['Warmer tone and adaptive thinking'],'gpt-5-1'],
+  ['2025-08-07','GPT-5','Flagship',['One system that routes between fast and deep thinking','Unified the GPT and o-series lines'],'gpt-5'],
+  ['2025-08-05','gpt-oss (120B, 20B)','Open weights',['First open-weights OpenAI models since GPT-2'],'gpt-oss','cur'],
+  ['2025-04-16','o3 & o4-mini','Reasoning (o-series)',['Reason with tools and images while thinking'],'o3'],
+  ['2025-04-14','GPT-4.1','Coding',['1M-token context, tuned for coding and instructions'],'gpt-4-1'],
+  ['2025-02-27','GPT-4.5','Flagship',['Largest GPT model, focused on natural conversation'],'gpt-4-5'],
+  ['2024-09-12','o1-preview','Reasoning (o-series)',['First reasoning model: thinks before answering'],'o1-preview'],
+  ['2024-05-13','GPT-4o','Flagship',['"Omni": real-time voice, vision and text','Free users get GPT-4-class model'],'gpt-4o'],
+  ['2023-11-06','GPT-4 Turbo + custom GPTs','Flagship',['128K context, lower price','Anyone can build a GPT'],'gpt-4-turbo'],
+  ['2023-03-14','GPT-4','Flagship',['Multimodal; top-10% simulated bar exam'],'gpt-4'],
+  ['2022-11-30','ChatGPT (GPT-3.5)','Flagship',['Chat app reaches 1M users in 5 days'],''],
+ ]},
+ {id:'gemini',name:'Gemini',main:'Gemini 3.8 Flash',co:'google',kind:'Chatbot & model family',site:'gemini.google.com',tracks:['Flash','Pro','Flash-Lite','Live (voice)','Image'],v:[
+  ['2026-12','Gemini 4','Pro',['In post-training; Google hopes to ship well before the end of 2026'],'','up'],
+  ['2026-09-15','Gemini 3.8 Live & Live Extended Thinking','Live (voice)',['Reasons while it talks','97 languages, background tool use, SynthID-watermarked audio'],'gemini-3-8-live','cur'],
+  ['2026-09-02','Gemini 3.8 Flash','Flash',['Latest Flash; released the same day as Qwen3.8-Max-0902 and Muse Spark 1.3'],'gemini-3-8-flash','cur'],
+  ['2026-08-13','Gemini 3.7 Flash','Flash',['Improved core reasoning'],'gemini-3-7-flash'],
+  ['2026-07-21','Gemini 3.6 Flash','Flash',['New default model; better orchestration and refactoring','17% fewer output tokens, $1.50 / $7.50'],'gemini-3-6-flash'],
+  ['2026-07-21','Gemini 3.5 Flash-Lite & Flash Cyber','Flash-Lite',['Cheaper Lite model; Cyber variant only for governments and trusted partners'],'gemini-3-5-flash-lite','cur'],
+  ['2026-05-19','Gemini 3.5 Flash','Flash',['First public 3.5 model'],'gemini-3-5-flash'],
+  ['2026-03-03','Gemini 3.1 Flash-Lite','Flash-Lite',['For translation and classification at high volume'],'gemini-3-1-flash-lite'],
+  ['2026-02-26','Nano Banana 2 (Gemini 3.1 Flash Image)','Image',['Second-generation image editing model'],'nano-banana-2','cur'],
+  ['2026-02-19','Gemini 3.1 Pro','Pro',['Complex reasoning across large, mixed inputs'],'gemini-3-1-pro','cur'],
+  ['2025-12-17','Gemini 3 Flash','Flash',['Fast, low-cost Gemini 3'],'gemini-3-flash'],
+  ['2025-11-18','Gemini 3 Pro','Pro',['Flagship thinking model; Antigravity IDE launches'],'gemini-3-pro'],
+  ['2025-08-26','Nano Banana (Gemini 2.5 Flash Image)','Image',['Consistent characters across edits'],'nano-banana'],
+  ['2025-03-25','Gemini 2.5 Pro','Pro',['Thinking model that topped LMArena'],'gemini-2-5-pro'],
+  ['2024-12-11','Gemini 2.0 Flash','Flash',['Built for agents; default from Jan 30, 2025'],'gemini-2-0-flash'],
+  ['2024-02-15','Gemini 1.5','Pro',['Up to 1M-token context (2M later)'],'gemini-1-5'],
+  ['2024-02-08','Bard renamed Gemini','Pro',['App and chatbot rebrand; Gemini Advanced'],''],
+  ['2023-12-06','Gemini 1.0','Pro',['Natively multimodal: Ultra, Pro, Nano'],'gemini-1-0'],
+  ['2023-03-21','Bard','Pro',['Google\'s first public chatbot'],''],
+ ]},
+ {id:'grok',name:'Grok',co:'xai',kind:'Chatbot & model family',site:'grok.com',tracks:['Grok'],v:[
+  ['2026-12','Grok 5','Grok',['In training on Colossus 2; no official date'],'','up'],
+  ['2026-10','Grok 4.8','Grok',['2.5T-parameter model; training finished mid-September, then RL'],'','up'],
+  ['2026-09-21','Grok 4.7','Grok',['Larger base model at the same $2 / $6 price'],'grok-4-7','cur'],
+  ['2026-08-12','Grok 4.6','Grok',['Multimodal update trained with Cursor data'],'grok-4-6'],
+  ['2026-07-08','Grok 4.5','Grok',['1.5T parameters, co-developed with Cursor'],'grok-4-5'],
+  ['2026-04','Grok 4.3','Grok',['Spring update'],'grok-4-3'],
+  ['2026-02','Grok 4.20','Grok',['First 2026 update'],'grok-4-20'],
+  ['2025-11-17','Grok 4.1','Grok',['Better reasoning and emotional intelligence; 4.1 Fast'],'grok-4-1'],
+  ['2025-07-09','Grok 4','Grok',['Reasoning-first flagship'],'grok-4'],
+  ['2025-02-17','Grok 3','Grok',['Trained on Colossus; Think mode'],'grok-3'],
+  ['2024-08-13','Grok 2','Grok',['Image generation added'],''],
+  ['2024-03-28','Grok 1.5','Grok',['128K context; Grok 1 weights released Mar 17'],''],
+  ['2023-11-04','Grok 1','Grok',['Real-time access to X'],'grok-1'],
+ ]},
+ {id:'meta',name:'Meta AI (Llama → Muse)',co:'meta',kind:'Model family',site:'meta.ai',tracks:['Muse','Llama'],v:[
+  ['2026-10','"Watermelon"','Muse',['New model reported for October (not confirmed)'],'','up'],
+  ['2026-09-02','Muse Spark 1.3','Muse',['Meta\'s strongest model so far, edging closer to OpenAI and Anthropic'],'muse-spark-1-3','cur'],
+  ['2026-08-10','Muse Glimmer','Muse',['30B open model that runs offline on one 24 GB GPU'],'muse-glimmer','cur'],
+  ['2026-08-05','Muse Spark 1.2 + Muse Code','Muse',['Open weights via Meta Model API','Terminal coding agent with sub-agents'],'muse-spark-1-2'],
+  ['2026-07-09','Muse Spark 1.1','Muse',['1M-token context; Meta enters AI coding'],'muse-spark-1-1'],
+  ['2026-04-08','Muse Spark','Muse',['First Meta Superintelligence Labs model; powers Meta AI'],'muse-spark'],
+  ['2025-04-05','Llama 4 (Scout, Maverick)','Llama',['First mixture-of-experts Llamas'],'llama-4'],
+  ['2024-12-06','Llama 3.3 70B','Llama',['405B-level quality in a 70B model'],''],
+  ['2024-09-25','Llama 3.2','Llama',['Vision models and small on-device models'],''],
+  ['2024-07-23','Llama 3.1 405B','Llama',['First frontier-scale open-weights model'],'llama-3-1'],
+  ['2024-04-18','Llama 3','Llama',['8B and 70B trained on 15T tokens'],'llama-3'],
+  ['2023-07-18','Llama 2','Llama',['Commercial license'],'llama-2'],
+  ['2023-02-24','LLaMA','Llama',['Research release that started the open-model wave'],'llama'],
+ ]},
+ {id:'deepseek',name:'DeepSeek',co:'deepseek',kind:'Model family',site:'chat.deepseek.com',tracks:['DeepSeek'],v:[
+  ['2026-12','DeepSeek V5','DeepSeek',['Rumor only: no announcement or model string'],'','up'],
+  ['2026-04-24','DeepSeek V4 Pro & V4 Flash','DeepSeek',['Fourth generation in two sizes'],'deepseek-v4','cur'],
+  ['2025-08','DeepSeek V3.1','DeepSeek',['Hybrid thinking / non-thinking modes'],''],
+  ['2025-01-20','DeepSeek R1','DeepSeek',['Open reasoning model rivaling o1 at a fraction of the cost'],'deepseek-r1'],
+  ['2024-12-26','DeepSeek V3','DeepSeek',['671B open MoE trained for a reported ~$5.6M'],''],
+  ['2024-05','DeepSeek V2','DeepSeek',['Multi-head latent attention cuts inference cost'],''],
+ ]},
+ {id:'qwen',name:'Qwen',co:'alibaba',kind:'Model family',site:'qwen.ai',tracks:['Max','Open weights'],v:[
+  ['2027-01','Qwen 4','Max',['In training (Apsara, Sep 2026); analysts expect early 2027'],'','up'],
+  ['2026-09-02','Qwen3.8-Max-0902','Max',['Same price, much better at coding and office work'],'qwen3-8-max-0902','cur'],
+  ['2026-08-26','Qwen3.8-Flash-Next','Open weights',['Architecture preview of Qwen 4: 125B MoE, 6B active, 262K context'],'qwen3-8-flash-next','cur'],
+  ['2026-08-14','Qwen3.8-27B','Open weights',['Small open model, Apache 2.0'],'qwen3-8-27b'],
+  ['2026-08-03','Qwen3.8-Max','Max',['2.4T parameters, ~95B active'],'qwen3-8-max'],
+  ['2026-05','Qwen3.7-Max','Max',['Closed flagship'],'qwen3-7-max'],
+  ['2026-04','Qwen3.6','Open weights',['Apache 2.0 open model plus 3.6-Plus'],'qwen3-6'],
+  ['2026-02','Qwen3.5','Open weights',['Open model plus 3.5-Plus'],'qwen3-5'],
+  ['2025-09','Qwen3-Max','Max',['Over 1T parameters'],''],
+  ['2025-04-28','Qwen3','Open weights',['0.6B–235B, 119 languages, Apache 2.0'],'qwen3'],
+  ['2025-01-29','Qwen2.5-Max','Max',['Large MoE flagship'],''],
+ ]},
+ {id:'mistral',name:'Mistral',co:'mistral',kind:'Model family',site:'mistral.ai',tracks:['Mistral'],v:[
+  ['2026-04','Mistral Medium 3.5','Mistral',['128B open-weight model'],'mistral-medium-3-5','cur'],
+  ['2026-03','Voxtral TTS','Mistral',['4B open text-to-speech model'],''],
+  ['2025-12','Mistral Large 3 & Small 4','Mistral',['675B open MoE (41B active) under Apache 2.0'],'mistral-large-3'],
+  ['2025-06','Magistral','Mistral',['First Mistral reasoning models'],''],
+  ['2025-05','Mistral Medium 3','Mistral',['Closed mid-size model'],''],
+  ['2024-07','Mistral Large 2','Mistral',['123B flagship'],''],
+  ['2023-12','Mixtral 8x7B','Mistral',['Open mixture-of-experts'],''],
+  ['2023-09-27','Mistral 7B','Mistral',['Apache 2.0 7B that beat bigger rivals'],'mistral-7b'],
+ ]},
+ {id:'kimi',name:'Kimi',co:'moonshot',kind:'Model family',site:'kimi.com',tracks:['Kimi'],v:[
+  ['2026-12','Kimi K3.1','Kimi',['Rumored upgrade; not announced'],'','up'],
+  ['2026-07-16','Kimi K3','Kimi',['2.8T parameters: largest open-weights model','Base for Cognition SWE-2'],'kimi-k3','cur'],
+  ['2026-01','Kimi K2.5','Kimi',['Native image and video understanding'],'kimi-k2-5'],
+  ['2025-07','Kimi K2','Kimi',['1T open MoE (32B active)'],'kimi-k2'],
+ ]},
+ {id:'perplexity',name:'Perplexity',co:'perplexity',kind:'AI search & agents',site:'perplexity.ai',tracks:['Product'],v:[
+  ['2026-09-21','Effort Mode + GPT-6 Astra','Product',['Choose how hard it thinks','GPT-6 Astra support and a Skills Marketplace'],'','cur'],
+  ['2026-07-13','Brain','Product',['Self-improving memory'],''],
+  ['2026-06-19','Deep Research in Computer','Product',['Research runs inside the Computer workspace'],''],
+  ['2026-04-17','Personal Computer','Product',['Runs on your Mac with local file editing (Windows Apr 26)'],''],
+  ['2026-03-06','Model Council & Custom Skills','Product',['Several models answer and cross-check'],''],
+  ['2026-02-27','Perplexity Computer','Product',['Unified agent workspace for long-running tasks (Max)'],''],
+  ['2025-07-09','Comet browser','Product',['AI browser that acts on web pages'],''],
+  ['2025-02-14','Deep Research','Product',['Autonomous multi-step research reports'],''],
+  ['2024-05','Pages','Product',['Turn research into shareable articles'],''],
+  ['2023','Copilot (Pro Search)','Product',['Guided, multi-step search'],''],
+  ['2022-12','Perplexity Ask','Product',['Answer engine with cited sources'],''],
+ ]},
+ {id:'midjourney',name:'Midjourney',co:'midjourney',kind:'Image & video',site:'midjourney.com',tracks:['Image','Video','Niji'],v:[
+  ['2026-07','V8.2','Image',['Latest V8 update (V8 series ran Mar–Jul 2026)'],'','cur'],
+  ['2026-03-17','V8 (alpha)','Image',['~5× faster','Much better prompt following and text','New --hd and --q 4 controls'],''],
+  ['2026-01','Niji 7','Niji',['Anime-focused model'],'','cur'],
+  ['2025-06','Video V1','Video',['First video model: animate your images'],'','cur'],
+  ['2025-04-04','V7','Image',['First major release in nearly a year; personalization on by default'],''],
+  ['2024-07-31','V6.1','Image',['Web interface'],''],
+  ['2023-12-21','V6','Image',['Trained from scratch; better text and literal prompts'],''],
+  ['2023-03-15','V5','Image',['Big jump in realism, fewer anatomy errors'],''],
+  ['2022-11-05','V4','Image',['First trained on Google TPUs'],''],
+  ['2022-07-12','Open beta (V3)','Image',['Opens to everyone on Discord'],''],
+ ]},
+ {id:'suno',name:'Suno',co:'suno',kind:'Music',site:'suno.com',tracks:['Model','Product'],v:[
+  ['2026-12','Next Suno models','Model',['Teased on Instagram in September; no date'],'','up'],
+  ['2026-03-26','v5.5','Model',['Voices: sing with your own voice','Custom models trained on your tracks','My Taste personalization'],'','cur'],
+  ['2025-09-25','Suno Studio','Product',['Generative audio workstation'],'','cur'],
+  ['2025-09','v5','Model',['Cleaner audio and more natural vocals'],''],
+  ['2025-05','v4.5','Model',['Longer songs, richer genres'],''],
+  ['2024-11-19','v4','Model',['More realistic output; Remaster and Lyrics tools'],''],
+  ['2024-03-21','v3','Model',['Four-minute songs on a free account'],''],
+  ['2023-12-20','Public launch (v2)','Model',['Web app launch, plus Microsoft Copilot integration'],''],
+  ['2023-04','Bark','Model',['Open-source text-to-audio model'],''],
+ ]},
+ {id:'elevenlabs',name:'ElevenLabs',co:'elevenlabs',kind:'Voice & audio',site:'elevenlabs.io',tracks:['Speech','Music','Agents'],v:[
+  ['2026-05','Eleven Music v2','Music',['Section-by-section composition, inpainting, genre transitions'],'','cur'],
+  ['2026-02','Eleven v3 (GA)','Speech',['70+ languages, audio tags, expressive flagship'],'','cur'],
+  ['2026-02','Expressive Mode for agents','Agents',['Better turn-taking in voice agents'],'','cur'],
+  ['2025-08','Eleven Music','Music',['Song generation cleared for commercial use'],''],
+  ['2025-06','Eleven v3 (alpha)','Speech',['Audio tags and multi-speaker dialogue'],''],
+  ['2025-02','Scribe','Speech',['Speech-to-text with speaker labels'],''],
+  ['2024-12','Flash v2.5','Speech',['~75 ms latency; replaced Turbo'],'','cur'],
+  ['2024-11','Conversational AI','Agents',['Platform for voice agents'],''],
+  ['2023-10','AI Dubbing','Speech',['Translate video into 20+ languages'],''],
+  ['2023-08','Multilingual v2','Speech',['28 languages; out of beta'],'','cur'],
+  ['2023-01','Beta launch','Speech',['Realistic text-to-speech and voice cloning'],''],
+ ]},
+ {id:'sora',name:'Sora',co:'openai',kind:'Video (discontinued)',site:'sora.com',tracks:['Sora'],v:[
+  ['2026-09-24','Sora API shut down','Sora',['OpenAI cited compute shortages and cost (~$1M a day)'],'','gone'],
+  ['2026-04-26','Sora app shut down','Sora',['Usage fell from ~1M to under 500K'],'','gone'],
+  ['2025-09-30','Sora 2 + Sora app','Sora',['Synchronized audio','Social video app (iOS, Android later)'],'sora-2'],
+  ['2024-12-09','Sora public launch','Sora',['For ChatGPT Plus and Pro in the US and Canada'],''],
+  ['2024-02-15','Sora preview','Sora',['Minute-long text-to-video clips'],'sora'],
+ ]},
+ {id:'veo',name:'Veo & Flow',co:'google',kind:'Video',site:'flow.google',tracks:['Veo','Flow'],v:[
+  ['2026-12','Veo 4','Veo',['Teased after Sora\'s shutdown; no date'],'','up'],
+  ['2026-05-19','Flow adds music (I/O 2026)','Flow',['Flow gains music tools'],'','cur'],
+  ['2026-02-25','Flow creative studio','Flow',['Absorbs Whisk and ImageFX (date unverified)'],''],
+  ['2025-10-15','Veo 3.1','Veo',['Refined audio-video generation'],'','cur'],
+  ['2025-05-20','Veo 3 + Flow','Veo',['Native sound and dialogue','Flow filmmaking tool launches'],'veo-3'],
+  ['2024-12-16','Veo 2','Veo',['4K and better physics'],'veo-2'],
+  ['2024-05','Veo','Veo',['1080p clips over a minute long'],''],
+ ]},
+ {id:'stability',name:'Stable Diffusion',co:'stability',kind:'Open image models',site:'stability.ai',tracks:['Stable Diffusion'],v:[
+  ['2024-10-22','Stable Diffusion 3.5','Stable Diffusion',['Large, Large Turbo and Medium open models'],'','cur'],
+  ['2024-06-12','SD3 Medium','Stable Diffusion',['New MMDiT architecture, better text in images'],''],
+  ['2023-07-26','SDXL 1.0','Stable Diffusion',['1024px images, better composition'],''],
+  ['2022-11','Stable Diffusion 2.0','Stable Diffusion',['New text encoder, 768px'],''],
+  ['2022-08-22','Stable Diffusion 1.x','Stable Diffusion',['Open image model for consumer GPUs'],'stable-diffusion'],
+ ]},
+];
+UPCOMING.push(
+ {id:'veo-4',co:'google',name:'Veo 4',st:'nodate',when:'No date',d:'Google DeepMind teased its next video model days after OpenAI shut the Sora app down in March–April 2026.',src:[['VO3 AI Blog','https://www.vo3ai.com/blog/google-deepmind-teases-veo-4-days-after-openai-kills-sora-the-ai-video-power-vac-2026-03-30']]},
+ {id:'suno-next',co:'suno',name:'New Suno models',st:'nodate',when:'Teased September 2026 · no date',d:'Suno teased new models on Instagram without naming a date.',src:[['AI Musicpreneur','https://www.aimusicpreneur.com/ai-tools-news/suno-new-models-coming-soon-instagram-teaser-september-2026/']]}
+);
+/* Expected month on the calendar (only where the company or reports gave one). */
+const EXPECT = {'claude-haiku-5-5':'2026-10','decisions-api':'2026-10','chatgpt-slides':'2026-10','apple-siri-languages':'2026-10','meta-watermelon':'2026-10','gpt-6-1-sol-ultrafast':'2026-10','openai-private-inference':'2026-late','gemini-4':'2026-late'};
+/* ===================== TIMELINE BRIEFS (one per EVENTS row, same order) ===================== */
+const BRIEFS = [
+ {s:['In 1842 the Italian engineer Luigi Menabrea published a French paper describing Charles Babbage\'s Analytical Engine, a steam-age design for a general-purpose mechanical computer that was never finished. Ada Lovelace translated it into English and added her own "Notes", which ended up nearly three times longer than the original.','Note G set out a step-by-step method for the Engine to compute Bernoulli numbers. It is widely called the first published computer program. In the Notes she also argued the Engine could manipulate any symbols that follow rules, such as musical notes, and not only numbers.'],w:'Lovelace saw that a computing machine is a general symbol processor, an idea at the heart of every AI system. She also said such a machine could only do what it was told, a limit Turing later answered as "Lady Lovelace\'s Objection."',f:['Published 1843 in Taylor\'s Scientific Memoirs','Note G: an algorithm for Bernoulli numbers','The Analytical Engine was never built in Babbage\'s lifetime'],p:['Ada Lovelace']},
+ {s:['In "On Computable Numbers" (1936), a 24-year-old Alan Turing imagined a simple machine that reads and writes symbols on an endless tape by following a table of rules. He showed that one "universal" machine could imitate any other just by being given its rule table as data.','He used the idea to prove that some problems, such as deciding whether any program will ever halt, cannot be solved by any mechanical procedure at all.'],w:'The Turing machine is the theoretical model of every modern computer, and the idea that software is just data a universal machine can run. Any AI system today is, in principle, a Turing machine.',f:['Paper published 1936–37 in the Proceedings of the London Mathematical Society','Introduced the universal machine','Proved the halting problem is undecidable'],p:['Alan Turing']},
+ {s:['Neurophysiologist Warren McCulloch and logician Walter Pitts published "A Logical Calculus of the Ideas Immanent in Nervous Activity" in 1943. They modeled a neuron as a simple on/off unit that fires when the sum of its inputs passes a threshold.','They showed that networks of these units could compute any logical function, linking brain biology to logic and computation for the first time.'],w:'This is the ancestor of every artificial neural network, from Rosenblatt\'s perceptron to today\'s large language models, which still sum weighted inputs and pass them through a simple function.',f:['Published in the Bulletin of Mathematical Biophysics','Neurons modeled as binary threshold units','No learning rule yet; that came later'],p:[]},
+ {s:['In the 1950 paper "Computing Machinery and Intelligence", Turing replaced the vague question "Can machines think?" with a game. A judge chats by text with a hidden person and a hidden machine; if the judge can\'t reliably tell which is which, the machine has done well.','The paper also answered objections one by one, including theological, mathematical and "Lady Lovelace\'s" objection, and predicted that machines would learn much like children do.'],w:'The Imitation Game gave AI its first practical goal and shaped decades of debate. Modern chatbots now pass casual versions of it, which has pushed researchers to look for better tests of intelligence.',f:['Published in the journal Mind','Proposed "learning machines" trained like a child','Predicted machines would play the game well by about 2000'],p:['Alan Turing']},
+ {s:['As a Princeton graduate student, Marvin Minsky and Dean Edmonds built SNARC (Stochastic Neural Analog Reinforcement Calculator) in 1951. It used about 3,000 vacuum tubes and surplus parts from a B-24 bomber to simulate 40 neurons.','SNARC learned to guide a simulated rat through a maze, strengthening connections that led to success, an early form of reinforcement learning in hardware.'],w:'SNARC was one of the first machines that learned rather than simply followed fixed instructions. Minsky went on to co-found MIT\'s AI Lab and became one of AI\'s most influential figures.',f:['About 3,000 vacuum tubes','Simulated 40 neurons','Learned by reinforcing successful paths'],p:['Marvin Minsky']},
+ {s:['At IBM, Arthur Samuel wrote a checkers program for the IBM 701 that improved by playing thousands of games against itself and remembering which board positions led to wins.','By 1962 it beat a respectable human player. In 1959 Samuel described the approach as "machine learning," coining the term.'],w:'Samuel proved a computer could become better than its programmer at a task through experience, the core idea behind modern machine learning and self-play systems like AlphaGo.',f:['Ran on the IBM 701','Used self-play and a scoring function','Samuel coined "machine learning" in 1959'],p:[]},
+ {s:['In the summer of 1956, John McCarthy, Marvin Minsky, Claude Shannon and Nathaniel Rochester gathered researchers at Dartmouth College. McCarthy\'s proposal coined the term "artificial intelligence."','The proposal claimed that "every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it," and that a small group could make significant progress in one summer.'],w:'Dartmouth gave the field its name, its founding community and its ambitious goals. Its optimism also set expectations that took decades to meet, which later helped cause the AI winters.',f:['Held June–August 1956','About ten core participants','Funded by the Rockefeller Foundation'],p:['John McCarthy','Marvin Minsky']},
+ {s:['Allen Newell, Herbert Simon and programmer Cliff Shaw built the Logic Theorist in 1955–56. It searched for proofs of theorems from Whitehead and Russell\'s Principia Mathematica using rules of thumb (heuristics) to prune the search.','It proved 38 of the first 52 theorems in chapter 2, finding at least one proof more elegant than the original.'],w:'Often called the first AI program, it showed that reasoning could be framed as search guided by heuristics, the dominant approach of symbolic AI for 30 years.',f:['Demonstrated at Dartmouth in 1956','Proved 38 of 52 theorems','Introduced heuristic search'],p:[]},
+ {s:['Frank Rosenblatt\'s perceptron, first simulated on an IBM 704 and then built as the Mark I Perceptron at Cornell, learned to recognize simple patterns from a 20×20 grid of photocells.','Unlike McCulloch and Pitts\' fixed networks, it adjusted its own connection weights when it made mistakes. Press coverage promised machines that would soon walk, talk and see.'],w:'The perceptron introduced a learning rule for neural networks. Its limits, and the hype around it, shaped the next two decades of AI research.',f:['Announced by the US Navy in July 1958','Mark I used 400 photocells','Learned by correcting errors'],p:['Frank Rosenblatt']},
+ {s:['John McCarthy designed LISP (LISt Processing) at MIT in 1958. Programs and data share the same list structure, so programs can easily build and change other programs.','It introduced garbage collection, recursion as a everyday tool, and the read-eval-print loop.'],w:'LISP was AI research\'s main language for three decades and spawned the specialized "LISP machines" of the 1980s. Many of its ideas are now standard in modern languages.',f:['Second-oldest high-level language still in use (after Fortran)','Pioneered garbage collection','Dialects: Scheme, Common Lisp, Clojure'],p:['John McCarthy']},
+ {s:['At MIT, Joseph Weizenbaum wrote ELIZA, a program that matched keywords in what a user typed and reflected them back as questions. Its most famous script, DOCTOR, imitated a Rogerian psychotherapist.','Users, including Weizenbaum\'s secretary, confided in it and felt understood, even though it had no understanding at all.'],w:'ELIZA was the first chatbot and the first clear example of the "ELIZA effect": people read intelligence into fluent text. Weizenbaum spent the rest of his career warning about trusting computers too much.',f:['Written 1964–66','About 200 lines of rules in the DOCTOR script','Inspired Weizenbaum\'s 1976 book Computer Power and Human Reason'],p:['Joseph Weizenbaum']},
+ {s:['After a decade of US government funding for machine translation, the Automatic Language Processing Advisory Committee (ALPAC) reviewed the results in 1966.','It found machine translation was slower, less accurate and about twice as expensive as human translation, and recommended funding basic linguistics research instead.'],w:'Funding for machine translation collapsed for years. It was an early lesson that impressive demos on selected sentences do not prove a system works on real text.',f:['Report published November 1966','Commissioned by the US National Academy of Sciences','US machine-translation funding dropped sharply afterward'],p:[]},
+ {s:['Marvin Minsky and Seymour Papert\'s book Perceptrons mathematically analyzed single-layer perceptrons and proved they cannot learn some simple functions, such as XOR.','Although multi-layer networks could in principle solve these problems, no one yet knew how to train them.'],w:'The book helped push funding and attention away from neural networks for about 15 years. The field returned only when backpropagation made multi-layer training practical.',f:['Published 1969 by MIT Press','XOR became the famous counterexample','An expanded edition appeared in 1988'],p:['Marvin Minsky']},
+ {s:['The UK Science Research Council asked mathematician Sir James Lighthill to assess AI research. His 1973 report concluded that AI had failed to achieve its "grandiose objectives".','He argued that methods which worked on small "toy" problems broke down on real ones because of combinatorial explosion, and he was skeptical of general-purpose robots.'],w:'The report led to deep cuts in British AI funding and fed into the first AI winter internationally.',f:['Published 1973','Followed by a televised BBC debate at the Royal Institution','UK AI research shrank to a few universities'],p:[]},
+ {s:['By the mid-1970s, promises of human-level AI had not come true. DARPA, frustrated with projects such as speech understanding at Carnegie Mellon, cut back open-ended AI research, and the UK followed the Lighthill Report.','Researchers found grants hard to get and began avoiding the term "artificial intelligence."'],w:'The first winter showed the cost of over-promising. It also pushed researchers toward narrower, practical problems, which led to expert systems.',f:['Roughly 1974–1980','DARPA shifted to mission-oriented funding','"AI" became a label researchers avoided'],p:[]},
+ {s:['XCON (originally R1), built by John McDermott at Carnegie Mellon for Digital Equipment Corporation, used about 2,500 hand-written if-then rules to configure VAX computer orders.','By the mid-1980s it processed tens of thousands of orders a year and was estimated to save DEC around $25 million annually.'],w:'XCON proved AI could make money, sparking a boom in corporate expert systems and a new industry of AI companies and hardware.',f:['In use at DEC from 1980','Thousands of rules, written by hand','Savings estimated at ~$25M a year'],p:[]},
+ {s:['Japan\'s Ministry of International Trade and Industry launched a ten-year Fifth Generation Computer Systems project to build massively parallel machines running logic programming (Prolog) for AI.','The US answered with DARPA\'s Strategic Computing Initiative and the MCC consortium; the UK launched the Alvey programme.'],w:'The project set off an international AI race. It met few of its goals, and the collapse of expectations contributed to the second AI winter.',f:['Launched 1982, ran about ten years','Built on logic programming (Prolog)','Triggered rival programs in the US and UK'],p:[]},
+ {s:['David Rumelhart, Geoffrey Hinton and Ronald Williams published "Learning representations by back-propagating errors" in Nature in 1986.','Backpropagation uses calculus to work out how much each weight in a multi-layer network contributed to an error, so every layer can learn.'],w:'It answered the Perceptrons critique and made deep networks trainable. Every modern neural network, including every large language model, is still trained with backpropagation.',f:['Published in Nature, October 1986','Earlier forms existed (Werbos 1974, Linnainmaa 1970)','Revived neural-network ("connectionist") research'],p:['Geoffrey Hinton']},
+ {s:['Specialized LISP machines from Symbolics, LMI and Texas Instruments had powered the expert-system boom. In 1987, cheaper workstations from Sun and ordinary PCs could run LISP well enough, and the market for LISP machines collapsed within about a year.','At the same time, expert systems proved costly to maintain and brittle outside their rules.'],w:'The crash began the second AI winter. The lesson that cheap general hardware beats special-purpose hardware echoed decades later when GPUs won.',f:['Collapse began in 1987','Symbolics had once been a leading AI company','Hundreds of AI companies closed in the following years'],p:[]},
+ {s:['At Bell Labs, Yann LeCun trained a convolutional neural network with backpropagation to read handwritten ZIP codes supplied by the US Postal Service.','Convolutional layers reuse the same small filters across an image, so the network learns local patterns like edges and strokes efficiently.'],w:'LeNet showed deep learning working on a real task. Its descendants read a large share of US checks in the late 1990s and later powered the 2012 deep-learning breakthrough.',f:['Published 1989','Trained with backpropagation','LeNet-5 (1998) became a classic'],p:['Yann LeCun']},
+ {s:['Sepp Hochreiter and Jürgen Schmidhuber introduced long short-term memory (LSTM) networks in 1997. Special gates let the network decide what to remember and forget across long sequences.','This solved the "vanishing gradient" problem that stopped earlier recurrent networks from learning long-range patterns.'],w:'LSTMs powered speech recognition, machine translation and text prediction in products from Google, Apple and Amazon throughout the 2010s, until Transformers replaced them.',f:['Published in Neural Computation, 1997','Uses input, forget and output gates','Used in Google Translate (2016)'],p:[]},
+ {s:['IBM\'s Deep Blue beat world chess champion Garry Kasparov 3½–2½ in a six-game rematch in New York in May 1997.','It won mainly through brute force: custom chips searched about 200 million positions per second, guided by hand-tuned evaluation rules.'],w:'It was the first time a computer beat a reigning world champion under standard match conditions, a major public milestone, though it relied on search rather than learning.',f:['Rematch played May 3–11, 1997','Evaluated ~200M positions per second','Kasparov had won their 1996 match 4–2'],p:[]},
+ {s:['Geoffrey Hinton, Simon Osindero and Yee-Whye Teh showed that deep belief networks could be trained one layer at a time, then fine-tuned.','The work, and the name "deep learning," renewed interest in neural networks many layers deep after years in the wilderness.'],w:'It gave researchers a working recipe for deep networks just as datasets and GPUs were growing, setting the stage for the 2012 breakthrough.',f:['Published in Neural Computation, 2006','Layer-by-layer unsupervised pre-training','Popularized the term "deep learning"'],p:['Geoffrey Hinton']},
+ {s:['Fei-Fei Li\'s team at Princeton and Stanford built ImageNet, over 14 million images labeled with more than 20,000 categories, largely through Amazon Mechanical Turk workers.','From 2010 the ImageNet Large Scale Visual Recognition Challenge asked systems to classify 1.2 million images into 1,000 classes.'],w:'ImageNet showed that data at scale is what lets models learn. The challenge became the proving ground where deep learning broke through in 2012.',f:['Presented at CVPR 2009','14M+ labeled images','Annual challenge ran 2010–2017'],p:['Fei-Fei Li']},
+ {s:['IBM\'s Watson competed on the TV quiz show Jeopardy! against its two greatest champions, Ken Jennings and Brad Rutter, and won the two-game match.','It combined many natural-language and search techniques to parse tricky clues and estimate its confidence before buzzing in.'],w:'Watson showed computers answering open-ended questions in natural language. IBM\'s later attempts to turn it into a medical product struggled, a lesson in the gap between demos and deployment.',f:['Aired February 14–16, 2011','Won $1 million for charity','Ran on about 2,880 processor cores'],p:[]},
+ {s:['Apple built Siri into the iPhone 4S, launched October 2011. It grew out of the SRI International CALO project funded by DARPA and a startup Apple bought in 2010.','Users could ask questions, set reminders and send messages by voice.'],w:'Siri put a voice assistant in millions of pockets and was followed by Google Now, Cortana and Alexa, making AI part of everyday life years before chatbots.',f:['Launched on iPhone 4S, October 2011','Origins in DARPA\'s CALO project','Apple acquired Siri Inc. in 2010'],p:[]},
+ {s:['Alex Krizhevsky, Ilya Sutskever and Geoffrey Hinton trained a deep convolutional network on two NVIDIA GPUs and entered the 2012 ImageNet challenge.','AlexNet cut the top-5 error rate to about 15.3%, compared with 26.2% for the next-best entry.'],w:'The margin shocked the field. Within a few years nearly all computer vision, and then speech and language, moved to deep learning on GPUs.',f:['ImageNet challenge, September 2012','Trained on two GTX 580 GPUs','Used ReLU activations and dropout'],p:['Geoffrey Hinton','Ilya Sutskever']},
+ {s:['Ian Goodfellow and colleagues proposed generative adversarial networks (GANs): a generator makes fake samples while a discriminator tries to tell them from real ones, and each improves by competing.','GANs soon produced strikingly realistic faces and images.'],w:'GANs were the leading way to generate images until diffusion models took over around 2021–22, and they raised early concerns about deepfakes.',f:['Paper presented at NeurIPS 2014','Two networks trained against each other','Led to StyleGAN\'s photorealistic faces (2018)'],p:[]},
+ {s:['Google bought London-based DeepMind, founded in 2010 by Demis Hassabis, Shane Legg and Mustafa Suleyman, for a reported $400–650 million.','DeepMind had shown a single agent learning to play many Atari games from raw pixels using deep reinforcement learning.'],w:'The deal signaled that big tech would pay heavily for AI talent and made DeepMind the lab behind AlphaGo, AlphaFold and, after merging with Google Brain in 2023, Gemini.',f:['Announced January 2014','Price reported around $500M','Google set up an ethics board as a condition'],p:['Demis Hassabis']},
+ {s:['OpenAI launched in December 2015 as a non-profit research lab, with backers including Sam Altman, Elon Musk, Greg Brockman and Ilya Sutskever pledging $1 billion.','Its mission was to ensure artificial general intelligence benefits all of humanity.'],w:'OpenAI went on to create GPT, DALL·E and ChatGPT, and its 2019 move to a capped-profit structure with Microsoft investment reshaped the AI industry.',f:['Announced December 11, 2015','Initially a non-profit','Microsoft invested $1B in 2019'],p:['Ilya Sutskever']},
+ {s:['DeepMind\'s AlphaGo played 18-time world champion Lee Sedol in Seoul and won 4–1. It combined deep neural networks trained on human games and self-play with Monte Carlo tree search.','In game two, its move 37 was so unusual that commentators first thought it was a mistake; it proved decisive.'],w:'Go had been considered decades away from being solved by computers. AlphaGo showed deep learning plus reinforcement learning could master intuition-heavy tasks, and over 200 million people watched.',f:['Match held March 9–15, 2016','Won 4 games to 1','Successor AlphaGo Zero learned with no human games (2017)'],p:['Demis Hassabis']},
+ {s:['Eight Google researchers published "Attention Is All You Need", introducing the Transformer. It dropped recurrence entirely and used self-attention, letting every word look directly at every other word in a sequence.','Transformers trained much faster on GPUs because they process a whole sequence in parallel.'],w:'Every major language model since, from BERT and GPT to Claude and Gemini, is built on the Transformer. It is arguably the most important AI paper of the century so far.',f:['Posted June 2017, presented at NeurIPS 2017','Authors: Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin','First tested on machine translation'],p:[]},
+ {s:['Google released BERT (Bidirectional Encoder Representations from Transformers), pre-trained by hiding words in sentences and predicting them from context on both sides.','Fine-tuned versions beat the state of the art on eleven language benchmarks.'],w:'BERT made "pre-train, then fine-tune" the standard recipe for language AI, and it was added to Google Search in 2019.',f:['Paper posted October 2018','Base and Large sizes (110M, 340M parameters)','Powered Google Search from 2019'],p:[]},
+ {s:['OpenAI\'s "Improving Language Understanding by Generative Pre-Training" trained a 117-million-parameter Transformer to predict the next word on thousands of books, then fine-tuned it for specific tasks.','It showed that generative pre-training on raw text taught skills that transferred to many tasks.'],w:'GPT-1 established the approach behind every GPT model and ChatGPT: scale up next-word prediction and useful abilities emerge.',f:['Published June 2018','117M parameters','Trained on the BooksCorpus dataset'],p:['Ilya Sutskever']},
+ {s:['GPT-2 scaled the approach to 1.5 billion parameters trained on 40 GB of web text. It wrote surprisingly coherent paragraphs from a short prompt.','Citing misuse concerns, OpenAI released it in stages over nine months, a first for the field.'],w:'GPT-2 showed that scale alone improved writing ability, and its staged release started today\'s debates about responsible model release.',f:['Announced February 2019','1.5B parameters','Full model released November 2019'],p:[]},
+ {s:['GPT-3 had 175 billion parameters, over 100 times GPT-2. Its paper, "Language Models are Few-Shot Learners", showed it could do new tasks from a few examples in the prompt, without any retraining.','OpenAI offered it through an API rather than releasing the weights.'],w:'GPT-3 made "prompting" a way to program AI and launched hundreds of startups built on its API, leading directly to ChatGPT.',f:['Paper posted May 2020','175B parameters','API access from June 2020'],p:[]},
+ {s:['At the CASP14 competition, DeepMind\'s AlphaFold 2 predicted protein 3D structures with accuracy comparable to lab experiments, solving a 50-year-old problem in biology.','In 2021–22 DeepMind released predicted structures for over 200 million proteins, nearly every known one.'],w:'AlphaFold showed AI speeding up science itself, and it earned Demis Hassabis and John Jumper the 2024 Nobel Prize in Chemistry.',f:['CASP14 results: November 2020','Median accuracy score ~92 GDT','200M+ structures released free'],p:['Demis Hassabis']},
+ {s:['Siblings Dario and Daniela Amodei and several colleagues left OpenAI to found Anthropic, a public-benefit company focused on AI safety research.','Its first public model, Claude, launched in March 2023, trained with a technique called Constitutional AI.'],w:'Anthropic became one of the leading frontier labs; its Claude models, Model Context Protocol and Claude Code shaped how AI is used for work and coding.',f:['Founded 2021 in San Francisco','Public-benefit corporation','Claude launched March 14, 2023'],p:[]},
+ {s:['GitHub and OpenAI released a technical preview of GitHub Copilot, which suggested whole lines and functions inside the code editor. It ran on OpenAI Codex, a GPT-3 model fine-tuned on public code.','It became generally available in June 2022.'],w:'Copilot was the first mass-market AI product for work, and it proved people would pay for AI assistance, years before AI coding agents.',f:['Preview June 29, 2021','Powered by OpenAI Codex','Generally available June 2022'],p:[]},
+ {s:['OpenAI released ChatGPT as a free "research preview" on November 30, 2022. It was GPT-3.5 fine-tuned for conversation with reinforcement learning from human feedback (RLHF).','It reached a million users in five days and about 100 million monthly users within two months, the fastest-growing consumer app at the time.'],w:'ChatGPT brought AI to the general public and set off the generative AI race among Google, Microsoft, Meta, Anthropic and others.',f:['Launched November 30, 2022','1M users in 5 days','~100M monthly users by January 2023'],p:[],rel:['#tracker-2022']},
+ {s:['In 2022, diffusion models, which learn to turn random noise into images step by step, went mainstream. OpenAI\'s DALL·E 2 (April), Midjourney\'s open beta (July) and Stability AI\'s open Stable Diffusion (August) let anyone make images from text.','Stable Diffusion\'s open weights meant millions could run it on their own computers.'],w:'AI image generation became a consumer product almost overnight, along with fierce debates about artists\' rights and training data.',f:['DALL·E 2: April 6, 2022','Midjourney beta: July 12, 2022','Stable Diffusion: August 22, 2022'],p:[],rel:['#m-dall-e-2','#m-stable-diffusion','#tracker-2022']},
+ {s:['Spring 2023 brought OpenAI\'s GPT-4 and Anthropic\'s Claude on the same day (March 14), and Google\'s Bard a week later. Meta\'s LLaMA weights, released to researchers in February, leaked and set off an open-model wave.','By July, Llama 2 came with a commercial license, and Mistral released its first open model in September.'],w:'2023 turned AI into a multi-company race with both closed frontier models and a fast-growing open-weights ecosystem.',f:['GPT-4 and Claude: March 14, 2023','LLaMA: February 24, 2023','Llama 2: July 18, 2023'],p:[],rel:['#m-gpt-4','#m-claude','#m-llama','#tracker-2023']},
+ {s:['The 2024 Nobel Prize in Physics went to John Hopfield and Geoffrey Hinton for foundational work on neural networks. The Chemistry prize went half to Demis Hassabis and John Jumper for AlphaFold, and half to David Baker for protein design.','It was the first time AI research was honored with Nobel Prizes.'],w:'The prizes marked AI\'s arrival as a science that changes other sciences. Hinton used the moment to repeat his warnings about AI risk.',f:['Announced October 8–9, 2024','Physics: Hopfield & Hinton','Chemistry: Hassabis & Jumper (AlphaFold), Baker'],p:['Geoffrey Hinton','Demis Hassabis']},
+ {s:['OpenAI\'s o1-preview (September 12, 2024) was trained with reinforcement learning to "think" through a long hidden chain of reasoning before answering.','It scored far higher on math and coding tests than GPT-4o, and started a new race in reasoning models.'],w:'Reasoning models showed that spending more computation at answer time, not only in training, makes models smarter. Nearly every lab now ships "thinking" models.',f:['o1-preview: September 12, 2024','Followed by o1, o3 and o4-mini','Rivals: DeepSeek R1, Gemini 2.5, Claude 3.7'],p:[],rel:['#m-o1-preview','#tracker-2024']},
+ {s:['In January 2025, China\'s DeepSeek released R1, an open-weights reasoning model that rivaled o1 at a fraction of the cost, briefly shaking tech stocks.','The same year, AI agents arrived: OpenAI\'s Operator and Deep Research, Anthropic\'s Claude Code, and in August, GPT-5.'],w:'2025 made reasoning open and cheap, and moved AI from answering questions to doing multi-step work on its own.',f:['DeepSeek R1: January 20, 2025','Claude Code preview: February 24, 2025','GPT-5: August 7, 2025'],p:[],rel:['#m-deepseek-r1','#m-gpt-5','#tracker-2025']},
+ {s:['On June 12, 2026 a US export-control directive forced Anthropic to disable Claude Fable 5 and Mythos 5 for all customers at 5:21 pm ET. Anthropic said: "The net effect of this order is that we must abruptly disable Fable 5 and Mythos 5 for all our customers to ensure compliance."','Partial Mythos 5 access returned on June 26, the controls were lifted on June 30, and Fable 5 was available globally again on July 1.'],w:'It was the first time a government directly switched off a frontier model, showing that access to the most capable AI is now a national-security question.',f:['Suspended June 12, 2026','Controls lifted June 30','Fully restored July 1'],p:[],rel:['#m-claude-fable-5','#tracker-2026']},
+ {s:['Moonshot AI released Kimi K3 on July 16, 2026: 2.8 trillion parameters with open weights, the largest open model ever. Its license asks the largest commercial users to share revenue.','Cognition built its SWE-2 coding model on top of it two months later.'],w:'K3 showed open-weights models reaching frontier scale, keeping pressure on closed labs\' prices.',f:['Released July 16, 2026','2.8T parameters','Revenue share up to 30% for providers earning $20M+'],p:[],rel:['#m-kimi-k3','#m-swe-2']},
+ {s:['September 2026 was the busiest month in AI history so far: GPT-6 Astra (Sep 3–4), Claude Opus 5.5 and GPT-6 Sol & Luna on the same day (Sep 22), Claude Sonnet 5.5 (Sep 28) and GPT-6.1 Sol at OpenAI\'s DevDay (Sep 29).','OpenAI also cancelled GPT-6.1 Astra on September 28 after it performed poorly on alignment tests.'],w:'The frontier now moves in weeks rather than years, and safety testing now visibly decides what ships.',f:['GPT-6 Astra: Sep 3–4','Opus 5.5 + GPT-6 Sol/Luna: Sep 22','GPT-6.1 Sol: Sep 29'],p:[],rel:['#m-claude-opus-5-5','#m-gpt-6-astra','#m-gpt-6-1-sol','#tracker-2026']},
+];
+/* Offline AI Guide: concept glossary. */
+const GLOSSARY = [
+ [['transformer','attention'],'A **Transformer** is the neural-network design behind almost every modern language model. Its key idea is **self-attention**: every token looks at every other token and decides which ones matter for understanding it. It was introduced in 2017 in ["Attention Is All You Need"](#e-31) and trains fast on GPUs because it processes a whole sequence at once.'],
+ [['token','tokenize','tokenizer'],'A **token** is a small piece of text (often part of a word) that a model reads and writes. "unbelievable" might be split into "un", "believ", "able". Models are priced and limited by tokens. Try the tokenizer demo on [How AI Is Generated](#how).'],
+ [['llm','large language model','language model'],'A **large language model (LLM)** is a Transformer trained to predict the next token on huge amounts of text, then fine-tuned to follow instructions and be helpful. Examples: [Claude Opus 5.5](#m-claude-opus-5-5), [GPT-6 Astra](#m-gpt-6-astra), [Gemini 3.8 Flash](#m-gemini-3-8-flash).'],
+ [['rlhf','human feedback','fine-tune','fine tuning','fine-tuning'],'**RLHF (reinforcement learning from human feedback)** trains a model on people\'s preferences between answers, so it learns to be helpful and safe. It is what turned GPT-3.5 into [ChatGPT](#e-39). See step 5 on [How AI Is Generated](#how).'],
+ [['neural network','neuron','deep learning'],'A **neural network** is layers of simple units ("neurons") that each sum weighted inputs. **Deep learning** means many layers trained with backpropagation. It took off in 2012 with [AlexNet](#e-26).'],
+ [['backprop','backpropagation','gradient'],'**Backpropagation** works out how much each weight in a network contributed to an error, so every layer can learn. It was popularized in 1986 ([read the story](#e-17)) and still trains every modern model.'],
+ [['diffusion','image generation'],'**Diffusion models** make images by starting from random noise and removing it step by step, guided by your text. They power Stable Diffusion, Midjourney and Imagen ([2022 story](#e-40)).'],
+ [['agent','agents','agentic'],'An **AI agent** is a model that takes actions, not just answers: it uses tools, browses, writes and runs code, and works through multi-step tasks. Examples: Claude Code, OpenAI Operator, Perplexity Computer, Meta\'s Hatch (reported).'],
+ [['open weights','open-weights','open source','open model'],'**Open-weights** models publish their trained parameters so anyone can download and run them, e.g. [Kimi K3](#m-kimi-k3), [Llama 4](#m-llama-4), [gpt-oss](#m-gpt-oss), [DeepSeek R1](#m-deepseek-r1). Closed models are used only through apps or an API.'],
+ [['context window','context'],'The **context window** is how much text a model can consider at once, measured in tokens. Claude Opus 5.5 and Gemini 3.6 Flash handle 1M tokens; GPT-6 Sol and Luna 1.05M.'],
+ [['reasoning','thinking model','chain of thought'],'**Reasoning models** think step by step before answering, trading time for accuracy. The first was [o1-preview](#m-o1-preview) (Sep 2024); now most frontier models have thinking modes.'],
+ [['ai winter','winter'],'An **AI winter** is a period when funding and interest collapse after over-promising. There were two: 1974–80 and 1987–93. See [AI Winters](#winters).'],
+ [['mcp','model context protocol'],'The **Model Context Protocol (MCP)** is an open standard from Anthropic (Nov 25, 2024) for connecting AI apps to tools and data sources.'],
+ [['turing test','imitation game'],'The **Turing Test** (1950): if a judge chatting by text can\'t tell a machine from a person, the machine passes. [Read the story](#e-3).'],
+];
 /* ===================== APP ===================== */
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
@@ -848,6 +1218,7 @@ function pageHead(title, sub, extra=''){ return `<div class="page-head"><span cl
 function parse(){
   const h = decodeURIComponent(location.hash.slice(1)) || 'home';
   if (h.startsWith('m-')) return {page:'model', id:h.slice(2)};
+  if (/^e-\d+$/.test(h)) return {page:'event', id:+h.slice(2)};
   const ty = /^tracker-(\d{4})$/.exec(h); if (ty){ return {page:'tracker', year:+ty[1]}; }
   return {page: h};
 }
@@ -859,6 +1230,7 @@ function render(){
   const main = $('#main');
   let navKey = r.page;
   if (r.page==='model' || r.page==='compare') navKey = 'models';
+  if (r.page==='event') navKey = 'timeline';
   if (r.page==='tracker' && r.year){ S.tracker.year = r.year; S.tracker.month = 0; S.tracker.day = null; }
   const fn = PAGES[r.page] || PAGES.home;
   if (!PAGES[r.page]) navKey = 'home';
@@ -937,9 +1309,8 @@ PAGES.timeline = () => {
       return `<span class="node" style="grid-row:${row}" aria-hidden="true"></span>
       <article class="card tc ${R?'right':''} anim ${R?'from-right':'from-left'}" style="grid-row:${row}">
         <span class="label">${R?'Product · launch · company':'Research · breakthrough'}</span>
-        <span class="yr">${yr}</span><h3>${esc(t)}</h3><p>${esc(d)}</p>
-        <div class="row">${tag}${more?`<button class="btn ghost sm" aria-expanded="false" data-more>Read more</button>`:''}</div>
-        ${more?`<p class="more" hidden>${esc(more)}</p>`:''}
+        <span class="yr">${yr}</span><h3><a class="tl-link" href="#e-${EVENTS.indexOf(ev)}">${esc(t)}</a></h3><p>${esc(d)}</p>
+        <div class="row">${tag}<a class="btn ghost sm" href="#e-${EVENTS.indexOf(ev)}">Read the full story →</a></div>
       </article>`;
     }).join('');
     return `<section class="era-sec" id="era-${e.id}" data-era="${e.id}">
@@ -947,7 +1318,7 @@ PAGES.timeline = () => {
       <div class="side-lbl"><span class="label">← Research &amp; breakthroughs</span><span class="label">Products, launches &amp; companies →</span></div>
       <div class="tl">${rows}</div></section>`;
   }).join('');
-  return pageHead('The Timeline','Each year is a node on the line. Research and breakthroughs sit on the left; products, model launches and companies on the right. Click a year from 2022 on to open it in the Release Tracker.') +
+  return pageHead('The Timeline','Each year is a node on the line. Research and breakthroughs sit on the left; products, model launches and companies on the right. Open any card for the full story, or click a year from 2022 on to open it in the Release Tracker.') +
   `<div class="erabar"><div class="erabar-in" role="toolbar" aria-label="Jump to era">${ERAS.map(e=>`<button class="era" data-era="${e.id}" data-jump="${e.id}" aria-pressed="false">${e.name} <small>${e.yrs}</small></button>`).join('')}</div></div>${secs}`;
 };
 AFTER.timeline = () => {
@@ -975,23 +1346,26 @@ PAGES.tracker = () => {
   const all = trackerFiltered(true);
   const cos = [...new Set(RELEASES.map(r=>r.co))].sort((a,b)=>coName(a).localeCompare(coName(b)));
   const counts = MONTHS.map((_,i)=> all.filter(r=>r.m===i+1).length);
+  const expY = expectedFor(T.year); const ecounts = MONTHS.map((_,i)=> expY.filter(u=>u.mm===i+1).length); const expLate = expY.filter(u=>!u.mm);
   if (T.view==='calendar' && !T.month){ const last = counts.map((c,i)=>c?i+1:0).filter(Boolean).pop(); T.month = last || 1; }
   const list = trackerFiltered(false);
   const clashes = clashDays(all);
   let body = '';
   if (T.view==='list'){
-    if (!list.length) body = `<div class="card"><p class="muted">No releases match these filters. Clear a filter or pick another month.</p><button class="btn secondary sm" data-clear style="margin-top:12px">Clear filters</button></div>`;
+    if (!list.length && !expY.some(u=>u.mm && (!T.month||u.mm===T.month)) && !(expLate.length && !T.month)) body = `<div class="card"><p class="muted">No releases match these filters. Clear a filter or pick another month.</p><button class="btn secondary sm" data-clear style="margin-top:12px">Clear filters</button></div>`;
     else {
-      const monthsWith = [...new Set(list.map(r=>r.m))].sort((a,b)=>a-b);
+      const monthsWith = [...new Set([...list.map(r=>r.m), ...expY.filter(u=>u.mm && (!T.month||u.mm===T.month)).map(u=>u.mm)])].sort((a,b)=>a-b);
       body = monthsWith.map(m => {
         const ml = list.filter(r=>r.m===m);
         const days = [...new Set(ml.filter(r=>r.d).map(r=>r.d))].sort((a,b)=>a-b);
         const und = ml.filter(r=>!r.d);
-        return `<h2 class="month-h">${MONTHS_L[m-1]} ${T.year} <span class="note">${ml.length} release${ml.length>1?'s':''}</span></h2>` +
+        const em = expY.filter(u=>u.mm===m);
+        return `<h2 class="month-h">${MONTHS_L[m-1]} ${T.year} <span class="note">${ml.length} release${ml.length===1?'':'s'}${em.length?` · ${em.length} expected`:''}</span></h2>` +
           days.map(d => { const dl = ml.filter(r=>r.d===d); const cl = clashes.includes(dl[0].date);
             return `<div class="day-h"><span class="date" style="color:var(--ink)">${MONTHS[m-1]} ${d}, ${T.year}</span>${cl?`<span class="clash-pill">Same-day clash · ${dl.length} releases</span>`:''}</div><div class="stack">${dl.map(r=>relRow(r,cl)).join('')}</div>`; }).join('') +
-          (und.length ? `<div class="day-h"><span class="date" style="color:var(--ink)">${MONTHS[m-1]} ${T.year} · exact day not confirmed</span></div><div class="stack">${und.map(r=>relRow(r)).join('')}</div>` : '');
-      }).join('');
+          (und.length ? `<div class="day-h"><span class="date" style="color:var(--ink)">${MONTHS[m-1]} ${T.year} · exact day not confirmed</span></div><div class="stack">${und.map(r=>relRow(r)).join('')}</div>` : '') +
+          expBlock(em, T.year, `Expected in ${MONTHS_L[m-1]} · no exact day announced yet`);
+      }).join('') + (!T.month && expLate.length ? `<h2 class="month-h">Later in ${T.year} <span class="note">${expLate.length} expected · no month given</span></h2>` + expBlock(expLate, T.year, 'Announced for later this year') : '');
     }
   } else {
     const m = T.month, first = new Date(T.year, m-1, 1).getDay(), dim = new Date(T.year, m, 0).getDate();
@@ -1002,9 +1376,10 @@ PAGES.tracker = () => {
     const sel = T.day ? ml.filter(r=>r.d===T.day) : [];
     const und = ml.filter(r=>!r.d);
     const panel = T.day && sel.length ? `<span class="label">Releases on</span><h3>${MONTHS_L[m-1]} ${T.day}, ${T.year}</h3>${sel.length>1&&new Set(sel.map(r=>r.co)).size>1?`<span class="clash-pill">Same-day clash</span>`:''}${sel.map(r=>{const h=releaseHref(r);return `<${h?'a':'div'} class="pi"${h?` href="${h}"`:''}${r.link&&r.link.startsWith('t:')?` data-focus="tool-${r.link.slice(2)}"`:''}><div class="row">${badge(r.co)}</div><b style="font-family:var(--font-display)">${esc(r.name)}</b><span class="muted" style="font-size:14px;line-height:20px">${esc(r.sum)}</span><div class="row">${chips(r.types.slice(0,3))}</div></${h?'a':'div'}>`}).join('')}`
-      : `<span class="label">Day panel</span><h3>${ml.length ? 'Pick a day' : 'No releases'}</h3><p class="muted" style="font-size:14px">${ml.length ? `Days with a dot had a release. Each dot is one release, colored by company. ${MONTHS_L[m-1]} has ${ml.length}.` : 'Nothing matches these filters this month.'}</p>`;
+      : `<span class="label">Day panel</span><h3>${ml.length ? 'Pick a day' : (expY.some(u=>u.mm===m) ? 'Nothing released yet' : 'No releases')}</h3>${expY.some(u=>u.mm===m)?`<p class="muted" style="font-size:14px">${expY.filter(u=>u.mm===m).length} release${expY.filter(u=>u.mm===m).length>1?'s are':' is'} expected this month without an exact day. They're listed under the calendar.</p>`:''}<p class="muted" style="font-size:14px">${ml.length ? `Days with a dot had a release. Each dot is one release, colored by company. ${MONTHS_L[m-1]} has ${ml.length}.` : 'Nothing matches these filters this month.'}</p>`;
     body = `<div class="cal-wrap"><div><div class="cal">${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d=>`<span class="dow">${d}</span>`).join('')}${cells.join('')}</div>
-      ${und.length?`<div class="undated"><span class="label">Exact day not confirmed</span><div class="stack" style="margin-top:8px">${und.map(r=>relRow(r)).join('')}</div></div>`:''}</div><aside class="panel" aria-live="polite">${panel}</aside></div>`;
+      ${und.length?`<div class="undated"><span class="label">Exact day not confirmed</span><div class="stack" style="margin-top:8px">${und.map(r=>relRow(r)).join('')}</div></div>`:''}
+      ${expY.filter(u=>u.mm===m).length?`<div class="undated">${expBlock(expY.filter(u=>u.mm===m), T.year, `Expected in ${MONTHS_L[m-1]} · no exact day announced yet`)}</div>`:''}</div><aside class="panel" aria-live="polite">${panel}</aside></div>`;
   }
   return pageHead('Release Tracker','Every major model, tool and launch from 2022 to today, month by month and day by day. Pick a year, a month and a view.') +
   `<a class="card upbanner" href="#upcoming"><span class="label" style="color:var(--accent-violet)">Looking ahead</span><span>${UPCOMING.filter(u=>u.st!=='cancelled').length} announced, reported and rumored releases, from Gemini 4 to Grok 5, are on <b>Coming Soon</b> →</span></a>` +
@@ -1017,7 +1392,7 @@ PAGES.tracker = () => {
   </div>
   <div class="tabs" role="toolbar" aria-label="Month" style="margin-bottom:var(--space-5)">
     ${T.view==='list'?`<button data-month="0" aria-pressed="${!T.month}">All months<span class="n">${all.length}</span></button>`:''}
-    ${MONTHS.map((mn,i)=>`<button data-month="${i+1}" aria-pressed="${T.month===i+1}"${!counts[i]&&T.view==='list'?' disabled':''}>${mn}<span class="n">${counts[i]}</span></button>`).join('')}
+    ${MONTHS.map((mn,i)=>`<button data-month="${i+1}" aria-pressed="${T.month===i+1}"${!counts[i]&&!ecounts[i]&&T.view==='list'?' disabled':''}>${mn}<span class="n">${counts[i]}</span>${ecounts[i]?`<span class="n" style="color:var(--accent-violet)">+${ecounts[i]}</span>`:''}</button>`).join('')}
   </div>
   ${clashes.length && T.view==='list' ? `<div class="row" style="margin-bottom:var(--space-5)"><span class="label">Same-day clashes in ${T.year}:</span>${clashes.map(d=>{const [y,m,dd]=d.split('-').map(Number);return `<button class="clash-pill" style="background:transparent;cursor:pointer" data-goto-day="${m}-${dd}">${MONTHS[m-1]} ${dd}</button>`}).join('')}</div>`:''}
   ${body}`;
@@ -1037,13 +1412,12 @@ AFTER.tracker = () => {
 };
 
 /* ===================== MODEL LIBRARY ===================== */
-PAGES.models = () => {
+PAGES.modelsAll = () => {
   const L = S.lib;
   const cos = [...new Set(MODEL_LIST.map(m=>m.co))].sort((a,b)=>coName(a).localeCompare(coName(b)));
   const fams = FAMILIES.map(f=>f[0]);
   const list = MODEL_LIST.filter(m => (!L.co||m.co===L.co) && (!L.year||m.date.startsWith(L.year)) && (!L.fam||familiesOf(m.id).includes(L.fam)));
-  return pageHead('Model Library', `${MODEL_LIST.length} models from 2022 to today. Open any card for its release date, lineage, changes and specs, or compare up to three side by side.`) +
-  `<div class="controls">
+  return `<div class="controls">
     <label><span class="label">Company</span><select id="l-co"><option value="">All companies</option>${cos.map(c=>`<option value="${c}"${c===L.co?' selected':''}>${esc(coName(c))}</option>`).join('')}</select></label>
     <label><span class="label">Family</span><select id="l-fam"><option value="">All families</option>${fams.map(f=>`<option${f===L.fam?' selected':''}>${esc(f)}</option>`).join('')}</select></label>
     <label><span class="label">Year</span><select id="l-year"><option value="">All years</option>${[2026,2025,2024,2023,2022].map(y=>`<option${String(y)===L.year?' selected':''}>${y}</option>`).join('')}</select></label>
@@ -1052,7 +1426,7 @@ PAGES.models = () => {
   <p class="note" style="margin-bottom:var(--space-4)">Showing ${list.length} of ${MODEL_LIST.length} · ★ marks models with a full change log</p>
   <div class="grid">${list.map(m=>`<a class="card rcard anim" href="#m-${m.id}"><div class="row" style="justify-content:space-between">${badge(m.co)}${statusHtml(statusOf(m.id))}</div><span class="nm">${FEATURED[m.id]?'★ ':''}${esc(m.name)}</span><span class="date">${fmtDate(m.rel)}</span><span class="sm">${esc(m.sum)}</span><div class="row">${chips(m.types.slice(0,3))}</div></a>`).join('') || '<p class="muted">No models match. Clear a filter.</p>'}</div>`;
 };
-AFTER.models = () => {
+AFTER.modelsAll = () => {
   const rr = () => { $('#main').innerHTML = `<div class="wrap">${PAGES.models()}</div>`; AFTER.models(); };
   $('#l-co').onchange = e => { S.lib.co = e.target.value; rr(); };
   $('#l-fam').onchange = e => { S.lib.fam = e.target.value; rr(); };
@@ -1343,6 +1717,9 @@ function buildDigest(){
   L.push('\n## Model lineages'); FAMILIES.forEach(([n,l]) => L.push(`${n}: ${l.map(x=>typeof x==='object'?x.label:(MODELS[x]?.name||x)).join(' → ')}`));
   L.push('\n## Upcoming (status: soon = announced with timing, nodate = announced no date, reported, rumor, cancelled) — page #upcoming');
   UPCOMING.forEach(u => L.push(`${u.name} | ${coName(u.co)} | ${u.st} | ${u.when} | ${u.d}${u.q?' | '+u.q:''} | source: ${u.src.map(s=>s[1]).join(', ')}`));
+  L.push('\n## Version histories (Model Library → Current versions, page #models). Format: date | name | track | what\'s new | status');
+  LINES.forEach(Ln => { L.push('### '+Ln.name+' ('+coName(Ln.co)+')'); Ln.v.forEach(v => L.push(`${v[0]} | ${v[1]} | ${v[2]} | ${v[3].join('; ')} | ${v[5]==='up'?'upcoming':v[5]==='gone'?'discontinued':v[5]==='cur'?'current':'previous'}`)); });
+  L.push('\n## Timeline stories (full pages at #e-N)'); EVENTS.forEach((e,i) => L.push(`#e-${i}: ${e[0]} ${e[2]}`));
   L.push('\n## AI tools & websites (page #tools)'); TOOLS.forEach(t => L.push(`${t.name} | ${coName(t.co)} | launched ${t.launched} | ${t.site} | ${t.status} | ${t.cat} | ${t.what} | powered by ${t.powered}${t.hist?' | history: '+t.hist.map(h=>h.join(' ')).join('; '):''}`));
   L.push('\n## Companies (page #companies)'); COMPANY_PAGE.forEach(id => { const c = COMPANIES[id]; L.push(`${c.name} | founded ${c.founded} | ${c.founders} | HQ ${c.hq} | ${c.site} | ${c.key}`); });
   L.push('\n## Pioneers (page #pioneers)'); PIONEERS.forEach(p => L.push(`${p.n} (${p.y}): ${p.c} Idea: ${p.q}`));
@@ -1383,10 +1760,12 @@ function md(t){
   if (list) out.push(`<ul>${list.join('')}</ul>`);
   return out.join('');
 }
-const SUGGEST = ['What was released on Sep 22, 2026?','When is Gemini 4 coming out?','Why was GPT-6.1 Astra cancelled?','Compare Claude Opus 5.5 and GPT-6 Sol','What caused the first AI winter?','Explain how a transformer works simply'];
+const SUGGEST = ['Show Claude versions','What was released on Sep 22, 2026?','When is Gemini 4 coming out?','Why was GPT-6.1 Astra cancelled?','Compare Claude Opus 5.5 and GPT-6 Sol','What caused the first AI winter?','Explain how a transformer works simply'];
 const CHAT = {turns:[], busy:false, ctl:null, sample:undefined};
 function setupChat(){
   const fab = $('#chat-fab'), panel = $('#chat'), log = $('#chat-log'), form = $('#chat-form'), box = $('#chat-in'), send = $('#chat-send'), stop = $('#chat-stop'), status = $('#chat-status');
+  const setMode = () => { const m = $('#chat-mode'); if (m) m.textContent = CHAT.sample ? 'Powered by Claude · site data to Sep 29, 2026' : CHAT.sample === null ? 'Offline mode · answers from the site\'s data' : 'Site data to Sep 29, 2026'; };
+  CHAT.ready = (async () => { try { CHAT.sample = window.claude && window.claude.use ? await window.claude.use('sample') : null; } catch (e) { CHAT.sample = null; } setMode(); })();
   const open = v => { panel.hidden = !v; fab.setAttribute('aria-expanded', v); if (v){ box.focus(); if (!log.children.length) intro(); } };
   fab.onclick = () => open(panel.hidden);
   $('#chat-close').onclick = () => { open(false); fab.focus(); };
@@ -1394,17 +1773,17 @@ function setupChat(){
   panel.addEventListener('keydown', e => { if (e.key==='Escape'){ open(false); fab.focus(); } });
   log.addEventListener('click', e => { const a = e.target.closest('[data-chatlink]'); if (a && innerWidth < 700) open(false); const s = e.target.closest('[data-suggest]'); if (s){ box.value = s.dataset.suggest; ask(); } });
   function intro(){
-    log.insertAdjacentHTML('beforeend', `<div class="msg bot"><p>Hi! I'm the <b>AI Guide</b>. Ask me anything about AI history, models, releases, tools or what's coming next. I use this site's data (current to ${AS_OF}) plus my own knowledge.</p><div class="sugs">${SUGGEST.map(q=>`<button type="button" class="sug" data-suggest="${esc(q)}">${esc(q)}</button>`).join('')}</div></div>`);
+    log.insertAdjacentHTML('beforeend', `<div class="msg bot"><p>Hi! I'm the <b>AI Guide</b>. Ask me anything about AI history, models, releases, tools or what's coming next. I use this site's data (current to ${AS_OF}). On claude.ai I answer with Claude; anywhere else I still answer, offline, from the site's data.</p><div class="sugs">${SUGGEST.map(q=>`<button type="button" class="sug" data-suggest="${esc(q)}">${esc(q)}</button>`).join('')}</div></div>`);
   }
   const setBusy = b => { CHAT.busy = b; send.hidden = b; stop.hidden = !b; box.disabled = false; };
   const COPY = {not_granted:'The AI Guide needs your permission to use Claude. Reload the page to be asked again.',sampling_disabled:'Claude isn\'t available for this account, so the AI Guide can\'t answer here.',rate_limited:'Too many questions at once, or your Claude usage limit was reached. Try again in a little while.',session_expired:'Your Claude session expired. Sign in again, then ask.',refused:'I can\'t help with that one. Try asking another way.',prompt_too_large:'This chat got too long. Start a new chat.',empty_completion:'No answer came back. Try rephrasing.'};
   async function ask(){
     const q = box.value.trim(); if (!q || CHAT.busy) return;
-    if (CHAT.sample === undefined) CHAT.sample = await (window.claude?.use?.('sample') ?? Promise.resolve(null));
+    if (CHAT.sample === undefined) await Promise.race([CHAT.ready, new Promise(r => setTimeout(r, 1500))]);
     log.insertAdjacentHTML('beforeend', `<div class="msg me">${esc(q)}</div>`);
     box.value = ''; box.style.height = '';
     const bub = document.createElement('div'); bub.className = 'msg bot'; bub.innerHTML = '<p class="thinking">Thinking…</p>'; log.append(bub); log.scrollTop = log.scrollHeight;
-    if (!CHAT.sample){ bub.innerHTML = `<p>The AI Guide works when this page is opened on claude.ai. In the meantime, try the search bar or the <a href="#upcoming" data-chatlink>Coming Soon</a> page.</p>`; return; }
+    if (!CHAT.sample){ bub.innerHTML = md(localAnswer(q)); log.scrollTop = log.scrollHeight; setMode(); return; }
     CHAT.turns.push({role:'user', content:q});
     while (CHAT.turns.length > 16) CHAT.turns.shift();
     if (CHAT.turns[0].role !== 'user') CHAT.turns.shift();
@@ -1419,7 +1798,7 @@ function setupChat(){
     } catch (e) {
       const kept = e && e.text ? md(e.text) : '';
       if (e && e.code === 'cancelled'){ bub.innerHTML = kept + '<p class="note">Stopped.</p>'; if (e.text) CHAT.turns.push({role:'assistant', content:e.text}); else CHAT.turns.pop(); }
-      else { CHAT.turns.pop(); bub.innerHTML = kept + `<p class="note">${esc(COPY[e && e.code] || 'Something went wrong reaching Claude. Try again.')}</p>`; if (e && ['not_granted','sampling_disabled','not_declared','capability_disabled'].includes(e.code)) CHAT.sample = null; }
+      else { CHAT.turns.pop(); if (e && ['not_granted','sampling_disabled','not_declared','capability_disabled','session_expired','rate_limited','upstream_error'].includes(e.code)){ if (e.code!=='rate_limited' && e.code!=='upstream_error') CHAT.sample = null; bub.innerHTML = md(localAnswer(q)) + `<p class="note">Answered offline from the site's data. ${esc(COPY[e.code] || 'Claude was unavailable.')}</p>`; setMode(); } else bub.innerHTML = kept + `<p class="note">${esc(COPY[e && e.code] || 'Something went wrong reaching Claude. Try again.')}</p>`; }
     } finally { setBusy(false); status.textContent = ''; CHAT.ctl = null; log.scrollTop = log.scrollHeight; }
   }
   form.addEventListener('submit', e => { e.preventDefault(); ask(); });
@@ -1428,11 +1807,219 @@ function setupChat(){
   stop.onclick = () => CHAT.ctl && CHAT.ctl.abort();
 }
 
+/* ===================== CURRENT VERSIONS (Model Library) ===================== */
+const fmtV = d => { const [y,m,dd] = d.split('-'); if (!m) return y; if (!dd) return `${MONTHS[+m-1]} ${y}`; return `${MONTHS[+m-1]} ${+dd}, ${y}`; };
+S.linesOpen = new Set(); S.lineTrack = {}; S.libView = 'lines';
+function vStatus(v, L){ if (v[5]==='up') return '<span class="vtag up">Upcoming</span>'; if (v[5]==='gone') return '<span class="vtag gone">Discontinued</span>'; if (v[5]==='cur') return '<span class="vtag cur">Current</span>'; return '<span class="vtag old">Previous</span>'; }
+function vDate(v){ if (v[5]!=='up') return fmtV(v[0]); if (v[0]==='2026-10') return 'Expected Oct 2026'; return 'No date announced'; }
+function lineCard(L){
+  const rel = L.v.filter(v=>v[5]!=='up');
+  const cur = rel.filter(v=>v[5]==='cur');
+  const main = (L.main && cur.find(v=>v[1]===L.main)) || cur[0] || rel[0];
+  const others = cur.filter(v=>v!==main);
+  const nextUp = L.v.filter(v=>v[5]==='up');
+  const open = S.linesOpen.has(L.id);
+  const tr = S.lineTrack[L.id] || 'All';
+  const list = L.v.filter(v => tr==='All' || v[2]===tr).slice().sort((a,b)=> (a[5]==='up'?1:0)-(b[5]==='up'?1:0) || (a[0]<b[0]?1:a[0]>b[0]?-1:0)).sort((a,b)=>(b[5]==='up')-(a[5]==='up'));
+  const nm = v => v[4] && MODELS[v[4]] ? `<a href="#m-${v[4]}">${esc(v[1])}</a>` : esc(v[1]);
+  return `<article class="card line${open?' open':''}" id="line-${L.id}">
+    <div class="tool-top"><div class="logo-slot" title="Logo slot: upload the official press-kit file">Logo</div><div style="min-width:0"><h3>${esc(L.name)}</h3><div class="row" style="margin-top:6px">${badge(L.co)}<span class="note">${esc(L.kind)}</span></div></div></div>
+    <div class="curbox">
+      <span class="label">${main[5]==='gone'?'Status':'Current version'}</span>
+      <div class="row" style="justify-content:space-between;gap:8px"><b class="curname">${nm(main)}</b>${vStatus(main)}</div>
+      <span class="date">${fmtV(main[0])}</span>
+      <span class="label" style="margin-top:6px">What's new</span>
+      <ul class="feats">${main[3].map(f=>`<li>${esc(f)}</li>`).join('')}</ul>
+      ${others.length?`<div class="also"><span class="label">Also current</span>${others.map(v=>`<span class="alsov">${nm(v)} <span class="note">· ${esc(v[2])} · ${fmtV(v[0])}</span></span>`).join('')}</div>`:''}
+      ${nextUp.length?`<div class="also"><span class="label" style="color:var(--accent-violet)">Next</span>${nextUp.map(v=>`<span class="alsov">${esc(v[1])} <span class="note">· ${vDate(v)}</span></span>`).join('')}</div>`:''}
+    </div>
+    <button class="btn secondary sm" data-line="${L.id}" aria-expanded="${open}">${open?'Hide version history':`Show all ${L.v.length} versions & what changed`}</button>
+    ${open?`<div class="vhist">
+      ${L.tracks.length>1?`<div class="tabs" role="toolbar" aria-label="${esc(L.name)} product line">${['All',...L.tracks].map(t=>`<button data-ltrack="${L.id}|${esc(t)}" aria-pressed="${tr===t}">${esc(t)}<span class="n">${t==='All'?L.v.length:L.v.filter(v=>v[2]===t).length}</span></button>`).join('')}</div>`:''}
+      <ol class="vlist">${list.map(v=>`<li class="vi ${v[5]||'old'}"><div class="vhead"><span class="date">${vDate(v)}</span><b>${nm(v)}</b>${vStatus(v)}${L.tracks.length>1?`<span class="chip">${esc(v[2])}</span>`:''}</div><ul class="feats">${v[3].map(f=>`<li>${esc(f)}</li>`).join('')}</ul></li>`).join('')}</ol>
+      <a class="btn ghost sm" href="https://${L.site}" target="_blank" rel="noopener noreferrer">${esc(L.site)} ↗</a>
+    </div>`:''}
+  </article>`;
+}
+function linesPage(){
+  return `<p class="muted" style="margin-bottom:var(--space-5);max-width:760px">The latest version of every major AI product, with what's new in it. Open a card to see every earlier version, newest first, and what each one added. Blue links open a model's full detail page.</p>
+  <div class="grid lines">${LINES.map(lineCard).join('')}</div>`;
+}
+function bindLines(){
+  $$('[data-line]').forEach(b => b.onclick = () => { const id = b.dataset.line; S.linesOpen.has(id) ? S.linesOpen.delete(id) : S.linesOpen.add(id); rerenderLib(id); });
+  $$('[data-ltrack]').forEach(b => b.onclick = () => { const [id,t] = b.dataset.ltrack.split('|'); S.lineTrack[id] = t; rerenderLib(id); });
+}
+function rerenderLib(focusId){ const y = scrollY; $('#main').innerHTML = `<div class="wrap">${PAGES.models()}</div>`; AFTER.models(); scrollTo(0,y); if (focusId){ const el = $('#line-'+focusId); if (el && el.getBoundingClientRect().top < 80) el.scrollIntoView({block:'start'}); } }
+
+/* ===================== TIMELINE STORY PAGES ===================== */
+PAGES.event = r => {
+  const e = EVENTS[r.id];
+  if (!e) return `<a class="back" href="#timeline">← Timeline</a><div class="card"><h2>Story not found</h2><p class="muted" style="margin-top:8px">Pick an event on the Timeline.</p></div>`;
+  const [y,side,t,d,who,eraId,more] = e; const b = BRIEFS[r.id] || {s:[d], w:more||'', f:[]};
+  const era = ERAS.find(x=>x.id===eraId); const prev = EVENTS[r.id-1], next = EVENTS[r.id+1];
+  const people = (b.p||[]).map(n => { const p = PIONEERS.find(x=>x.n===n); return p ? `<a class="pchip" href="#pioneers" data-focus="p-${p.ini}"><span class="avatar sm" style="--era:var(--era-${p.era})">${p.ini}</span>${esc(n)}</a>` : ''; }).join('');
+  const relLabel = h => h.startsWith('#m-') ? (MODELS[h.slice(3)]?.name || h) : h.startsWith('#tracker-') ? `${h.slice(9)} in the Release Tracker` : h;
+  const rel = [...(b.rel||[]), ...(y>=2022 && !(b.rel||[]).some(h=>h==='#tracker-'+y) ? ['#tracker-'+y] : [])];
+  return `<a class="back" href="#timeline">← Timeline</a>
+  <article class="story-page" data-era="${eraId}">
+    <header class="detail-head era-head2">
+      <div class="row"><span class="era" style="cursor:default">${esc(era.name)} <small>${era.yrs}</small></span><span class="label">${side==='R'?'Product · launch · company':'Research · breakthrough'}</span></div>
+      <span class="big-year">${y}</span>
+      <h1>${esc(t)}</h1>
+      <p class="muted" style="max-width:720px;font-size:18px;line-height:28px">${esc(d)}</p>
+      <div class="row"><span class="co">${esc(who)}</span></div>
+    </header>
+    <div class="story-grid">
+      <div class="stack" style="gap:var(--space-4)">
+        <section class="card prose"><span class="label">The story</span>${b.s.map(p=>`<p>${esc(p)}</p>`).join('')}</section>
+        ${b.w?`<section class="card why"><span class="label" style="color:var(--accent-blue)">Why it mattered</span><p>${esc(b.w)}</p></section>`:''}
+      </div>
+      <aside class="stack" style="gap:var(--space-4)">
+        ${b.f && b.f.length?`<section class="card"><span class="label">Key facts</span><ul class="feats" style="margin-top:8px">${b.f.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`:''}
+        ${people?`<section class="card"><span class="label">People</span><div class="stack" style="margin-top:8px;gap:8px">${people}</div></section>`:''}
+        ${rel.length?`<section class="card"><span class="label">Explore more</span><div class="stack" style="margin-top:8px;gap:6px">${rel.map(h=>`<a href="${h}">${esc(relLabel(h))} →</a>`).join('')}</div></section>`:''}
+        <button class="btn secondary" data-ask="Tell me more about ${esc(t)} (${y}).">Ask the AI Guide about this</button>
+      </aside>
+    </div>
+    <nav class="prevnext" aria-label="More stories">
+      ${prev?`<a class="card click" href="#e-${r.id-1}"><span class="label">← Previous · ${prev[0]}</span><b>${esc(prev[2])}</b></a>`:'<span></span>'}
+      ${next?`<a class="card click" href="#e-${r.id+1}" style="text-align:right"><span class="label">Next · ${next[0]} →</span><b>${esc(next[2])}</b></a>`:'<span></span>'}
+    </nav>
+  </article>`;
+};
+AFTER.event = () => {
+  $$('[data-focus]').forEach(a => a.addEventListener('click', () => { S.focus = a.dataset.focus; }));
+  $$('[data-ask]').forEach(b => b.onclick = () => openChatWith(b.dataset.ask));
+};
+
+/* ===================== CALENDAR: EXPECTED RELEASES ===================== */
+function expectedFor(y){
+  const T = S.tracker;
+  return UPCOMING.filter(u => EXPECT[u.id] && EXPECT[u.id].startsWith(String(y)))
+    .map(u => ({...u, mm: /-\d\d$/.test(EXPECT[u.id]) ? +EXPECT[u.id].slice(5) : 0}))
+    .filter(u => (!T.co || u.co===T.co) && !T.type && !T.open);
+}
+function expRow(u, y){
+  return `<a class="rel exp" href="#upcoming" data-focus="up-${u.id}"><span class="date">${u.mm ? MONTHS[u.mm-1]+' '+y+' · expected' : 'Later in '+y}</span>${badge(u.co)}<span class="nm">${esc(u.name)}</span><span class="chips">${upStatus(u.st)}</span><span class="sm">${esc(u.when)} — ${esc(u.d)}</span></a>`;
+}
+function expBlock(list, y, title){ return list.length ? `<div class="day-h"><span class="date" style="color:var(--accent-violet)">${title}</span></div><div class="stack">${list.map(u=>expRow(u,y)).join('')}</div>` : ''; }
+
+/* ===================== AI GUIDE — OFFLINE ANSWERS ===================== */
+const norm = s => ' ' + String(s).toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9.]+/g,' ').replace(/\.(?![0-9])/g,' ').replace(/\s+/g,' ').trim() + ' ';
+const MONTH_RE = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})(?:st|nd|rd|th)?(?:,?\s*(\d{4}))?\b/i;
+const MONTHYEAR_RE = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+(\d{4})\b/i;
+const MI = m => ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'].indexOf(m.toLowerCase().slice(0,3)) + 1;
+const relLine = r => `- **${r.name}** — ${coName(r.co)}, ${fmtDate(r)}. ${r.sum}${hrefFor(r.link)?` [Open](${hrefFor(r.link)})`:''}`;
+let ENT = null;
+function entities(){
+  if (ENT) return ENT;
+  ENT = [];
+  const add = (names, kind, ref) => names.forEach(n => { const k = norm(n); if (k.trim().length > 1) ENT.push({k, kind, ref}); });
+  Object.values(MODELS).forEach(m => { const n = m.name.replace(/\s*\(.*?\)\s*/g,' ').trim(); add([n, n.replace(/^(Claude|Google|OpenAI|Meta|Alibaba|xAI)\s+/i,''), ...n.split(/\s*(?:&|·|\+)\s*/)], 'model', m); });
+  LINES.forEach(L => add([L.name, L.id, L.name.split(/[\s/(]/)[0]], 'line', L));
+  TOOLS.forEach(t => add([t.name, t.name.replace(/\s*\(.*\)/,'')], 'tool', t));
+  COMPANY_PAGE.forEach(id => add([COMPANIES[id].name, COMPANIES[id].name.split(' ')[0]], 'company', id));
+  PIONEERS.forEach(p => add([p.n, p.n.split(' ').slice(-1)[0]], 'person', p));
+  UPCOMING.forEach(u => add([u.name.replace(/"/g,'')], 'upcoming', u));
+  EVENTS.forEach((e,i) => add([e[2].replace(/"/g,'')], 'event', i));
+  ENT.sort((a,b) => b.k.length - a.k.length);
+  return ENT;
+}
+function findEnts(q){ const n = norm(q); const hits = []; const used = []; for (const e of entities()){ if (n.includes(e.k) && !used.some(u => u !== e.k && u.includes(e.k))){ hits.push(e); used.push(e.k); } } return hits; }
+function modelAnswer(m){
+  const sp = specsOf(m.id), f = familyOf(m.id), F = FEATURED[m.id];
+  const out = [`**${m.name}** is from ${coName(m.co)}, released **${fmtDate(m.rel)}**. Status: ${statusOf(m.id)}.`, m.sum];
+  if (f){ const prev = f.i>0 ? f.list[f.i-1] : null, next = f.i<f.list.length-1 ? f.list[f.i+1] : null; const nm = x => typeof x==='object' ? x.label : `[${MODELS[x]?.name||x}](#m-${x})`; out.push(`Lineage (${f.fname}): ${prev?nm(prev)+' → ':''}**${m.name}**${next?' → '+nm(next):' (latest)'}`); }
+  if (F){ if (F.new.length) out.push('What\'s new:\n'+F.new.slice(0,4).map(x=>'- '+x).join('\n')); if (F.removed.length) out.push('Limits / breaking changes:\n'+F.removed.slice(0,3).map(x=>'- '+x).join('\n')); }
+  const specs = [['Context',sp.context],['Max output',sp.output],['Price',sp.price],['Cutoff',sp.cutoff]].filter(x=>x[1]!=='—');
+  if (specs.length) out.push(specs.map(([k,v])=>`- ${k}: ${v}`).join('\n'));
+  out.push(`[Open the ${m.name} page](#m-${m.id})`);
+  return out.join('\n\n');
+}
+function lineAnswer(L){
+  const rel = L.v.filter(v=>v[5]!=='up'); const cur = rel.filter(v=>v[5]==='cur'); const up = L.v.filter(v=>v[5]==='up');
+  return [`**${L.name}** (${coName(L.co)}). ${cur.length ? 'Current: '+[...cur].sort((a,b)=>(b[1]===L.main)-(a[1]===L.main)).map(v=>`**${v[1]}** (${fmtV(v[0])})`).join(', ') : 'Discontinued — latest news: **'+rel[0][1]+'** ('+fmtV(rel[0][0])+')'}.`,
+    'Recent versions:\n' + rel.slice(0,6).map(v=>`- ${fmtV(v[0])} — **${v[1]}**: ${v[3][0]}`).join('\n'),
+    up.length ? 'Coming next:\n' + up.map(v=>`- ${v[1]} — ${v[3][0]}`).join('\n') : '',
+    `See every version under [Model Library → Current versions](#models).`].filter(Boolean).join('\n\n');
+}
+function localAnswer(q){
+  const ql = q.toLowerCase();
+  // compare
+  if (/\b(compare|vs\.?|versus|difference between)\b/.test(ql)){
+    const ms = findEnts(q).filter(e=>e.kind==='model').map(e=>e.ref).filter((m,i,a)=>a.indexOf(m)===i).slice(0,3);
+    if (ms.length >= 2){
+      S.cmp = ms.map(m=>m.id);
+      return `Here's how they compare:\n\n` + ms.map(m => { const sp = specsOf(m.id); return `**${m.name}** (${coName(m.co)}, ${fmtDate(m.rel)})\n- ${m.sum}\n- Context: ${sp.context} · Price: ${sp.price}`; }).join('\n\n') + `\n\n[Open the side-by-side comparison](#compare)`;
+    }
+  }
+  // exact day
+  const md1 = MONTH_RE.exec(q);
+  if (md1 && +md1[2] <= 31){
+    const m = MI(md1[1]), d = +md1[2]; const y = md1[3] ? +md1[3] : null;
+    const hits = RELEASES.filter(r => r.m===m && r.d===d && (!y || r.y===y));
+    const yy = y || (hits.length ? Math.max(...hits.map(r=>r.y)) : null);
+    const sel = hits.filter(r => r.y===yy);
+    if (sel.length) return `On **${MONTHS_L[m-1]} ${d}, ${yy}**${new Set(sel.map(r=>r.co)).size>1?' (a same-day clash)':''}:\n\n${sel.map(relLine).join('\n')}${y?'':`\n\nOther years with releases on ${MONTHS[m-1]} ${d}: ${[...new Set(hits.filter(r=>r.y!==yy).map(r=>r.y))].join(', ')||'none'}.`}`;
+    return `I don't have any releases on ${MONTHS_L[m-1]} ${d}${y?', '+y:''} in the site's data. Try the [Release Tracker](#tracker) calendar.`;
+  }
+  // month + year
+  const my = MONTHYEAR_RE.exec(q);
+  if (my){
+    const m = MI(my[1]), y = +my[2]; const hits = RELEASES.filter(r => r.y===y && r.m===m);
+    const exp = expectedFor(y).filter(u=>u.mm===m);
+    if (hits.length || exp.length) return `**${MONTHS_L[m-1]} ${y}**: ${hits.length} release${hits.length===1?'':'s'}${exp.length?` and ${exp.length} expected`:''}.\n\n${hits.slice(0,14).map(relLine).join('\n')}${hits.length>14?`\n- …and ${hits.length-14} more`:''}${exp.length?'\n\nExpected (no exact day yet):\n'+exp.map(u=>`- ${u.name} (${coName(u.co)}) — ${u.when}`).join('\n'):''}\n\n[Open ${y} in the tracker](#tracker-${y})`;
+  }
+  // upcoming
+  const ents = findEnts(q);
+  const upE = ents.find(e=>e.kind==='upcoming');
+  if (upE || /\b(upcoming|coming soon|coming out|next release|when will|release date|expected|rumou?r|announced|future)\b/.test(ql)){
+    if (upE){ const u = upE.ref; return `**${u.name}** (${coName(u.co)}) — status: **${UP_STATUS[u.st].l}**. Timing: ${u.when}.\n\n${u.d}${u.q?'\n\n'+u.q:''}\n\nSource: ${u.src.map(s=>`[${s[0]}](${s[1]})`).join(', ')}\n\nMore on [Coming Soon](#upcoming).`; }
+    const ent = ents.find(e=>['line','company','model'].includes(e.kind));
+    if (ent){ const co = ent.kind==='line' ? ent.ref.co : ent.kind==='company' ? ent.ref : ent.ref.co; const list = UPCOMING.filter(u=>u.co===co); if (list.length) return `What's next from **${coName(co)}**:\n\n${list.map(u=>`- **${u.name}** — ${UP_STATUS[u.st].l}. ${u.when}.`).join('\n')}\n\n[See all upcoming releases](#upcoming)`; }
+    const soon = UPCOMING.filter(u=>u.st==='soon'||u.st==='nodate');
+    return `Upcoming releases (as of ${AS_OF}):\n\n${soon.map(u=>`- **${u.name}** (${coName(u.co)}) — ${u.when}`).join('\n')}\n\nCancelled: GPT-6.1 Astra. Rumors and press reports are on [Coming Soon](#upcoming).`;
+  }
+  // latest
+  if (/\b(latest|newest|most recent|recent releases|just released|new models?)\b/.test(ql) && !ents.some(e=>['model','line','tool'].includes(e.kind))){
+    const last = RELEASES.filter(r=>r.d && r.link && !r.link.startsWith('u:')).sort(cmpDate).reverse().slice(0,8);
+    return `The latest releases on the site:\n\n${last.map(relLine).join('\n')}\n\n[See the full tracker](#tracker)`;
+  }
+  // entity answers
+  const lineWant = /\b(version|versions|history|previous|timeline of|all models|lineup|evolution)\b/.test(ql);
+  const lineE = ents.find(e=>e.kind==='line'), modelE = ents.find(e=>e.kind==='model');
+  const e0 = (lineE && (lineWant || !modelE || modelE.k===lineE.k)) ? lineE : (modelE || ents[0]);
+  if (e0){
+    if (e0.kind==='model') return modelAnswer(e0.ref);
+    if (e0.kind==='line') return lineAnswer(e0.ref);
+    if (e0.kind==='tool'){ const t = e0.ref; return `**${t.name}** by ${coName(t.co)} — ${t.what}\n\n- Launched: ${t.launched}\n- Status: ${t.status}\n- Powered by: ${t.powered}\n- Website: [${t.site}](https://${t.site})${t.hist?'\n\nHistory:\n'+t.hist.map(h=>`- ${h[0]} — ${h[1]}`).join('\n'):''}\n\nMore on [AI Tools & Websites](#tools).`; }
+    if (e0.kind==='company'){ const c = COMPANIES[e0.ref]; const L = LINES.find(l=>l.co===e0.ref); const n = RELEASES.filter(r=>r.co===e0.ref).length; return `**${c.name}** — founded ${c.founded} by ${c.founders}; headquartered in ${c.hq}.\n\nKnown for: ${c.key}.\n\n${n} releases are in the tracker.${L?' '+`Current: ${L.v.filter(v=>v[5]==='cur').map(v=>'**'+v[1]+'**').join(', ')}.`:''}\n\n[Company page](#companies)${L?' · [Version history](#models)':''}`; }
+    if (e0.kind==='person'){ const p = e0.ref; return `**${p.n}** (${p.y}) — ${p.c}\n\nGuiding idea: *${p.q}*\n\n[See all pioneers](#pioneers)`; }
+    if (e0.kind==='event'){ const i = e0.ref, e = EVENTS[i], b = BRIEFS[i]; return `**${e[2]}** (${e[0]}) — ${e[3]}\n\n${b?b.s[0]:''}\n\n${b&&b.w?'**Why it mattered:** '+b.w:''}\n\n[Read the full story](#e-${i})`; }
+  }
+  // glossary
+  const g = GLOSSARY.find(([keys]) => keys.some(k => ql.includes(k)));
+  if (g) return g[1];
+  // year
+  const yr = /\b(19[4-9]\d|20[0-2]\d)\b/.exec(q);
+  if (yr){ const y = +yr[1]; const ev = EVENTS.map((e,i)=>[e,i]).filter(([e])=>e[0]===y); const rs = RELEASES.filter(r=>r.y===y);
+    if (ev.length || rs.length) return `**${y}**:\n\n${ev.map(([e,i])=>`- [${e[2]}](#e-${i}) — ${e[3]}`).join('\n')}${rs.length?`\n\n${rs.length} releases that year, including:\n${rs.slice(0,8).map(relLine).join('\n')}\n\n[Open ${y} in the tracker](#tracker-${y})`:''}`; }
+  if (/\b(winter|winters|fail|failure)\b/.test(ql)) return `AI went through two winters, **1974–80** and **1987–93**, when funding collapsed after over-promising.\n\n${WINTERS.slice(0,4).map(w=>`- **${w.w} ${w.t}** — ${w.l}`).join('\n')}\n\n[Read the full story](#winters)`;
+  if (/\b(hi|hello|hey|thanks|thank you)\b/.test(ql)) return `Hi! Ask me about any AI model, release date, company, tool or idea — for example "What was released on Sep 22, 2026?" or "Show Claude versions".`;
+  return `I couldn't find that in the site's data. I can answer questions about:\n\n- a model or product ("Claude Opus 5.5", "Gemini versions")\n- a date ("Sep 22, 2026", "July 2025")\n- what's coming ("When is Gemini 4 coming?")\n- ideas ("What is a transformer?")\n- history ("What happened in 1956?")\n\nOr use the search bar at the top.`;
+}
+function openChatWith(q){ const fab = $('#chat-fab'); if ($('#chat').hidden) fab.click(); const box = $('#chat-in'); box.value = q; box.focus(); $('#chat-form').requestSubmit(); }
+
 /* ===================== FOOTER + BOOT ===================== */
 $('#sources').innerHTML = SOURCES.map(([t,u])=>`<li><a href="${u}" target="_blank" rel="noopener noreferrer">${esc(t)}</a></li>`).join('');
 setupSearch();
 setupChat();
 render();
+
+PAGES.models = () => pageHead('Model Library', `The current version of every major AI product, plus ${MODEL_LIST.length} model pages with release dates, lineage, changes and specs.`) +
+  `<div class="row" style="justify-content:space-between;margin-bottom:var(--space-5)"><div class="seg" role="group" aria-label="View"><button data-libview="lines" aria-pressed="${S.libView==='lines'}">Current versions</button><button data-libview="all" aria-pressed="${S.libView==='all'}">All ${MODEL_LIST.length} models</button></div><a class="btn secondary sm" href="#compare">Compare models</a></div>` +
+  (S.libView==='lines' ? linesPage() : PAGES.modelsAll());
+AFTER.models = () => { $$('[data-libview]').forEach(b => b.onclick = () => { S.libView = b.dataset.libview; rerenderLib(); }); if (S.libView==='lines') bindLines(); else AFTER.modelsAll(); };
 </script>
 </body>
 </html>
