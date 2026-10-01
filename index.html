@@ -411,13 +411,17 @@ footer{padding-bottom:88px}
 @media (max-width:600px){.prevnext{grid-template-columns:1fr}}
 .rel.exp{grid-template-columns:170px auto minmax(0,1fr) auto;border-style:dashed;border-color:color-mix(in srgb,var(--accent-violet) 55%,transparent);background:transparent}
 @media (max-width:767px){.rel.exp{grid-template-columns:1fr auto}}
+.topbar-in .by-link{font:600 10px/1 var(--font-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-violet);text-decoration:none;margin-left:-8px;align-self:flex-end;margin-bottom:17px;white-space:nowrap}
+.topbar-in .by-link:hover{text-decoration:underline}
+.nav a.nav-home{color:var(--accent-violet);font-weight:600}
+@media (max-width:767px){.topbar-in .by-link{display:none}}
 </style>
 </head>
 <body>
 <a href="#main" class="btn primary sm" style="position:absolute;left:-9999px" onfocus="this.style.left='16px';this.style.top='8px';this.style.zIndex=99" onblur="this.style.left='-9999px'">Skip to content</a>
 <header class="topbar">
   <div class="wrap topbar-in">
-    <a class="brand" href="#home" aria-label="The AI Timeline by PUJIVERSE, home"><span class="brand-mark" aria-hidden="true"></span><span class="brand-txt"><span>The AI Timeline</span><small class="by">by PUJIVERSE</small></span></a>
+    <a class="brand" href="#home" aria-label="The AI Timeline by PUJIVERSE, home"><span class="brand-mark" aria-hidden="true"></span><span class="brand-txt"><span>The AI Timeline</span></span></a><a class="by-link" href="https://www.pujiverse.com/" title="Go to PUJIVERSE home">by PUJIVERSE</a>
     <div class="search" role="search">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
       <input id="q" type="search" placeholder="Search models, tools, companies, people" aria-label="Search models, tools, companies and people" autocomplete="off">
@@ -432,7 +436,7 @@ footer{padding-bottom:88px}
     <div class="stack">
       <span class="brand"><span class="brand-mark" aria-hidden="true"></span><span class="brand-txt"><span>The AI Timeline</span><small class="by">by PUJIVERSE</small></span></span>
       <span class="asof">Data as of September 29, 2026</span>
-      <p class="note">© 2026 <b style="color:var(--ink);letter-spacing:.08em">PUJIVERSE</b>. The AI Timeline is a PUJIVERSE project.</p>
+      <p class="note">© 2026 <a href="https://www.pujiverse.com/" style="color:var(--ink);font-weight:700;letter-spacing:.08em;text-decoration:none">PUJIVERSE</a>. The AI Timeline is a PUJIVERSE project. <a href="https://www.pujiverse.com/">Visit pujiverse.com →</a></p>
       <p class="note">Dates verified as of Sep 29, 2026. Check official sites for the latest. Company and tool names are shown as text badges; logo slots await official press-kit files.</p>
     </div>
     <div><span class="label" style="display:block;margin-bottom:8px">Sources</span><ul class="sources" id="sources"></ul></div>
@@ -1207,9 +1211,10 @@ const S = {
 try { const v = JSON.parse(localStorage.getItem('ait-tracker-view')||'null'); if (v==='list'||v==='calendar') S.tracker.view = v; } catch(e){}
 
 /* ---------- Shell ---------- */
-const NAV = [['home','Home'],['timeline','Timeline'],['tracker','Release Tracker'],['upcoming','Coming Soon'],['models','Model Library'],['tools','AI Tools & Websites'],['pioneers','Pioneers'],['winters','AI Winters'],['how','How AI Is Generated'],['companies','Companies'],['today','Models Today']];
+const PUJI_HOME = 'https://www.pujiverse.com/';
+const NAV = [['home','Overview'],['timeline','Timeline'],['tracker','Release Tracker'],['upcoming','Coming Soon'],['models','Model Library'],['tools','AI Tools & Websites'],['pioneers','Pioneers'],['winters','AI Winters'],['how','How AI Is Generated'],['companies','Companies'],['today','Models Today']];
 function renderNav(active){
-  $('#nav').innerHTML = NAV.map(([k,l]) => `<a href="#${k}"${k===active?' aria-current="page"':''}>${l}</a>`).join('');
+  $('#nav').innerHTML = `<a href="${PUJI_HOME}" class="nav-home" title="PUJIVERSE home">⌂ Home</a>` + NAV.map(([k,l]) => `<a href="#${k}"${k===active?' aria-current="page"':''}>${l}</a>`).join('');
   const cur = $('#nav a[aria-current]'); if (cur) cur.scrollIntoView({block:'nearest', inline:'center'});
 }
 function pageHead(title, sub, extra=''){ return `<div class="page-head"><span class="label">${extra||'The AI Timeline'}</span><h1>${title}</h1>${sub?`<p>${sub}</p>`:''}</div>`; }
