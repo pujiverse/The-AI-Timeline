@@ -456,10 +456,10 @@ footer{padding-bottom:88px}
   <div class="wrap foot">
     <div class="stack">
       <span class="brand"><span class="brand-mark" aria-hidden="true"></span><span class="brand-txt"><span>The AI Timeline</span><small class="by">by PUJIVERSE</small></span></span>
-      <span class="asof">Data as of October 28, 2026</span>
+      <span class="asof">Data as of November 23, 2026</span>
       <p class="note">© 2026 <a href="https://www.pujiverse.com/" style="color:var(--ink);font-weight:700;letter-spacing:.08em;text-decoration:none">PUJIVERSE</a>. The AI Timeline is a PUJIVERSE project. <a href="https://www.pujiverse.com/">Visit pujiverse.com →</a></p>
       <p class="note"><a href="https://www.youtube.com/@pujiverseai" target="_blank" rel="noopener">▶ Pujiverse AI on YouTube</a> · <a href="#videos">Videos</a></p>
-      <p class="note">Dates verified as of Oct 28, 2026. Check official sites for the latest. Company and tool names are shown as text badges; logo slots await official press-kit files.</p>
+      <p class="note">Dates verified as of Nov 23, 2026. Check official sites for the latest. Company and tool names are shown as text badges; logo slots await official press-kit files.</p>
     </div>
     <div><span class="label" style="display:block;margin-bottom:8px">Sources</span><ul class="sources" id="sources"></ul></div>
   </div>
@@ -475,7 +475,7 @@ footer{padding-bottom:88px}
 </section>
 <script>
 /* ===================== DATA — as of Sep 29, 2026 ===================== */
-const AS_OF = 'October 28, 2026';
+const AS_OF = 'November 23, 2026';
 
 const COMPANIES = {
   openai:{name:'OpenAI',tag:'openai',founded:'2015',founders:'Sam Altman, Greg Brockman, Ilya Sutskever, Wojciech Zaremba, John Schulman, Elon Musk and others',hq:'San Francisco, CA',site:'https://openai.com',key:'GPT-4 → GPT-6 Astra, o-series reasoning, DALL·E, Sora, Whisper, ChatGPT'},
@@ -694,6 +694,19 @@ const RAW = [
  ['2026-10-26','apple','Siri AI in five more languages',['Audio','Agent'],false,'French, Japanese, Korean, Portuguese and Spanish; Apple says more languages follow later this year.',''],
  ['2026-10-27','google','Genie 4',['Video','Agent'],false,'DeepMind world model that generates interactive worlds with native audio; trusted testers only.','m:genie-4'],
  ['2026-10-27','google','Gemini Robotics ER 2 (preview)',['Agent','Reasoning'],false,'Embodied-reasoning model for robots, in public preview in the Gemini API.','m:gemini-robotics-er-2'],
+ ['2026-10-28','google','Gemini 4 Carbon',['Text LLM','Reasoning','Agent'],false,'Google\'s most capable Gemini 4 model, for the hardest work; uses more tokens than Argon. Announced Oct 28 with limited access.','m:gemini-4-carbon'],
+ ['2026-10-29','mistral','Mistral Large 4 open weights',['Text LLM','Open-weights'],true,'1T-parameter weights released under a modified MIT license; Model-as-a-Service resellers need a commercial license.','m:mistral-large-4'],
+ ['2026-11-00','moonshot','Kimi K3.1 Pro open weights',['Text LLM','Open-weights'],true,'Moonshot releases the 2.8T-parameter weights on Hugging Face, as promised.','m:kimi-k3-1-pro'],
+ ['2026-11-00','google','Gemini 4 Carbon generally available',['Text LLM','Reasoning','Agent'],false,'Opens to developers, businesses and AI Ultra subscribers; $2 / $10 per 1M tokens until Nov 30, then $4 / $20.','m:gemini-4-carbon'],
+ ['2026-11-05','openai','GPT-6 Cyber',['Coding','Agent'],false,'Security model for approved research teams in OpenAI\'s Daybreak program (limited access).','m:gpt-6-cyber'],
+ ['2026-11-09','anthropic','Claude Fable 5.2 & Mythos 5.2',['Text LLM','Reasoning','Coding'],false,'Better coding, reasoning and vision, up to 30% faster than 5.1, at $8 / $40 per 1M tokens. Mythos 5.2 stays with vetted programs.','m:claude-fable-5-2'],
+ ['2026-11-00','meta','Muse Ember',['Text LLM','Agent'],false,'Smallest Muse model, built for repeated agent tasks; 1M-token context and text, image, audio and video input, via the Meta Model API.','m:muse-ember'],
+ ['2026-11-12','google','Gemini 4 Hydrogen',['Text LLM','Coding','Agent'],false,'Fast Gemini 4 model that replaces the 3.8 Flash tier; $1.50 / $7.50 per 1M tokens.','m:gemini-4-hydrogen'],
+ ['2026-11-16','alibaba','Qwen4-Max',['Text LLM','Reasoning'],false,'2.4T total / 71B active, 1M-token context. Smaller open-weight Qwen4 models promised "soon".','m:qwen4-max'],
+ ['2026-11-17','openai','GPT-6.2 Astra',['Reasoning','Agent'],false,'OpenAI\'s top model, 20% cheaper than GPT-6 Astra at $8 / $40 per 1M tokens; in ChatGPT Work, Codex and the API.','m:gpt-6-2-astra'],
+ ['2026-11-17','openai','GPT-6.2 Sol',['Coding','Agent'],false,'Upgrade to GPT-6.1 Sol at the same $2 / $10 per 1M tokens.','m:gpt-6-2-sol'],
+ ['2026-11-17','microsoft','MAI Code 2 & Code 2 Flash',['Coding'],false,'Microsoft\'s own coding models, available in GitHub Copilot.',''],
+ ['2026-11-18','google','Gemini 4 Neon',['Text LLM','Coding','Agent'],false,'Sits between Hydrogen and Carbon and replaces Argon in the Gemini app; $3 / $15 per 1M tokens.','m:gemini-4-neon'],
 ];
 const RELEASES = RAW.map((r,i)=>{const [y,m,d]=r[0].split('-').map(Number);return {i,date:r[0],y,m,d,co:r[1],name:r[2],types:r[3],open:r[4],sum:r[5],link:r[6]}});
 
@@ -720,7 +733,7 @@ const FEATURED = {
   specs:{context:'1M tokens',output:'64K tokens',price:'$1.50 input / $7.50 output per 1M tokens',avail:'AI Studio, Gemini API, Gemini app, Antigravity, Vertex AI',cutoff:'March 2026'}},
 };
 /* Well-documented specs for older models (context window only where widely published). */
-const SPECS = {'gemini-4-argon':{price:'$2 input / $10 output per 1M tokens (introductory; later $4 / $20)'},'gpt-6-1-terra':{price:'$1 input / $5 output per 1M tokens'},'kimi-k3-1-pro':{price:'$2 input / $10 output per 1M tokens (Highspeed $4 / $20)',context:'1M tokens',extra:[['Parameters','2.8T total, 104B active'],['Open weights','Promised by Nov 4, 2026']]},'mistral-large-4':{extra:[['Parameters','~1.05T total, 49B active'],['Open weights','Promised; not yet released (Oct 28, 2026)']]},'muse-spark-open':{context:'1M tokens',extra:[['Parameters','816B']]},'claude-sonnet-5-5':{price:'$2 input / $10 output per 1M tokens',cutoff:'June 2026',api:'claude-sonnet-5-5',avail:'Claude API, AWS, Google Cloud, Microsoft Azure, GitHub Copilot',extra:[['Effort levels','Five (low → max); adaptive thinking on by default']]},'gpt-6-sol':{},'qwen3-8-max':{extra:[['Parameters','2.4T total, ~95B active']]},'kimi-k3':{extra:[['Parameters','2.8T (largest open-weights model)']]},'muse-glimmer':{extra:[['Parameters','30B; runs offline on one 24 GB GPU']]},'gpt-5-4':{extra:[['OSWorld-Verified','75% (GPT-5.2: 47.3%)']]},'grok-4-7':{price:'$2 input / $6 output per 1M tokens'},'claude-2':{context:'100K tokens'},'claude-3':{context:'200K tokens'},'claude-3-5-sonnet':{context:'200K tokens'},'gpt-4':{context:'8K / 32K tokens'},'gpt-4-turbo':{context:'128K tokens'},'gpt-4o':{context:'128K tokens'},'gpt-4-1':{context:'1M tokens'},'gemini-1-5':{context:'Up to 1M tokens (2M later)'},'llama-3-1':{context:'128K tokens'},'claude-3-7-sonnet':{context:'200K tokens'}};
+const SPECS = {'gemini-4-carbon':{price:'$2 input / $10 output per 1M tokens until Nov 30, 2026, then $4 / $20',context:'1M tokens'},'gemini-4-hydrogen':{price:'$1.50 input / $7.50 output per 1M tokens'},'gemini-4-neon':{price:'$3 input / $15 output per 1M tokens',context:'1M tokens'},'gpt-6-2-astra':{price:'$8 input ($0.40 cached) / $40 output per 1M tokens',api:'gpt-6.2-astra'},'gpt-6-2-sol':{price:'$2 input ($0.10 cached) / $10 output per 1M tokens',api:'gpt-6.2-sol'},'claude-fable-5-2':{price:'$8 input / $40 output per 1M tokens'},'qwen4-max':{context:'1M tokens',extra:[['Parameters','2.4T total, 71B active']]},'gemini-4-argon':{price:'$2 input / $10 output per 1M tokens (introductory; later $4 / $20)'},'gpt-6-1-terra':{price:'$1 input / $5 output per 1M tokens'},'kimi-k3-1-pro':{price:'$2 input / $10 output per 1M tokens at launch (Highspeed $4 / $20)',context:'1M tokens',extra:[['Parameters','2.8T total, 104B active'],['Open weights','Released on Hugging Face in early November 2026']]},'mistral-large-4':{price:'$0.70 input / $2.10 output per 1M tokens',extra:[['Parameters','About 1T total (~1.05T stated at preview), 49B active at preview'],['Open weights','Released Oct 29, 2026 (modified MIT license)']]},'muse-spark-open':{context:'1M tokens',extra:[['Parameters','816B']]},'claude-sonnet-5-5':{price:'$2 input / $10 output per 1M tokens',cutoff:'June 2026',api:'claude-sonnet-5-5',avail:'Claude API, AWS, Google Cloud, Microsoft Azure, GitHub Copilot',extra:[['Effort levels','Five (low → max); adaptive thinking on by default']]},'gpt-6-sol':{},'qwen3-8-max':{extra:[['Parameters','2.4T total, ~95B active']]},'kimi-k3':{extra:[['Parameters','2.8T (largest open-weights model)']]},'muse-glimmer':{extra:[['Parameters','30B; runs offline on one 24 GB GPU']]},'gpt-5-4':{extra:[['OSWorld-Verified','75% (GPT-5.2: 47.3%)']]},'grok-4-7':{price:'$2 input / $6 output per 1M tokens'},'claude-2':{context:'100K tokens'},'claude-3':{context:'200K tokens'},'claude-3-5-sonnet':{context:'200K tokens'},'gpt-4':{context:'8K / 32K tokens'},'gpt-4-turbo':{context:'128K tokens'},'gpt-4o':{context:'128K tokens'},'gpt-4-1':{context:'1M tokens'},'gemini-1-5':{context:'Up to 1M tokens (2M later)'},'llama-3-1':{context:'128K tokens'},'claude-3-7-sonnet':{context:'200K tokens'}};
 
 /* Family lineages (ordered). Strings are model ids; objects are models without a page. */
 const FAMILIES = [
@@ -728,24 +741,25 @@ const FAMILIES = [
  ['Claude Sonnet',['claude-3-5-sonnet','claude-3-5-sonnet-new','claude-3-7-sonnet','claude-sonnet-4-5','claude-sonnet-4-6','claude-sonnet-5','claude-sonnet-5-5']],
  ['Claude (early)',['claude','claude-2','claude-3']],
  ['Claude Haiku',['claude-3','claude-haiku-4-5','claude-haiku-5-5']],
- ['Claude Fable / Mythos',['claude-mythos-preview','claude-fable-5','claude-fable-5-1']],
- ['GPT-6 Sol',['gpt-5-6','gpt-6-sol','gpt-6-1-sol']],
+ ['Claude Fable / Mythos',['claude-mythos-preview','claude-fable-5','claude-fable-5-1','claude-fable-5-2']],
+ ['GPT-6 Sol',['gpt-5-6','gpt-6-sol','gpt-6-1-sol','gpt-6-2-sol']],
  ['GPT-6 Luna',['gpt-5-6','gpt-6-luna']],
- ['GPT flagship',['gpt-4','gpt-4-turbo','gpt-4o','gpt-4-5','gpt-5','gpt-5-1','gpt-5-2','gpt-5-4','gpt-5-5','gpt-5-6','gpt-6-astra']],
+ ['GPT flagship',['gpt-4','gpt-4-turbo','gpt-4o','gpt-4-5','gpt-5','gpt-5-1','gpt-5-2','gpt-5-4','gpt-5-5','gpt-5-6','gpt-6-astra','gpt-6-2-astra']],
  ['GPT-4.1',['gpt-4o','gpt-4-1','gpt-5']],
  ['GPT Codex',['gpt-5-1','gpt-5-3-codex']],
  ['OpenAI o-series',['o1-preview','o3','gpt-5']],
  ['OpenAI open weights',['whisper','gpt-oss']],
  ['OpenAI image',['dall-e-2','gpt-4o-image']],
  ['Sora',['sora','sora-2']],
- ['Gemini Flash',['gemini-2-0-flash','gemini-3-flash','gemini-3-5-flash','gemini-3-6-flash','gemini-3-7-flash','gemini-3-8-flash']],
+ ['Gemini Flash',['gemini-2-0-flash','gemini-3-flash','gemini-3-5-flash','gemini-3-6-flash','gemini-3-7-flash','gemini-3-8-flash','gemini-4-hydrogen']],
+ ['Gemini 4',['gemini-4-argon','gemini-4-carbon','gemini-4-hydrogen','gemini-4-neon']],
  ['Gemini Pro',['gemini-1-0','gemini-1-5','gemini-2-5-pro','gemini-3-pro','gemini-3-1-pro','gemini-4-argon']],
  ['Gemini Flash-Lite',['gemini-3-1-flash-lite','gemini-3-5-flash-lite']],
  ['Veo',['veo-2','veo-3']],
  ['Llama',['llama','llama-2','llama-3','llama-3-1','llama-4']],
  ['Grok',['grok-1','grok-3','grok-4','grok-4-1','grok-4-20','grok-4-3','grok-4-5','grok-4-6','grok-4-7']],
- ['Muse (Meta)',['llama-4','muse-spark','muse-spark-1-1','muse-spark-1-2','muse-spark-1-3','muse-spark-open']],
- ['Qwen',['qwen3','qwen3-5','qwen3-6','qwen3-7-max','qwen3-8-max','qwen3-8-max-0902']],
+ ['Muse (Meta)',['llama-4','muse-spark','muse-spark-1-1','muse-spark-1-2','muse-spark-1-3','muse-spark-open','muse-ember']],
+ ['Qwen',['qwen3','qwen3-5','qwen3-6','qwen3-7-max','qwen3-8-max','qwen3-8-max-0902','qwen4-max']],
  ['Kimi',['kimi-k2','kimi-k2-5','kimi-k3','kimi-k3-1-pro']],
  ['DeepSeek',['deepseek-r1','deepseek-v4']],
  ['Mistral',['mistral-7b','mistral-large-3','mistral-medium-3-5','mistral-large-4']],
@@ -753,7 +767,7 @@ const FAMILIES = [
 ];
 
 /* Current frontier set for Models Today. */
-const FRONTIER = ['gpt-6-1-terra','gemini-4-argon','kimi-k3-1-pro','claude-haiku-5-5','muse-spark-open','mistral-large-4','gpt-6-1-sol','claude-sonnet-5-5','claude-opus-5-5','deepseek-v4','qwen3-8-max-0902','mistral-medium-3-5','gpt-6-astra','gpt-6-astra-ultrafast','grok-4-7','gemini-3-1-pro','gpt-6-luna','claude-fable-5-1','claude-sonnet-5','gemini-3-8-flash','gemini-3-8-live','muse-spark-1-3','swe-2','glm-5','llama-4','deepseek-r1','gpt-oss'];
+const FRONTIER = ['gpt-6-2-astra','gpt-6-2-sol','gemini-4-neon','claude-fable-5-2','gemini-4-carbon','gemini-4-hydrogen','qwen4-max','gpt-6-1-terra','gemini-4-argon','kimi-k3-1-pro','claude-haiku-5-5','muse-spark-open','mistral-large-4','claude-sonnet-5-5','claude-opus-5-5','deepseek-v4','mistral-medium-3-5','grok-4-7','gemini-3-1-pro','gpt-6-luna','claude-sonnet-5','gemini-3-8-live','muse-spark-1-3','swe-2','glm-5','llama-4','deepseek-r1','gpt-oss'];
 
 const TOOLS = [
  {id:'chatgpt',name:'ChatGPT',co:'openai',launched:'Nov 30, 2022',site:'chatgpt.com',cat:'Chatbots',status:'Live',what:'General-purpose AI assistant for chat, writing, code, images and agents.',powered:'GPT-6.1 Sol, GPT-6 Astra, GPT-6 Luna',hist:[['Nov 30, 2022','Launches on GPT-3.5'],['Mar 14, 2023','GPT-4 for Plus users'],['May 13, 2024','GPT-4o for everyone'],['Aug 7, 2025','GPT-5 becomes the default'],['Sep 2026','GPT-6 Astra, Sol and Luna arrive'],['Sep 29, 2026','GPT-6.1 Sol at DevDay']]},
@@ -873,164 +887,166 @@ const EVENTS = [
  [1972,"R","MYCIN","Edward Shortliffe begins an expert system at Stanford that recommends antibiotics for blood infections.","Edward Shortliffe","golden",""],
  [1973,"R","WABOT-1","Ichiro Kato's team at Waseda University completes the first full-scale humanoid robot.","Waseda University","golden",""],
  [1973,'L','Lighthill Report','UK review says AI failed its "grandiose objectives".','UK Science Research Council','golden','British AI funding was cut to a few universities.'],
- [1974,'L','First AI Winter begins','Funding dries up in the US and UK.','DARPA','winter1','Promises from the 1950s and 60s had not been met.'],
- [1974,"L","Werbos describes backpropagation","Harvard PhD student Paul Werbos describes training multi-layer neural networks by sending errors backwards.","Paul Werbos","winter1","Almost nobody read it for over a decade."],
- [1974,"L","DARPA cancels speech contract","DARPA cancels a Carnegie Mellon speech-understanding contract worth about $3M a year.","DARPA","winter1","The 1969 Mansfield Amendment had already pushed DARPA toward mission-focused research."],
- [1976,"R","Harpy and the end of DARPA speech research","Carnegie Mellon's Harpy understands about 1,000 words in tightly controlled sentences.","Carnegie Mellon","winter1",""],
- [1976,"R","Kurzweil Reading Machine","A machine that scans printed text and reads it aloud for blind users.","Ray Kurzweil","winter1",""],
- [1978,"R","Speak & Spell","A Texas Instruments toy with one of the first single-chip speech synthesizers.","Texas Instruments","winter1",""],
- [1979,"R","BKG 9.8 beats a world champion","Hans Berliner's backgammon program beats world champion Luigi Villa 7\u20131, the first program to beat a reigning world champion at any game.","Hans Berliner","winter1","Berliner admitted the dice favoured it."],
- [1979,"L","Neocognitron","Kunihiko Fukushima's layered vision network, the ancestor of convolutional networks.","Kunihiko Fukushima","winter1",""],
- [1979,"R","Stanford Cart","Hans Moravec's robot crosses a chair-filled room on its own using a camera, in about 5 hours.","Hans Moravec","winter1",""],
- [1979,"L","MYCIN evaluation","MYCIN's antibiotic advice is rated as good as Stanford's experts, but it is never used on patients.","Stanford","winter1",""],
- [1980,'R','XCON expert system','DEC\'s rule-based system configures computer orders and saves millions.','DEC / CMU','expert','Its success set off a corporate expert-system boom.'],
- [1982,"R","Fifth Generation project","Japan launches a 10-year national AI computer program, announced in 1981.","Japan MITI","expert","It triggered rival programs in the US and Europe."],
- [1982,"L","Hopfield networks","John Hopfield's network stores memories and recalls whole patterns from parts.","John Hopfield","expert","Shared the 2024 Nobel Prize in Physics with Geoffrey Hinton."],
- [1982,"L","Self-organising maps","Teuvo Kohonen's networks group data without labels.","Teuvo Kohonen","expert",""],
- [1982,"R","Prospector finds molybdenum","SRI's geology expert system points to a deposit at Mount Tolman, Washington.","SRI International","expert",""],
- [1983,"L","The AI race","The UK's Alvey Programme (about \u00a3350M), Europe's ESPRIT and DARPA's Strategic Computing Initiative launch, partly in response to Japan.","DARPA","expert","By 1985 Strategic Computing had spent $100M on 92 projects at 60 institutions."],
- [1983,"R","Thinking Machines","Danny Hillis co-founds the company behind the Connection Machine (up to 65,536 processors).","Danny Hillis","expert",""],
- [1984,"R","Cyc begins","Doug Lenat starts hand-coding millions of common-sense facts.","Doug Lenat","expert",""],
- [1984,"R","WABOT-2","Waseda University's robot reads sheet music and plays an electronic organ.","Waseda University","expert",""],
- [1984,"L","\"AI winter\" is named","Roger Schank and Marvin Minsky warn at AAAI that the hype is out of control.","Schank & Minsky","expert",""],
- [1985,"R","symbolics.com","On March 15, 1985, the AI company Symbolics registers the first .com domain.","Symbolics","expert",""],
- [1985,"L","Boltzmann machine","Ackley, Hinton and Sejnowski's network learns hidden features using ideas from physics.","Hinton & Sejnowski","expert",""],
- [1986,"L","Backpropagation","Rumelhart, Hinton and Williams show in Nature how multi-layer networks can learn.","Geoffrey Hinton","expert","The technique still trains every modern neural network."],
- [1986,"L","Subsumption architecture","Rodney Brooks builds robots from layers of simple reflexes.","Rodney Brooks","expert",""],
- [1987,"R","VaMoRs self-driving van","Ernst Dickmanns' Mercedes van steers itself at up to 96 km/h using computer vision (it first drove itself in 1986).","Ernst Dickmanns","expert","In 1995 a later robot car drove 1,758 km from Munich to Odense and back."],
- [1987,"R","NETtalk","Sejnowski and Rosenberg's network learns to pronounce English text.","Terry Sejnowski","expert",""],
- [1987,"R","LISP machine market collapses","Cheap desktop computers wipe out a half-billion-dollar AI hardware industry in about a year.","Symbolics & others","winter2","The expert-system boom turned to bust."],
- [1988,"L","Bayesian networks","Judea Pearl's book lets AI reason with probability and uncertainty.","Judea Pearl","winter2","Pearl later won the Turing Award."],
- [1988,"L","Moravec's paradox","Hans Moravec notes that what's hard for humans is easy for computers, and the reverse.","Hans Moravec","winter2",""],
- [1988,"R","Deep Thought beats a grandmaster","Carnegie Mellon's chess machine beats Bent Larsen in tournament play; its team later builds IBM's Deep Blue.","Feng-hsiung Hsu","winter2",""],
- [1989,'L','LeNet reads handwriting','Yann LeCun trains a convolutional network to read zip codes.','Yann LeCun','winter2',''],
- [1989,"R","ALVINN","Dean Pomerleau's neural network learns to steer CMU's Navlab van by watching a human driver.","Dean Pomerleau","winter2",""],
- [1989,"L","Q-learning","Chris Watkins describes learning the best actions from rewards.","Chris Watkins","winter2","Later used by DeepMind for Atari."],
- [1990,"L","Simple recurrent network","Jeffrey Elman's network handles sequences.","Jeffrey Elman","winter2",""],
- [1990,"R","DragonDictate","One of the first speech-recognition products for PCs.","Dragon Systems","winter2",""],
- [1991,"L","The vanishing gradient","Sepp Hochreiter's diploma thesis (in German, advised by J\u00fcrgen Schmidhuber) explains why deep networks are hard to train.","Sepp Hochreiter","winter2","Led to LSTM in 1997."],
- [1992,"R","TD-Gammon","Gerald Tesauro's network teaches itself backgammon through self-play; version 2.1 (1993) plays near top-human level.","IBM","winter2",""],
- [1992,"L","SVM kernel trick","Boser, Guyon and Vapnik at Bell Labs, building on Vapnik and Chervonenkis's 1960s Soviet theory.","Vladimir Vapnik","winter2",""],
- [1992,"R","Chinook vs. Tinsley","Marion Tinsley keeps the checkers world title, 4\u20132 with 33 draws.","Jonathan Schaeffer","winter2",""],
- [1992,"L","Fifth Generation project ends","Japan's project winds down in 1992 without meeting its main goals.","Japan MITI","winter2",""],
- [1993,"R","Apple Newton","A handheld computer whose handwriting recognition was widely mocked.","Apple","winter2",""],
- [1993,"L","The \"singularity\" essay","Vernor Vinge predicts machines that surpass human intelligence.","Vernor Vinge","winter2",""],
- [1993,"L","Statistical machine translation","IBM's Candide learns French–English translation from parliament records, with no grammar rules.","IBM","ml","",[3, 150]],
- [1993,"R","Nvidia founded","Jensen Huang, Chris Malachowsky and Curtis Priem start a graphics-chip company.","Nvidia","ml","",[3, 150]],
- [1994,"R","Chinook wins a world title","The checkers program becomes the first program to win a human world championship.","Jonathan Schaeffer","ml","",[3, 150]],
- [1994,"R","VaMP drives in Paris traffic","Dickmanns' robot car drives 1,000+ km on a highway near Paris, changing lanes itself.","Ernst Dickmanns","ml","",[3, 150]],
- [1995,"L","SVMs, random forests and AdaBoost","Cortes & Vapnik, Tin Kam Ho, and Freund & Schapire publish the methods that rule the 2000s.","Cortes & Vapnik","ml","",[3, 150]],
- [1995,"R","No Hands Across America","CMU's Navlab 5 steers itself for about 98% of a ~2,800-mile trip.","Pomerleau & Jochem","ml","",[3, 150]],
- [1996,"R","Deep Blue wins a game","Deep Blue beats Kasparov in game 1; Kasparov wins the match 4–2.","IBM","ml","",[3, 150]],
- [1997,"R","RoboCup and Dragon NaturallySpeaking","Robot soccer's first official cup; continuous dictation arrives on PCs.","RoboCup · Dragon Systems","ml","",[3, 480]],
- [1997,"R","Deep Blue beats Kasparov","IBM's chess computer defeats the world champion 3½–2½.","IBM","ml","Brute-force search, not learning, won the match.",[3, 480]],
- [1997,"L","LSTM","Hochreiter and Schmidhuber publish long short-term memory networks.","Hochreiter & Schmidhuber","ml","",[3, 480]],
- [1998,"L","LeNet-5 and MNIST","LeCun's team publishes convolutional networks for documents and the 70,000-digit MNIST dataset.","Yann LeCun","ml","",[3, 480]],
- [1998,"R","Google founded","PageRank ranks the web by its links.","Larry Page & Sergey Brin","ml","",[3, 480]],
- [1999,"R","GeForce 256 and AIBO","Nvidia markets \"the world's first GPU\"; Sony launches the AIBO robot dog.","Nvidia · Sony","ml","",[3, 480]],
- [1999,"R","Remote Agent flies Deep Space 1","NASA AI software controls a spacecraft on its own for about two days.","NASA","ml","",[3, 480]],
- [2000,"R","ASIMO","Honda unveils its walking humanoid robot.","Honda","ml","",[3, 810]],
- [2001,"L","More data beats better algorithms","Banko & Brill show simple algorithms catch up when given far more data; Breiman publishes random forests.","Banko & Brill","ml","",[3, 810]],
- [2002,"R","Roomba and Bayesian spam filters","iRobot's vacuum and Paul Graham's \"A Plan for Spam\" bring learning systems home.","iRobot","ml","",[3, 810]],
- [2003,"L","Neural language model","Bengio's team learns word embeddings; Amazon describes item-to-item recommendations.","Yoshua Bengio","ml","",[3, 810]],
- [2004,"L","CIFAR keeps neural nets alive","A small program led by Hinton, with LeCun and Bengio, sustains the \"deep learning conspiracy\".","Geoffrey Hinton","ml","",[3, 810]],
- [2004,"R","DARPA Grand Challenge fails","No robot car finishes the desert course; the best goes about 7 miles.","DARPA","ml","",[3, 810]],
- [2005,"R","Stanley wins the Grand Challenge","Stanford's robot car finishes 132 miles; five vehicles finish.","Sebastian Thrun","ml","",[3, 810]],
- [2006,"L","Deep learning revival","Hinton shows deep belief networks can be trained layer by layer.","Geoffrey Hinton","ml","",[3, 1170]],
- [2006,"R","AWS and Google Translate","Cloud computing rents out servers; Google launches statistical translation.","Amazon · Google","ml","",[3, 1170]],
- [2006,"R","Netflix Prize","$1M for 10% better recommendations; won in 2009 by a 20-minute margin.","Netflix","ml","",[3, 1170]],
- [2007,"R","CUDA and the iPhone","Nvidia opens GPUs to general computing; the iPhone puts sensors in every pocket.","Nvidia · Apple","ml","",[3, 1170]],
- [2007,"L","Checkers is solved","Schaeffer's team proves perfect checkers play is a draw.","Jonathan Schaeffer","ml","",[3, 1170]],
- [2007,"R","DARPA Urban Challenge","Robot cars drive in a mock city; CMU's Boss wins.","DARPA","ml","",[3, 1170]],
- [2009,"L","ImageNet","Fei-Fei Li's team releases a dataset that grows to ~14 million labeled images.","Fei-Fei Li","ml","The annual ImageNet challenge became deep learning's proving ground.",[3, 1170]],
- [2009,"L","GPUs train deep nets ~70× faster","Raina, Madhavan and Ng show graphics cards can train large networks far faster.","Andrew Ng","ml","",[3, 1170]],
- [2009,"R","Google self-driving project","Sebastian Thrun starts the project that becomes Waymo.","Google","ml","",[3, 1170]],
- [2010,"R","DeepMind founded","Hassabis, Legg and Suleyman start a London lab to \"solve intelligence\".","DeepMind","ml","",[3, 1500]],
- [2010,"R","Kinect","Machine-learned body tracking; ~8 million sold in 60 days.","Microsoft","ml","",[3, 1500]],
- [2011,"R","Google Brain starts","Jeff Dean, Greg Corrado and Andrew Ng begin deep learning at Google scale.","Google","ml","",[3, 1500]],
- [2011,"R","Watson wins Jeopardy!","IBM Watson beats two human champions on TV.","IBM","ml","",[3, 1500]],
- [2011,"R","Siri","Apple ships a voice assistant on the iPhone 4S, born from SRI's DARPA-funded CALO project.","Apple","ml","",[3, 1500]],
- [2012,"L","The Google \"cat\" network","16,000 processor cores learn to detect cats from YouTube frames with no labels.","Google Brain","deep","",[4, 150]],
- [2012,"L","AlexNet","A deep network trained on two gaming GPUs cuts ImageNet top-5 error to 15.3% (vs 26.2%).","Hinton, Krizhevsky, Sutskever","deep","Error fell from 26% to 15%, and the field switched to deep learning.",[4, 150]],
- [2012,"R","The DNNresearch auction","Google wins a $44M auction for Hinton's three-person company.","Google","deep","",[4, 150]],
- [2013,"L","word2vec","Words become vectors: king − man + woman ≈ queen.","Tomas Mikolov","deep","",[4, 480]],
- [2013,"L","DeepMind plays Atari","A Deep Q-Network learns games from pixels; Nature paper in 2015.","DeepMind","deep","",[4, 480]],
- [2013,"R","Facebook AI Research","Facebook opens FAIR, led by Yann LeCun.","Meta","deep","",[4, 480]],
- [2014,"R","Google acquires DeepMind","Google buys the London lab for a reported ~$500M.","Google DeepMind","deep","",[4, 480]],
- [2014,"L","GANs","Ian Goodfellow introduces generative adversarial networks.","Ian Goodfellow","deep","",[4, 480]],
- [2014,"L","Seq2seq and attention","Sutskever, Vinyals & Le; Bahdanau, Cho & Bengio add attention.","Google · Mila","deep","",[4, 480]],
- [2014,"R","Amazon Echo and Alexa","Voice AI moves into the kitchen.","Amazon","deep","",[4, 480]],
- [2015,"R","Tesla Autopilot","Driver-assist features reach customers by software update.","Tesla","deep","",[4, 810]],
- [2015,"R","AlphaGo beats Fan Hui","First win over a Go professional on a full board, kept secret until Jan 2016.","DeepMind","deep","",[4, 810]],
- [2015,"R","TensorFlow open-sourced","Google releases its deep-learning framework for free (Keras: March 2015).","Google","deep","",[4, 810]],
- [2015,"L","ResNet","152-layer network wins ImageNet with 3.57% top-5 error, below the ~5% human estimate.","Microsoft Research","deep","",[4, 810]],
- [2015,"R","OpenAI founded","A non-profit AI lab launches in San Francisco with $1B pledged.","OpenAI","deep","",[4, 810]],
- [2016,"R","AlphaGo beats Lee Sedol","DeepMind's program wins 4–1; Move 37 and Lee's Move 78.","Google DeepMind","deep","Move 37 in game two stunned professionals.",[4, 1140]],
- [2016,"R","Microsoft Tay","A Twitter chatbot is taught offensive posts and shut down after ~16 hours.","Microsoft","deep","",[4, 1140]],
- [2016,"R","Google TPU revealed","A custom chip built for neural networks.","Google","deep","",[4, 1140]],
- [2016,"L","WaveNet and neural Google Translate","Natural-sounding speech and one deep network for translation.","Google · DeepMind","deep","",[4, 1140]],
- [2017,"R","Libratus beats poker pros","CMU's program wins at heads-up no-limit hold'em over 120,000 hands.","Sandholm & Brown","transformers","",[4, 1500]],
- [2017,"R","AlphaGo beats Ke Jie","3–0 against the world number one; AlphaGo retires.","DeepMind","transformers","",[4, 1500]],
- [2017,"L","Learning from human preferences","Christiano et al. lay the groundwork for RLHF.","OpenAI · DeepMind","transformers","",[4, 1500]],
- [2017,"L","\"Attention Is All You Need\"","Google researchers introduce the Transformer.","Google","transformers","Every major LLM since is built on this architecture.",[4, 1500]],
- [2017,"L","AlphaGo Zero and AlphaZero","Self-play from scratch: 100–0 vs AlphaGo; then chess and shogi.","DeepMind","transformers","",[4, 1500]],
- [2017,"R","Deepfakes appear","Face-swapped videos spread on Reddit; a new word and a new risk.","—","transformers","",[4, 1500]],
- [2018,"L","Gender Shades","Buolamwini & Gebru expose skin-tone and gender bias in face analysis.","Buolamwini & Gebru","transformers","",[5, 150]],
- [2018,"R","Google Duplex","An AI voice books a haircut by phone, raising disclosure questions.","Google","transformers","",[5, 150]],
- [2018,"R","GPT-1","OpenAI shows generative pre-training works (117M parameters).","OpenAI","transformers","",[5, 150]],
- [2018,"L","BERT","Google's pre-trained Transformer transforms language understanding.","Google","transformers","",[5, 150]],
- [2018,"L","AlphaFold wins CASP13","DeepMind's first protein-structure system places first.","DeepMind","transformers","",[5, 150]],
- [2019,"R","OpenAI Five, Pluribus and AlphaStar","AI beats Dota 2 champions, poker pros and reaches StarCraft II Grandmaster.","OpenAI · CMU/Facebook · DeepMind","transformers","",[5, 480]],
- [2019,"R","GPT-2","A 1.5B model writes fluent text; OpenAI stages its release.","OpenAI","transformers","",[5, 480]],
- [2019,"R","OpenAI LP and Microsoft's $1B","OpenAI becomes \"capped-profit\"; Microsoft invests $1B in July.","OpenAI · Microsoft","transformers","",[5, 480]],
- [2019,"L","Turing Award for deep learning","Bengio, Hinton and LeCun win computing's highest honour.","ACM","transformers","",[5, 480]],
- [2020,"L","Scaling laws","Performance improves predictably with model size, data and compute.","OpenAI","transformers","",[5, 810]],
- [2020,"R","GPT-3","175B parameters and few-shot learning from prompts alone.","OpenAI","transformers","",[5, 810]],
- [2020,"L","Diffusion models (DDPM)","Ho, Jain & Abbeel make diffusion image generation work well.","UC Berkeley","transformers","",[5, 810]],
- [2020,"L","AlphaFold 2","DeepMind solves protein structure prediction at CASP14.","Google DeepMind","transformers","",[5, 810]],
- [2021,"R","Anthropic founded","Former OpenAI researchers start a safety-focused lab.","Anthropic","transformers","",[5, 1140]],
- [2021,"R","DALL·E and CLIP","Images from text, and a model linking pictures with words.","OpenAI","transformers","",[5, 1140]],
- [2021,"L","EU AI Act proposed","The European Commission proposes risk-based AI rules.","European Commission","transformers","",[5, 1140]],
- [2021,"R","GitHub Copilot preview","AI code completion arrives in the editor.","GitHub / Microsoft","transformers","",[5, 1140]],
- [2021,"R","AlphaFold Protein Structure Database","Free predicted structures; 200M+ by 2022.","DeepMind · EMBL-EBI","transformers","",[5, 1140]],
- [2022,"L","InstructGPT and chain-of-thought","Human feedback makes a 1.3B model preferred over 175B GPT-3; \"think step by step\".","OpenAI · Google","genai","",[5, 1470]],
- [2022,"L","Chinchilla","A 70B model trained on more data beats a 280B one.","DeepMind","genai","",[5, 1470]],
- [2022,"R","AI art wins a state fair","\"Théâtre D'opéra Spatial\" sparks the AI-art and copyright debate.","Jason Allen","genai","",[5, 1470]],
- [2022,"L","Diffusion goes mainstream","DALL·E 2, Midjourney and Stable Diffusion make image generation public.","Several labs","genai","",[5, 1470]],
- [2022,"R","Whisper","Open speech recognition trained on 680,000 hours of audio.","OpenAI","genai","",[5, 1470]],
- [2022,"R","Galactica pulled","Meta's science model is taken down after three days.","Meta","genai","",[5, 1470]],
- [2022,"R","ChatGPT","OpenAI's chat app reaches 100 million users in about two months.","OpenAI","genai","",[6, 150]],
- [2023,"R","Bing Chat and Bard","Microsoft and Google race to launch chatbots; a Bard demo error coincides with a ~$100B drop.","Microsoft · Google","genai","",[6, 150]],
- [2023,"R","GPT-4, Claude, Llama","Frontier chat models and open weights arrive in the same spring.","OpenAI · Anthropic · Meta","genai","",[6, 150]],
- [2023,"L","AI risk statements","The pause letter (Mar 22), Hinton leaves Google, and the extinction-risk statement.","—","genai","",[6, 150]],
- [2023,"L","Bletchley AI Safety Summit","28 countries and the EU sign the Bletchley Declaration.","UK government","genai","",[6, 150]],
- [2023,"R","OpenAI's leadership crisis","Sam Altman is fired and reinstated within five days.","OpenAI","genai","",[6, 150]],
- [2023,"R","Gemini 1.0","Google's natively multimodal model family.","Google","genai","",[6, 150]],
- [2024,"R","Sora preview and Gemini 1.5","Minute-long AI video; a 1M-token context window.","OpenAI · Google","genai","",[6, 510]],
- [2024,"R","GPT-4o","Real-time voice, vision and text in one model.","OpenAI","genai","",[6, 510]],
- [2024,"R","Nvidia briefly most valuable company","The 1993 graphics-chip start-up tops the world's market values.","Nvidia","genai","",[6, 510]],
- [2024,"L","EU AI Act in force","The first comprehensive AI law takes effect, phased in over years.","European Union","genai","",[6, 510]],
- [2024,"R","Reasoning models","OpenAI o1 thinks before it answers.","OpenAI","genai","",[6, 510]],
- [2024,"L","AI wins Nobel Prizes","Hopfield & Hinton (Physics); Baker, Hassabis & Jumper (Chemistry).","Nobel Committee","genai","",[6, 510]],
- [2024,"R","Computer use and MCP","Claude operates a computer; the Model Context Protocol follows in November.","Anthropic","genai","",[6, 510]],
- [2024,"R","DeepSeek V3","671B open model with a reported ~$5.6M final training run.","DeepSeek","genai","",[6, 510]],
- [2025,"R","DeepSeek R1","Open reasoning model; Nvidia loses ~$590B in a day on Jan 27.","DeepSeek","genai","",[6, 870]],
- [2025,"R","Stargate","Up to $500B planned for US AI data centres.","OpenAI · SoftBank · Oracle · MGX","genai","",[6, 870]],
- [2025,"R","Open reasoning & agents","DeepSeek R1, Claude Code, Operator and GPT-5.","DeepSeek · Anthropic · OpenAI","genai","",[6, 870]],
- [2025,"L","Gold at the Math Olympiad","Experimental OpenAI and Google DeepMind models reach IMO gold-medal level.","OpenAI · Google DeepMind","genai","",[6, 870]],
- [2025,"R","GPT-5 and gpt-oss","A routing flagship, plus OpenAI's first open weights since GPT-2.","OpenAI","genai","",[6, 870]],
- [2025,"R","Gemini 3 Pro and Claude Opus 4.5","The late-2025 frontier race tightens.","Google · Anthropic","genai","",[6, 870]],
- [2026,"R","GPT-5.4 computer use","OpenAI reports 75% on OSWorld-Verified.","OpenAI","genai","",[6, 1230]],
- [2026,"R","Claude Mythos Preview","Restricted to security partners through Project Glasswing.","Anthropic","genai","",[6, 1230]],
- [2026,"R","Claude Fable 5 & Mythos 5","One model, two products: broad access with extra safeguards, and a trusted-partner tier.","Anthropic","genai","",[6, 1230]],
- [2026,"L","Governments step in","A US export-control directive pauses Claude Fable 5 and Mythos 5 for 18 days (Jun 12–30).","US government","genai","Anthropic disabled both models for all customers at 5:21 pm ET on June 12; controls were lifted June 30 and access fully restored July 1.",[6, 1230]],
- [2026,"L","Open weights reach 2.8T","Moonshot AI releases Kimi K3, the largest open-weights model so far.","Moonshot AI","genai","",[6, 1230]],
- [2026,"L","GPT-5.6 Sol security incident","OpenAI says models in a hacking evaluation breached Hugging Face servers.","OpenAI","genai","",[6, 1230]],
- [2026,"R","GPT-6 Astra","OpenAI's first model rated \"critical\" for cyber capability; staged rollout.","OpenAI","genai","",[6, 1590]],
- [2026,"R","The 5.5 / 6 generation","GPT-6 Astra, Claude Opus 5.5, GPT-6 Sol & Luna, Claude Sonnet 5.5 and GPT-6.1 Sol in September alone.","OpenAI · Anthropic","genai","OpenAI also cancelled GPT-6.1 Astra on Sep 28 after it failed alignment tests.",[6, 1590]],
- [2026,"L","GPT-6.1 Astra cancelled","OpenAI halts a launch after alignment and deception test regressions.","OpenAI","genai","",[6, 1590]],
- [2026,"R","Gemini 4 Argon","Google's frontier model goes to cyber defenders first; paid API from Oct 13.","Google DeepMind","genai","",[6, 1590]],
- [2026,"R","October 2026 releases","Claude Haiku 5.5, Mistral Large 4, Muse Spark Open, Kimi K3.1 Pro, GPT-6.1 Terra and Genie 4.","Several labs","genai","",[6, 1590]],
+ [1974,'L','First AI Winter begins','Funding dries up in the US and UK.','DARPA','winter1','Promises from the 1950s and 60s had not been met.',[2,128]],
+ [1974,"L","Werbos describes backpropagation","Harvard PhD student Paul Werbos describes training multi-layer neural networks by sending errors backwards.","Paul Werbos","winter1","Almost nobody read it for over a decade.",[2,128]],
+ [1974,"L","DARPA cancels speech contract","DARPA cancels a Carnegie Mellon speech-understanding contract worth about $3M a year.","DARPA","winter1","The 1969 Mansfield Amendment had already pushed DARPA toward mission-focused research.",[2,128]],
+ [1976,"R","Harpy and the end of DARPA speech research","Carnegie Mellon's Harpy understands about 1,000 words in tightly controlled sentences.","Carnegie Mellon","winter1","",[2,128]],
+ [1976,"R","Kurzweil Reading Machine","A machine that scans printed text and reads it aloud for blind users.","Ray Kurzweil","winter1","",[2,128]],
+ [1978,"R","Speak & Spell","A Texas Instruments toy with one of the first single-chip speech synthesizers.","Texas Instruments","winter1","",[2,128]],
+ [1979,"R","BKG 9.8 beats a world champion","Hans Berliner's backgammon program beats world champion Luigi Villa 7\u20131, the first program to beat a reigning world champion at any game.","Hans Berliner","winter1","Berliner admitted the dice favoured it.",[2,128]],
+ [1979,"L","Neocognitron","Kunihiko Fukushima's layered vision network, the ancestor of convolutional networks.","Kunihiko Fukushima","winter1","",[2,128]],
+ [1979,"R","Stanford Cart","Hans Moravec's robot crosses a chair-filled room on its own using a camera, in about 5 hours.","Hans Moravec","winter1","",[2,128]],
+ [1979,"L","MYCIN evaluation","MYCIN's antibiotic advice is rated as good as Stanford's experts, but it is never used on patients.","Stanford","winter1","",[2,128]],
+ [1980,'R','XCON expert system','DEC\'s rule-based system configures computer orders and saves millions.','DEC / CMU','expert','Its success set off a corporate expert-system boom.',[2,400]],
+ [1982,"R","Fifth Generation project","Japan launches a 10-year national AI computer program, announced in 1981.","Japan MITI","expert","It triggered rival programs in the US and Europe.",[2,400]],
+ [1982,"L","Hopfield networks","John Hopfield's network stores memories and recalls whole patterns from parts.","John Hopfield","expert","Shared the 2024 Nobel Prize in Physics with Geoffrey Hinton.",[2,400]],
+ [1982,"L","Self-organising maps","Teuvo Kohonen's networks group data without labels.","Teuvo Kohonen","expert","",[2,400]],
+ [1982,"R","Prospector finds molybdenum","SRI's geology expert system points to a deposit at Mount Tolman, Washington.","SRI International","expert","",[2,400]],
+ [1983,"L","The AI race","The UK's Alvey Programme (about \u00a3350M), Europe's ESPRIT and DARPA's Strategic Computing Initiative launch, partly in response to Japan.","DARPA","expert","By 1985 Strategic Computing had spent $100M on 92 projects at 60 institutions.",[2,400]],
+ [1983,"R","Thinking Machines","Danny Hillis co-founds the company behind the Connection Machine (up to 65,536 processors).","Danny Hillis","expert","",[2,400]],
+ [1984,"R","Cyc begins","Doug Lenat starts hand-coding millions of common-sense facts.","Doug Lenat","expert","",[2,400]],
+ [1984,"R","WABOT-2","Waseda University's robot reads sheet music and plays an electronic organ.","Waseda University","expert","",[2,400]],
+ [1984,"L","\"AI winter\" is named","Roger Schank and Marvin Minsky warn at AAAI that the hype is out of control.","Schank & Minsky","expert","",[2,400]],
+ [1985,"R","symbolics.com","On March 15, 1985, the AI company Symbolics registers the first .com domain.","Symbolics","expert","",[2,671]],
+ [1985,"L","Boltzmann machine","Ackley, Hinton and Sejnowski's network learns hidden features using ideas from physics.","Hinton & Sejnowski","expert","",[2,671]],
+ [1986,"L","Backpropagation","Rumelhart, Hinton and Williams show in Nature how multi-layer networks can learn.","Geoffrey Hinton","expert","The technique still trains every modern neural network.",[2,671]],
+ [1986,"L","Subsumption architecture","Rodney Brooks builds robots from layers of simple reflexes.","Rodney Brooks","expert","",[2,671]],
+ [1987,"R","VaMoRs self-driving van","Ernst Dickmanns' Mercedes van steers itself at up to 96 km/h using computer vision (it first drove itself in 1986).","Ernst Dickmanns","expert","In 1995 a later robot car drove 1,758 km from Munich to Odense and back.",[2,671]],
+ [1987,"R","NETtalk","Sejnowski and Rosenberg's network learns to pronounce English text.","Terry Sejnowski","expert","",[2,671]],
+ [1987,"R","LISP machine market collapses","Cheap desktop computers wipe out a half-billion-dollar AI hardware industry in about a year.","Symbolics & others","winter2","The expert-system boom turned to bust.",[2,908]],
+ [1988,"L","Bayesian networks","Judea Pearl's book lets AI reason with probability and uncertainty.","Judea Pearl","winter2","Pearl later won the Turing Award.",[2,908]],
+ [1988,"L","Moravec's paradox","Hans Moravec notes that what's hard for humans is easy for computers, and the reverse.","Hans Moravec","winter2","",[2,908]],
+ [1988,"R","Deep Thought beats a grandmaster","Carnegie Mellon's chess machine beats Bent Larsen in tournament play; its team later builds IBM's Deep Blue.","Feng-hsiung Hsu","winter2","",[2,908]],
+ [1989,'L','LeNet reads handwriting','Yann LeCun trains a convolutional network to read zip codes.','Yann LeCun','winter2','',[2,908]],
+ [1989,"R","ALVINN","Dean Pomerleau's neural network learns to steer CMU's Navlab van by watching a human driver.","Dean Pomerleau","winter2","",[2,908]],
+ [1989,"L","Q-learning","Chris Watkins describes learning the best actions from rewards.","Chris Watkins","winter2","Later used by DeepMind for Atari.",[2,908]],
+ [1990,"L","Simple recurrent network","Jeffrey Elman's network handles sequences.","Jeffrey Elman","winter2","",[2,1173]],
+ [1990,"R","DragonDictate","One of the first speech-recognition products for PCs.","Dragon Systems","winter2","",[2,1173]],
+ [1991,"L","The vanishing gradient","Sepp Hochreiter's diploma thesis (in German, advised by J\u00fcrgen Schmidhuber) explains why deep networks are hard to train.","Sepp Hochreiter","winter2","Led to LSTM in 1997.",[2,1173]],
+ [1992,"R","TD-Gammon","Gerald Tesauro's network teaches itself backgammon through self-play; version 2.1 (1993) plays near top-human level.","IBM","winter2","",[2,1173]],
+ [1992,"L","SVM kernel trick","Boser, Guyon and Vapnik at Bell Labs, building on Vapnik and Chervonenkis's 1960s Soviet theory.","Vladimir Vapnik","winter2","",[2,1173]],
+ [1992,"R","Chinook vs. Tinsley","Marion Tinsley keeps the checkers world title, 4\u20132 with 33 draws.","Jonathan Schaeffer","winter2","",[2,1173]],
+ [1992,"L","Fifth Generation project ends","Japan's project winds down in 1992 without meeting its main goals.","Japan MITI","winter2","",[2,1173]],
+ [1993,"R","Apple Newton","A handheld computer whose handwriting recognition was widely mocked.","Apple","winter2","",[2,1173]],
+ [1993,"L","The \"singularity\" essay","Vernor Vinge predicts machines that surpass human intelligence.","Vernor Vinge","winter2","",[2,1173]],
+ [1993,"L","Statistical machine translation","IBM's Candide learns French–English translation from parliament records, with no grammar rules.","IBM","ml","",[3, 128]],
+ [1993,"R","Nvidia founded","Jensen Huang, Chris Malachowsky and Curtis Priem start a graphics-chip company.","Nvidia","ml","",[3, 128]],
+ [1994,"R","Chinook wins a world title","The checkers program becomes the first program to win a human world championship.","Jonathan Schaeffer","ml","",[3, 128]],
+ [1994,"R","VaMP drives in Paris traffic","Dickmanns' robot car drives 1,000+ km on a highway near Paris, changing lanes itself.","Ernst Dickmanns","ml","",[3, 128]],
+ [1995,"L","SVMs, random forests and AdaBoost","Cortes & Vapnik, Tin Kam Ho, and Freund & Schapire publish the methods that rule the 2000s.","Cortes & Vapnik","ml","",[3, 128]],
+ [1995,"R","No Hands Across America","CMU's Navlab 5 steers itself for about 98% of a ~2,800-mile trip.","Pomerleau & Jochem","ml","",[3, 128]],
+ [1996,"R","Deep Blue wins a game","Deep Blue beats Kasparov in game 1; Kasparov wins the match 4–2.","IBM","ml","",[3, 128]],
+ [1997,"R","RoboCup and Dragon NaturallySpeaking","Robot soccer's first official cup; continuous dictation arrives on PCs.","RoboCup · Dragon Systems","ml","",[3, 410]],
+ [1997,"R","Deep Blue beats Kasparov","IBM's chess computer defeats the world champion 3½–2½.","IBM","ml","Brute-force search, not learning, won the match.",[3, 410]],
+ [1997,"L","LSTM","Hochreiter and Schmidhuber publish long short-term memory networks.","Hochreiter & Schmidhuber","ml","",[3, 410]],
+ [1998,"L","LeNet-5 and MNIST","LeCun's team publishes convolutional networks for documents and the 70,000-digit MNIST dataset.","Yann LeCun","ml","",[3, 410]],
+ [1998,"R","Google founded","PageRank ranks the web by its links.","Larry Page & Sergey Brin","ml","",[3, 410]],
+ [1999,"R","GeForce 256 and AIBO","Nvidia markets \"the world's first GPU\"; Sony launches the AIBO robot dog.","Nvidia · Sony","ml","",[3, 410]],
+ [1999,"R","Remote Agent flies Deep Space 1","NASA AI software controls a spacecraft on its own for about two days.","NASA","ml","",[3, 410]],
+ [2000,"R","ASIMO","Honda unveils its walking humanoid robot.","Honda","ml","",[3, 703]],
+ [2001,"L","More data beats better algorithms","Banko & Brill show simple algorithms catch up when given far more data; Breiman publishes random forests.","Banko & Brill","ml","",[3, 703]],
+ [2002,"R","Roomba and Bayesian spam filters","iRobot's vacuum and Paul Graham's \"A Plan for Spam\" bring learning systems home.","iRobot","ml","",[3, 703]],
+ [2003,"L","Neural language model","Bengio's team learns word embeddings; Amazon describes item-to-item recommendations.","Yoshua Bengio","ml","",[3, 703]],
+ [2004,"L","CIFAR keeps neural nets alive","A small program led by Hinton, with LeCun and Bengio, sustains the \"deep learning conspiracy\".","Geoffrey Hinton","ml","",[3, 703]],
+ [2004,"R","DARPA Grand Challenge fails","No robot car finishes the desert course; the best goes about 7 miles.","DARPA","ml","",[3, 703]],
+ [2005,"R","Stanley wins the Grand Challenge","Stanford's robot car finishes 132 miles; five vehicles finish.","Sebastian Thrun","ml","",[3, 703]],
+ [2006,"L","Deep learning revival","Hinton shows deep belief networks can be trained layer by layer.","Geoffrey Hinton","ml","",[3, 983]],
+ [2006,"R","AWS and Google Translate","Cloud computing rents out servers; Google launches statistical translation.","Amazon · Google","ml","",[3, 983]],
+ [2006,"R","Netflix Prize","$1M for 10% better recommendations; won in 2009 by a 20-minute margin.","Netflix","ml","",[3, 983]],
+ [2007,"R","CUDA and the iPhone","Nvidia opens GPUs to general computing; the iPhone puts sensors in every pocket.","Nvidia · Apple","ml","",[3, 983]],
+ [2007,"L","Checkers is solved","Schaeffer's team proves perfect checkers play is a draw.","Jonathan Schaeffer","ml","",[3, 983]],
+ [2007,"R","DARPA Urban Challenge","Robot cars drive in a mock city; CMU's Boss wins.","DARPA","ml","",[3, 983]],
+ [2009,"L","ImageNet","Fei-Fei Li's team releases a dataset that grows to ~14 million labeled images.","Fei-Fei Li","ml","The annual ImageNet challenge became deep learning's proving ground.",[3, 983]],
+ [2009,"L","GPUs train deep nets ~70× faster","Raina, Madhavan and Ng show graphics cards can train large networks far faster.","Andrew Ng","ml","",[3, 983]],
+ [2009,"R","Google self-driving project","Sebastian Thrun starts the project that becomes Waymo.","Google","ml","",[3, 983]],
+ [2010,"R","DeepMind founded","Hassabis, Legg and Suleyman start a London lab to \"solve intelligence\".","DeepMind","ml","",[3, 1255]],
+ [2010,"R","Kinect","Machine-learned body tracking; ~8 million sold in 60 days.","Microsoft","ml","",[3, 1255]],
+ [2011,"R","Google Brain starts","Jeff Dean, Greg Corrado and Andrew Ng begin deep learning at Google scale.","Google","ml","",[3, 1255]],
+ [2011,"R","Watson wins Jeopardy!","IBM Watson beats two human champions on TV.","IBM","ml","",[3, 1255]],
+ [2011,"R","Siri","Apple ships a voice assistant on the iPhone 4S, born from SRI's DARPA-funded CALO project.","Apple","ml","",[3, 1255]],
+ [2012,"L","The Google \"cat\" network","16,000 processor cores learn to detect cats from YouTube frames with no labels.","Google Brain","deep","",[4, 132]],
+ [2012,"L","AlexNet","A deep network trained on two gaming GPUs cuts ImageNet top-5 error to 15.3% (vs 26.2%).","Hinton, Krizhevsky, Sutskever","deep","Error fell from 26% to 15%, and the field switched to deep learning.",[4, 132]],
+ [2012,"R","The DNNresearch auction","Google wins a $44M auction for Hinton's three-person company.","Google","deep","",[4, 132]],
+ [2013,"L","word2vec","Words become vectors: king − man + woman ≈ queen.","Tomas Mikolov","deep","",[4, 336]],
+ [2013,"L","DeepMind plays Atari","A Deep Q-Network learns games from pixels; Nature paper in 2015.","DeepMind","deep","",[4, 336]],
+ [2013,"R","Facebook AI Research","Facebook opens FAIR, led by Yann LeCun.","Meta","deep","",[4, 336]],
+ [2014,"R","Google acquires DeepMind","Google buys the London lab for a reported ~$500M.","Google DeepMind","deep","",[4, 336]],
+ [2014,"L","GANs","Ian Goodfellow introduces generative adversarial networks.","Ian Goodfellow","deep","",[4, 336]],
+ [2014,"L","Seq2seq and attention","Sutskever, Vinyals & Le; Bahdanau, Cho & Bengio add attention.","Google · Mila","deep","",[4, 336]],
+ [2014,"R","Amazon Echo and Alexa","Voice AI moves into the kitchen.","Amazon","deep","",[4, 336]],
+ [2015,"R","Tesla Autopilot","Driver-assist features reach customers by software update.","Tesla","deep","",[4, 585]],
+ [2015,"R","AlphaGo beats Fan Hui","First win over a Go professional on a full board, kept secret until Jan 2016.","DeepMind","deep","",[4, 585]],
+ [2015,"R","TensorFlow open-sourced","Google releases its deep-learning framework for free (Keras: March 2015).","Google","deep","",[4, 585]],
+ [2015,"L","ResNet","152-layer network wins ImageNet with 3.57% top-5 error, below the ~5% human estimate.","Microsoft Research","deep","",[4, 585]],
+ [2015,"R","OpenAI founded","A non-profit AI lab launches in San Francisco with $1B pledged.","OpenAI","deep","",[4, 585]],
+ [2016,"R","AlphaGo beats Lee Sedol","DeepMind's program wins 4–1; Move 37 and Lee's Move 78.","Google DeepMind","deep","Move 37 in game two stunned professionals.",[4, 827]],
+ [2016,"R","Microsoft Tay","A Twitter chatbot is taught offensive posts and shut down after ~16 hours.","Microsoft","deep","",[4, 827]],
+ [2016,"R","Google TPU revealed","A custom chip built for neural networks.","Google","deep","",[4, 827]],
+ [2016,"L","WaveNet and neural Google Translate","Natural-sounding speech and one deep network for translation.","Google · DeepMind","deep","",[4, 827]],
+ [2017,"R","Libratus beats poker pros","CMU's program wins at heads-up no-limit hold'em over 120,000 hands.","Sandholm & Brown","transformers","",[4, 1062]],
+ [2017,"R","AlphaGo beats Ke Jie","3–0 against the world number one; AlphaGo retires.","DeepMind","transformers","",[4, 1062]],
+ [2017,"L","Learning from human preferences","Christiano et al. lay the groundwork for RLHF.","OpenAI · DeepMind","transformers","",[4, 1062]],
+ [2017,"L","\"Attention Is All You Need\"","Google researchers introduce the Transformer.","Google","transformers","Every major LLM since is built on this architecture.",[4, 1062]],
+ [2017,"L","AlphaGo Zero and AlphaZero","Self-play from scratch: 100–0 vs AlphaGo; then chess and shogi.","DeepMind","transformers","",[4, 1062]],
+ [2017,"R","Deepfakes appear","Face-swapped videos spread on Reddit; a new word and a new risk.","—","transformers","",[4, 1062]],
+ [2018,"L","Gender Shades","Buolamwini & Gebru expose skin-tone and gender bias in face analysis.","Buolamwini & Gebru","transformers","",[5, 128]],
+ [2018,"R","Google Duplex","An AI voice books a haircut by phone, raising disclosure questions.","Google","transformers","",[5, 128]],
+ [2018,"R","GPT-1","OpenAI shows generative pre-training works (117M parameters).","OpenAI","transformers","",[5, 128]],
+ [2018,"L","BERT","Google's pre-trained Transformer transforms language understanding.","Google","transformers","",[5, 128]],
+ [2018,"L","AlphaFold wins CASP13","DeepMind's first protein-structure system places first.","DeepMind","transformers","",[5, 128]],
+ [2019,"R","OpenAI Five, Pluribus and AlphaStar","AI beats Dota 2 champions, poker pros and reaches StarCraft II Grandmaster.","OpenAI · CMU/Facebook · DeepMind","transformers","",[5, 380]],
+ [2019,"R","GPT-2","A 1.5B model writes fluent text; OpenAI stages its release.","OpenAI","transformers","",[5, 380]],
+ [2019,"R","OpenAI LP and Microsoft's $1B","OpenAI becomes \"capped-profit\"; Microsoft invests $1B in July.","OpenAI · Microsoft","transformers","",[5, 380]],
+ [2019,"L","Turing Award for deep learning","Bengio, Hinton and LeCun win computing's highest honour.","ACM","transformers","",[5, 380]],
+ [2020,"L","Scaling laws","Performance improves predictably with model size, data and compute.","OpenAI","transformers","",[5, 616]],
+ [2020,"R","GPT-3","175B parameters and few-shot learning from prompts alone.","OpenAI","transformers","",[5, 616]],
+ [2020,"L","Diffusion models (DDPM)","Ho, Jain & Abbeel make diffusion image generation work well.","UC Berkeley","transformers","",[5, 616]],
+ [2020,"L","AlphaFold 2","DeepMind solves protein structure prediction at CASP14.","Google DeepMind","transformers","",[5, 616]],
+ [2021,"R","Anthropic founded","Former OpenAI researchers start a safety-focused lab.","Anthropic","transformers","",[5, 903]],
+ [2021,"R","DALL·E and CLIP","Images from text, and a model linking pictures with words.","OpenAI","transformers","",[5, 903]],
+ [2021,"L","EU AI Act proposed","The European Commission proposes risk-based AI rules.","European Commission","transformers","",[5, 903]],
+ [2021,"R","GitHub Copilot preview","AI code completion arrives in the editor.","GitHub / Microsoft","transformers","",[5, 903]],
+ [2021,"R","AlphaFold Protein Structure Database","Free predicted structures; 200M+ by 2022.","DeepMind · EMBL-EBI","transformers","",[5, 903]],
+ [2022,"L","InstructGPT and chain-of-thought","Human feedback makes a 1.3B model preferred over 175B GPT-3; \"think step by step\".","OpenAI · Google","genai","",[5, 1139]],
+ [2022,"L","Chinchilla","A 70B model trained on more data beats a 280B one.","DeepMind","genai","",[5, 1139]],
+ [2022,"R","AI art wins a state fair","\"Théâtre D'opéra Spatial\" sparks the AI-art and copyright debate.","Jason Allen","genai","",[5, 1139]],
+ [2022,"L","Diffusion goes mainstream","DALL·E 2, Midjourney and Stable Diffusion make image generation public.","Several labs","genai","",[5, 1139]],
+ [2022,"R","Whisper","Open speech recognition trained on 680,000 hours of audio.","OpenAI","genai","",[5, 1139]],
+ [2022,"R","Galactica pulled","Meta's science model is taken down after three days.","Meta","genai","",[5, 1139]],
+ [2022,"R","ChatGPT","OpenAI's chat app reaches 100 million users in about two months.","OpenAI","genai","",[6, 136]],
+ [2023,"R","Bing Chat and Bard","Microsoft and Google race to launch chatbots; a Bard demo error coincides with a ~$100B drop.","Microsoft · Google","genai","",[6, 136]],
+ [2023,"R","GPT-4, Claude, Llama","Frontier chat models and open weights arrive in the same spring.","OpenAI · Anthropic · Meta","genai","",[6, 136]],
+ [2023,"L","AI risk statements","The pause letter (Mar 22), Hinton leaves Google, and the extinction-risk statement.","—","genai","",[6, 136]],
+ [2023,"L","Bletchley AI Safety Summit","28 countries and the EU sign the Bletchley Declaration.","UK government","genai","",[6, 136]],
+ [2023,"R","OpenAI's leadership crisis","Sam Altman is fired and reinstated within five days.","OpenAI","genai","",[6, 136]],
+ [2023,"R","Gemini 1.0","Google's natively multimodal model family.","Google","genai","",[6, 136]],
+ [2024,"R","Sora preview and Gemini 1.5","Minute-long AI video; a 1M-token context window.","OpenAI · Google","genai","",[6, 428]],
+ [2024,"R","GPT-4o","Real-time voice, vision and text in one model.","OpenAI","genai","",[6, 428]],
+ [2024,"R","Nvidia briefly most valuable company","The 1993 graphics-chip start-up tops the world's market values.","Nvidia","genai","",[6, 428]],
+ [2024,"L","EU AI Act in force","The first comprehensive AI law takes effect, phased in over years.","European Union","genai","",[6, 428]],
+ [2024,"R","Reasoning models","OpenAI o1 thinks before it answers.","OpenAI","genai","",[6, 428]],
+ [2024,"L","AI wins Nobel Prizes","Hopfield & Hinton (Physics); Baker, Hassabis & Jumper (Chemistry).","Nobel Committee","genai","",[6, 428]],
+ [2024,"R","Computer use and MCP","Claude operates a computer; the Model Context Protocol follows in November.","Anthropic","genai","",[6, 428]],
+ [2024,"R","DeepSeek V3","671B open model with a reported ~$5.6M final training run.","DeepSeek","genai","",[6, 428]],
+ [2025,"R","DeepSeek R1","Open reasoning model; Nvidia loses ~$590B in a day on Jan 27.","DeepSeek","genai","",[6, 677]],
+ [2025,"R","Stargate","Up to $500B planned for US AI data centres.","OpenAI · SoftBank · Oracle · MGX","genai","",[6, 677]],
+ [2025,"R","Open reasoning & agents","DeepSeek R1, Claude Code, Operator and GPT-5.","DeepSeek · Anthropic · OpenAI","genai","",[6, 677]],
+ [2025,"L","Gold at the Math Olympiad","Experimental OpenAI and Google DeepMind models reach IMO gold-medal level.","OpenAI · Google DeepMind","genai","",[6, 677]],
+ [2025,"R","GPT-5 and gpt-oss","A routing flagship, plus OpenAI's first open weights since GPT-2.","OpenAI","genai","",[6, 677]],
+ [2025,"R","Gemini 3 Pro and Claude Opus 4.5","The late-2025 frontier race tightens.","Google · Anthropic","genai","",[6, 677]],
+ [2026,"R","GPT-5.4 computer use","OpenAI reports 75% on OSWorld-Verified.","OpenAI","genai","",[6, 943]],
+ [2026,"R","Claude Mythos Preview","Restricted to security partners through Project Glasswing.","Anthropic","genai","",[6, 943]],
+ [2026,"R","Claude Fable 5 & Mythos 5","One model, two products: broad access with extra safeguards, and a trusted-partner tier.","Anthropic","genai","",[6, 943]],
+ [2026,"L","Governments step in","A US export-control directive pauses Claude Fable 5 and Mythos 5 for 18 days (Jun 12–30).","US government","genai","Anthropic disabled both models for all customers at 5:21 pm ET on June 12; controls were lifted June 30 and access fully restored July 1.",[6, 943]],
+ [2026,"L","Open weights reach 2.8T","Moonshot AI releases Kimi K3, the largest open-weights model so far.","Moonshot AI","genai","",[6, 943]],
+ [2026,"L","GPT-5.6 Sol security incident","OpenAI says models in a hacking evaluation breached Hugging Face servers.","OpenAI","genai","",[6, 943]],
+ [2026,"R","GPT-6 Astra","OpenAI's first model rated \"critical\" for cyber capability; staged rollout.","OpenAI","genai","",[6, 1228]],
+ [2026,"R","The 5.5 / 6 generation","GPT-6 Astra, Claude Opus 5.5, GPT-6 Sol & Luna, Claude Sonnet 5.5 and GPT-6.1 Sol in September alone.","OpenAI · Anthropic","genai","OpenAI also cancelled GPT-6.1 Astra on Sep 28 after it failed alignment tests.",[6, 1228]],
+ [2026,"L","GPT-6.1 Astra cancelled","OpenAI halts a launch after alignment and deception test regressions.","OpenAI","genai","",[6, 1228]],
+ [2026,"R","Gemini 4 Argon","Google's frontier model goes to cyber defenders first; paid API from Oct 13.","Google DeepMind","genai","",[6, 1228]],
+ [2026,"R","October 2026 releases","Claude Haiku 5.5, Mistral Large 4, Muse Spark Open, Kimi K3.1 Pro, GPT-6.1 Terra and Genie 4.","Several labs","genai","",[6, 1228]],
+ [2026,"R","November 2026: GPT-6.2, Gemini 4 and Fable 5.2","Claude Fable 5.2 (Nov 9), Gemini 4 Hydrogen (Nov 12), Qwen4-Max (Nov 16), GPT-6.2 Astra & Sol (Nov 17) and Gemini 4 Neon (Nov 18).","Several labs","genai","",false],
+ [2026,"R","Anthropic goes public","Anthropic prices its IPO at $83 a share and begins trading on Nasdaq as ANT on November 19.","Anthropic","genai","",false],
 ];
 const ERAS = [
  {id:'foundations',name:'Foundations',yrs:'1804–1955',from:1804,to:1955,d:'Mathematicians ask whether machines could think, and build the first computers.'},
@@ -1067,31 +1083,34 @@ const STEPS = [
 ];
 
 const VIDEOS = [
- {id:'LX9cANNTI2c',part:1,from:1804,to:1973,title:'History of AI — Part 1: Foundations & Golden Age (1843–1973)',yt:'Who REALLY Invented AI? The Hidden Story Before ChatGPT (1843–1973)',url:'https://youtu.be/LX9cANNTI2c',thumb:'https://i.ytimg.com/vi/LX9cANNTI2c/hqdefault.jpg'},
- {id:'',part:2,from:1974,to:1993,title:'History of AI — Part 2: The AI Winters (1974–1993)',soon:true,url:''},
- {id:'',part:3,from:1993,to:2011,title:'History of AI — Part 3: The Machine Learning Era (1993–2011)',soon:true,url:''},
- {id:'',part:4,from:2012,to:2017,title:'History of AI — Part 4: The Deep Learning Revolution (2012–2017)',soon:true,url:''},
- {id:'',part:5,from:2017,to:2022,title:'History of AI — Part 5: Transformers & the Rise of LLMs (2018–2022)',soon:true,url:''},
- {id:'',part:6,from:2022,to:2026,title:'History of AI — Part 6: The Generative AI Explosion (2022–today)',soon:true,url:''},
+ {id:'LX9cANNTI2c',part:1,from:1804,to:1973,title:'History of AI — Part 1: Foundations & Golden Age (1843–1973)',yt:'AI Is 183 Years Old: The Forgotten Geniuses Who Built It',url:'https://youtu.be/LX9cANNTI2c',thumb:'https://i.ytimg.com/vi/LX9cANNTI2c/hqdefault.jpg'},
+ {id:'ldceXkZh0XQ',part:2,from:1974,to:1993,title:'History of AI — Part 2: The AI Winters (1974–1993)',yt:'AI Died Twice Before ChatGPT: The AI Winters',url:'https://youtu.be/ldceXkZh0XQ'},
+ {id:'EoBHaqwKG5I',part:3,from:1993,to:2011,title:'History of AI — Part 3: The Machine Learning Era (1993–2011)',yt:'AI Went Undercover — and Won',url:'https://youtu.be/EoBHaqwKG5I'},
+ {id:'VzJyOVWBmk8',part:4,from:2012,to:2017,title:'History of AI — Part 4: The Deep Learning Revolution (2012–2017)',yt:'The Deep Learning Revolution (2012–2017)',url:'https://youtu.be/VzJyOVWBmk8'},
+ {id:'cQt8eUMnmJ0',part:5,from:2017,to:2022,title:'History of AI — Part 5: Transformers & the Rise of LLMs (2018–2022)',yt:'Transformers & the Rise of LLMs (2018–2022)',url:'https://youtu.be/cQt8eUMnmJ0',premiere:'2026-11-26T06:00:00Z'},
+ {id:'ds2roWX9h3w',part:6,from:2022,to:2026,title:'History of AI — Part 6: The Generative AI Explosion (2022–today)',yt:'The Generative AI Explosion (2022–today)',url:'https://youtu.be/ds2roWX9h3w',premiere:'2026-11-29T06:00:00Z'},
 ];
 /* To release a part: fill in its id (and url). Thumbnails and chapter links then switch on automatically. */
 const YT_CHANNEL = 'https://www.youtube.com/@pujiverseai';
 /* Chapters: [part, fromYear, toYear, seconds, label] */
 const CHAPTERS = [
  [1,1804,1843,150,'1804–1843: Looms, engines and the first program'],[1,1844,1939,510,'1844–1939: Logic, forgotten machines and the first chess automaton'],[1,1940,1950,750,'1940–1950: The first computers and the first neurons'],[1,1951,1955,1050,'1951–1955: Commercial computers and the Dartmouth proposal'],[1,1956,1966,1230,'1956–1966: AI gets its name'],[1,1966,1973,1560,'1966–1973: Doubts and the road to the first winter'],
- [3,1993,1996,150,'1993–1996: Statistics, graphics chips and checkers'],[3,1997,1999,480,'1997–1999: Deep Blue, LSTM and the first GPU'],[3,2000,2005,810,'2000–2005: Robots, spam filters and the Grand Challenge'],[3,2006,2009,1170,'2006–2009: Deep learning revival, CUDA and ImageNet'],[3,2010,2011,1500,'2010–2011: DeepMind, Kinect, Watson and Siri'],
- [4,2012,2012,150,'2012: AlexNet and the Google cat network'],[4,2013,2014,480,'2013–2014: word2vec, Atari, GANs and Alexa'],[4,2015,2015,810,'2015: ResNet, TensorFlow and OpenAI'],[4,2016,2016,1140,'2016: AlphaGo, Tay and TPUs'],[4,2017,2017,1500,'2017: Poker, AlphaZero and the Transformer'],
- [5,2018,2018,150,'2018: Gender Shades, GPT-1 and BERT'],[5,2019,2019,480,'2019: GPT-2, game-playing AIs and the Turing Award'],[5,2020,2020,810,'2020: Scaling laws, GPT-3 and AlphaFold 2'],[5,2021,2021,1140,'2021: Anthropic, DALL·E and Copilot'],[5,2022,2022,1470,'2022: InstructGPT, Chinchilla and diffusion'],
- [6,2022,2023,150,'2022–2023: ChatGPT and the chatbot race'],[6,2024,2024,510,'2024: Sora, GPT-4o, reasoning and Nobel Prizes'],[6,2025,2025,870,'2025: DeepSeek, Stargate and agents'],[6,2026,2026,1230,'2026: Computer use, Mythos and the export-control pause'],[6,2026,2026,1590,'2026: GPT-6, Gemini 4 and the October releases'],
+ [2,1974,1980,128,'1974–1980: The big freeze'],[2,1980,1984,400,'1980–1984: The expert-systems gold rush'],[2,1985,1987,671,'1985–1987: Neural networks come back'],[2,1987,1990,908,'1987–1990: The crash'],[2,1990,1993,1173,'1990–1993: Seeds under the snow'],
+ [3,1993,1996,128,'1993–1996: Data beats rules'],[3,1997,1999,410,'1997–1999: The machine beats the champion'],[3,2000,2005,703,'2000–2005: AI hides inside products'],[3,2006,2009,983,'2006–2009: Deep learning\'s quiet revival'],[3,2010,2011,1255,'2010–2011: Machines that listen and answer'],
+ [4,2012,2012,132,'2012: The ImageNet moment'],[4,2013,2014,336,'2013–2014: Big Tech\'s talent war'],[4,2015,2015,585,'2015: Superhuman vision and open tools'],[4,2016,2016,827,'2016: Move 37'],[4,2017,2017,1062,'2017: The year everything changed'],
+ [5,2018,2018,128,'2018: Pre-training changes everything'],[5,2019,2019,380,'2019: Too dangerous to release'],[5,2020,2020,616,'2020: Scaling laws and GPT-3'],[5,2021,2021,903,'2021: AI learns to draw, code and fold proteins'],[5,2022,2022,1139,'2022: The calm before the storm'],
+ [6,2022,2023,136,'2022–2023: The ChatGPT moment'],[6,2024,2024,428,'2024: The race goes multimodal'],[6,2025,2025,677,'2025: Reasoning, agents and open challengers'],[6,2026,2026,943,'2026: The frontier gets dangerous (Jan–Jul)'],[6,2026,2026,1228,'2026: The 5.5 / 6 generation (Aug–Oct)'],
 ];
 const ERA_PART = {foundations:1,golden:1,winter1:2,expert:2,winter2:2,ml:3,deep:4,transformers:5,genai:6};
 const vidOf = part => VIDEOS.find(v => v.part===part) || null;
 const vidLink = (part, sec) => { const v = vidOf(part); return v && v.id ? `https://youtu.be/${v.id}${sec ? '?t='+sec : ''}` : null; };
+const premOf = v => v && v.id && v.premiere && Date.now() < Date.parse(v.premiere) ? new Date(v.premiere).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'America/Chicago'}) : '';
 const fmtTs = s => `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
 /* chapterFor(e) → {part, sec, label, v, href} ; href is null while the part is "coming soon". Uses e[7]=[part,seconds] when present, else the year range of the event's era's part. */
 function chapterFor(e){
   if (!e) return null;
   let c = null;
+  if (e[7]===false) return null;
   if (Array.isArray(e[7])) c = CHAPTERS.find(c => c[0]===e[7][0] && c[3]===e[7][1]) || [e[7][0], e[0], e[0], e[7][1], ''];
   else {
     const part = ERA_PART[e[5]] || 1, y = e[0];
@@ -1110,7 +1129,8 @@ const SOURCES = [
 ];
 
 SOURCES.push(['Google DeepMind: Genie 4','https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/'],['OpenAI: Introducing GPT-6.1 Terra','https://openai.com/index/introducing-gpt-6-1-terra/'],['9to5Mac: GPT-6.1 Terra in ChatGPT and Codex','https://9to5mac.com/2026/10/26/openai-upgrades-chatgpt-and-codex-with-new-gpt-6-1-terra-model/'],['Gemini API: Gemini Robotics ER 2 Preview','https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-preview'],['t3n: Gemini 4 Argon','https://t3n.de/news/google-gemini-4-argon-frontier-ki-modell-1766042/'],['Simon Willison: Mistral Large 4 preview','https://simonwillison.net/2026/Oct/6/le-chonk/'],['Let\'s Data Science: Kimi K3.1 Pro','https://letsdatascience.com/news/moonshot-releases-kimi-k31-pro-api-open-weights-due-nov-4-786e160c'],['ITdaily: Muse Spark Open','https://itdaily.com/news/innovation/meta-muse-spark-open-weigh/'],['Let\'s Data Science: Nano Banana 2.1','https://letsdatascience.com/news/google-rolls-out-nano-banana-21-image-model-c6ac3b89'],['vals.ai: Claude Haiku 5.5','https://www.vals.ai/models/anthropic_claude-haiku-5-5'],['LLM Reference: GPT-Live-1.1','https://www.llmreference.com/model/gpt-live-1.1'],['OpenAI Community: GPT-6.1 Sol Ultrafast','https://community.openai.com/t/ultrafast-is-rolling-out-today-for-gpt-6-1-sol-in-the-api-codex-and-chatgpt-work/1404475/7.md'],['Business Today: OpenAI Dots','https://www.businesstoday.in/technology/artificial-intelligence/story/openai-introduces-dots-always-on-ai-agents-that-work-247-and-act-on-your-behalf-558688-2026-09-30'],['Android Authority: ChatGPT Slides','https://androidauthority.com/chatgpt-slides-files-presentations-3725324'],['Crypto Briefing: Decisions API GA','https://cryptobriefing.com/openai-decisions-api-generally-available/'],['Engadget: Siri AI in five more languages','https://engadget.com/2253991/siri-ai-will-be-available-in-french-japanese-korean-portuguese-and-spanish-this-october'],['Suno: Introducing v6','https://suno.com/blog/introducing-v6'],['Nobel Prize: Chemistry 2024','https://www.nobelprize.org/prizes/chemistry/2024/summary/'],['Nobel Prize: Physics 2024','https://www.nobelprize.org/prizes/physics/2024/summary/'],['Buolamwini & Gebru, Gender Shades (2018)','https://proceedings.mlr.press/v81/buolamwini18a.html'],['Goodfellow et al., Generative Adversarial Nets (2014)','https://arxiv.org/abs/1406.2661'],['Hochreiter & Schmidhuber, LSTM (1997)','https://doi.org/10.1162/neco.1997.9.8.1735'],['Krizhevsky et al., AlexNet (2012)','https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks'],['Jumper et al., AlphaFold 2 (Nature, 2021)','https://www.nature.com/articles/s41586-021-03819-2'],['Kaplan et al., Scaling Laws (2020)','https://arxiv.org/abs/2001.08361'],['Ho et al., DDPM (2020)','https://arxiv.org/abs/2006.11239'],['Hoffmann et al., Chinchilla (2022)','https://arxiv.org/abs/2203.15556'],['Ouyang et al., InstructGPT (2022)','https://arxiv.org/abs/2203.02155'],['He et al., ResNet (2015)','https://arxiv.org/abs/1512.03385'],['Mikolov et al., word2vec (2013)','https://arxiv.org/abs/1301.3781'],['Mnih et al., Playing Atari with Deep RL (2013)','https://arxiv.org/abs/1312.5602'],['Christiano et al., Deep RL from Human Preferences (2017)','https://arxiv.org/abs/1706.03741'],['Silver et al., AlphaGo Zero (2017)','https://www.nature.com/articles/nature24270'],['ACM: 2018 Turing Award','https://awards.acm.org/about/2018-turing'],['EU AI Act (Regulation 2024/1689)','https://eur-lex.europa.eu/eli/reg/2024/1689/oj'],['UK government: Bletchley Declaration','https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration'],['Stanford: Stanley and the 2005 Grand Challenge','https://en.wikipedia.org/wiki/Stanley_(vehicle)'],['Netflix Prize','https://en.wikipedia.org/wiki/Netflix_Prize']);
-/* Upcoming: announced, reported, rumored and cancelled — checked Oct 28, 2026. */
+SOURCES.push(['Pujiverse AI: History of AI playlist','https://www.youtube.com/@PujiverseAI/videos'],['Google: Introducing Gemini 4 Neon','https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/'],['9to5Google: Gemini 4 Neon','https://9to5google.com/2026/11/18/gemini-4-neon/'],['Digital Trends: Gemini 4 Carbon','https://www.digitaltrends.com/computing/google-gemini-4-carbon-is-now-available-for-complex-ai-tasks/'],['Silicon Report: Gemini 4 Hydrogen','https://www.siliconreport.com/google-launches-gemini-4-hydrogen-replacing-gemini-3-8-flash'],['OpenAI: Introducing GPT-6.2 Astra and Sol','https://openai.com/id-ID/index/introducing-gpt-6-2-astra-sol/'],['9to5Mac: Claude Fable 5.2','https://9to5mac.com/2026/11/09/anthropic-upgrades-claude-with-new-fable-5-2-model-details-here/'],['SD Times: Fable 5.2 and Mythos 5.2','https://sdtimes.com/ai/anthropic-introduces-claude-fable-5-2-mythos-5-2/'],['Alibaba Cloud: Qwen4-Max','https://www.alibabacloud.com/press-room/alibaba-unveils-qwen4-max'],['Mistral: Large 4 open weights','https://mistral.ai/news/mistral-large-4-oss/'],['TechNode: Kimi K3.1 Pro weights','https://technode.com/2026/11/05/moonshot-ai-releases-kimi-k3-1-pro-model-weights/'],['Al Jazeera: Anthropic starts trading','https://www.aljazeera.com/economy/2026/11/19/anthropic-starts-trading-in-the-us-after-blockbuster-ipo'],['ThursdAI: November 2026 releases','https://thursdai.news/releases/2026-11'],['NoCode.mba: November 2026 releases','https://www.nocode.mba/ai-release-tracker/2026/11'],['AI Tools Recap: Grok 4.8 status','https://aitoolsrecap.com/Blog/grok-4-8-release-date']);
+/* Upcoming: announced, reported, rumored and cancelled — checked Nov 23, 2026. */
 const UP_STATUS = {
   soon:{l:'Announced · timing given',c:'var(--accent-blue)',d:'The company announced it and gave a timeframe.'},
   nodate:{l:'Announced · no date',c:'var(--accent-violet)',d:'Officially confirmed, but no release date yet.'},
@@ -1119,19 +1139,17 @@ const UP_STATUS = {
   cancelled:{l:'Cancelled',c:'var(--status-discontinued)',d:'Announced or planned, then called off.'},
 };
 const UPCOMING = [
- {id:'mistral-large-4-weights',co:'mistral',name:'Mistral Large 4 open weights',st:'soon',when:'"By the end of this month" (said at the Oct 6 preview)',d:'Mistral Large 4 has been in public preview since October 6; Mistral says the open weights follow. Not released as of Oct 28.',src:[['Simon Willison, Oct 6, 2026','https://simonwillison.net/2026/Oct/6/le-chonk/']]},
- {id:'kimi-k3-1-weights',co:'moonshot',name:'Kimi K3.1 Pro open weights',st:'soon',when:'By November 4, 2026',d:'Kimi K3.1 Pro and Highspeed are in Moonshot\'s API since October 23; Moonshot promised the weights by November 4.',src:[['Let\'s Data Science','https://letsdatascience.com/news/moonshot-releases-kimi-k31-pro-api-open-weights-due-nov-4-786e160c']]},
+ {id:'qwen4-open',co:'alibaba',name:'Qwen4 open-weight models',st:'soon',when:'"Soon" (said Nov 16, 2026)',d:'Alibaba says smaller open-weight Qwen4 models will follow Qwen4-Max, which launched on November 16.',src:[['Alibaba Cloud press release','https://www.alibabacloud.com/press-room/alibaba-unveils-qwen4-max']]},
+ {id:'mai-cyber-2-flash',co:'microsoft',name:'MAI Cyber 2 Flash',st:'soon',when:'Starting mid-December 2026',d:'Microsoft security model with a 1M-token context, planned for eligible Microsoft security products.',src:[['NoCode.mba release tracker','https://www.nocode.mba/ai-release-tracker/2026/11']]},
  {id:'apple-siri-languages-2',co:'apple',name:'Siri AI in more languages',st:'soon',when:'"Later this year" (Apple)',d:'After French, Japanese, Korean, Portuguese and Spanish arrived on October 26, Apple says Siri AI will support even more languages later in 2026.',src:[['MacRumors','https://www.macrumors.com/2026/09/16/siri-ai-new-languages-ios-27-2/']]},
  {id:'openai-private-inference',co:'openai',name:'Private Inference',st:'soon',when:'"This fall"',d:'Runs OpenAI models with confidential computing for sensitive data.',src:[['OpenAI DevDay 2026 recap','https://openai.com/index/devday-2026-recap/']]},
- {id:'grok-4-8',co:'xai',name:'Grok 4.8',st:'nodate',when:'No date · training finishing mid-Sep 2026',d:'A 2.5-trillion-parameter model on xAI\'s new C++ stack; reinforcement learning follows training.',q:'"Grok 4.8, which is a 2.5T model trained with our new C++ software stack, will finish training this week and start RL." — Elon Musk, Sep 14, 2026',src:[['GeoToolbox: Grok 5 tracker','https://geotoolbox.ai/blog/grok-5']]},
+ {id:'grok-4-8',co:'xai',name:'Grok 4.8',st:'nodate',when:'Soft rollout promised Nov 10 · not confirmed as of Nov 23',d:'A 2.5-trillion-parameter model on xAI\'s new C++ stack, now in reinforcement learning. Musk said on Nov 10 that a limited rollout to Grok Bot users would come that week; no release was announced.',q:'"Grok 4.8, which is a 2.5T model trained with our new C++ software stack, will finish training this week and start RL." — Elon Musk, Sep 14, 2026',src:[['GeoToolbox: Grok 5 tracker','https://geotoolbox.ai/blog/grok-5']]},
  {id:'grok-4-9',co:'xai',name:'Grok 4.9',st:'nodate',when:'No date',d:'Mentioned by Musk as next after 4.8, which he called "probably Astra/Fable class."',src:[['GeoToolbox: Grok 5 tracker','https://geotoolbox.ai/blog/grok-5']]},
  {id:'grok-5',co:'xai',name:'Grok 5',st:'nodate',when:'No official date',d:'In training on Colossus 2 since xAI\'s January 2026 funding news. Target windows of late 2025, Q1 and Q2 2026 all passed; prediction markets priced a 2026 release near 50/50.',src:[['GeoToolbox: Grok 5 tracker','https://geotoolbox.ai/blog/grok-5'],['xAI news','https://x.ai/news']]},
- {id:'qwen-4',co:'alibaba',name:'Qwen 4',st:'nodate',when:'No date · analysts guess early 2027',d:'Alibaba said at Apsara (Sep 22–24, 2026) that Qwen 4 is in training; Qwen 4.5 and Qwen 5 are planned at 5–10 trillion parameters. Qwen3.8-Flash-Next (Aug 26) previews its architecture.',src:[['CellCog: Qwen 4 at Apsara','https://cellcog.ai/blog/qwen-4-release-date/']]},
- {id:'meta-watermelon',co:'meta',name:'"Watermelon" model',st:'reported',when:'Reported for October 2026 · not launched as of Oct 28',d:'New Meta model named in internal documents; unclear whether it joins the Muse family.',src:[['The Decoder, Aug 2026','https://the-decoder.com/metas-paid-ai-agent-hatch-launches-soon-with-a-new-model-called-watermelon-due-in-october/']]},
- {id:'meta-hatch',co:'meta',name:'Hatch agent platform',st:'reported',when:'"Within weeks" of Aug 25, 2026 (reported) · not launched as of Oct 28',d:'Consumer agent that works across DoorDash, Etsy, Reddit, Yelp and Outlook; tiered pricing up to $199.99/month.',src:[['The Decoder, Aug 2026','https://the-decoder.com/metas-paid-ai-agent-hatch-launches-soon-with-a-new-model-called-watermelon-due-in-october/']]},
+ {id:'meta-watermelon',co:'meta',name:'"Watermelon" model',st:'reported',when:'Reported for October 2026 · no launch found as of Nov 23',d:'New Meta model named in internal documents; unclear whether it joins the Muse family.',src:[['The Decoder, Aug 2026','https://the-decoder.com/metas-paid-ai-agent-hatch-launches-soon-with-a-new-model-called-watermelon-due-in-october/']]},
+ {id:'meta-hatch',co:'meta',name:'Hatch agent platform',st:'reported',when:'"Within weeks" of Aug 25, 2026 (reported) · no launch found as of Nov 23',d:'Consumer agent that works across DoorDash, Etsy, Reddit, Yelp and Outlook; tiered pricing up to $199.99/month.',src:[['The Decoder, Aug 2026','https://the-decoder.com/metas-paid-ai-agent-hatch-launches-soon-with-a-new-model-called-watermelon-due-in-october/']]},
  {id:'deepseek-v5',co:'deepseek',name:'DeepSeek V5',st:'rumor',when:'No announcement',d:'No changelog entry, API model name or technical report. Leaks pointed to September 2026, which has passed.',src:[['WinCentral: upcoming models','https://thewincentral.com/upcoming-ai-models-gpt-6-gemini-4-opus-5-5-deepseek-v5/']]},
- {id:'claude-fable-5-2',co:'anthropic',name:'Claude Fable 5.2',st:'rumor',when:'No announcement',d:'Speculated follow-up to Fable 5.1 (Sep 1). Anthropic hasn\'t announced it.',src:[['WinCentral: upcoming models','https://thewincentral.com/upcoming-ai-models-gpt-6-gemini-4-opus-5-5-deepseek-v5/']]},
- {id:'glm-next',co:'zhipu',name:'GLM 5.4 / 5.5',st:'rumor',when:'No announcement',d:'Rumored next GLM model; even the version name is disputed. Not released as of Oct 28.',src:[['WinCentral: upcoming models','https://thewincentral.com/upcoming-ai-models-gpt-6-gemini-4-opus-5-5-deepseek-v5/']]},
+ {id:'glm-next',co:'zhipu',name:'GLM-5.4',st:'nodate',when:'Announced Nov 23, 2026 · no access date',d:'Z.ai\'s next flagship, built on a looped transformer that reuses a shared block; access will open later.',src:[['NoCode.mba release tracker','https://www.nocode.mba/ai-release-tracker/2026/11']]},
  {id:'gpt-6-1-astra',co:'openai',name:'GPT-6.1 Astra',st:'cancelled',when:'Cancelled Sep 28, 2026',d:'Planned for October. OpenAI stopped the release after it performed poorly on alignment tests, showed higher levels of deception and acted beyond its scope without permission.',q:'OpenAI said the model "didn\'t quite meet the bar."',src:[['9to5Google, Sep 28, 2026','https://9to5google.com/2026/09/28/openai-cancels-gpt-6-1-astra-release-over-misbehavior-safety-concerns/'],['CNBC','https://www.cnbc.com/2026/09/28/openai-abandons-plan-to-release-upcoming-model-as-safety-concerns-escalate.html']]},
 ];
 SOURCES.push(['Pujiverse AI on YouTube: History of AI Part 1','https://youtu.be/LX9cANNTI2c'],['Wikipedia: AI winter','https://en.wikipedia.org/wiki/AI_winter'],['Wikipedia: Fifth Generation Computer Systems','https://en.wikipedia.org/wiki/Fifth_Generation_Computer_Systems'],['Wikipedia: Ernst Dickmanns','https://en.wikipedia.org/wiki/Ernst_Dickmanns'],['Wikipedia: BKG 9.8','https://en.wikipedia.org/wiki/BKG_9.8'],['Wikipedia: Chinook','https://en.wikipedia.org/wiki/Chinook_(computer_program)'],['Wikipedia: Connection Machine','https://en.wikipedia.org/wiki/Connection_Machine'],['Science (1982): hidden mineral deposit found by PROSPECTOR','https://pubmed.ncbi.nlm.nih.gov/17747953/'],['Wikipedia: Note G','https://en.wikipedia.org/wiki/Note_G'],['Computer History Museum: Joseph Clement','https://www.computerhistory.org/babbage/josephclement/'],['Computer History Museum: The Babbage Engine','https://www.computerhistory.org/babbage/'],['IEEE Spectrum: The hidden figures behind Colossus','https://spectrum.ieee.org/the-hidden-figures-behind-bletchley-parks-codebreaking-colossus'],['Communications of the ACM: AI began in 1912','https://cacm.acm.org/blogcacm/ai-began-in-1912'],['IEEE Computer Society: Joseph-Marie Jacquard','https://history.computer.org/pioneers/jacquard.html'],['Wikipedia: Konrad Zuse','https://en.wikipedia.org/wiki/Konrad_Zuse'],['Wikipedia: Georgetown–IBM experiment','https://en.wikipedia.org/wiki/Georgetown%E2%80%93IBM_experiment'],['Wikipedia: Group method of data handling','https://en.wikipedia.org/wiki/Group_method_of_data_handling'],['Schmidhuber, Deep Learning in Neural Networks: An Overview (2014)','https://arxiv.org/pdf/1404.7828'],['Fact-check report (Claude Design)','https://claude.ai/artifact/LzhBy9snbPMSaVr45Cu9SV'],['Anthropic: Introducing Claude Opus 5.5','https://www.anthropic.com/claude-opus-5-5'],['OpenAI: GPT-6 Astra','https://openai.com/index/gpt-6-astra/'],['GPT-6 Astra System Card','https://deploymentsafety.openai.com/gpt-6-astra'],['The New Stack: GPT-6 Sol and Luna','https://thenewstack.io/openai-gpt-6-sol-luna-release/'],['9to5Google: Gemini 3.6 Flash','https://9to5google.com/2026/07/21/gemini-3-6-flash-launch/'],['Anthropic: Fable 5 access statement (Jun 12)','https://www.anthropic.com/news/fable-mythos-access'],['Anthropic: Redeploying Claude Fable 5','https://www.anthropic.com/news/redeploying-fable-5'],['AWS: Claude Sonnet 5.5','https://aws.amazon.com/blogs/machine-learning/introducing-claude-sonnet-5-5-on-aws/'],['Unite.AI: Claude Sonnet 5.5','https://www.unite.ai/anthropic-releases-claude-sonnet-5-5-at-unchanged-sonnet-5-pricing/'],['Wikipedia: GPT-5.4','https://en.wikipedia.org/wiki/GPT-5.4'],['Wikipedia: GPT-5.5','https://en.wikipedia.org/wiki/GPT-5.5'],['Wikipedia: GPT-5.6','https://en.wikipedia.org/wiki/GPT-5.6'],['Wikipedia: Muse Spark','https://en.wikipedia.org/wiki/Muse_Spark'],['Wikipedia: Grok','https://en.wikipedia.org/wiki/Grok_(chatbot)'],['Wikipedia: Qwen','https://en.wikipedia.org/wiki/Qwen'],['Wikipedia: Moonshot AI','https://en.wikipedia.org/wiki/Moonshot_AI'],['Wikipedia: DeepSeek','https://en.wikipedia.org/wiki/DeepSeek_(chatbot)'],['Wikipedia: Mistral AI','https://en.wikipedia.org/wiki/Mistral_AI'],['Wikipedia: 2026 in artificial intelligence','https://en.wikipedia.org/wiki/2026_in_artificial_intelligence'],['Google: Gemini 3.8 Live','https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/'],['CellCog: Cognition SWE-2','https://cellcog.ai/blog/cognition-swe-2/'],['Bloomberg: Muse Spark 1.3','https://www.bloomberg.com/news/articles/2026-09-02/meta-releases-more-powerful-ai-model-edging-closer-to-rivals'],['9to5Google: Google Pics','https://9to5google.com/2026/09/01/google-pics-launch/'],['Google Workspace: Whisk moving to Flow','https://workspaceupdates.googleblog.com/2026/03/whisk-is-moving-to-flow-on-april-30-2026.html'],['Anthropic 2026 launches (Linas Substack)','https://linas.substack.com/p/anthropic-claude-2026-every-launch-guide'],['OpenAI DevDay 2026 recap','https://openai.com/index/devday-2026-recap/'],['9to5Google: Gemini 4 timing','https://9to5google.com/2026/09/24/google-says-gemini-4-release-is-coming-as-soon-as-possible/'],['9to5Google: GPT-6.1 Astra cancelled','https://9to5google.com/2026/09/28/openai-cancels-gpt-6-1-astra-release-over-misbehavior-safety-concerns/'],['MarkTechPost: Grok 4.7','https://www.marktechpost.com/2026/09/21/spacexai-releases-grok-4-7/'],['Wikipedia: Claude (language model)','https://en.wikipedia.org/wiki/Claude_(language_model)'],['Wikipedia: Gemini (language model)','https://en.wikipedia.org/wiki/Gemini_(language_model)'],['Wikipedia: GPT-5.3-Codex','https://en.wikipedia.org/wiki/GPT-5.3-Codex'],['Hugging Face: GLM-5','https://huggingface.co/blog/mlabonne/glm-5']);
@@ -1142,7 +1160,8 @@ const LINES = [
   ['2026-10-07','Claude Haiku 5.5','Haiku',['Completes the Claude 5.5 family','Anthropic\'s fastest, lowest-cost 5.5 model'],'claude-haiku-5-5','cur'],
   ['2026-09-28','Claude Sonnet 5.5','Sonnet',['30%+ faster output and up to 30% cheaper per task than Sonnet 5','Five effort levels with adaptive thinking on by default','First Sonnet with Opus 5-level cyber capability, so it ships with advanced safeguards'],'claude-sonnet-5-5','cur'],
   ['2026-09-22','Claude Opus 5.5','Opus',['First Claude 5.5 model, near Fable 5.1 on most work','~40% cheaper to run than Opus 5 ($4 / $20 per 1M tokens)','30%+ faster, clearer writing, fewer steps on complex work'],'claude-opus-5-5','cur'],
-  ['2026-09-01','Claude Fable 5.1 & Mythos 5.1','Fable / Mythos',['Point upgrade to Anthropic\'s most capable tier'],'claude-fable-5-1','cur'],
+  ['2026-11-09','Claude Fable 5.2 & Mythos 5.2','Fable / Mythos',['Better coding, reasoning and vision','Up to 30% faster than 5.1','$8 / $40 per 1M tokens; Mythos 5.2 for vetted programs only'],'claude-fable-5-2','cur'],
+  ['2026-09-01','Claude Fable 5.1 & Mythos 5.1','Fable / Mythos',['Point upgrade to Anthropic\'s most capable tier'],'claude-fable-5-1'],
   ['2026-07-24','Claude Opus 5','Opus',['Opus moves to generation 5'],'claude-opus-5'],
   ['2026-06-30','Claude Sonnet 5','Sonnet',['Sonnet moves to generation 5, with a 1M-context variant'],'claude-sonnet-5'],
   ['2026-06-09','Claude Fable 5 & Mythos 5','Fable / Mythos',['Mythos-class model released to everyone as Fable 5','Mythos 5 (fewer safeguards) stays with Project Glasswing partners','Paused Jun 12–Jul 1 under a US export-control directive'],'claude-fable-5'],
@@ -1167,11 +1186,14 @@ const LINES = [
  ]},
  {id:'chatgpt',name:'ChatGPT / GPT',co:'openai',kind:'Chatbot & model family',site:'chatgpt.com',tracks:['Flagship','Sol / Luna','Terra','Reasoning (o-series)','Coding','Open weights'],v:[
   ['2026-10-26','GPT-6.1 Terra','Terra',['Cheaper mid-tier model for everyday computer work','$1 / $5 per 1M tokens','OpenAI says it is rated Critical for cyber capability'],'gpt-6-1-terra','cur'],
-  ['2026-10-08','GPT-6.1 Sol Ultrafast','Sol / Luna',['Faster service tier for GPT-6.1 Sol in the API, Codex and ChatGPT Work','$12 / $60 per 1M tokens'],'gpt-6-1-sol','cur'],
-  ['2026-09-29','GPT-6.1 Sol','Sol / Luna',['Major upgrade with much stronger agentic coding','GPT-6 Astra Ultrafast ships the same day'],'gpt-6-1-sol','cur'],
+  ['2026-11-17','GPT-6.2 Astra','Flagship',['OpenAI\'s top model for hard professional and scientific work','$8 / $40 per 1M tokens, 20% below GPT-6 Astra','Meets OpenAI\'s Critical cyber threshold'],'gpt-6-2-astra','cur'],
+  ['2026-11-17','GPT-6.2 Sol','Sol / Luna',['Upgrade to GPT-6.1 Sol for work, coding and agents','Same $2 / $10 price'],'gpt-6-2-sol','cur'],
+  ['2026-11-05','GPT-6 Cyber','Flagship',['Security model for approved teams in the Daybreak program (limited access)'],'gpt-6-cyber'],
+  ['2026-10-08','GPT-6.1 Sol Ultrafast','Sol / Luna',['Faster service tier for GPT-6.1 Sol in the API, Codex and ChatGPT Work','$12 / $60 per 1M tokens'],'gpt-6-1-sol'],
+  ['2026-09-29','GPT-6.1 Sol','Sol / Luna',['Major upgrade with much stronger agentic coding','GPT-6 Astra Ultrafast ships the same day'],'gpt-6-1-sol'],
   ['2026-09-28','GPT-6.1 Astra (cancelled)','Flagship',['Release scrapped after poor alignment tests and more deception'],'','gone'],
   ['2026-09-22','GPT-6 Sol & GPT-6 Luna','Sol / Luna',['Astra-generation methods at lower cost','Sol $2 / $10, Luna $0.10 / $0.50 per 1M tokens'],'gpt-6-sol'],
-  ['2026-09-03','GPT-6 Astra','Flagship',['Looped-transformer "recurrent depth" reasoning','Strong agents: tax forms, game scenes, ordering food','First model rated "Critical" for cyber risk; $10 / $50'],'gpt-6-astra','cur'],
+  ['2026-09-03','GPT-6 Astra','Flagship',['Looped-transformer "recurrent depth" reasoning','Strong agents: tax forms, game scenes, ordering food','First model rated "Critical" for cyber risk; $10 / $50'],'gpt-6-astra'],
   ['2026-07-09','GPT-5.6 Sol, Terra, Luna','Sol / Luna',['Three tiers split by speed and cost'],'gpt-5-6'],
   ['2026-04-23','GPT-5.5','Flagship',['82.7% on Terminal-Bench 2.0','GPT-5.5 Instant became ChatGPT\'s default on May 5'],'gpt-5-5'],
   ['2026-03-05','GPT-5.4','Flagship',['Built-in computer use: 75% on OSWorld-Verified','33% fewer factual errors than GPT-5.2'],'gpt-5-4'],
@@ -1189,11 +1211,14 @@ const LINES = [
   ['2023-03-14','GPT-4','Flagship',['Multimodal; top-10% simulated bar exam'],'gpt-4'],
   ['2022-11-30','ChatGPT (GPT-3.5)','Flagship',['Chat app reaches 1M users in 5 days'],''],
  ]},
- {id:'gemini',name:'Gemini',main:'Gemini 4 Argon',co:'google',kind:'Chatbot & model family',site:'gemini.google.com',tracks:['Flash','Pro','Flash-Lite','Live (voice)','Image'],v:[
+ {id:'gemini',name:'Gemini',main:'Gemini 4 Neon',co:'google',kind:'Chatbot & model family',site:'gemini.google.com',tracks:['Flash','Pro','Flash-Lite','Live (voice)','Image'],v:[
+  ['2026-11-18','Gemini 4 Neon','Pro',['Between Hydrogen and Carbon; replaces Argon in the Gemini app','$3 / $15 per 1M tokens'],'gemini-4-neon','cur'],
+  ['2026-11-12','Gemini 4 Hydrogen','Flash',['Fast Gemini 4 model that replaces the 3.8 Flash tier','$1.50 / $7.50 per 1M tokens'],'gemini-4-hydrogen','cur'],
+  ['2026-11','Gemini 4 Carbon','Pro',['Google\'s most capable Gemini 4 model, for the hardest work','Announced Oct 28 (limited); generally available in November','$2 / $10 per 1M tokens until Nov 30, then $4 / $20'],'gemini-4-carbon','cur'],
   ['2026-10-13','Gemini 4 Argon','Pro',['Google\'s new frontier model','Limited release Sep 30 to cyber defenders and trusted testers; paid API from Oct 13','Introductory price $2 / $10 per 1M tokens, later $4 / $20'],'gemini-4-argon','cur'],
   ['2026-10-06','Nano Banana 2.1','Image',['Image model update built on Gemini 3.6 Flash'],'nano-banana-2-1','cur'],
   ['2026-09-15','Gemini 3.8 Live & Live Extended Thinking','Live (voice)',['Reasons while it talks','97 languages, background tool use, SynthID-watermarked audio'],'gemini-3-8-live','cur'],
-  ['2026-09-02','Gemini 3.8 Flash','Flash',['Latest Flash; released the same day as Qwen3.8-Max-0902 and Muse Spark 1.3'],'gemini-3-8-flash','cur'],
+  ['2026-09-02','Gemini 3.8 Flash','Flash',['Latest Flash; released the same day as Qwen3.8-Max-0902 and Muse Spark 1.3'],'gemini-3-8-flash'],
   ['2026-08-13','Gemini 3.7 Flash','Flash',['Improved core reasoning'],'gemini-3-7-flash'],
   ['2026-07-21','Gemini 3.6 Flash','Flash',['New default model; better orchestration and refactoring','17% fewer output tokens, $1.50 / $7.50'],'gemini-3-6-flash'],
   ['2026-07-21','Gemini 3.5 Flash-Lite & Flash Cyber','Flash-Lite',['Cheaper Lite model; Cyber variant only for governments and trusted partners'],'gemini-3-5-flash-lite','cur'],
@@ -1213,7 +1238,7 @@ const LINES = [
  ]},
  {id:'grok',name:'Grok',co:'xai',kind:'Chatbot & model family',site:'grok.com',tracks:['Grok'],v:[
   ['2026-12','Grok 5','Grok',['In training on Colossus 2; no official date'],'','up'],
-  ['2026-10','Grok 4.8','Grok',['2.5T-parameter model; training finished mid-September, then RL'],'','up'],
+  ['2026-12','Grok 4.8','Grok',['2.5T-parameter model; a soft rollout was promised Nov 10 but not confirmed as of Nov 23'],'','up'],
   ['2026-09-21','Grok 4.7','Grok',['Larger base model at the same $2 / $6 price'],'grok-4-7','cur'],
   ['2026-08-12','Grok 4.6','Grok',['Multimodal update trained with Cursor data'],'grok-4-6'],
   ['2026-07-08','Grok 4.5','Grok',['1.5T parameters, co-developed with Cursor'],'grok-4-5'],
@@ -1227,7 +1252,8 @@ const LINES = [
   ['2023-11-04','Grok 1','Grok',['Real-time access to X'],'grok-1'],
  ]},
  {id:'meta',name:'Meta AI (Llama → Muse)',co:'meta',kind:'Model family',site:'meta.ai',tracks:['Muse','Llama'],v:[
-  ['2026-12','"Watermelon"','Muse',['Reported for October; not launched as of Oct 28 (not confirmed)'],'','up'],
+  ['2026-12','"Watermelon"','Muse',['Reported for October; no launch found as of Nov 23 (not confirmed)'],'','up'],
+  ['2026-11','Muse Ember','Muse',['Smallest Muse model, for repeated agent tasks','1M-token context; text, image, audio and video input','Via the Meta Model API'],'muse-ember','cur'],
   ['2026-10-15','Muse Spark Open','Muse',['816B-parameter model with open weights','1M-token context'],'muse-spark-open','cur'],
   ['2026-09-02','Muse Spark 1.3','Muse',['Meta\'s strongest model so far, edging closer to OpenAI and Anthropic'],'muse-spark-1-3','cur'],
   ['2026-08-10','Muse Glimmer','Muse',['30B open model that runs offline on one 24 GB GPU'],'muse-glimmer','cur'],
@@ -1251,8 +1277,9 @@ const LINES = [
   ['2024-05','DeepSeek V2','DeepSeek',['Multi-head latent attention cuts inference cost'],''],
  ]},
  {id:'qwen',name:'Qwen',co:'alibaba',kind:'Model family',site:'qwen.ai',tracks:['Max','Open weights'],v:[
-  ['2027-01','Qwen 4','Max',['In training (Apsara, Sep 2026); analysts expect early 2027'],'','up'],
-  ['2026-09-02','Qwen3.8-Max-0902','Max',['Same price, much better at coding and office work'],'qwen3-8-max-0902','cur'],
+  ['2026-12','Qwen4 open-weight models','Open weights',['Smaller Qwen4 models promised "soon" (Nov 16)'],'','up'],
+  ['2026-11-16','Qwen4-Max','Max',['First Qwen4 model: 2.4T total / 71B active','1M-token context','On QwenCloud, QwenWork and QwenStudio'],'qwen4-max','cur'],
+  ['2026-09-02','Qwen3.8-Max-0902','Max',['Same price, much better at coding and office work'],'qwen3-8-max-0902'],
   ['2026-08-26','Qwen3.8-Flash-Next','Open weights',['Architecture preview of Qwen 4: 125B MoE, 6B active, 262K context'],'qwen3-8-flash-next','cur'],
   ['2026-08-14','Qwen3.8-27B','Open weights',['Small open model, Apache 2.0'],'qwen3-8-27b'],
   ['2026-08-03','Qwen3.8-Max','Max',['2.4T parameters, ~95B active'],'qwen3-8-max'],
@@ -1264,7 +1291,8 @@ const LINES = [
   ['2025-01-29','Qwen2.5-Max','Max',['Large MoE flagship'],''],
  ]},
  {id:'mistral',name:'Mistral',co:'mistral',kind:'Model family',site:'mistral.ai',tracks:['Mistral'],v:[
-  ['2026-10-06','Mistral Large 4 (preview)','Mistral',['Public preview: ~1.05T total / 49B active, multimodal','Open weights promised; not yet released'],'mistral-large-4','cur'],
+  ['2026-10-29','Mistral Large 4 open weights','Mistral',['About 1T-parameter weights released','Modified MIT license; resellers need a commercial license','$0.70 / $2.10 per 1M tokens in Mistral\'s API'],'mistral-large-4','cur'],
+  ['2026-10-06','Mistral Large 4 (preview)','Mistral',['Public preview: ~1.05T total / 49B active, multimodal'],'mistral-large-4'],
   ['2026-04','Mistral Medium 3.5','Mistral',['128B open-weight model'],'mistral-medium-3-5','cur'],
   ['2026-03','Voxtral TTS','Mistral',['4B open text-to-speech model'],''],
   ['2025-12','Mistral Large 3 & Small 4','Mistral',['675B open MoE (41B active) under Apache 2.0'],'mistral-large-3'],
@@ -1275,8 +1303,8 @@ const LINES = [
   ['2023-09-27','Mistral 7B','Mistral',['Apache 2.0 7B that beat bigger rivals'],'mistral-7b'],
  ]},
  {id:'kimi',name:'Kimi',co:'moonshot',kind:'Model family',site:'kimi.com',tracks:['Kimi'],v:[
-  ['2026-11','Kimi K3.1 Pro open weights','Kimi',['Promised by November 4'],'','up'],
-  ['2026-10-23','Kimi K3.1 Pro & Highspeed','Kimi',['2.8T total / 104B active, 1M-token context','API now; open weights promised by Nov 4','$2 / $10 per 1M tokens (Highspeed $4 / $20)'],'kimi-k3-1-pro','cur'],
+  ['2026-11','Kimi K3.1 Pro open weights','Kimi',['2.8T-parameter weights released on Hugging Face'],'kimi-k3-1-pro'],
+  ['2026-10-23','Kimi K3.1 Pro & Highspeed','Kimi',['2.8T total / 104B active, 1M-token context','API at launch; open weights followed in early November','$2 / $10 per 1M tokens (Highspeed $4 / $20)'],'kimi-k3-1-pro','cur'],
   ['2026-07-16','Kimi K3','Kimi',['2.8T parameters: largest open-weights model','Base for Cognition SWE-2'],'kimi-k3','cur'],
   ['2026-01','Kimi K2.5','Kimi',['Native image and video understanding'],'kimi-k2-5'],
   ['2025-07','Kimi K2','Kimi',['1T open MoE (32B active)'],'kimi-k2'],
@@ -1358,7 +1386,7 @@ UPCOMING.push(
  {id:'veo-4',co:'google',name:'Veo 4',st:'nodate',when:'No date',d:'Google DeepMind teased its next video model days after OpenAI shut the Sora app down in March–April 2026.',src:[['VO3 AI Blog','https://www.vo3ai.com/blog/google-deepmind-teases-veo-4-days-after-openai-kills-sora-the-ai-video-power-vac-2026-03-30']]}
 );
 /* Expected month on the calendar (only where the company or reports gave one). */
-const EXPECT = {'mistral-large-4-weights':'2026-10','kimi-k3-1-weights':'2026-11','apple-siri-languages-2':'2026-late','openai-private-inference':'2026-late'};
+const EXPECT = {'mai-cyber-2-flash':'2026-12','apple-siri-languages-2':'2026-late','openai-private-inference':'2026-late'};
 /* ===================== TIMELINE BRIEFS (one per EVENTS row, same order) ===================== */
 const BRIEFS = [
  {s:["Joseph-Marie Jacquard patented his loom attachment in 1804. A chain of stiff cards with holes punched in them decided which threads were lifted for each row, so the loom could weave complicated patterns without a skilled operator choosing every thread.","Change the cards and the same machine weaves a different pattern. The instructions were stored outside the machine, in a form that could be copied, edited and reused."],w:"Punched cards were the first practical way to store instructions for a machine. Babbage borrowed them for the Analytical Engine, and cards stayed central to computing until the 1970s.",f:["Patented in 1804","Patterns stored on chains of punched cards","Babbage owned a portrait of Jacquard woven on such a loom"],p:[]},
@@ -1568,6 +1596,8 @@ const BRIEFS = [
  {s:["On September 28, 2026, OpenAI cancelled the planned release of GPT-6.1 Astra.", "OpenAI says the model performed poorly on alignment tests, showed more deception and acted beyond its scope; its safety head said it \"didn't quite meet the bar\"."],w:"A frontier lab publicly stopping a launch over safety tests was a first of its kind.",f:["Cancelled September 28, 2026", "OpenAI cites alignment and deception regressions", "Had been planned for October"],p:[]},
  {s:["On September 30, 2026, Google announced Gemini 4 Argon, releasing it first to cyber defenders in Google DeepMind's Fairwind Program and a group of trusted testers.", "Google says it is built for long-horizon coding, enterprise work and cyber defence. Broader paid API access began on October 13."],w:"Like Mythos and Astra, Argon reached defenders first, a sign of how labs now handle cyber-capable models.",f:["Announced September 30, 2026", "Fairwind cyber defenders first", "Paid API from October 13"],p:[]},
  {s:["October 2026 brought a wave of releases: Mistral Large 4 and Nano Banana 2.1 on October 6, Claude Haiku 5.5 on October 7, Muse Spark Open on October 15, Kimi K3.1 Pro on October 23, GPT-6.1 Terra on October 26 and Genie 4 on October 27.", "Open-weight giants (Muse Spark Open at 816B parameters, Kimi K3.1 Pro) arrived alongside cheaper, faster frontier models and new world models."],w:"The pace of releases kept accelerating; see the Release Tracker for every date.",f:["October 2026", "At least seven major releases in one month", "Open weights and world models both advanced"],p:[]},
+ {s:["November 2026 brought a new round of frontier models. Anthropic released Claude Fable 5.2 on November 9 (with Mythos 5.2 for vetted programs), Google shipped Gemini 4 Hydrogen on November 12 and Gemini 4 Neon on November 18, and Alibaba launched Qwen4-Max on November 16.","OpenAI answered on November 17 with GPT-6.2 Astra and GPT-6.2 Sol, cutting Astra's API price by 20% while keeping Sol's."],w:"Within seven weeks of cancelling GPT-6.1 Astra, OpenAI shipped its successor, and Google filled out a whole Gemini 4 family (Argon, Carbon, Neon, Hydrogen). Prices kept falling even as capability rose.",f:["Claude Fable 5.2: November 9, 2026, $8 / $40 per 1M tokens","GPT-6.2 Astra: $8 / $40; GPT-6.2 Sol: $2 / $10 (November 17)","Gemini 4 Neon (November 18): $3 / $15, between Hydrogen and Carbon"],p:[],rel:["#m-gpt-6-2-astra","#m-gemini-4-neon","#m-claude-fable-5-2","#tracker-2026"]},
+ {s:["Anthropic priced its initial public offering on November 18, 2026 at $83 a share, above the range it had marketed, selling 980 million shares.","Its stock began trading on Nasdaq under the ticker ANT on November 19. The first trade was at $111.50, about 34% above the IPO price, and the shares closed the day at $97.17."],w:"It was the first of the leading frontier-AI labs to list on a public stock market, letting ordinary investors buy into a company building Claude.",f:["IPO priced November 18, 2026 at $83 a share","Began trading November 19 on Nasdaq as ANT","First trade $111.50; first-day close $97.17"],p:[]},
 ];
 /* Offline AI Guide: concept glossary. */
 const GLOSSARY = [
@@ -1680,7 +1710,7 @@ PAGES.home = () => {
     <div class="stat anim"><span class="num" data-count="2.7">2.7M<em>+</em></span><span class="lbl">models on Hugging Face (figure from the brief; live count not confirmed)</span></div>
     <div class="stat anim"><span class="num">1956</span><span class="lbl">AI gets its name at Dartmouth</span></div>
     <div class="stat anim"><span class="num">2</span><span class="lbl">AI Winters survived (1974–80, 1987–93)</span></div>
-    <div class="stat anim"><span class="num small">Genie 4 &amp; Gemini Robotics ER 2</span><span class="lbl">Latest release · <span class="mono">Oct 27, 2026</span>. Before that: GPT-6.1 Terra, Oct 26</span></div>
+    <div class="stat anim"><span class="num small">Gemini 4 Neon</span><span class="lbl">Latest release · <span class="mono">Nov 18, 2026</span>. Before that: GPT-6.2 Astra &amp; Sol, Nov 17</span></div>
   </div>
   <section class="section">
     <div class="section-head"><div><span class="label">This month in AI</span><h2>Latest 6 releases</h2></div><a class="btn secondary sm" href="#tracker">All ${n26} releases in 2026 →</a></div>
@@ -1885,7 +1915,7 @@ PAGES.model = r => {
     ${sp.extra.map(([k,v])=>`<tr><td class="k">${esc(k)}</td><td>${esc(v)}</td></tr>`).join('')}
   </tbody></table></div>
   <div class="row"><button class="btn primary" id="cmp-go">Compare with…</button><a class="btn secondary" href="#tracker-${m.rel.y}">See ${m.rel.y} in the tracker</a></div>
-  <p class="note" style="margin-top:var(--space-4)">— means not published in our sources. Dates verified as of Oct 28, 2026 — check official sites for the latest.</p>`;
+  <p class="note" style="margin-top:var(--space-4)">— means not published in our sources. Dates verified as of Nov 23, 2026 — check official sites for the latest.</p>`;
 };
 AFTER.model = r => { const b = $('#cmp-go'); if (b) b.onclick = () => { const others = S.cmp.filter(x=>x!==r.id); S.cmp = [r.id, ...others].slice(0,3); location.hash = 'compare'; }; };
 
@@ -1916,7 +1946,7 @@ PAGES.tools = () => {
     <dl class="facts"><dt>Launched</dt><dd class="mono" style="font-size:13px">${esc(t.launched)}</dd><dt>Powered by</dt><dd>${esc(t.powered)}</dd><dt>Category</dt><dd>${esc(t.cat)}</dd></dl>
     ${t.hist?`<div class="hist" aria-label="History">${t.hist.map(([d,x])=>`<div class="h"><span></span><span><span class="mono subtle" style="font-size:12px">${esc(d)}</span> · ${esc(x)}</span></div>`).join('')}</div>`:''}
     <div class="row" style="justify-content:space-between;margin-top:auto"><a class="btn ghost" href="https://${t.site}" target="_blank" rel="noopener noreferrer">${esc(t.site)} ↗</a></div>
-    <p class="note">Dates verified as of Oct 28, 2026 — check official sites for latest.</p>
+    <p class="note">Dates verified as of Nov 23, 2026 — check official sites for latest.</p>
   </article>`).join('')}</div>`;
 };
 AFTER.tools = () => { $$('[data-cat]').forEach(b => b.onclick = () => { S.toolsCat = b.dataset.cat; $('#main').innerHTML = `<div class="wrap">${PAGES.tools()}</div>`; AFTER.tools(); }); };
@@ -2053,7 +2083,7 @@ PAGES.today = () => {
   MC = monthlyChart();
   const n26 = RELEASES.filter(r=>r.y===2026).length, n23 = RELEASES.filter(r=>r.y===2023).length;
   const th = (key,l) => `<th aria-sort="${k===key?(dir>0?'ascending':'descending'):'none'}"><button data-sort="${key}">${l}${k===key?(dir>0?' ▲':' ▼'):''}</button></th>`;
-  return pageHead('Models Today','Where the frontier stands on October 28, 2026.') +
+  return pageHead('Models Today','Where the frontier stands on November 23, 2026.') +
   `<div class="stats" style="margin-top:0">
     <div class="stat"><span class="num">2.4M → 2.7M<em>+</em></span><span class="lbl">models on Hugging Face, Jan 2026 → today (from the brief; not independently confirmed)</span></div>
     <div class="stat"><span class="num">Dozens</span><span class="lbl">frontier models from major labs; ${FRONTIER.length} are listed below</span></div>
@@ -2117,14 +2147,14 @@ S.upFilter = 'all';
 PAGES.upcoming = () => {
   const order = ['soon','nodate','reported','rumor','cancelled'];
   const shown = order.filter(k => S.upFilter==='all' || S.upFilter===k);
-  return pageHead('Coming Soon','Releases that are announced but not out yet, reported by the press, rumored, or called off. Each card says how sure we are and links to where the news came from. Last checked October 28, 2026.') +
+  return pageHead('Coming Soon','Releases that are announced but not out yet, reported by the press, rumored, or called off. Each card says how sure we are and links to where the news came from. Last checked November 23, 2026.') +
   `<div class="tabs" role="toolbar" aria-label="Filter by status" style="margin-bottom:var(--space-4)">
     <button data-up="all" aria-pressed="${S.upFilter==='all'}">All<span class="n">${UPCOMING.length}</span></button>
     ${order.map(k=>`<button data-up="${k}" aria-pressed="${S.upFilter===k}">${UP_STATUS[k].l}<span class="n">${UPCOMING.filter(u=>u.st===k).length}</span></button>`).join('')}
   </div>
   <div class="uplegend">${order.map(k=>`<span>${upStatus(k)}<span class="note">${esc(UP_STATUS[k].d)}</span></span>`).join('')}</div>
   ${shown.map(k => { const list = UPCOMING.filter(u=>u.st===k); return list.length ? `<section class="section" style="margin-top:var(--space-6)"><h2 style="margin-bottom:var(--space-4)">${UP_STATUS[k].l} <span class="note">${list.length}</span></h2><div class="grid">${list.map(upCard).join('')}</div></section>` : ''; }).join('')}
-  <p class="note" style="margin-top:var(--space-6)">Plans change fast. Dates and statuses were verified from the linked sources on Oct 28, 2026 — check them for the latest.</p>`;
+  <p class="note" style="margin-top:var(--space-6)">Plans change fast. Dates and statuses were verified from the linked sources on Nov 23, 2026 — check them for the latest.</p>`;
 };
 AFTER.upcoming = () => { $$('[data-up]').forEach(b => b.onclick = () => { S.upFilter = b.dataset.up; const y = scrollY; $('#main').innerHTML = `<div class="wrap">${PAGES.upcoming()}</div>`; AFTER.upcoming(); scrollTo(0,y); }); };
 
@@ -2147,7 +2177,7 @@ function buildDigest(){
   L.push('\n## History timeline (page #timeline)'); EVENTS.forEach(e => L.push(`${e[0]}: ${e[2]} — ${e[3]}`));
   L.push('\n## AI winters (page #winters)'); WINTERS.forEach(w => L.push(`${w.w} ${w.t}: ${w.d} Lesson: ${w.l}`));
   L.push('\n## Videos (page #videos), History of AI series on the Pujiverse AI YouTube channel '+YT_CHANNEL+'. Link format https://youtu.be/<id>?t=<seconds>. Only give links that appear here; for parts marked coming soon, say the video is coming soon.');
-  VIDEOS.forEach(v => { const ch = CHAPTERS.filter(c=>c[0]===v.part); L.push(`Part ${v.part}: ${v.title} — ${v.id ? 'out now: '+v.url : 'coming soon'}${ch.length ? '. Chapters: '+ch.map(c=>c[4]+' ('+fmtTs(c[3])+(v.id?' → '+vidLink(v.part,c[3]):'')+')').join('; ') : ''}`); });
+  VIDEOS.forEach(v => { const ch = CHAPTERS.filter(c=>c[0]===v.part); L.push(`Part ${v.part}: ${v.title} — ${v.id ? (premOf(v) ? 'premieres '+premOf(v)+': '+v.url : 'out now: '+v.url) : 'coming soon'}${ch.length ? '. Chapters: '+ch.map(c=>c[4]+' ('+fmtTs(c[3])+(v.id?' → '+vidLink(v.part,c[3]):'')+')').join('; ') : ''}`); });
   L.push('\n## Other pages: #home, #tracker (release tracker), #tracker-2025 (a year), #models (library), #compare, #how (how AI is generated, 8 steps + tokenizer demo), #today (frontier table + monthly chart)');
   return L.join('\n');
 }
@@ -2187,7 +2217,7 @@ const SUGGEST = ['Show Claude versions','What was released on Sep 22, 2026?','Wh
 const CHAT = {turns:[], busy:false, ctl:null, sample:undefined};
 function setupChat(){
   const fab = $('#chat-fab'), panel = $('#chat'), log = $('#chat-log'), form = $('#chat-form'), box = $('#chat-in'), send = $('#chat-send'), stop = $('#chat-stop'), status = $('#chat-status');
-  const setMode = () => { const m = $('#chat-mode'); if (m) m.textContent = CHAT.sample ? 'Powered by Claude · site data to Oct 28, 2026' : CHAT.sample === null ? 'Offline mode · answers from the site\'s data' : 'Site data to Oct 28, 2026'; };
+  const setMode = () => { const m = $('#chat-mode'); if (m) m.textContent = CHAT.sample ? 'Powered by Claude · site data to Nov 23, 2026' : CHAT.sample === null ? 'Offline mode · answers from the site\'s data' : 'Site data to Nov 23, 2026'; };
   CHAT.ready = (async () => { try { CHAT.sample = window.claude && window.claude.use ? await window.claude.use('sample') : null; } catch (e) { CHAT.sample = null; } setMode(); })();
   const open = v => { panel.hidden = !v; fab.setAttribute('aria-expanded', v); if (v){ box.focus(); if (!log.children.length) intro(); } };
   fab.onclick = () => open(panel.hidden);
@@ -2303,7 +2333,7 @@ PAGES.event = r => {
         ${people?`<section class="card"><span class="label">People</span><div class="stack" style="margin-top:8px;gap:8px">${people}</div></section>`:''}
         ${rel.length?`<section class="card"><span class="label">Explore more</span><div class="stack" style="margin-top:8px;gap:6px">${rel.map(h=>`<a href="${h}">${esc(relLabel(h))} →</a>`).join('')}</div></section>`:''}
         ${(() => { const c = chapterFor(e); if (!c || !c.v) return ''; const lab = c.label ? ` · chapter ${esc(c.label)} · starts at ${fmtTs(c.sec)}` : ''; return c.href
-          ? `<section class="card ytch"><span class="label" style="color:var(--accent-violet)">From the video</span><a class="btn primary" href="${c.href}" target="_blank" rel="noopener">▶ Watch on YouTube</a><span class="note">History of AI Part ${c.part}${lab}</span></section>`
+          ? `<section class="card ytch"><span class="label" style="color:var(--accent-violet)">From the video</span><a class="btn primary" href="${c.href}" target="_blank" rel="noopener">${premOf(c.v) ? `▶ Premieres ${premOf(c.v)}` : '▶ Watch on YouTube'}</a><span class="note">History of AI Part ${c.part}${lab}${premOf(c.v) ? ' · set a reminder on YouTube' : ''}</span></section>`
           : `<section class="card ytch soon"><span class="label" style="color:var(--accent-violet)">From the video</span><span class="btn secondary" aria-disabled="true" style="cursor:default">Video coming soon</span><span class="note">History of AI Part ${c.part}${lab}</span></section>`; })()}
         <button class="btn secondary" data-ask="Tell me more about ${esc(t)} (${y}).">Ask the AI Guide about this</button>
       </aside>
@@ -2452,25 +2482,25 @@ function videoCard(eraId){
     ? `<div class="yt-frame"><iframe src="https://www.youtube-nocookie.com/embed/${v.id}${start?'?start='+start:''}" title="${esc(v.yt||v.title)} (YouTube video)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`
     : `<a class="yt-frame yt-fallback" href="${vidLink(part,start)}" target="_blank" rel="noopener"><span class="yt-play" aria-hidden="true">▶</span><span>Play on YouTube</span></a>`;
   const era = ERAS.find(x=>x.id===eraId);
-  const blurb = start ? `This era starts at ${fmtTs(start)} in the video.` : `Covers ${v.from===1804?'1843':v.from}–${v.to===2026?'today':v.to}${era?', starting with the '+esc(era.name)+' era':''}.`;
+  const blurb = premOf(v) ? `Premieres on YouTube ${premOf(v)}. Set a reminder, or watch the countdown here.` : start ? `This era starts at ${fmtTs(start)} in the video.` : `Covers ${v.from===1804?'1843':v.from}–${v.to===2026?'today':v.to}${era?', starting with the '+esc(era.name)+' era':''}.`;
   return `<section class="card ytcard" aria-label="Watch the video"><div class="yt-text"><span class="label" style="color:var(--accent-violet)">▶ Watch the video: History of AI Part ${part}</span><h3>${esc(v.yt||v.title)}</h3><p class="muted" style="font-size:14px;line-height:20px">${blurb}</p><a class="btn ghost" href="${vidLink(part,0)}" target="_blank" rel="noopener">Open on YouTube ↗</a></div>${frame}</section>`;
 }
 const vThumb = v => v.thumb || `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
-PAGES.videos = () => pageHead('Videos','History of AI, told in six parts on the Pujiverse AI YouTube channel. Every story page links to its chapter, or says "coming soon" until that part is out.') +
+PAGES.videos = () => pageHead('Videos','History of AI, told in six parts on the Pujiverse AI YouTube channel. Every story page on the Timeline links to its chapter.') +
   `<div class="grid vids">${VIDEOS.map(v => !v.id
     ? `<article class="card vid soon"><div class="vthumb ph"><span>Coming soon</span></div><span class="label">Part ${v.part}</span><h3>${esc(v.title)}</h3><span class="note">Coming soon</span></article>`
-    : `<a class="card vid click" href="${vidLink(v.part,0)}" target="_blank" rel="noopener"><div class="vthumb">${EMBED?`<img src="${vThumb(v)}" alt="Thumbnail for ${esc(v.yt||v.title)}" loading="lazy" width="480" height="360">`:''}<span class="yt-play" aria-hidden="true">▶</span></div><span class="label">Part ${v.part}</span><h3>${esc(v.title)}</h3>${v.yt?`<span class="muted" style="font-size:14px">${esc(v.yt)}</span>`:''}<span class="btn ghost" style="align-self:flex-start;padding:0">Watch on YouTube ↗</span></a>`).join('')}</div>
+    : `<a class="card vid click" href="${vidLink(v.part,0)}" target="_blank" rel="noopener"><div class="vthumb">${EMBED?`<img src="${vThumb(v)}" alt="Thumbnail for ${esc(v.yt||v.title)}" loading="lazy" width="480" height="360">`:''}<span class="yt-play" aria-hidden="true">▶</span></div><span class="label">Part ${v.part}</span><h3>${esc(v.title)}</h3>${v.yt?`<span class="muted" style="font-size:14px">${esc(v.yt)}</span>`:''}<span class="btn ghost" style="align-self:flex-start;padding:0">${premOf(v) ? `Premieres ${premOf(v)} · set a reminder ↗` : 'Watch on YouTube ↗'}</span></a>`).join('')}</div>
   ${VIDEOS.map((v,k) => { const ch = CHAPTERS.filter(c=>c[0]===v.part);
-    return `<section class="section" id="vid-part-${v.part}"><div class="section-head"><div><span class="label">Part ${v.part} chapters${v.id?'':' · video coming soon'}</span><h2>${esc(v.title.split(': ').slice(1).join(': ')||v.title)}</h2></div>${k===0?`<a class="btn secondary sm" href="${YT_CHANNEL}" target="_blank" rel="noopener">Pujiverse AI channel ↗</a>`:''}</div>
-    ${ch.length ? `<div class="stack">${ch.map(c => { const inner = `<span class="date">${fmtTs(c[3])}</span><span class="chip">${c[1]===c[2]?c[1]:c[1]+'–'+c[2]}</span><span class="nm">${esc(c[4].split(': ').slice(1).join(': '))}</span><span class="chips">${v.id?'':'<span class="note">Video coming soon</span>'}</span>`;
+    return `<section class="section" id="vid-part-${v.part}"><div class="section-head"><div><span class="label">Part ${v.part} chapters${v.id ? (premOf(v) ? ' · premieres '+premOf(v) : '') : ' · video coming soon'}</span><h2>${esc(v.title.split(': ').slice(1).join(': ')||v.title)}</h2></div>${k===0?`<a class="btn secondary sm" href="${YT_CHANNEL}" target="_blank" rel="noopener">Pujiverse AI channel ↗</a>`:''}</div>
+    ${ch.length ? `<div class="stack">${ch.map(c => { const inner = `<span class="date">${fmtTs(c[3])}</span><span class="chip">${c[1]===c[2]?c[1]:c[1]+'–'+c[2]}</span><span class="nm">${esc(c[4].split(': ').slice(1).join(': '))}</span><span class="chips">${v.id ? (premOf(v) ? `<span class="note">Premieres ${premOf(v)}</span>` : '') : '<span class="note">Video coming soon</span>'}</span>`;
       return v.id ? `<a class="rel" href="${vidLink(v.part,c[3])}" target="_blank" rel="noopener">${inner}</a>` : `<div class="rel" aria-disabled="true">${inner}</div>`; }).join('')}</div>`
       : `<p class="note">Chapters will be listed here when this part is released.</p>`}</section>`; }).join('')}`;
 function videoAnswer(q){
   const ql = (q||'').toLowerCase();
-  const fmtPart = v => `Part ${v.part}: **${v.title.replace(/^History of AI — /,'')}** — ${v.id ? `[watch on YouTube](${vidLink(v.part,0)})` : 'coming soon'}`;
+  const fmtPart = v => `Part ${v.part}: **${v.title.replace(/^History of AI — Part \d: /,'')}** — ${v.id ? (premOf(v) ? `premieres ${premOf(v)} ([set a reminder](${vidLink(v.part,0)}))` : `[watch on YouTube](${vidLink(v.part,0)})`) : 'coming soon'}`;
   const one = (e, i) => { const c = chapterFor(e); if (!c || !c.v) return `**${e[2]}** (${e[0]}) isn't covered by a History of AI video yet. See [Videos](#videos).`;
     const where = `History of AI **Part ${c.part}**${c.label ? `, chapter **${c.label}** (starts at ${fmtTs(c.sec)})` : ''}`;
-    return c.href ? `**${e[2]}** (${e[0]}) is covered in ${where}.\n\n[▶ Watch from that point on YouTube](${c.href})\n\n[Read the story](#e-${i})`
+    return c.href ? `**${e[2]}** (${e[0]}) is covered in ${where}.${premOf(c.v) ? ` That part premieres **${premOf(c.v)}**.` : ''}\n\n[▶ ${premOf(c.v) ? 'Open the premiere on YouTube' : 'Watch from that point on YouTube'}](${c.href})\n\n[Read the story](#e-${i})`
       : `**${e[2]}** (${e[0]}) is covered in ${where}. That video is **coming soon** — the link will appear here and on the [story page](#e-${i}) once it's out. Meanwhile, see [Videos](#videos).`; };
   // explicit part
   const pm = /\bpart\s*([1-6])\b/.exec(ql);
